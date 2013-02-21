@@ -1,0 +1,332 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="author" content="Vijay Krishna Palepu" />
+  <link rel="shortcut icon" href="http://vpalepu.bitbucket.org/images/favicon.gif" />
+  <title>Lambda Calculus Interpreter</title>
+  
+  <style type="text/css">
+
+  blockquote{
+    color:#666666;
+    margin:0;
+    padding-left: 3em;
+    border-left: 0.5em #EEE solid;
+  }
+
+  pre , code, kbd, samp { 
+    color: #000; 
+    font-family: monospace; 
+    font-size: 1em; 
+    border-radius:3px;
+    background-color: #F8F8F8;
+    border: 1px solid #CCC; 
+  }
+  pre { 
+    white-space: pre; 
+    white-space: pre-wrap; 
+    word-wrap: break-word; 
+    padding: 5px 12px;
+  }
+  pre code { border: 0px !important; padding: 0;}
+  code { padding: 0 3px 0 3px; }
+  body{font-family:arial;background-color:#A0A0A0}
+  a:link {text-decoration:underline;color:#006666;}
+  a:visited {text-decoration:none;color:#006666;}
+  a:hover {text-decoration:none;border-bottom: 1px dotted #006666;color:#333333;}
+  a:active {text-decoration:none;color:#006666;}
+  div.tags {margin-top:-5px;margin-bottom:6px;font-size:12px}
+  div.shortDesc {margin-bottom:6px;font-size:14px}
+  p.desc {display:none;}
+
+  h4 {color:#006666;margin-top: 12.5px}
+
+  button {padding: 0px; font-size:10px;font-weight:900; border-style:solid; border-width:2px; border-radius:4px; border-color:#AAA; color: #AAA; background-color: transparent;float:right; width:18px;text-align:center;cursor:pointer;}
+
+  b.projectTitle {cursor:pointer;}
+
+  div.container{min-width:600px; max-width:1000px; margin:10px auto;}
+  div.left{float:left; width:250px; min-height:100%; margin-left:5px; margin-right:5px; background-color:#111; color:#AAA; border-radius:10px; -moz-border-radius:25px;}
+  div.center{width:auto; margin-left:265px; margin-right:5px; margin-bottom:10px; background-color:#FFF; color:#111; border-radius:10px; -moz-border-radius:25px; padding-left:12.5px; padding-right:12.5px; padding-bottom:1px; padding-top:1px;}
+  #right {float:left; width:250px; margin-left:5px; margin-right:5px; margin-top:-22px; background-color:#111; color:#EEE}
+
+  .twtr-hd, .twtr-ft {display: none;}
+  </style>
+  
+  <!-- syntax highlighting CSS -->
+  <link rel="stylesheet" href="http://vpalepu.bitbucket.org/css/syntax.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="http://vpalepu.bitbucket.org/css/pygments.css" type="text/css" > -->
+</head>
+<body>
+  <div class="container">
+    <!--Start of Left-->
+     <div class="left">     
+      <div style="margin-left:12.5px; margin-top:12.5px">
+        <h1 style="margin-top:-7px"><a href="http://vpalepu.bitbucket.org/">Vijay Krishna Palepu</a></h1> 
+        <p style="margin-top:-20px; margin-bottom:2px">vpalepu [at] uci [dot] edu</p>
+        <img style="height: 300px; width: 225px" src="http://vpalepu.bitbucket.org/images/Vijay%20Krishna.JPG" alt="Vijay Krishna" />
+      </div>
+      <hr>
+      <div style="margin-left:12.5px">
+      
+        <!-- <address> -->
+          5243 Bren Hall<br>
+          <a href="http://www.spideruci.org" target="_blank">Spider Lab</a><br>
+          <a href="http://www.informatics.uci.edu/" target="_blank">Dept. of Informatics</a><br>
+          <a href="http://www.uci.edu/" target="_blank">University of California, Irvine</a><br>
+          Irvine, CA 92697-3440
+        
+      </div>
+      <hr>
+      <div style="margin-left:12.5px">
+        <a href="https://bitbucket.org/vpalepu/resume/src/72f8106a82667b9ba369288a5aa96df5e1136850/resume.pdf?at=master" target="_blank" >Resume (pdf)</a><br>
+        <!-- <a href="https://www.google.com/calendar/embed?src=vijay.0288%40gmail.com&ctz=America/Los_Angeles" target="_blank">Schedule</a><br> -->
+        <!-- <a href="http://vijaykrishna.github.com">Notes</a><br> -->
+        <a href="http://www.linkedin.com/in/palepuvijaykrishna" target="_blank">@LinkedIn</a><br>
+          <a href="http://instagram.com/vpalepu" target="_blank">@Instagram</a><br>
+      </div>
+      <hr>
+      <div>
+        <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+        <script>
+        new TWTR.Widget({
+          version: 2,
+          type: 'profile',
+          rpp: 4,
+          interval: 30000,
+          width: 250,
+          height: 300,
+          theme: {
+            shell: {
+              background: '#111111',
+              color: '#eeeeee'
+            },
+            tweets: {
+              background: '#111111',
+              color: '#eeeeee',
+              links: '#006666'
+            }
+          },
+          features: {
+            scrollbar: false,
+            loop: false,
+            live: false,
+            behavior: 'all'
+          }
+        }).render().setUser('vkpalepu').start();
+        </script>
+      </div>
+      <hr>
+      <p style="margin-left:12.5px">Last modified: 06 Feb 2013</p>
+    </div><!-- end of left -->
+    <!--Start of Center-->
+    <div class="center">  
+      <a href="http://vpalepu.bitbucket.org/" style="margin:20px"><b>Home</b></a>
+      <a href="http://vpalepu.bitbucket.org/projects.html" style="margin:20px"><b>Projects</b></a>
+      <a href="http://vpalepu.bitbucket.org/blog.html" style="margin:20px"><b>Blog Posts</b></a>
+    </div>  
+    <div class="center">  
+      <title>Lambda Calculus Interpreter</title>
+
+<p>
+Date: 16 Apr 2012
+</p>
+
+<div id="post">
+<h1 id='lambda_calculus_interpreter_in_scheme'>Lambda Calculus Interpreter in Scheme</h1>
+
+<p>So this was a cool class project that I worked on where we were to implement a lambda calculus interpreter in any language of our choice. It just seemed too natural to do this in <a href='http://en.wikipedia.org/wiki/Scheme_(programming_language)'>Scheme</a>. :)</p>
+<div class='highlight'><pre><code class='scheme'><span class='c1'>;;UCI Class Project - INF212 Analysis of Programming Languages</span>
+<span class='c1'>;;Nicholas DiGiuseppe and Vijay Krishna Palepu</span>
+<span class='c1'>;;1.interpreter is not case sensitive.</span>
+<span class='c1'>;;2.interpreter lives in the world of symbols and lists.</span>
+<span class='c1'>;;3.interpreter requires proper parenthesis.</span>
+<span class='c1'>;;4.does not work with numbers such as 1 2 3...</span>
+<span class='c1'>;;reference: http://matt.might.net/articles/implementing-a-programming-language/</span>
+
+<span class='c1'>;;original 7 lines</span>
+<span class='c1'>; eval takes an expression and an environment to a value</span>
+<span class='p'>(</span><span class='k'>define </span><span class='p'>(</span><span class='nb'>eval </span><span class='nv'>e</span> <span class='nv'>env</span><span class='p'>)</span>
+  <span class='p'>(</span><span class='nb'>display </span><span class='s'>&quot;evaluating &quot;</span><span class='p'>)</span> <span class='p'>(</span><span class='nb'>display </span><span class='nv'>e</span><span class='p'>)</span> <span class='p'>(</span><span class='nb'>display </span><span class='s'>&quot; with &quot;</span><span class='p'>)</span> <span class='p'>(</span><span class='nb'>display </span><span class='nv'>env</span><span class='p'>)</span> <span class='p'>(</span><span class='nf'>newline</span><span class='p'>)</span>
+  <span class='p'>(</span><span class='nf'>cond</span>
+    <span class='p'>((</span><span class='nb'>symbol? </span><span class='nv'>e</span><span class='p'>)</span>       
+     <span class='p'>(</span><span class='k'>begin </span>
+       <span class='p'>(</span><span class='nb'>display </span><span class='s'>&quot;option 1 &quot;</span><span class='p'>)</span> 
+       <span class='p'>(</span><span class='nb'>display </span><span class='p'>(</span><span class='k'>if </span><span class='p'>(</span><span class='nb'>boolean? </span><span class='p'>(</span><span class='nb'>assq </span><span class='nv'>e</span> <span class='nv'>env</span><span class='p'>))</span> <span class='nv'>e</span> <span class='p'>(</span><span class='nb'>cadr </span><span class='p'>(</span><span class='nb'>assq </span><span class='nv'>e</span> <span class='nv'>env</span><span class='p'>))))</span> 
+       <span class='p'>(</span><span class='nf'>newline</span><span class='p'>)</span> 
+       <span class='p'>(</span><span class='k'>if </span><span class='p'>(</span><span class='nb'>boolean? </span><span class='p'>(</span><span class='nb'>assq </span><span class='nv'>e</span> <span class='nv'>env</span><span class='p'>))</span> <span class='nv'>e</span> <span class='p'>(</span><span class='nb'>cadr </span><span class='p'>(</span><span class='nb'>assq </span><span class='nv'>e</span> <span class='nv'>env</span><span class='p'>)))</span>
+       <span class='p'>)</span>
+     <span class='p'>)</span>
+    <span class='p'>((</span><span class='nb'>= </span><span class='mi'>1</span> <span class='p'>(</span><span class='nb'>length </span><span class='nv'>e</span><span class='p'>))</span>
+     <span class='p'>(</span><span class='nf'>begin</span>
+       <span class='p'>(</span><span class='nb'>display </span><span class='s'>&quot;option 2 &quot;</span><span class='p'>)</span> 
+       <span class='p'>(</span><span class='nb'>display </span><span class='p'>(</span><span class='nb'>cons </span><span class='nv'>e</span> <span class='nv'>env</span><span class='p'>))</span> 
+       <span class='p'>(</span><span class='nf'>newline</span><span class='p'>)</span>
+       <span class='p'>(</span><span class='nb'>eval </span><span class='p'>(</span><span class='nb'>car </span><span class='nv'>e</span><span class='p'>)</span> <span class='nv'>env</span><span class='p'>)</span>
+       <span class='p'>)</span>
+     <span class='p'>)</span>
+    <span class='p'>((</span><span class='nb'>eq? </span><span class='p'>(</span><span class='nb'>car </span><span class='nv'>e</span><span class='p'>)</span> <span class='o'>&#39;</span><span class='err'>λ</span><span class='p'>)</span>  
+     <span class='p'>(</span><span class='k'>begin </span>
+       <span class='p'>(</span><span class='nb'>display </span><span class='s'>&quot;option 3 &quot;</span><span class='p'>)</span> 
+       <span class='p'>(</span><span class='nb'>display </span><span class='p'>(</span><span class='nb'>cons </span><span class='nv'>e</span> <span class='nv'>env</span><span class='p'>))</span> 
+       <span class='p'>(</span><span class='nf'>newline</span><span class='p'>)</span> 
+       <span class='p'>(</span><span class='nb'>cons </span><span class='nv'>e</span> <span class='nv'>env</span><span class='p'>)</span>
+       <span class='p'>)</span>
+     <span class='p'>)</span>
+    <span class='p'>(</span><span class='k'>else </span>
+     <span class='p'>(</span><span class='k'>begin </span>
+       <span class='p'>(</span><span class='nb'>display </span><span class='s'>&quot;option 4 &quot;</span><span class='p'>)</span>
+       <span class='p'>(</span><span class='nb'>display </span><span class='nv'>e</span><span class='p'>)</span>
+       <span class='p'>(</span><span class='nf'>newline</span><span class='p'>)</span> 
+       <span class='c1'>;(iterApply e env)</span>
+       <span class='p'>(</span><span class='nb'>apply </span><span class='p'>(</span><span class='nb'>eval </span><span class='p'>(</span><span class='nb'>car </span><span class='nv'>e</span><span class='p'>)</span> <span class='nv'>env</span><span class='p'>)</span> <span class='p'>(</span><span class='nb'>eval </span><span class='p'>(</span><span class='nb'>cadr </span><span class='nv'>e</span><span class='p'>)</span> <span class='nv'>env</span><span class='p'>))</span>
+       <span class='p'>)</span>
+     <span class='p'>)</span>
+    <span class='p'>)</span>
+  <span class='p'>)</span>
+
+<span class='c1'>; apply takes a function and an argument to a value</span>
+<span class='p'>(</span><span class='k'>define </span><span class='p'>(</span><span class='nb'>apply </span><span class='nv'>f</span> <span class='nv'>x</span><span class='p'>)</span>
+  <span class='p'>(</span><span class='nb'>display </span><span class='s'>&quot;applying &quot;</span><span class='p'>)</span> <span class='p'>(</span><span class='nb'>display </span><span class='nv'>x</span><span class='p'>)</span> <span class='p'>(</span><span class='nb'>display </span><span class='s'>&quot; to &quot;</span><span class='p'>)</span> <span class='p'>(</span><span class='nb'>display </span><span class='nv'>f</span><span class='p'>)</span> <span class='p'>(</span><span class='nf'>newline</span><span class='p'>)</span>
+  <span class='p'>(</span><span class='k'>if </span><span class='p'>(</span><span class='nb'>symbol? </span><span class='nv'>f</span><span class='p'>)</span> <span class='c1'>;if it is not pair</span>
+      <span class='p'>(</span><span class='k'>begin </span><span class='p'>(</span><span class='nb'>list </span><span class='nv'>f</span> <span class='nv'>x</span><span class='p'>))</span>
+      <span class='p'>(</span><span class='k'>let </span><span class='p'>((</span><span class='nf'>chek</span> <span class='p'>(</span><span class='nf'>lambdaCheck</span> <span class='nv'>f</span> <span class='mi'>0</span><span class='p'>)))</span>
+        <span class='p'>(</span><span class='nf'>cond</span>
+          <span class='p'>((</span><span class='nb'>= </span><span class='mi'>0</span> <span class='nv'>chek</span><span class='p'>)</span> <span class='p'>(</span><span class='nb'>list </span><span class='p'>(</span><span class='nb'>list </span><span class='nv'>f</span> <span class='nv'>x</span><span class='p'>)))</span>
+          <span class='p'>((</span><span class='nb'>&lt; </span><span class='mi'>0</span> <span class='nv'>chek</span><span class='p'>)</span> <span class='p'>(</span><span class='nb'>list </span><span class='p'>(</span><span class='nb'>list </span><span class='p'>(</span><span class='nb'>car </span><span class='nv'>f</span><span class='p'>)</span> <span class='nv'>x</span><span class='p'>)))</span>
+          <span class='p'>(</span><span class='k'>else </span><span class='p'>(</span><span class='nb'>eval </span><span class='p'>(</span><span class='nb'>cddr </span><span class='p'>(</span><span class='nb'>car </span><span class='nv'>f</span><span class='p'>))</span> <span class='p'>(</span><span class='nb'>cons </span><span class='p'>(</span><span class='nb'>list </span><span class='p'>(</span><span class='nb'>cadr </span><span class='p'>(</span><span class='nb'>car </span><span class='nv'>f</span><span class='p'>))</span> <span class='p'>(</span><span class='nf'>find</span> <span class='nv'>f</span> <span class='nv'>x</span><span class='p'>))</span> <span class='p'>(</span><span class='nb'>cdr </span><span class='nv'>f</span><span class='p'>))))</span>
+          <span class='p'>)</span>
+        <span class='p'>)</span>
+      <span class='p'>)</span>
+  <span class='p'>)</span>
+
+<span class='c1'>;;additions</span>
+<span class='p'>(</span><span class='k'>define </span><span class='p'>(</span><span class='nf'>interpret</span> <span class='nv'>e</span> <span class='nv'>env</span><span class='p'>)</span>
+  <span class='p'>(</span><span class='nb'>display </span><span class='s'>&quot; e(interpret): &quot;</span><span class='p'>)</span> <span class='p'>(</span><span class='nb'>display </span><span class='nv'>e</span><span class='p'>)</span> <span class='p'>(</span><span class='nf'>newline</span><span class='p'>)</span>
+  <span class='p'>(</span><span class='k'>if </span><span class='p'>(</span><span class='nb'>pair? </span><span class='nv'>e</span><span class='p'>)</span>
+      <span class='p'>(</span><span class='k'>let </span><span class='p'>((</span><span class='nf'>e</span> <span class='p'>(</span><span class='nb'>eval </span><span class='nv'>e</span> <span class='nv'>env</span><span class='p'>)))</span>
+        <span class='p'>(</span><span class='nf'>cond</span>
+          <span class='p'>((</span><span class='nb'>symbol? </span><span class='nv'>e</span><span class='p'>)</span> <span class='nv'>e</span><span class='p'>)</span> <span class='c1'>;consider doing a (not (pair? e)) instead of (symbol? e)</span>
+          <span class='p'>((</span><span class='nb'>= </span><span class='mi'>1</span> <span class='p'>(</span><span class='nb'>length </span><span class='nv'>e</span><span class='p'>))</span> <span class='p'>(</span><span class='nb'>car </span><span class='nv'>e</span><span class='p'>))</span>
+          <span class='p'>((</span><span class='k'>and </span><span class='p'>(</span><span class='nb'>= </span><span class='mi'>2</span> <span class='p'>(</span><span class='nb'>length </span><span class='nv'>e</span><span class='p'>))</span> <span class='p'>(</span><span class='nb'>symbol? </span><span class='p'>(</span><span class='nb'>car </span><span class='nv'>e</span><span class='p'>)))</span> <span class='nv'>e</span><span class='p'>)</span>
+          <span class='p'>((</span><span class='nb'>= </span><span class='mi'>2</span> <span class='p'>(</span><span class='nb'>length </span><span class='nv'>e</span><span class='p'>))</span>
+           <span class='p'>(</span><span class='k'>let </span><span class='p'>((</span><span class='nf'>env</span> <span class='p'>(</span><span class='nb'>list </span><span class='p'>(</span><span class='nb'>cadr </span><span class='nv'>e</span><span class='p'>)))</span> <span class='p'>(</span><span class='nf'>e</span> <span class='p'>(</span><span class='nb'>car </span><span class='nv'>e</span><span class='p'>)))</span>
+             <span class='p'>(</span><span class='nf'>itrate</span> <span class='nv'>e</span> <span class='o'>&#39;</span><span class='p'>()</span> <span class='nv'>env</span><span class='p'>)</span>
+             <span class='p'>)</span>
+           <span class='p'>)</span>
+          <span class='p'>((</span><span class='nb'>&lt; </span><span class='mi'>2</span> <span class='p'>(</span><span class='nb'>length </span><span class='nv'>e</span><span class='p'>))</span>
+           <span class='p'>(</span><span class='k'>let </span><span class='p'>((</span><span class='nf'>env</span> <span class='p'>(</span><span class='nb'>cdr </span><span class='nv'>e</span><span class='p'>))</span> <span class='p'>(</span><span class='nf'>e</span> <span class='p'>(</span><span class='nb'>car </span><span class='nv'>e</span><span class='p'>)))</span>
+             <span class='p'>(</span><span class='nf'>itrate</span> <span class='nv'>e</span> <span class='o'>&#39;</span><span class='p'>()</span> <span class='nv'>env</span><span class='p'>)</span>
+             <span class='p'>))</span>
+          <span class='p'>)</span>
+        <span class='p'>)</span>
+      <span class='nv'>e</span>
+      <span class='p'>)</span>
+  <span class='p'>)</span>
+
+<span class='p'>(</span><span class='k'>define </span><span class='p'>(</span><span class='nf'>itrate</span> <span class='nv'>l</span> <span class='nv'>nl</span> <span class='nv'>env</span><span class='p'>)</span>
+  <span class='p'>(</span><span class='k'>if </span><span class='p'>(</span><span class='nb'>null? </span><span class='nv'>l</span><span class='p'>)</span>
+      <span class='nv'>nl</span>
+      <span class='p'>(</span><span class='k'>begin </span>
+        <span class='p'>(</span><span class='nf'>itrate</span> 
+         <span class='p'>(</span><span class='nb'>cdr </span><span class='nv'>l</span><span class='p'>)</span> 
+         <span class='p'>(</span><span class='nb'>append </span>
+          <span class='nv'>nl</span> 
+          <span class='p'>(</span><span class='nb'>list </span><span class='p'>(</span><span class='nf'>interpret</span> <span class='p'>(</span><span class='nb'>car </span><span class='nv'>l</span><span class='p'>)</span> <span class='nv'>env</span><span class='p'>))</span>
+          <span class='p'>)</span>
+         <span class='nv'>env</span>
+         <span class='p'>)</span>
+        <span class='p'>)</span>
+      <span class='p'>)</span>
+  <span class='p'>)</span>
+
+<span class='c1'>;begin alpha reduction</span>
+<span class='p'>(</span><span class='k'>define </span><span class='p'>(</span><span class='nf'>flatten</span> <span class='nv'>l</span> <span class='nv'>nl</span><span class='p'>)</span>
+  <span class='p'>(</span><span class='k'>if </span><span class='p'>(</span><span class='nb'>null? </span><span class='nv'>l</span><span class='p'>)</span>
+      <span class='nv'>nl</span>
+      <span class='p'>(</span><span class='nf'>begin</span>
+        <span class='p'>(</span><span class='nf'>cond</span>
+          <span class='p'>((</span><span class='nb'>symbol? </span><span class='p'>(</span><span class='nb'>car </span><span class='nv'>l</span><span class='p'>))</span> <span class='p'>(</span><span class='nf'>flatten</span> <span class='p'>(</span><span class='nb'>cdr </span><span class='nv'>l</span><span class='p'>)</span> <span class='p'>(</span><span class='nb'>append </span><span class='nv'>nl</span> <span class='p'>(</span><span class='nb'>list </span><span class='p'>(</span><span class='nb'>car </span><span class='nv'>l</span><span class='p'>)))))</span>
+          <span class='p'>((</span><span class='nb'>pair? </span><span class='p'>(</span><span class='nb'>car </span><span class='nv'>l</span><span class='p'>))</span> <span class='p'>(</span><span class='nf'>flatten</span> <span class='p'>(</span><span class='nb'>cdr </span><span class='nv'>l</span><span class='p'>)</span> <span class='p'>(</span><span class='nb'>append </span><span class='nv'>nl</span> <span class='p'>(</span><span class='nf'>flatten</span> <span class='p'>(</span><span class='nb'>car </span><span class='nv'>l</span><span class='p'>)</span> <span class='o'>&#39;</span><span class='p'>()))))</span>
+          <span class='p'>)</span>
+        <span class='p'>)</span>
+      <span class='p'>)</span>
+  <span class='p'>)</span>
+
+<span class='p'>(</span><span class='k'>define </span><span class='p'>(</span><span class='nf'>find</span> <span class='nv'>l</span> <span class='nv'>al</span><span class='p'>)</span>
+  <span class='p'>(</span><span class='k'>let </span><span class='p'>((</span><span class='nf'>nl</span> <span class='p'>(</span><span class='nf'>flatten</span> <span class='nv'>l</span> <span class='o'>&#39;</span><span class='p'>())))</span>
+    <span class='p'>(</span><span class='nf'>cond</span>
+      <span class='p'>((</span><span class='nb'>null? </span><span class='nv'>nl</span><span class='p'>)</span> <span class='nv'>al</span><span class='p'>)</span>
+      <span class='p'>((</span><span class='nb'>eq? </span><span class='p'>(</span><span class='nb'>car </span><span class='nv'>nl</span><span class='p'>)</span> <span class='o'>&#39;</span><span class='err'>λ</span><span class='p'>)</span>
+       <span class='p'>(</span><span class='k'>begin </span>
+         <span class='p'>(</span><span class='nf'>find</span> <span class='p'>(</span><span class='nb'>cddr </span><span class='nv'>nl</span><span class='p'>)</span> <span class='p'>(</span><span class='nf'>replace</span> <span class='nv'>al</span> <span class='p'>(</span><span class='nb'>cadr </span><span class='nv'>nl</span><span class='p'>)</span> <span class='o'>&#39;</span><span class='p'>()))</span>
+         <span class='p'>)</span>
+       <span class='p'>)</span>
+      <span class='p'>(</span><span class='k'>else </span><span class='p'>(</span><span class='nf'>find</span> <span class='p'>(</span><span class='nb'>cdr </span><span class='nv'>nl</span><span class='p'>)</span> <span class='nv'>al</span><span class='p'>))</span>   
+      <span class='p'>)</span>
+    <span class='p'>)</span>
+  <span class='p'>)</span>
+
+<span class='p'>(</span><span class='k'>define </span><span class='p'>(</span><span class='nf'>replace</span> <span class='nv'>l</span> <span class='nv'>var</span> <span class='nv'>nl</span><span class='p'>)</span>
+  <span class='p'>(</span><span class='k'>if </span><span class='p'>(</span><span class='nb'>null? </span><span class='nv'>l</span><span class='p'>)</span>
+      <span class='nv'>nl</span>
+      <span class='p'>(</span><span class='nf'>begin</span>
+        <span class='p'>(</span><span class='k'>if </span><span class='p'>(</span><span class='nb'>symbol? </span><span class='nv'>l</span><span class='p'>)</span>
+            <span class='p'>(</span><span class='nf'>cond</span>
+              <span class='p'>((</span><span class='nb'>eq? </span><span class='nv'>l</span> <span class='nv'>var</span><span class='p'>)</span> <span class='p'>(</span><span class='nb'>string-&gt;symbol </span><span class='p'>(</span><span class='nb'>string-append </span><span class='p'>(</span><span class='nb'>symbol-&gt;string </span><span class='nv'>var</span><span class='p'>)</span> <span class='s'>&quot;1&quot;</span><span class='p'>)))</span>
+              <span class='p'>((</span><span class='nb'>not </span><span class='p'>(</span><span class='nb'>eq? </span><span class='nv'>l</span> <span class='nv'>var</span><span class='p'>))</span> <span class='nv'>l</span><span class='p'>)</span>
+              <span class='p'>)</span>
+            
+            <span class='p'>(</span><span class='nf'>replace</span> <span class='p'>(</span><span class='nb'>cdr </span><span class='nv'>l</span><span class='p'>)</span> <span class='nv'>var</span> 
+                     <span class='p'>(</span><span class='nb'>append </span><span class='nv'>nl</span>
+                             <span class='p'>(</span><span class='k'>cond </span>
+                               <span class='p'>((</span><span class='k'>and </span><span class='p'>(</span><span class='nb'>symbol? </span><span class='p'>(</span><span class='nb'>car </span><span class='nv'>l</span><span class='p'>))</span> <span class='p'>(</span><span class='nb'>eq? </span><span class='p'>(</span><span class='nb'>car </span><span class='nv'>l</span><span class='p'>)</span> <span class='nv'>var</span><span class='p'>))</span> <span class='p'>(</span><span class='nb'>list </span><span class='p'>(</span><span class='nb'>string-&gt;symbol </span><span class='p'>(</span><span class='nb'>string-append </span><span class='p'>(</span><span class='nb'>symbol-&gt;string </span><span class='nv'>var</span><span class='p'>)</span> <span class='s'>&quot;1&quot;</span><span class='p'>))))</span>
+                               <span class='p'>((</span><span class='k'>and </span><span class='p'>(</span><span class='nb'>symbol? </span><span class='p'>(</span><span class='nb'>car </span><span class='nv'>l</span><span class='p'>))</span> <span class='p'>(</span><span class='nb'>not </span><span class='p'>(</span><span class='nb'>eq? </span><span class='p'>(</span><span class='nb'>car </span><span class='nv'>l</span><span class='p'>)</span> <span class='nv'>var</span><span class='p'>)))</span> <span class='p'>(</span><span class='nb'>list </span><span class='p'>(</span><span class='nb'>car </span><span class='nv'>l</span><span class='p'>)))</span>
+                               <span class='p'>((</span><span class='nb'>pair? </span><span class='p'>(</span><span class='nb'>car </span><span class='nv'>l</span><span class='p'>))</span> <span class='p'>(</span><span class='nb'>list </span><span class='p'>(</span><span class='nf'>replace</span> <span class='p'>(</span><span class='nb'>car </span><span class='nv'>l</span><span class='p'>)</span> <span class='nv'>var</span> <span class='o'>&#39;</span><span class='p'>())))</span>
+                               <span class='p'>)</span>
+                             <span class='p'>)</span>
+                     <span class='p'>)</span>
+            <span class='p'>)</span>
+        <span class='p'>)</span>
+      <span class='p'>)</span>
+  <span class='p'>)</span>
+<span class='c1'>;end alpha reduction</span>
+
+<span class='p'>(</span><span class='k'>define </span><span class='p'>(</span><span class='nf'>lambdaCheck</span> <span class='nv'>l</span> <span class='nv'>count</span><span class='p'>)</span>
+  <span class='p'>(</span><span class='nf'>cond</span>
+    <span class='p'>((</span><span class='nb'>null? </span><span class='nv'>l</span><span class='p'>)</span> <span class='nv'>count</span><span class='p'>)</span>
+    <span class='p'>((</span><span class='k'>and </span><span class='p'>(</span><span class='nb'>symbol? </span><span class='p'>(</span><span class='nb'>car </span><span class='nv'>l</span><span class='p'>))</span> <span class='p'>(</span><span class='k'>and </span><span class='p'>(</span><span class='nb'>= </span><span class='nv'>count</span> <span class='mi'>1</span><span class='p'>)</span> <span class='p'>(</span><span class='nb'>eq? </span><span class='p'>(</span><span class='nb'>car </span><span class='nv'>l</span><span class='p'>)</span> <span class='o'>&#39;</span><span class='err'>λ</span><span class='p'>))</span> <span class='mi'>-1</span><span class='p'>))</span>
+    <span class='p'>((</span><span class='k'>and </span><span class='p'>(</span><span class='nb'>symbol? </span><span class='p'>(</span><span class='nb'>car </span><span class='nv'>l</span><span class='p'>))</span> <span class='p'>(</span><span class='nb'>not </span><span class='p'>(</span><span class='nb'>eq? </span><span class='p'>(</span><span class='nb'>car </span><span class='nv'>l</span><span class='p'>)</span> <span class='o'>&#39;</span><span class='err'>λ</span><span class='p'>)))</span> <span class='nv'>count</span><span class='p'>)</span>
+    <span class='p'>(</span><span class='k'>else </span><span class='p'>(</span><span class='nf'>lambdaCheck</span> <span class='p'>(</span><span class='nb'>car </span><span class='nv'>l</span><span class='p'>)</span> <span class='p'>(</span><span class='nb'>+ </span><span class='mi'>1</span> <span class='nv'>count</span><span class='p'>)))</span>
+    <span class='p'>)</span>
+  <span class='p'>)</span>
+</code></pre>
+</div>
+</div>
+
+<!-- <p>Tags</p>
+<div style="width: 100%">
+	
+	    <div style="float: left; margin:20px">scheme</div>
+	
+	    <div style="float: left; margin:20px">lambda-calculus</div>
+	
+	    <div style="float: left; margin:20px">interpreter</div>
+	
+</div> -->
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>20 Feb 2013</span> &raquo; <a href="http://vpalepu.bitbucket.org/blog/2013/02/20/Junit-and-JDepend-Demo.html">Junit and JDepend Demo</a></li>
+    
+      <li><span>18 Mar 2012</span> &raquo; <a href="http://vpalepu.bitbucket.org/blog/2012/03/18/State-of-Software-Engg-Practice-Today.html">State Of Software Engineering Practice Today</a></li>
+    
+  </ul>
+</div>
+    </div>  
+  </div> <!-- end of main -->
+</body>
+</html>

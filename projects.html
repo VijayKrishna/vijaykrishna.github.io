@@ -1,0 +1,144 @@
+---
+layout: default
+title: Projects - Vijay Krishna Palepu
+---
+
+
+			<script type="text/javascript">
+				// window.onload = function() {
+				//   var wall = new Masonry( document.getElementById('main'), {
+				//     columnWidth: 240
+				//   });
+				// };
+				var collapsed1 = true;
+				var collapsed2 = true;
+				var collapsed3 = true;
+				var collapsed4 = true;
+				var collapsed5 = true;
+				var collapsed6 = true;
+				function collapseToggle(id, button, button_id)
+				{
+					var collapsed;
+					switch(button_id)
+						{
+							case 1:
+								collapsed = collapsed1;
+								break;
+							case 2:
+								collapsed = collapsed2;
+								break;
+							case 3:
+								collapsed = collapsed3;
+								break;
+							case 4:
+								collapsed = collapsed4;
+								break;
+							case 5:
+								collapsed = collapsed5;
+								break;
+							case 6:
+								collapsed = collapsed6;
+								break;
+						}
+
+					if(!collapsed){
+						document.getElementById(id).style.display = "none";
+						document.getElementById(button).innerHTML="V"; //more
+						collapsed = true;
+					}
+					else{
+						document.getElementById(id).style.display = "block";
+						document.getElementById(button).innerHTML="&Lambda;"; //less
+						collapsed = false;
+					}
+
+					switch(button_id)
+						{
+							case 1:
+								collapsed1 = collapsed;
+								break;
+							case 2:
+								collapsed2 = collapsed;
+								break;
+							case 3:
+								collapsed3 = collapsed;
+								break;
+							case 4:
+								collapsed4 = collapsed;
+								break;
+							case 5:
+								collapsed5 = collapsed;
+								break;
+							case 6:
+								collapsed6 = collapsed;
+								break;
+						}
+				}
+			</script>
+			<h4>Projects &rsaquo;&rsaquo;</h4>
+			<!-- ASM -->
+			<b class="projectTitle" onclick="collapseToggle('asm','buttonAsm',4)">Dynamic Program Analyzer for Java Bytecode &rsaquo;&rsaquo;</b>
+			<div class="shortDesc" onclick="collapseToggle('asm','buttonAsm',4)">A framework for analyzing programs during runtime via Java byte code instrumentation using ASM (asm.ow2.org).</div>
+			<div class="timePd" style="margin-bottom:6px;font-size:12px">December 2011 to March 2012</div>
+			<div class="tags">
+				Class Project; Dynamic Program Analysis
+				<button id="buttonAsm" onclick="collapseToggle('asm','buttonAsm',4)">V</button>
+			</div>
+			<p id="asm" class="desc">Developed a framework for dynamic program analysis for Java byte code using ASM (asm.ow2.org). The framework instruments the bytecode for a given Java system/project and performs analysis to detect the data and control dependencies between statements of source code.</p>
+			<hr>
+				<!-- TREN -->
+			<b class="projectTitle" onclick="collapseToggle('tren','buttonTren',6)">Trendy Bugs: Topic Trends in the Android Bug Reports &rsaquo;&rsaquo;</b>
+			<div class="shortDesc" onclick="collapseToggle('tren','buttonTren',6)">Modeling discussions between developers in the Android Open Source Project's Public Issue tracker.</div>
+			<div class="timePd" style="margin-bottom:6px;font-size:12px">January 2012 to March 2012</div>
+			<div class="tags">
+				Class Project; Information Retrieval and Classification; MSR '12
+				<button id="buttonTren" onclick="collapseToggle('tren','buttonTren',6)">V</button>
+			</div>
+			<p id="tren" class="desc">
+			Abstract: Studying vast volumes of bug and issue discussions can give an understanding of what the community has been most concerned about, however the magnitude of documents can overload the analyst. We present an approach to analyze the development of the Android open source project by observing trends in the bug discussions in the Android open source project public issue tracker. This informs us of the features or parts of the project that are more problematic at any given point of time. In turn, this can be used to aid resource allocation (such as time and man power) to parts or features. We support these ideas by presenting the results of issue topic distributions over time using statistical analysis of the bug descriptions and comments for the Android open source project. Furthermore, we show relationships between those time distributions and major development releases of the Android OS.
+			<br><br>
+			Martie, Lee; Palepu, Vijay Krishna; Sajnani, Hitesh; Lopes, Cristina; , "Trendy bugs: Topic trends in the Android bug reports," , 2012 9th IEEE Working Conference on Mining Software Repositories (MSR)
+			</p>
+			<hr>
+				<!-- PNP -->
+			<b class="projectTitle" onclick="collapseToggle('pnp','buttonPnp',5)">Plug & Play Models for Video Game Systems &rsaquo;&rsaquo;</b>
+			<div class="shortDesc" onclick="collapseToggle('pnp','buttonPnp',5)">Start up kit for carrying out Requirements engineering for Video Games.</div>
+			<div class="timePd" style="margin-bottom:6px;font-size:12px">January 2012 to March 2012</div>
+			<div class="tags">
+				Class Project; Requirements Engineering for Games
+				<button id="buttonPnp" onclick="collapseToggle('pnp','buttonPnp',5)">V</button>
+			</div>
+			<p id="pnp" class="desc">
+			Developed a set of Plug & Play Models for Video Game systems. These models were developed with the aim of assisting game designers and engineers to identify the baseline requirements in their games which they can then modify to the specific requirements of the game that they are developing. The fact that there exists a common feature set across all games that are or may exist, is leveraged in this approach.
+			</p>
+			<hr>
+			<!-- PEG -->
+			<b class="projectTitle" class="projectTitle" onclick="collapseToggle('peg','buttonPeg',3)">Web User Interface Wireframe of U.S. Presidential Election Board Game &rsaquo;&rsaquo;</b>
+			<div class="shortDesc" onclick="collapseToggle('peg','buttonPeg',3)">A comprehensive wireframe for the UI of an online game that is based on the U.S. Presidential Elections.</div>
+			<div class="timePd" style="margin-bottom:6px;font-size:12px">September 2011 to December 2011</div>
+			<div class="tags">
+				Class Project; HCI
+				<button id="buttonPeg" onclick="collapseToggle('peg','buttonPeg',3)">V</button>
+			</div>
+			<p id="peg" class="desc">Developed wireframe of a web based user interface of an existing board game based on the U.S. Presidential Elections as a part of a 6 man team. Conducted Cognitive Walkthroughs and Heuristic Evaluations for the wireframes developed. The scope of the wireframes was limited to the first two phases, i.e. the Primaries and Conventions.</p>
+			<hr>
+			<!-- FLO -->
+			<b class="projectTitle" onclick="collapseToggle('flo','buttonFlo',2)">Java Code to Flow Diagram Converter &rsaquo;&rsaquo;</b>
+			<div class="shortDesc" onclick="collapseToggle('flo','buttonFlo',2)">An eclipse plug-in that can statically reverse engineering Java code snippets to Sequence Diagrams.</div>
+			<div class="timePd" style="margin-bottom:6px;font-size:12px">October 2009 to March 2010</div>
+			<div class="tags">
+				Undergrad Final Year Project; Static Proram Analysis
+				<button id="buttonFlo" onclick="collapseToggle('flo','buttonFlo',2)">V</button>
+			</div>					
+			<p id="flo" class="desc">Developed an Eclipse Plug-in to statically reverse engineer a selected Java code snippet, to corresponding Sequence Diagram. Recursive parsing of Abstract Syntax Tree of code was done to derive chronological ordering of method invocations, thus accurately depicting Program Flow. Conceptualized extensions for other languages like C++ and C#.</p>
+			<hr>
+			<!-- MOV -->
+			<b class="projectTitle" onclick="collapseToggle('mov','buttonMov',1)">Mobile And Online Voting System &rsaquo;&rsaquo;</b>
+			<div class="shortDesc" onclick="collapseToggle('mov','buttonMov',1)">An online application that can be used to carry out voting for a democratic electoral process.</div>
+			<div class="timePd" style="margin-bottom:6px;font-size:12px">December 2008 to April 2009</div>
+			<div class="tags">
+				Imagine Cup '09
+				<button id="buttonMov" onclick="collapseToggle('mov','buttonMov',1)">V</button>
+			</div>
+			<p id="mov" class="desc">Developed the software design, with a working prototype, for electoral voting via a seamless integration of both web and cellular technologies. Objective was to solve the toughest problems of mankind using technology. Involved intensive requirement analysis and research of target users, to identify a system required to meet that objective. Interviewed user groups from urban and rural backgrounds to understand socio-economic conditions of citizens. Concluded that transparent governance and hence a strong electoral process as basic requirements for solving large scale socio-economic issues.</p>
+		 </div>

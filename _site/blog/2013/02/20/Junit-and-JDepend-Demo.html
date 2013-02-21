@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="author" content="Vijay Krishna Palepu" />
+  <link rel="shortcut icon" href="http://vpalepu.bitbucket.org/images/favicon.gif" />
+  <title>Junit and JDepend Demo</title>
+  
+  <style type="text/css">
+
+  blockquote{
+    color:#666666;
+    margin:0;
+    padding-left: 3em;
+    border-left: 0.5em #EEE solid;
+  }
+
+  pre , code, kbd, samp { 
+    color: #000; 
+    font-family: monospace; 
+    font-size: 1em; 
+    border-radius:3px;
+    background-color: #F8F8F8;
+    border: 1px solid #CCC; 
+  }
+  pre { 
+    white-space: pre; 
+    white-space: pre-wrap; 
+    word-wrap: break-word; 
+    padding: 5px 12px;
+  }
+  pre code { border: 0px !important; padding: 0;}
+  code { padding: 0 3px 0 3px; }
+  body{font-family:arial;background-color:#A0A0A0}
+  a:link {text-decoration:underline;color:#006666;}
+  a:visited {text-decoration:none;color:#006666;}
+  a:hover {text-decoration:none;border-bottom: 1px dotted #006666;color:#333333;}
+  a:active {text-decoration:none;color:#006666;}
+  div.tags {margin-top:-5px;margin-bottom:6px;font-size:12px}
+  div.shortDesc {margin-bottom:6px;font-size:14px}
+  p.desc {display:none;}
+
+  h4 {color:#006666;margin-top: 12.5px}
+
+  button {padding: 0px; font-size:10px;font-weight:900; border-style:solid; border-width:2px; border-radius:4px; border-color:#AAA; color: #AAA; background-color: transparent;float:right; width:18px;text-align:center;cursor:pointer;}
+
+  b.projectTitle {cursor:pointer;}
+
+  div.container{min-width:600px; max-width:1000px; margin:10px auto;}
+  div.left{float:left; width:250px; min-height:100%; margin-left:5px; margin-right:5px; background-color:#111; color:#AAA; border-radius:10px; -moz-border-radius:25px;}
+  div.center{width:auto; margin-left:265px; margin-right:5px; margin-bottom:10px; background-color:#FFF; color:#111; border-radius:10px; -moz-border-radius:25px; padding-left:12.5px; padding-right:12.5px; padding-bottom:1px; padding-top:1px;}
+  #right {float:left; width:250px; margin-left:5px; margin-right:5px; margin-top:-22px; background-color:#111; color:#EEE}
+
+  .twtr-hd, .twtr-ft {display: none;}
+  </style>
+  
+  <!-- syntax highlighting CSS -->
+  <link rel="stylesheet" href="http://vpalepu.bitbucket.org/css/syntax.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="http://vpalepu.bitbucket.org/css/pygments.css" type="text/css" > -->
+</head>
+<body>
+  <div class="container">
+    <!--Start of Left-->
+     <div class="left">     
+      <div style="margin-left:12.5px; margin-top:12.5px">
+        <h1 style="margin-top:-7px"><a href="http://vpalepu.bitbucket.org/">Vijay Krishna Palepu</a></h1> 
+        <p style="margin-top:-20px; margin-bottom:2px">vpalepu [at] uci [dot] edu</p>
+        <img style="height: 300px; width: 225px" src="http://vpalepu.bitbucket.org/images/Vijay%20Krishna.JPG" alt="Vijay Krishna" />
+      </div>
+      <hr>
+      <div style="margin-left:12.5px">
+      
+        <!-- <address> -->
+          5243 Bren Hall<br>
+          <a href="http://www.spideruci.org" target="_blank">Spider Lab</a><br>
+          <a href="http://www.informatics.uci.edu/" target="_blank">Dept. of Informatics</a><br>
+          <a href="http://www.uci.edu/" target="_blank">University of California, Irvine</a><br>
+          Irvine, CA 92697-3440
+        
+      </div>
+      <hr>
+      <div style="margin-left:12.5px">
+        <a href="https://bitbucket.org/vpalepu/resume/src/72f8106a82667b9ba369288a5aa96df5e1136850/resume.pdf?at=master" target="_blank" >Resume (pdf)</a><br>
+        <!-- <a href="https://www.google.com/calendar/embed?src=vijay.0288%40gmail.com&ctz=America/Los_Angeles" target="_blank">Schedule</a><br> -->
+        <!-- <a href="http://vijaykrishna.github.com">Notes</a><br> -->
+        <a href="http://www.linkedin.com/in/palepuvijaykrishna" target="_blank">@LinkedIn</a><br>
+          <a href="http://instagram.com/vpalepu" target="_blank">@Instagram</a><br>
+      </div>
+      <hr>
+      <div>
+        <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+        <script>
+        new TWTR.Widget({
+          version: 2,
+          type: 'profile',
+          rpp: 4,
+          interval: 30000,
+          width: 250,
+          height: 300,
+          theme: {
+            shell: {
+              background: '#111111',
+              color: '#eeeeee'
+            },
+            tweets: {
+              background: '#111111',
+              color: '#eeeeee',
+              links: '#006666'
+            }
+          },
+          features: {
+            scrollbar: false,
+            loop: false,
+            live: false,
+            behavior: 'all'
+          }
+        }).render().setUser('vkpalepu').start();
+        </script>
+      </div>
+      <hr>
+      <p style="margin-left:12.5px">Last modified: 06 Feb 2013</p>
+    </div><!-- end of left -->
+    <!--Start of Center-->
+    <div class="center">  
+      <a href="http://vpalepu.bitbucket.org/" style="margin:20px"><b>Home</b></a>
+      <a href="http://vpalepu.bitbucket.org/projects.html" style="margin:20px"><b>Projects</b></a>
+      <a href="http://vpalepu.bitbucket.org/blog.html" style="margin:20px"><b>Blog Posts</b></a>
+    </div>  
+    <div class="center">  
+      <title>Junit and JDepend Demo</title>
+
+<p>
+Date: 20 Feb 2013
+</p>
+
+<div id="post">
+<h1 id='demo_junit__jdepend'>Demo JUnit + JDepend</h1>
+
+<h2 id='junit'>JUnit</h2>
+
+<h3 id='what_is_junit'>What is JUnit?</h3>
+
+<blockquote>
+<p>JUnit is a simple framework to write repeatable tests. It is an instance of the xUnit architecture for unit testing frameworks. - <a href='http://junit.org/'>Junit 4.0</a></p>
+</blockquote>
+
+<h3 id='which_version'>Which Version?</h3>
+
+<p><a href='http://junit.org/'>Junit 4.0</a><br /><a href='http://junit.sourceforge.net/'>Junit older versions</a></p>
+
+<h3 id='installation'>Installation</h3>
+
+<p>Just download the JAR file and add it to your build path in Eclipse. <a href='https://github.com/junit-team/junit/wiki/Download-and-Install'>More details here&#8230;</a></p>
+
+<h3 id='writing_tests_with_junit'>Writing Tests with JUnit?</h3>
+
+<ul>
+<li><a href='https://github.com/junit-team/junit/wiki/Getting-started'>Start here&#8230;</a></li>
+
+<li>Follow it up with <a href='https://github.com/junit-team/junit/wiki/Assertions'>Junit Assertions here&#8230;</a></li>
+
+<li>You can find a <a href='https://bitbucket.org/vpalepu/191b'>simple code example using assertions here&#8230;</a></li>
+</ul>
+
+<p>Here is an excerpt of that example:</p>
+<div class='highlight'><pre><code class='java'><span class='kn'>package</span> <span class='n'>edu</span><span class='o'>.</span><span class='na'>uci</span><span class='o'>.</span><span class='na'>inf191</span><span class='o'>;</span>
+<span class='kn'>import</span> <span class='nn'>static</span> <span class='n'>org</span><span class='o'>.</span><span class='na'>junit</span><span class='o'>.</span><span class='na'>Assert</span><span class='o'>.*;</span>
+<span class='kn'>import</span> <span class='nn'>org.junit.Test</span><span class='o'>;</span>
+
+<span class='kd'>public</span> <span class='kd'>class</span> <span class='nc'>NumbersToStringTest</span> <span class='o'>{</span>
+
+        <span class='nd'>@Test</span>
+        <span class='kd'>public</span> <span class='kt'>void</span> <span class='nf'>NumberToEnglishShouldReturnOne</span><span class='o'>()</span> <span class='o'>{</span>
+                <span class='n'>String</span> <span class='n'>actual</span> <span class='o'>=</span> <span class='n'>NumbersToString</span><span class='o'>.</span><span class='na'>numbersToEnglish</span><span class='o'>(</span><span class='mi'>1</span><span class='o'>);</span>
+                <span class='n'>assertEquals</span><span class='o'>(</span><span class='s'>&quot;Expected result one.&quot;</span><span class='o'>,</span> <span class='s'>&quot;one&quot;</span><span class='o'>,</span> <span class='n'>actual</span><span class='o'>);</span>
+        <span class='o'>}</span>
+</code></pre>
+</div>
+<ul>
+<li><a href='https://github.com/junit-team/junit/wiki'>Extensive Junit Documentation @ github</a></li>
+</ul>
+
+<h3 id='food_for_though'>Food for though</h3>
+
+<p><strong>Q.</strong> Do you think the JDK uses JUnit for testing? Remember, Junit came well after the JDK.</p>
+<hr />
+<h2 id='jdepend'>JDepend</h2>
+
+<h3 id='what_is_jdepend__what_does_jdepend_do'>What is JDepend? / What does JDepend do?</h3>
+
+<p>IMHO JDepend is a simple tool for measuring certain metrics about how packages in Java depend on each other.</p>
+
+<p>According to <a href='http://www.clarkware.com/software/JDepend.html'>JDepend&#8217;s Official Webpage</a>:</p>
+
+<blockquote>
+<p>JDepend traverses Java class file directories and generates design quality metrics for each Java package, including:</p>
+
+<ul>
+<li>Number of Classes and Interfaces</li>
+
+<li>Afferent Couplings (Ca) - measure of Responsibility</li>
+
+<li>Efferent Couplings (Ce) - measure of Independence</li>
+
+<li>Abstractness (A) - Number of Abstract Classes and Interfaces</li>
+
+<li>Instability (I)</li>
+
+<li>Distance from the Main Sequence (D)</li>
+
+<li>Package Dependency Cycles</li>
+</ul>
+</blockquote>
+
+<p>Further <a href='http://www.clarkware.com/software/JDepend.html#overview'>details on the metrics here&#8230;</a></p>
+
+<h3 id='why_do_i_like_it'>Why do I like it?</h3>
+
+<p>It is a simple tool that succinctly captures how one Java package depends on another. This might be useful when building large projects or APIs to maintain &#8220;appropriate&#8221; (runtime) boundaries between different sections of your code base.</p>
+
+<h4 id='why_the_double_quotes_around_appropriate'>Why the double quotes around &#8216;appropriate&#8217;?</h4>
+
+<ul>
+<li>&#8216;Appropriate&#8217; is what you define for your project.</li>
+
+<li>E.g. in a project following a client server architecture, you might want the client and the server to communicate via a middle-ware or an interface. Keeping the client code from calling the server code. OR, you very well could want the client code to call the server code directly.</li>
+
+<li>You might want to avoid both the client and the server calling each others modules or methods. OR, perhaps you want them to communicate like that.</li>
+</ul>
+
+<h3 id='installation_and_learning_curve'>Installation and Learning curve</h3>
+
+<ul>
+<li>
+<p>INSTALLATION: I have tried the installation with Eclipse and it is simple.</p>
+
+<ul>
+<li>Here is the <a href='http://andrei.gmxhome.de/jdepend4eclipse/index.html'>link for the same</a>.</li>
+
+<li>This is the <a href='http://andrei.gmxhome.de/eclipse/'>link for installing the plugin in Eclipse</a></li>
+
+<li>This is a good resource to learn how to <a href='http://agile.csc.ncsu.edu/SEMaterials/tutorials/install_plugin/index_v35.html'>install any Eclipse Plugin</a></li>
+</ul>
+</li>
+
+<li>
+<p>LEARNING CURVE: As long as you know what packages are and how one package uses another, the learning curve is non-existent. I have not yet tried using it in an advanced manner, like with JUnit or with Ant. There might be some learning curve there but it should be trivial.</p>
+</li>
+</ul>
+</div>
+
+<!-- <p>Tags</p>
+<div style="width: 100%">
+	
+	    <div style="float: left; margin:20px">testing</div>
+	
+	    <div style="float: left; margin:20px">analysis</div>
+	
+	    <div style="float: left; margin:20px">java</div>
+	
+</div> -->
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>16 Apr 2012</span> &raquo; <a href="http://vpalepu.bitbucket.org/blog/2012/04/16/Lambda-Calculus-Interpreter.html">Lambda Calculus Interpreter</a></li>
+    
+      <li><span>18 Mar 2012</span> &raquo; <a href="http://vpalepu.bitbucket.org/blog/2012/03/18/State-of-Software-Engg-Practice-Today.html">State Of Software Engineering Practice Today</a></li>
+    
+  </ul>
+</div>
+    </div>  
+  </div> <!-- end of main -->
+</body>
+</html>
