@@ -1,7 +1,10 @@
 [Jekyll]: https://github.com/mojombo/jekyll
 [1]: http://ics.uci.edu/~vpalepu
 [2]: http://vpalepu.bitbucket.org
+[repo]: https://bitbucket.org/vpalepu/website
 
+[Home][2]  
+[Repo][repo]
 
 Personal Website for Vijay Krishna Palepu
 =========================================
