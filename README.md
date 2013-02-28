@@ -17,19 +17,15 @@ The site structure is as follows:
 
 	.
 	|-- _config.yml        #configurations for building the site  
-	|-- _includes          #currently empty  
 	|-- _layouts           #templates for the different kinds of pages and posts  
 	|   |-- default.html   #template for the pages (i.e. non blog-posts)  
 	|   `-- post.html      #template for the (blog) posts  
-	|-- _posts             #the posts in markdown  
-	|   |-- 2013-02-20-Junit-and-JDepend-Demo.md  
-	|   `-- ...  
+	|-- _posts             #this folder needs to be added and all the posts in markdown or textile will go here.   
 	|-- css                #the css for the site  
-	|-- images             #the images for the site  
-	|-- publications       #documents comprising my publications  
-	|-- slides             #documents comprising my slides  
+	|-- images             #the images for the site (needs to be added)  
 	|-- index.html         #content of the index page  
 	|-- blog.html          #content for the blog post listing  
+	|-- news.html          #content for the news items
 	`-- projects.html      #content for the project listing  
 
 ### Hosted at...
@@ -46,4 +42,9 @@ images/
 publications/  
 slides/  
 
-All other directories and files are MIT Licensed. Feel free to use the HTML and CSS as you please. Although not required, but it would be great to reference back to [https://github.com/mojombo/jekyll][Jekyll] for creating this neat blogging tool.
+Feel free to use the HTML and CSS as you please.
+
+Credits
+=======
+
+This site is built using the awesome blog-aware, static site generator [https://github.com/mojombo/jekyll][Jekyll].
