@@ -4,8 +4,10 @@
 # server_port: 4000
 # baseurl:    /~vpalepu
 # root: /~vpalepu/_site
+# file-system
+url: file:///home/vijay/website/_site
 # local
-url: http://localhost:4000
+# url: http://localhost:4000
 # ics testing
 # url: http://www.ics.uci.edu/~vpalepu/_site
 # ics live
@@ -15,14 +17,14 @@ url: http://localhost:4000
 
 
 # source:      .
-# destination: ./_site
+# destination: ./_vpalepu.bitbucket.org
 # plugins:     ./_plugins
 
 # future:      true
 # lsi:         false
 pygments:    true
 markdown:    maruku
-permalink:   /blog/:year/:month/:day/:title.html
+permalink:   /:year/:month/:day/:title.html
 # permalink:   date
 
 maruku:

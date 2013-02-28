@@ -1,0 +1,17 @@
+_site/
+
+_archives/
+
+_posts/*.md
+_posts/projects/*.md
+_posts/news/*.md
+
+*.pptx
+*.pdf
+
+images/*.jpg
+images/*.JPG
+images/*.png
+images/*.gif
+
+tree.html

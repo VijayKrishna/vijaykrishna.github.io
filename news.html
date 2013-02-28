@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Blog - Vijay Krishna Palepu
+title: News - Vijay Krishna Palepu
 ---
 
 <div class="center">
-<h4>Blog Posts &rsaquo;&rsaquo;</h4>
+<h4>News &rsaquo;&rsaquo;</h4>
   <ul class="posts">
-    {% for post in site.categories.blog %}
+    {% for post in site.categories.news %}
       <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
   </ul>
