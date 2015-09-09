@@ -3,31 +3,62 @@ layout: default
 title: Vijay Krishna Palepu
 ---
 
-<div class="center">
-		<h4>Research & Academics &rsaquo;&rsaquo;</h4>
-			<p>I am currently a PhD student in the Software Engineering program, at the Department of Informatics, University of California, Irvine. I hold a degree in B.E. in Computers from the University of Pune, India.</p> 
-			<p>As a student of Software Engineering Research, I am interested in building and studying reusable models of the runtime behavior of software components that can be leveraged for a number of software development, maintenance, and testing tasks.</p>
-			<p> I work with <a href="http://www.ics.uci.edu/~jajones/Home.html" target="_blank">Prof. James A. Jones</a> in the <a href="http://www.spideruci.org">Spider Lab</a>. James' research is focused towards software testing, analysis (compile-time and run-time) and debugging.</p>
-		</div>
-		<div class="center">
-			<h4>Publications &rsaquo;&rsaquo;</h4>
-			<p>
-				<!-- TREN -->
-				<li>Martie, Lee; Palepu, Vijay Krishna; Sajnani, Hitesh; Lopes, Cristina; , "Trendy bugs: Topic trends in the Android bug reports," , 2012 9th IEEE Working Conference on Mining Software Repositories (MSR), pp.120-123, 2-3 June 2012. <a href="{{ site.url }}/publications/trendyBugs-msr-12.pdf">[paper]</a> <a href="{{ site.url }}/slides/Trendy Bugs.pdf">[slides]</a>
-				</li>
-			</p>
-		</div>
-		<div class="center">
-		 	<h4>Teaching &rsaquo;&rsaquo;</h4>
-			<p>
-				<li>Reader, Senior Design Project Class (UCI, Spring 2012)</li>
-				<li>Reader, Concepts in Programming Languages II (UCI, Spring'12)</li>
-				<li>Teaching Assistant, Senior Design Project Class (UCI, Fall'12, Winter 2013)</li>
-			</p>
+<div class="plain stretch">
+	<!--width:22.5 # Vijay Krishna.JPG-->
+	<img style="float: left; width:25%; min-width:100px; margin: 10px; -moz-border-radius: 10px; border-radius: 10px;" src="{{ site.url }}/images/vpalepu.jpg" alt="Vijay Krishna" />
+	<p>I am a Ph.D. Candidate in Software Engineering, at the Department of Informatics, University of California, Irvine. I graduated, my undergrad Bachelor of Engineering (B.E.) program, with a <i>First Class with Distinction</i> in Computer Engineering from the University of Pune, India.</p>
 
-			<p>
-				<b><span style="font-size:15px">Lectures &rsaquo;&rsaquo;</span></b>
-				<li>Goals in Requirements Engineering, Senior Design Project Class (UCI, Spring 2012) <a href="{{ site.url }}/slides/goals.pdf" target="blank">[slides]</a></li>
-				<li>Code Demo on Test Drive Development <a href="https://vpalepu@bitbucket.org/vpalepu/191b.git">[git]</a></li>
-			</p>
-		</div>
+	<p>As a student of Software Engineering Research, I am interested in building, visualizing and studying reusable models of the runtime behavior of software components that can be leveraged for a number of software development, maintenance, and testing tasks. My current focus, however, is to facilitate software debugging which is a complex and ubiquitous activity within software engineering.</p>
+	<p>My advisor is <a href="http://www.ics.uci.edu/~jajones/Home.html" target="_blank">Prof. James A. Jones</a> at the <a href="http://www.spideruci.org">Spider Lab</a>. James' research is focused towards software testing, analysis (compile-time and run-time) and debugging. <!-- I also work with <a href="http://www.ics.uci.edu/~guoqingx/index.html">Prof. Harry Xu</a>. Harry's research interests include static and dynamic program analyses for compiler optimization and software engineering tasks. --></p>
+	<small>
+		<a href="https://bitbucket.com/vpalepu" target="_blank">@<b>bitbucket</b>.com</a> &bull;
+		<a href="http://www.linkedin.com/in/palepuvijaykrishna" target="_blank">@Linked<b>in</b></a> &bull;
+		<a href="http://instagram.com/vpalepu" target="_blank">@Instagram</a> &bull;
+	  <a href="https://medium.com/@vkrishnapalepu" target="_blank">@medium</a> &bull;
+		<a href="http://stackoverflow.com/users/1481262/vijay">@stack<b>overflow</b></a> &bull;
+		<a href="https://gist.github.com/VijayKrishna">@<b>gist</b>.github.com</a>
+		<br>
+		Background Photo Credit: <a href="http://sudhapalepu.wordpress.com/" target="_blank">Sudha Palepu</a>
+	</small>
+</div>
+{% if site.categories.highlight.size != 0 %}
+<div class="plain stretch">
+	<strong class="big">Latest</strong>
+	<hr class="thinblue" />
+	<ul>
+	{% for post in site.categories.highlight limit:3 %}
+    	<li>
+    		<span>{{ post.date | date_to_string }}</span> &raquo; 
+    		<a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+				{% for tag in post.tags limit:3 %}
+					<span class="tags">{{ tag }}</span>
+						{% if forloop.last != true %}
+							<span> </span>
+						{% endif %}
+				{% endfor %}
+    	</li>    
+  	{% endfor %}
+  	</ul>
+</div>
+
+{% endif %}
+
+<div class="plain stretch">
+	<strong class="big">THE BRAIN</strong>
+	<hr class="thinblue" />
+
+	<strong>Live Demo:</strong> <a href="http://www.ics.uci.edu/~vpalepu/thebrain">http://www.ics.uci.edu/~vpalepu/thebrain</a><br>
+
+	<iframe style="float: right; margin: 10px;" src="//player.vimeo.com/video/69526834?color=c9ff23" width="500" height="472" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	THE BRAIN reveals clusters of source code that co-execute to produce behavioral features of the program throughout and within executions. We created a clustered visualization of source-code that is informed by dynamic control flow of multiple executions; each cluster represents commonly interacting logic that composes software features. In addition, we render individual executions atop the clustered multiple-execution visualization as user-controlled animations to reveal characteristics of specific executions—these animations may provide exemplars for the clustered features and provide chronology for those behavioral features, or they may reveal anomalous behaviors that do not fit with the overall operational profile of most executions. Both the clustered multiple-execution view and the animated individual-execution view provide insights for the constituent behaviors within executions that compose behaviors of whole executions. Inspired by neural imaging of human brains of people who were subjected to various external stimuli, we designed and implemented THE BRAIN to reveal program activity during execution. The result has revealed the principal behaviors of execution. Those behaviors were revealed to be (in some cases) cohesive, modular source-code structures and (in other cases) cross-cutting, emergent behaviors involving multiple modules.
+	<!-- <p><a href="http://vimeo.com/69526834">The Brain Visualization of Program Execution</a> from <a href="http://vimeo.com/spideruci">Spider Lab at UC Irvine</a> on <a href="https://vimeo.com">Vimeo</a>.</p> -->
+</div>
+
+{% include publications.html large_title=true %}
+
+{% include teaching.html large_title=true %}
+
+{% include talks.html large_title=true count = 4 %}
+<!-- <div class="plain stretch">  
+	<a href="{{ site.url }}/se-student-meet-uci.html" target="_blank">Software Engineering Student Meetings, UCI</a>
+</div> -->

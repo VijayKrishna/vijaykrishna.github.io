@@ -1,0 +1,42 @@
+<div id="publications" class="plain stretch">
+	{% if include.large_title == true %}
+	<strong class="big">Research Publications</strong>
+	{% else %}
+	<strong class="regular">RESEARCH PUBLICATIONS</strong>
+	{% endif %}
+	<a href="{{ site.url }}/research.html"> &crarr;</a>
+	<hr class="thinblue" />
+	
+	<ul class="posts">
+	{% for post in site.categories.publication %}
+		<li>
+		{% for author in post.authors %}
+			{% case forloop.rindex %}
+				{% when 1 %}
+					{% if author contains 'Palepu' %} 
+						<strong>{{ author}}</strong>,
+					{% else %}
+						{{ author }},
+					{% endif %}    							
+				{% when 2 %}
+					{% if author contains 'Palepu' %} 
+						<strong>{{ author}}</strong>
+					{% else %}
+						{{ author }}
+					{% endif %} and     					
+				{% else %}
+					{% if author contains 'Palepu' %} 
+						<strong>{{ author}}</strong>;
+					{% else %}
+						{{ author }};
+					{% endif %}    							
+			{% endcase %}      						  		
+		{% endfor %}
+		"<strong>{{ post.title }}</strong>," , {{ post.conference }}, {{ post.pages }}, {{ post.dates }}.
+			{% for link in post.links %}
+			 	<a href="{{ link | last }}">[{{ link | first }}] </a> 
+			{% endfor %}
+		</li>
+	{% endfor %}
+	</ul>
+</div>

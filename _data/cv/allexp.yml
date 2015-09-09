@@ -1,0 +1,48 @@
+- publish: y
+  organization: "Spider Lab, University of California, Irvine"
+  position: Graduate Student Researcher
+  where: "Irvine, CA, USA"
+  duration: "June 2012 - Current"
+  bullets: 
+    - "Working on novel approaches to visualize, analyze and model program executions."
+    - "Developed software infrastructure for the instrumentation, analysis and exploration of Java program executions."
+  languages: 
+    - Java
+    - "ASM Bytecode Manipulation Library (asm.ow2.org)"
+    - Javascript
+    - "D3.js"
+
+- publish: y
+  organization: "University of California, Irvine"
+  position: Graduate Student Researcher
+  where: "Irvine, CA, USA"
+  duration: "January 2012 - March 2012"
+  bullets: 
+    - "Worked on a design project for an internet game based on the U.S. Presidential Elections."
+  languages: 
+    - "HotGloo Wireframing tool"
+
+- publish: y
+  organization: "Indigo Architects"
+  position: Software Developer
+  where: "Pune, MH, India"
+  duration: "August 2010 - June 2011"
+  bullets: 
+    - "Part of the Operations team of Zeus Travel Office Product Team. Built applications to monitor product behavior."
+  languages: 
+    - "C#"
+    - XAML
+    - Silverlight
+    - WCF
+
+- publish: y
+  organization: "Persistent Systems"
+  position: Project Intern
+  where: "Pune, MH, India"
+  duration: "October 2009 - March 2010"
+  bullets: 
+    - "Developed an Eclipse Plug-in to statically reverse engineer a Sequence Diagram for Java Projects to aid code comprehension. Final Year Project at University of Pune, Army Institute of Technology."
+  languages: 
+    - Java
+    - Eclipse Standard Widget Toolkit
+    - "Eclipse Java Development Tooling (JDT)"

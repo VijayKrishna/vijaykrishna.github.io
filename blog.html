@@ -1,13 +1,28 @@
 ---
 layout: default
-title: Blog - Vijay Krishna Palepu
+title: Notes - Vijay Krishna Palepu
 ---
 
-<div class="center">
-<h4>Blog Posts &rsaquo;&rsaquo;</h4>
+<div class="plain stretch">
   <ul class="posts">
     {% for post in site.categories.blog %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
+      <li>
+        <span>{{ post.date | date_to_string }}</span> &raquo; 
+        <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="plain stretch">
+  <strong><a href="https://medium.com/@vkrishnapalepu">@medium</a></strong>
+  <hr class="thinblue" />	
+  <ul class="posts">
+    {% for post in site.data.medium %}
+      <li>
+        <span>{{ post.date | date_to_string }}</span> &raquo; 
+        <a href="{{ post.link }}" target=_blank>{{ post.title }}</a>
+      </li>
     {% endfor %}
   </ul>
 </div>

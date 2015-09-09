@@ -1,0 +1,63 @@
+- title: 'Testing Software'
+  type: 'Guest Lecture, Undergraduate course on Project in Software Engineering'
+  when: 'Winter 2015'
+  where: UCI
+  links:
+    - {name: slides, url: 'http://ics.uci.edu/~vpalepu/testing-software'}
+
+- title: 'Discriminating Influences among Instructions in a Dynamic Slice'
+  type: 'New Ideas Talk, Automated Software Engineering'
+  when: 'Summer 2014'
+  where: Sweden
+  links:
+    - {name: slides, url: 'slides/ase14.pdf'}
+    - {name: vimeo, url: 'https://vimeo.com/106466231'}
+
+- title: 'QA and Software Testing'
+  type: 'Guest Lecture, Undergraduate course on Introduction to Software Engineering'
+  when: 'Summer 2014'
+  where: UCI
+  links:
+
+- title: 'Testing and Verifying Software Behavior'
+  type: 'Guest Lecture, Graduate course on Software Testing and Analysis'
+  when: 'Spring 2014'
+  where: UCI
+  links:
+    - {name: notes, url: '2014/06/03/Notes-Testing-Software-Behavior.html'}
+
+- title: 'Quality-Driven Development: Interacting with TDD and BDD'
+  type: 'Invited Talk with Dr. Hadar Ziv'
+  when: 'Winter 2014'
+  where: 'Southern California Quality Assurance Association, Orange County'
+  links:
+    - {name: slides, url: 'slides/SCQAA-talk.pdf'}
+
+- title: 'Improving Efficiency of Dynamic Analysis with Dynamic Dependence Summaries'
+  type: 'Technical Research Talk, Automated Software Engineering'
+  when: 'Fall 2013'
+  where: 'Palo Alto, USA'
+  links:
+    - {name: slides, url: 'slides/ase13.pdf'}
+
+- title: 'Interviews in User Centered Software Engineering'
+  type: 'Lecture, Senior Design Project Class' 
+  where: 'UCI'
+  when: 'Spring 2013'
+  links:
+    - { name: presentation, url: 'slides/classes/interviews.html?print-pdf'}
+    - { name: slides, url: 'slides/classes/interviews.pdf'}
+
+- title: 'Code Demo on Test Driven Development'
+  type: 'Lecture, Senior Design Project Class'
+  where: UCI
+  when: Fall 2012
+  links:
+    - {name: git, url: 'https://vpalepu@bitbucket.org/vpalepu/191b.git'}
+
+- title: 'Goals in Requirements Engineering'
+  type: 'Guest Lecture, Senior Design Project Class' 
+  where: UCI
+  when: Spring 2012
+  links:
+    - {name: slides, url: 'slides/classes/goals.pdf'}

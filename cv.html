@@ -1,0 +1,33 @@
+---
+layout: default
+title: CV - Vijay Krishna Palepu
+---
+<!-- <div id="education" class="plain stretch">
+	<strong class="regular">EDUCATION</strong>
+	<hr class="thinblue" />
+	<ul>
+		{% for i in site.data.cv.education %}
+		  <li>
+		    <strong>{{ i.school }}</strong>,  {{ i.from }} - {{ i.to }}
+		    <br> 
+		    {{ i.degree }}, {{ i.subject }}, {{ i.gradestring }}
+		  </li>
+		{% endfor %}
+	</ul>
+</div> -->
+
+{% include education.html %}
+
+{% include experience.html %}
+
+{% include publications.html large_title=false %}
+
+{% include projects.html %}
+
+{% include teaching.html large_title=false %}
+
+{% include talks.html large_title=false %}
+
+
+
+{% include cv_misc.html %}

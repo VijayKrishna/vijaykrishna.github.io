@@ -1,0 +1,17 @@
+<div id="education" class="plain stretch">
+	{% if include.large_title == true %}
+	<strong class="big">Education</strong>
+	{% else %}
+	<strong class="regular">EDUCATION</strong>
+	{% endif %}
+	<hr class="thinblue" />
+	<ul>
+		{% for i in site.data.cv.education %}
+		  <li>
+		    <strong>{{ i.school }}</strong>,  {{ i.from }} - {{ i.to }}
+		    <br> 
+		    {{ i.degree }}, {{ i.subject }}, {{ i.gradestring }}
+		  </li>
+		{% endfor %}
+	</ul>
+</div>

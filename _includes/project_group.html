@@ -1,0 +1,12 @@
+<div class='plain stretch'>
+	<strong class="regular">{{ include.heading }}</strong>
+	<hr class="thinblue" />
+	<ul class="posts">
+	{% for post in include.group %}
+		<li>
+			<a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+			<span class="shortDesc">{{ post.one-liner }}</span>
+		</li>    
+	{% endfor %}
+	</ul>
+</div>

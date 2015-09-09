@@ -1,0 +1,22 @@
+<div id="teaching" class="plain stretch">   
+  {% if include.large_title == true %}
+  <strong class="big">Talks</strong>
+  {% else %}
+  <strong class="regular">TALKS</strong>
+  {% endif %}
+  <hr class="thinblue" />
+  <ul>
+   {% for i in site.data.cv.talks limit: include.count %}
+      <li><b>"{{ i.title}}"</b>, {{ i.type }} ({{ i.where }}, {{ i.when }}) 
+        {% for link in i.links %}
+          {% if link.url contains 'http' %}
+            <a href="{{ link.url }}" target="blank">[{{ link.name }}]</a>
+          {% else %}
+            <a href="{{ site.url }}/{{ link.url }}" target="blank">[{{ link.name }}]</a>
+          {% endif %} 
+        {% endfor %}
+        
+      </li>
+    {% endfor %}
+  </ul>
+</div>

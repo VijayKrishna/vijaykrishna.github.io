@@ -1,0 +1,13 @@
+- school: 'University of California, Irvine, USA'
+  from: 'September 2012'
+  to: 'Current'
+  degree: 'Ph.D.'
+  subject: 'Software Engineering'
+  gradestring: 'Current GPA: 3.99'
+
+- school: 'University of Pune, India'
+  from: 'August 2006'
+  to: 'July 2010'
+  degree: 'B.Engg.'
+  subject: 'Computer Engineering'
+  gradestring: 'First Class with Distinction'

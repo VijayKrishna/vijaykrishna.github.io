@@ -3,13 +3,19 @@ layout: default
 ---
 
 <title>{{ page.title }}</title>
-<div class="center">
-<p>
-{{ page.from }} to {{ page.to }}
-</p>
+<div class="plain stretch">
+<!-- <p>
+  <a href="{{ site.url }}/index.html" class="icon-home" ></a> /
+	<a href="{{ site.url }}/projects.html">Projects</a> /
+  {{ page.title }}
+</p> -->
 
 <div id="post">
-{{ content }}
+  <span class="tags">
+    {{ page.from }} to {{ page.to }}
+  </span>
+  
+  {{ content }}
 </div>
 
 <div><i>TL;DR</i> - {{ page.one-liner }} </div>
@@ -26,7 +32,7 @@ layout: default
 </div>
 </div>
 
-<div class="center">
+<div class="plain stretch">
   <h2>Related Posts</h2>
   <ul class="posts">
     {% for post in site.related_posts limit:3 %}

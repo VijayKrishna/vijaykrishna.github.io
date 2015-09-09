@@ -1,0 +1,32 @@
+<div id="awards" class="plain stretch">
+	<strong class="regular">AWARDS</strong>
+	<hr class="thinblue" />
+	<ul>
+		{% for i in site.data.cv.awards %}
+		  <li>{{ i.name }}, {{ i.by }}, {{ i.year }}.</li>
+		{% endfor %}
+	</ul>
+</div>
+
+<div id="affiliations" class="plain stretch">
+	<strong class="regular">PROFESSIONAL AFFILIATIONS</strong>
+	<hr class="thinblue" />
+	<ul>
+		<li>Student member of the Association for Computing Machinery (ACM) and the Special Interest Group on Software Engineering (ACM SIGSOFT).</li>
+		<li>Student member of the Institute for Software Research (ISR), University of California, Irvine.</li>
+	</ul>
+</div>
+
+<div id="courses" class="plain stretch">
+	<strong class="regular">GRADUATE COURSE WORK</strong>
+	<hr class="thinblue" />
+	<p>
+		{% for i in site.data.cv.courses %}
+			{% if forloop.last %}
+				{{ i }}.
+			{% else %}	
+				{{ i }}; 
+			{% endif %}
+		{% endfor %}
+	</p>
+</div>

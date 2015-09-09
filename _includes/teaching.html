@@ -1,0 +1,13 @@
+<div id="teaching" class="plain stretch"> 	
+ 	{% if include.large_title == true %}
+	<strong class="big">Teaching</strong>
+	{% else %}
+	<strong class="regular">TEACHING</strong>
+	{% endif %}
+ 	<hr class="thinblue" />
+	<ul>
+		{% for i in site.data.cv.teaching %}
+			<li>{{ i.what }}, {{ i.for }} ({{ i.where }}, {{ i.when }})</li>
+		{% endfor %}
+	</ul>
+</div>

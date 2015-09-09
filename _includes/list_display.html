@@ -1,0 +1,6 @@
+{% for item in include.items limit:include.limit %}
+  <span class="tags tiny">{{ item }}</span>
+  {% if forloop.last != true %}
+    <span> </span>
+  {% endif %}
+{% endfor %}

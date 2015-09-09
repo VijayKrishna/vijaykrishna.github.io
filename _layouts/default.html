@@ -9,102 +9,183 @@
   <link rel="shortcut icon" href="{{ site.url }}/images/favicon.gif" />
   <title>{{ page.title }}</title>
   
+  <!-- <link rel="stylesheet" href="{{ site.url }}/css/bootstrap.min.css" type="text/css" /> -->
+  <!-- <link rel="stylesheet" href="{{ site.url }}/css/bootstrap-theme.min.css" type="text/css" /> -->
   <link rel="stylesheet" href="{{ site.url }}/css/screen.css" type="text/css" />
   <!-- syntax highlighting CSS -->
   <link rel="stylesheet" href="{{ site.url }}/css/syntax.css" type="text/css" />
+  <link href='http://fonts.googleapis.com/css?family=Andada' rel='stylesheet' type='text/css'>
   <!-- <link rel="stylesheet" href="{{ site.url }}/css/pygments.css" type="text/css" > -->
 </head>
-<body>
+<body >   
+  <!-- <img id="hover1" class="pos" src="{{ site.url }}/images/brain.png"> -->
   <div class="container">
-    <!--Start of Left-->
-     <div class="left-container">     
-      <div class="left">
-        <h1 style="margin-top:-7px">Vijay Krishna Palepu</h1> 
-        <p style="margin-top:-20px; margin-bottom:2px">vpalepu [at] uci [dot] edu</p>
-        <img style="height: 300px; width: 225px" src="{{ site.url }}/images/Vijay%20Krishna.JPG" alt="Vijay Krishna" />
-      </div>
 
-      <div class="left">
+    <div class="plain stretch">
       
-        <!-- <address> -->
-          5243 Bren Hall<br>
-          <a href="http://www.spideruci.org" target="_blank">Spider Lab</a><br>
-          <a href="http://www.informatics.uci.edu/" target="_blank">Dept. of Informatics</a><br>
-          <a href="http://www.uci.edu/" target="_blank">University of California, Irvine</a><br>
-          Irvine, CA 92697-3440
+      <span class="regular">
+        {% if page.title == "Research - Vijay Krishna Palepu" %}
+          <b style="margin:20px;margin-left:0">Research</b>
+        {% else %}
+          <a href="{{ site.url }}/research.html" style="margin:20px;margin-left:0">Research</a>
+        {% endif %}
+
+        {% if page.title == "Projects - Vijay Krishna Palepu" %}
+          <b style="margin:20px">Projects</b>
+        {% else %}
+          <a href="{{ site.url }}/projects.html" style="margin:20px">Projects</a>
+        {% endif %}
         
-      </div>
+        {% if page.title == "News - Vijay Krishna Palepu" %}
+          <b style="margin:20px">News</b>
+        {% else %}
+          <a href="{{ site.url }}/news.html" style="margin:20px">News</a>
+        {% endif %}
 
-      <div class="left">
-        <a href="https://bitbucket.org/vpalepu/resume/src/72f8106a82667b9ba369288a5aa96df5e1136850/resume.pdf?at=master" target="_blank" >Resume (pdf)</a><br>
-        <!-- <a href="https://www.google.com/calendar/embed?src=vijay.0288%40gmail.com&ctz=America/Los_Angeles" target="_blank">Schedule</a><br> -->
-        <!-- <a href="http://vijaykrishna.github.com">Notes</a><br> -->
-        <a href="http://www.linkedin.com/in/palepuvijaykrishna" target="_blank">@Linked<b>in</b></a><br>
-          <a href="http://instagram.com/vpalepu" target="_blank">@Instagram</a>
-          <br>
-          <a href="http://stackoverflow.com/users/1481262/vijay">@stack<b>overflow</b></a>
-      </div>
-      <div>
-        <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
-         <script>
-        // new TWTR.Widget({
-        //   version: 2,
-        //   type: 'profile',
-        //   rpp: 4,
-        //   interval: 30000,
-        //   width: 250,
-        //   height: 300,
-        //   theme: {
-        //     shell: {
-        //       background: '#111111',
-        //       color: '#eeeeee'
-        //     },
-        //     tweets: {
-        //       // background: '#111111',
-        //       // color: '#eeeeee',
-        //       // links: '#006666'
-        //     }
-        //   },
-        //   features: {
-        //     scrollbar: false,
-        //     loop: false,
-        //     live: false,
-        //     behavior: 'all'
-        //   }
-        // }).render().setUser('vkpalepu').start();
-        </script>
-        <p class="label">Last modified: 21 Feb 2013</p>
-      </div>
-    </div><!-- end of left -->
-    <!--Start of Center-->
-    <div class="center">  
+        {% if page.title == "Notes - Vijay Krishna Palepu" %}
+          <b style="margin:20px">Notes</b>
+        {% else %}
+          <a href="{{ site.url }}/blog.html" style="margin:20px">Notes</a>
+        {% endif %}
+
+        {% if page.title == "CV - Vijay Krishna Palepu" %}
+          <b style="margin:20px">CV</b>
+        {% else %}
+          <a href="{{ site.url }}/cv.html" style="margin:20px">CV</a>
+        {% endif %}
+      </span>
+      <!-- <hr class="thinblue" /> -->
+      <br>
+    </div>
+
+    <div class="plain stretch" style="padding-bottom:5px">  
       {% if page.title == "Vijay Krishna Palepu" %}
-        <b style="margin:20px">Home</b>
+        <span class="huge">Vijay Krishna <b>Palepu</b></span>
+        <span class="tiny">
+          &bull; vpalepu [at] uci [dot] edu &bull;
+          5243 Bren Hall,
+          <a href="http://www.spideruci.org" target="_blank">Spider Lab</a>,
+          <a href="http://www.uci.edu/" target="_blank">University of California, Irvine</a>, CA 92697-3440
+        </span>
+      {% elsif page.title contains " - Vijay Krishna Palepu" %}
+        {% if page.title == "CV - Vijay Krishna Palepu" %}
+          <span class="huge">
+            <a href="{{ site.url }}/index.html" class="icon-home"></a> /
+            Vijay Krishna <b>Palepu</b> 
+          </span>
+          <span class="tiny">
+            &bull; vpalepu [at] uci [dot] edu &bull;
+            5243 Bren Hall,
+            <a href="http://www.spideruci.org" target="_blank">Spider Lab</a>,
+            <a href="http://www.uci.edu/" target="_blank">University of California, Irvine</a>, CA 92697-3440
+          </span> 
+          <a style="margin-left:20px" class="icon-file-pdf tiny" target="_blank" href="{{ site.url }}/vpalepu_cv.pdf"> CV</a>
+          <a style="margin-left:20px" class="icon-file-pdf tiny" target="_blank" href="{{ site.url }}/vpalepu_resume.pdf"> Resume</a>
+        {% else %}
+          <span class="huge">
+            <a href="{{ site.url }}/index.html" class="icon-home"></a> /
+            <b>{{ page.title | replace_first:' - Vijay Krishna Palepu', '' }}</b>
+          </span>
+        {% endif %}          
       {% else %}
-        <a href="{{ site.url }}/index.html" style="margin:20px"><b>Home</b></a>
+        <span class="huge">
+          <a href="{{ site.url }}/index.html" class="icon-home"></a> /
+          {% if page.categories contains 'news' %}
+            <a href="{{ site.url }}/news.html">News</a> / {{ page.title }}
+          {% elsif page.categories contains 'blog' %}
+            <a href="{{ site.url }}/blog.html">Notes</a> / {{ page.title }}
+          {% elsif page.categories contains 'project' %}
+            <a href="{{ site.url }}/projects.html">Projects</a> / {{ page.title }}
+          {% else %}
+            {{ page.title }}
+          {% endif %}
+        </span>
+      {% endif %}           
+
+    </div>
+
+<!--     <div class="plain stretch" >
+      <span class="huge"> 
+      {% if page.title != "Vijay Krishna Palepu" %}
+        Vijay Krishna <a href="{{ site.url }}/index.html"><b>Palepu</b></a>
+      {% else %}
+        Vijay Krishna <b>Palepu</b>
+      {% endif %}
+        
+      </span>
+      <small>
+        vpalepu [at] uci [dot] edu &bull;
+        5243 Bren Hall,
+        <a href="http://www.spideruci.org" target="_blank">Spider Lab</a>,
+        <a href="http://www.uci.edu/" target="_blank">University of California, Irvine</a>, CA 92697-3440
+
+      </small>      
+
+      {% if page.title == "CV - Vijay Krishna Palepu" %}
+        <a style="margin-left:20px" class="icon-file-pdf tiny" target="_blank" href="{{ site.url }}/vpalepu_cv.pdf"> CV</a>
+        <a style="margin-left:20px" class="icon-file-pdf tiny" target="_blank" href="{{ site.url }}/vpalepu_resume.pdf"> Resume</a>
       {% endif %}
 
-      {% if page.title == "Projects - Vijay Krishna Palepu" %}
-        <b style="margin:20px">Projects</b>
-      {% else %}
-        <a href="{{ site.url }}/projects.html" style="margin:20px"><b>Projects</b></a>
-      {% endif %}
-      
-      {% if page.title == "News - Vijay Krishna Palepu" %}
-        <b style="margin:20px">News</b>
-      {% else %}
-        <a href="{{ site.url }}/news.html" style="margin:20px"><b>News</b></a>
-      {% endif %}
 
-      {% if page.title == "Blog - Vijay Krishna Palepu" %}
-        <b style="margin:20px">Blog Posts</b>
-      {% else %}
-        <a href="{{ site.url }}/blog.html" style="margin:20px"><b>Blog Posts</b></a>
-      {% endif %}
-    </div>  
-    <!-- <div class="center"> -->  
-      {{ content }}
-    </div>  
+
+    {% if page.title == "Archives - Vijay Krishna Palepu" %}
+      <hr class="thinblue"/>
+      <a href="{{ site.url }}/index.html" class="icon-home" ></a> /
+      <strong>Archives</strong>
+    {% endif %}
+
+    {% if page.title != "Archives - Vijay Krishna Palepu" %}
+      {% if page.title != "CV - Vijay Krishna Palepu" %}
+        <hr class="thinblue" />
+
+        {% if page.title == "Research - Vijay Krishna Palepu" %}
+          <b class="big" style="margin:20px; margin-left:0">Research</b>
+        {% else %}
+          <a href="{{ site.url }}/research.html" style="margin:20px;margin-left:0">Research</a>
+        {% endif %}
+
+        {% if page.title == "Projects - Vijay Krishna Palepu" %}
+          <b class="big" style="margin:20px">Projects</b>
+        {% else %}
+          <a href="{{ site.url }}/projects.html" style="margin:20px">Projects</a>
+        {% endif %}
+        
+        {% if page.title == "News - Vijay Krishna Palepu" %}
+          <b class="big" style="margin:20px">News</b>
+        {% else %}
+          <a href="{{ site.url }}/news.html" style="margin:20px">News</a>
+        {% endif %}
+
+        {% if page.title == "Notes - Vijay Krishna Palepu" %}
+          <b class="big" style="margin:20px">Notes</b>
+        {% else %}
+          <a href="{{ site.url }}/blog.html" style="margin:20px">Notes</a>
+        {% endif %}
+
+        <a href="{{ site.url }}/cv.html" style="margin:20px">CV</a>
+      {% endif %}      
+    {% endif %}
+
+    </div> -->
+    
+    {{ content }}
+
+    <div class="plain stretch" style="background:rgba(255, 255, 255, 0.85)">  
+      <small>
+        <a href="{{ site.url }}/index.html">home</a> &bull;
+        <a href="https://bitbucket.com/vpalepu">@<b>bitbucket</b>.com</a> &bull;
+        <a href="http://www.linkedin.com/in/palepuvijaykrishna" target="_blank">@Linked<b>in</b></a> &bull;
+        <a href="http://instagram.com/vpalepu" target="_blank">@Instagram</a> &bull;
+        <a href="https://medium.com/@vkrishnapalepu" target="_blank">@medium</a> &bull;
+        <a href="http://stackoverflow.com/users/1481262/vijay">@stack<b>overflow</b></a> &bull;
+        <a href="https://gist.github.com/VijayKrishna">@<b>gist</b>.github.com</a>  &bull;
+        <a href="{{ site.url }}/archives.html"><b>arch</b>ives</a>
+        &bull;
+        Background Photo Credit: <a href="http://sudhapalepu.wordpress.com/" target="_blank">Sudha Palepu</a>
+      </small>
+    </div>    
+  </div>
   </div> <!-- end of main -->
+  <!-- <div class="header"></div> -->
 </body>
 </html>

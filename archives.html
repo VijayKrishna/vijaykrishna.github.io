@@ -1,0 +1,62 @@
+---
+layout: default
+title: Archives - Vijay Krishna Palepu
+---
+
+  <!-- <ul class="post"> -->
+    {% for post in site.posts %}
+      {% if post.categories contains 'blog' %}
+        {% continue %}
+      {% endif %}
+
+      <div class="plain stretch">
+         
+        <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a> | 
+        <span class="small">{{ post.date | date_to_string }}</span>        
+        <br/>
+        {% include list_display.html items=post.categories limit=1 %}
+        {% include list_display.html items=post.tags %}
+       
+
+        {% if post.tweets != null %}
+          {% for tweet in post.tweets %}
+              {% include tweet.html id=tweet alttext=post.title %}
+          {% endfor %}
+        {% endif %}
+
+        {% if post.speakerdeck != null %}
+            {% include speakerdeck.html id=post.speakerdeck %}
+        {% endif %}
+
+        {% if post.speakerdeck == null %}
+          {% if post.tweets == null %}
+            <p class="shortDesc">
+              {{ post.content | strip_html | truncate:400, "..." }}
+            </p>
+          {% endif %}
+        {% endif %}
+
+
+        {% if post.categories contains 'publication' %}
+          {% for link in post.links %}
+            {% assign value = link | last %}
+            {% assign key = link | first %}
+            
+            {% if key == 'paper' %}
+              {% assign paperurl = value %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          <br/>
+          <!-- {% include citation.html post = post %} -->
+          <!-- <div style="margin: 10px auto !important;text-align: center"> -->
+          <a href="{{ paperurl }}" class="icon-file-pdf gynormous">
+            paper<br>
+            <img style="width: 275; margin: 10px; -moz-border-radius: 10px; border-radius: 10px;" src="{{ site.url }}/images/{{ post.image }}" alt="{{ post.nick }}" />
+          </a>
+          <!-- </div> -->
+
+        {% endif %}
+      </div>
+    {% endfor %}
+  <!-- </ul> -->

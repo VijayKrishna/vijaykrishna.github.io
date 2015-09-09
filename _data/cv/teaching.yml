@@ -1,0 +1,29 @@
+- what: Reader
+  for: 'Senior Design Project'
+  where: UCI
+  when: 'Spring 2012'
+
+- what: Reader
+  for: 'Concepts in Programming Languages II'
+  where: UCI
+  when: 'Spring 2012' 
+
+- what: Teaching Assistant
+  for: 'Senior Design Project'
+  where: UCI
+  when: 'Fall 2012, Winter 2013, Spring 2013'
+
+- what: Guest Speaker on Testing Software Behavior 
+  for: 'Graduate course on Software Testing and Analysis' 
+  where: UCI
+  when: 'Spring 2014' 
+
+- what: Guest Speaker on QA and Testing 
+  for: 'Introduction to Software Engineering'
+  where: UCI
+  when: 'Summer 2013, Summer 2014' 
+
+- what: Guest Speaker on Software Testing 
+  for: 'Project in Software Engineering'
+  where: UCI
+  when: 'Winter 2015' 

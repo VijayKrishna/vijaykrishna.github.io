@@ -1,0 +1,37 @@
+<div id="experience" class="plain stretch">
+	{% if include.large_title == true %}
+	<strong class="big">Experience</strong>
+	{% else %}
+	<strong class="regular">EXPERIENCE</strong>
+	{% endif %}
+	<hr class="thinblue" />
+	<ul>
+		{% for i in site.data.cv.allexp %}
+		  {% if i.publish != 'y' %}
+		  	{% continue %}
+		  {% endif %}
+		  <li>
+		    <strong>{{ i.organization }}</strong>, <small>{{ i.duration }}, {{ i.where }}</small>,
+		    <br><i>{{ i.position }}</i>.
+		    <br>
+		    <ul class="shortDesc">
+			   	{% for b in i.bullets %}
+			    <li>
+			    	{{ b }} <br>
+			    </li>
+			    {% endfor %}
+			    <li>
+					<i>Languages and Tools:</i>		    
+					{% for l in i.languages %}
+				    	{% if forloop.last %}
+				    		{{ l }}. 
+				    	{% else %}
+				    		{{ l }},
+				    	{% endif %}
+				    {% endfor %}
+			    </li>
+		    </ul> 
+		  </li>
+		{% endfor %}
+	</ul>
+</div>

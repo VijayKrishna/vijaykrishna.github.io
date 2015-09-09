@@ -1,0 +1,23 @@
+<div class='plain stretch'>
+	{% if include.large_title == true %}
+	<strong class="big">Projects</strong>
+	{% else %}
+	<strong class="regular">PROJECTS</strong>
+	{% endif %}
+	<a href="{{ site.url }}/projects.html"> &crarr;</a>
+	<hr class="thinblue" />
+	<ul class="posts">
+	{% for post in site.categories.research-project %}
+		<li>
+			<a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+			<span class="shortDesc">{{ post.one-liner }}</span>
+		</li>    
+	{% endfor %}
+	{% for post in site.categories.class-project %}
+		<li>
+			<a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+			<span class="shortDesc">{{ post.one-liner }}</span>
+		</li>    
+	{% endfor %}
+	</ul>
+</div>

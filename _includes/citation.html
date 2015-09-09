@@ -1,0 +1,26 @@
+{% for author in include.post.authors %}
+  {% case forloop.rindex %}
+    {% when 1 %}
+      {% if author contains 'Palepu' %} 
+        <strong>{{ author}}</strong>,
+      {% else %}
+        {{ author }},
+      {% endif %}                 
+    {% when 2 %}
+      {% if author contains 'Palepu' %} 
+        <strong>{{ author}}</strong>
+      {% else %}
+        {{ author }}
+      {% endif %} and               
+    {% else %}
+      {% if author contains 'Palepu' %} 
+        <strong>{{ author}}</strong>;
+      {% else %}
+        {{ author }};
+      {% endif %}                 
+  {% endcase %}                       
+{% endfor %}
+"<strong>{{ include.post.title }}</strong>," , {{ include.post.conference }}, {{ include.post.pages }}, {{ include.post.dates }}.
+{% for link in include.post.links %}
+  <a href="{{ link | last }}">[{{ link | first }}] </a> 
+{% endfor %}<br/>
