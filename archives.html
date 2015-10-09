@@ -18,6 +18,7 @@ title: Archives - Vijay Krishna Palepu
         {% include list_display.html items=post.tags %}
        
 
+
         {% if post.tweets != null %}
           {% for tweet in post.tweets %}
               {% include tweet.html id=tweet alttext=post.title %}
@@ -55,6 +56,14 @@ title: Archives - Vijay Krishna Palepu
             <img style="width: 275; margin: 10px; -moz-border-radius: 10px; border-radius: 10px;" src="{{ site.url }}/images/{{ post.image }}" alt="{{ post.nick }}" />
           </a>
           <!-- </div> -->
+        {% else %}
+          {% if post.image != null %}
+            {% for image in post.image %}
+              <a href="{{ site.url }}{{ post.url }}">
+                <img style="width: 475; margin: 10px; -moz-border-radius: 10px; border-radius: 10px;" src="{{ site.url }}/images/{{ image }}">
+              </a>
+            {% endfor %}
+          {% endif %}
 
         {% endif %}
       </div>

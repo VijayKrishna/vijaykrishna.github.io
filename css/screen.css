@@ -47,6 +47,7 @@ body {
   background:#ffffff;
   background-image: url({{ site.url }}/images/grains_of_sand.JPG);
   background-image: url({{ site.url }}/images/DSC_0919a.jpg);
+  background-image: url({{ site.url }}/images/mt-rainier.JPG);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 100% auto;

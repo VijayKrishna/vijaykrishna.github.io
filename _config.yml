@@ -7,7 +7,7 @@
 # file-system
 # url: file:///home/vijay/website/_site
 #jekyll serve
-# url: http://0.0.0.0:4000/
+# url: http://127.0.0.1:4000
 # local
 # url: http://localhost:8080
 # ics testing
