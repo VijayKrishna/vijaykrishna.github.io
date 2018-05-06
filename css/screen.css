@@ -38,16 +38,17 @@ body {
   /*font-family: 'Josefin Slab', serif;*/
   /*font-family: 'Arvo', serif;*/
   /*THIS ONE::*/
-  font-family: 'Andada', serif;
+  /*font-family: 'Andada', serif;*/
   /*font-family: 'Open Sans', sans-serif;*/
-  /*font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;*/
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
   /*font-family: 'AvenirNextLTW01-Regular', Helvetica, sans-serif*/
   font-size:1em;
   line-height:1.5em;
   background:#ffffff;
-  background-image: url({{ site.url }}/images/grains_of_sand.JPG);
-  background-image: url({{ site.url }}/images/DSC_0919a.jpg);
-  background-image: url({{ site.url }}/images/mt-rainier.JPG);
+  /*background-image: url({{ site.url }}/images/grains_of_sand.JPG);*/
+  /*background-image: url({{ site.url }}/images/DSC_0919a.jpg);*/
+  /*background-image: url({{ site.url }}/images/mt-rainier.JPG);*/
+  /*background-image: url({{ site.url }}/images/1990.jpg);*/
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 100% auto;
