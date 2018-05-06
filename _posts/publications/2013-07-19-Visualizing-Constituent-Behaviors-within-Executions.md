@@ -7,7 +7,6 @@ on Software Visualization (VISSOFT)"]
 pages: ["pp.1-4"]
 dates: ["27-28 September 2013"]
 links: [["paper", "publications/vissoft13_palepu_jones.pdf"], ["vimeo", "https://vimeo.com/69526834"]]
-permalink: /index.html
 nick: ["The Brain"]
 image: ["brain.png"]
 abstract: ["In this New Ideas and Emerging Results paper, we

@@ -1,5 +1,5 @@
 ---
-layout: nil
+layout: empty
 ---
  {% for post in site.posts %}
    {{ post.content | strip_html }}
