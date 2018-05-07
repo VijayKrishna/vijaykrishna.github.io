@@ -44,7 +44,7 @@ body {
   /*font-family: 'AvenirNextLTW01-Regular', Helvetica, sans-serif*/
   font-size:1em;
   line-height:1.5em;
-  background:#ffffff;
+  background:white;
   /*background-image: url({{ site.url }}/images/grains_of_sand.JPG);*/
   /*background-image: url({{ site.url }}/images/DSC_0919a.jpg);*/
   /*background-image: url({{ site.url }}/images/mt-rainier.JPG);*/
@@ -219,8 +219,10 @@ li:hover strong {
 }
 
 div.plain {
+  /*float:right;*/
   width:auto; 
-  margin-right:0px; margin-bottom:10px; 
+  margin-right:10px; margin-bottom:10px;
+  margin-left:0px;
   /*background-color:#FFF; */
   background-color:rgba(255, 255, 255, 1);
   color:#111; 
@@ -230,7 +232,7 @@ div.plain {
   /*border-right-color: silver; border-right-width: 2px;*/
   /*padding-left:12.5px; padding-right:12.5px; padding-bottom:1px; padding-top:1px;*/
   padding-left:10px; padding-right:10px; padding-bottom:1px; padding-top:1px;
-  overflow:hidden
+  overflow:hidden;
   
 }
 
