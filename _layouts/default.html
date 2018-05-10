@@ -77,14 +77,14 @@
             <a href="{{ site.url }}/index.html" class="icon-home"></a> /
             Vijay Krishna <b>Palepu</b> 
           </span>
-          <span class="tiny">
-            &bull; vpalepu [at] uci [dot] edu &bull;
-            5243 Bren Hall,
-            <a href="http://www.spideruci.org" target="_blank">Spider Lab</a>,
-            <a href="http://www.uci.edu/" target="_blank">University of California, Irvine</a>, CA 92697-3440
-          </span> 
-          <a style="margin-left:20px" class="icon-file-pdf tiny" target="_blank" href="{{ site.url }}/vpalepu_cv.pdf"> CV</a>
-          <a style="margin-left:20px" class="icon-file-pdf tiny" target="_blank" href="{{ site.url }}/vpalepu_resume.pdf"> Resume</a>
+          <!-- <span class="tiny"> -->
+            <!-- &bull; vpalepu [at] uci [dot] edu &bull; -->
+            <!-- 5243 Bren Hall, -->
+            <!-- <a href="http://www.spideruci.org" target="_blank">Spider Lab</a>, -->
+            <!-- <a href="http://www.uci.edu/" target="_blank">University of California, Irvine</a>, CA 92697-3440 -->
+          <!-- </span>  -->
+<!--           <a style="margin-left:20px" class="icon-file-pdf tiny" target="_blank" href="{{ site.url }}/vpalepu_cv.pdf"> CV</a>
+          <a style="margin-left:20px" class="icon-file-pdf tiny" target="_blank" href="{{ site.url }}/vpalepu_resume.pdf"> Resume</a> -->
         {% else %}
           <span class="huge">
             <a href="{{ site.url }}/index.html" class="icon-home"></a> /
@@ -100,6 +100,8 @@
             <a href="{{ site.url }}/blog.html">Notes</a> / {{ page.title }}
           {% elsif page.categories contains 'project' %}
             <a href="{{ site.url }}/projects.html">Projects</a> / {{ page.title }}
+          {% elsif page.categories contains 'publication' %}
+            <a href="{{ site.url }}/research.html">Research</a> / {{ page.title }}
           {% else %}
             {{ page.title }}
           {% endif %}
@@ -184,8 +186,8 @@
         <a href="http://stackoverflow.com/users/1481262/vijay">stack<b>overflow</b></a> &bull;
         <a href="https://github.com/VijayKrishna"><b>github</b>.com</a>  &bull;
         <a href="{{ site.url }}/archives.html"><b>arch</b>ives</a>
-        &bull;
-        Background: <a href="{{ site.url }}/images/mt-rainier.JPG" target="_blank">Mt. Ranier</a>, © Vijay Krishna Palepu, 2015
+        <!-- &bull; -->
+        <!-- Background: <a href="{{ site.url }}/images/mt-rainier.JPG" target="_blank">Mt. Ranier</a>, © Vijay Krishna Palepu, 2015 -->
         <!-- Background Photo Credit: <a href="http://sudhapalepu.wordpress.com/" target="_blank">Sudha Palepu</a> -->
       </small>
     </div>    

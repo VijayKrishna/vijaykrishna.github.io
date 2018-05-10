@@ -1,4 +1,5 @@
 ---
+layout: publication
 title: ["Spider SENSE: Software-Engineering, Networked, System Evaluation"]
 categories: ['publication']
 authors: ["Reddy, Nishaanth H.", "Kim, Junghun", "Palepu, Vijay Krishna", "Jones, James"]

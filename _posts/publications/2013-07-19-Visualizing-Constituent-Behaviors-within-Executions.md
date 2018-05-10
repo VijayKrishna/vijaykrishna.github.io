@@ -1,4 +1,5 @@
 ---
+layout: publication
 title: ["Visualizing Constituent Behaviors within Executions"]
 categories: ['publication']
 authors: ["Palepu, Vijay Krishna", "Jones, James"]

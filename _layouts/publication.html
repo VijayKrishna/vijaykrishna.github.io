@@ -1,0 +1,12 @@
+---
+layout: default
+---
+
+<title>{{ page.title }}</title>
+
+<div id="publications" class="plain stretch">
+	{% include citation.html post = page %}
+	<br/>
+	<img style="float: right; width: 250; margin: 10px; -moz-border-radius: 10px; border-radius: 10px;" src="{{ site.url }}/images/{{ page.image }}" alt="{{ page.nick }}" />
+	{{ page.abstract }}	
+</div>

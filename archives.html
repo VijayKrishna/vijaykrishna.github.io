@@ -10,14 +10,19 @@ title: Archives - Vijay Krishna Palepu
       {% endif %}
 
       <div class="plain stretch">
-         
-        <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a> | 
-        <span class="small">{{ post.date | date_to_string }}</span>        
-        <br/>
+        
+<!--         {% if post.categories contains 'publication' %}
+          <a href="{{ site.url }}/{{ post.links[0] | last }}">{{ post.title }}</a> |
+        {% else %}
+          <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a> |
+        {% endif %} -->
+
+        <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a> |
+        <span class="small">{{ post.date | date_to_string }}</span> |      
+        <span>
         {% include list_display.html items=post.categories limit=1 %}
         {% include list_display.html items=post.tags %}
-       
-
+        </span>
 
         {% if post.tweets != null %}
           {% for tweet in post.tweets %}
@@ -31,8 +36,8 @@ title: Archives - Vijay Krishna Palepu
 
         {% if post.speakerdeck == null %}
           {% if post.tweets == null %}
-            <p class="shortDesc">
-              {{ post.content | strip_html | truncate:400, "..." }}
+            <p class = "small">
+              {{ post.content | strip_html | truncate:1000, " ..." }}
             </p>
           {% endif %}
         {% endif %}
@@ -48,13 +53,15 @@ title: Archives - Vijay Krishna Palepu
               {% break %}
             {% endif %}
           {% endfor %}
-          <br/>
-          <!-- {% include citation.html post = post %} -->
-          <!-- <div style="margin: 10px auto !important;text-align: center"> -->
-          <a href="{{ paperurl }}" class="icon-file-pdf gynormous">
-            paper<br>
-            <img style="width: 275; margin: 10px; -moz-border-radius: 10px; border-radius: 10px;" src="{{ site.url }}/images/{{ post.image }}" alt="{{ post.nick }}" />
-          </a>
+
+          <img style="float: left; width: 25%; min-width:100px; margin: 10px; -moz-border-radius: 10px; border-radius: 10px;" src="{{ site.url }}/images/{{ post.image }}" alt="{{ post.nick }}" />
+          <p class = "small">
+            {{ post.abstract }}
+            <br/>
+            {% for link in post.links %}
+              <a href="{{ link | last }}">[{{ link | first }}] </a> 
+            {% endfor %}
+          </p>
           <!-- </div> -->
         {% else %}
           {% if post.image != null %}

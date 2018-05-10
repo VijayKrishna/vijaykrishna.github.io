@@ -1,4 +1,5 @@
 ---
+layout: publication
 title: ["Improving Efficiency of Dynamic Analysis with Dynamic Dependence Summaries"]
 categories: ['publication']
 authors: ["Palepu, Vijay Krishna", "Xu, Guoqing", "Jones, James"]

@@ -1,4 +1,5 @@
 ---
+layout: publication
 title: ["Trendy bugs: Topic trends in the Android bug reports"]
 categories: ['publication']
 authors: ["Martie, Lee","Palepu, Vijay Krishna","Sajnani, Hitesh","Lopes, Cristina"]

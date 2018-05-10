@@ -1,4 +1,5 @@
 ---
+layout: publication
 title: ["Revealing Runtime Features and Constituent Behaviors within Software"]
 categories: ['publication']
 authors: ["Palepu, Vijay Krishna", "Jones, James"]

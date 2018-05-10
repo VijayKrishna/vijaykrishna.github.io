@@ -1,4 +1,5 @@
 ---
+layout: publication
 title: ["Discriminating Influences among Instructions in a Dynamic Slice"]
 categories: ['publication']
 authors: ["Palepu, Vijay Krishna", "Jones, James"]
