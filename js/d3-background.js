@@ -45,7 +45,8 @@ function main(jsonFile){
     }
     
     function drawChart(data) {
-        var shiftX = 200;
+        var shiftX = 210;
+        var shiftY = 550;
     
         var link = svg.append("g")
             .attr("class", "links")
@@ -55,9 +56,9 @@ function main(jsonFile){
             .append("line")
             .attr("stroke", "lightgrey")
             .attr("x1", function(d) { return d.x1 + shiftX; })
-            .attr("y1", function(d) { return d.y1 + 500; })
+            .attr("y1", function(d) { return d.y1 + shiftY; })
             .attr("x2", function(d) { return d.x2 + shiftX; })
-            .attr("y2", function(d) { return d.y2 + 500; })
+            .attr("y2", function(d) { return d.y2 + shiftY; })
             .style("opacity", function(d) { return 0.25 })
             .style("stroke-width", function(d) { return 1.5 })
         
@@ -66,10 +67,11 @@ function main(jsonFile){
             .selectAll("circle")
             .data(data.nodes)
             .enter().append("circle")
-            .attr("r", function(d){  return d.colorGroup % 7 })
+            .attr("r", function(d){  return d.colorGroup > 9 ? (d.colorGroup - 7) : (9 - d.colorGroup) })
             .attr("cx", function(d) { return d.x + shiftX; })
-            .attr("cy", function(d) { return d.y + 500; })
-            .style("fill", function (d) { return colors((d.colorGroup)) });
+            .attr("cy", function(d) { return d.y + shiftY; })
+            .style("fill", function (d) { return colors((d.colorGroup)) })
+            .style("opacity", function(d) { return 0.85 });
                 
     }
 }
