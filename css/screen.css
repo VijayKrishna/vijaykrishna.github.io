@@ -164,7 +164,7 @@ td { vertical-align: top; }
 
 div.container { 
   min-width:100px; 
-  max-width:1000px; 
+  max-width:850px; 
   margin:10px auto; 
 }
 
@@ -229,7 +229,7 @@ div.plain {
   margin-right:10px; margin-bottom:10px;
   margin-left:0px;
   /*background-color:#FFF; */
-  background-color:rgba(255, 255, 255, 1);
+  background-color:rgba(255, 255, 255, 0.8);
   color:#111; 
   border:1px solid silver;
   border-radius:10px; -moz-border-radius:10px; 

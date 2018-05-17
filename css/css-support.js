@@ -1,4 +1,4 @@
-header = document.getElementById("header");
+header = document.getElementById("stickyheader");
 
 var myScrollFunc = function() {
   var y = window.scrollY;

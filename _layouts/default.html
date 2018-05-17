@@ -15,7 +15,6 @@
   <!-- syntax highlighting CSS -->
   <link rel="stylesheet" href="{{ site.url }}/css/syntax.css" type="text/css" />
   <link href='http://fonts.googleapis.com/css?family=Andada' rel='stylesheet' type='text/css'>
-  
   <!-- <link rel="stylesheet" href="{{ site.url }}/css/pygments.css" type="text/css" > -->
 </head>
 <body>
@@ -32,6 +31,13 @@
     </div>    
   </div>
   </div> <!-- end of main -->
+  <div id="brain" class="fixed" style="z-index: -1; top: 0px; width: 100%; height: 100%"></div>
+  <script type="text/javascript" src="{{ site.url }}/js/d3.v5.min.js"></script>
+  <script src="https://d3js.org/d3-request.v1.min.js"></script>
+  <script type="text/javascript" src="{{ site.url }}/js/d3-background.js"></script>
+  <script type="text/javascript">
+    main("{{ site.url }}/js/nanoxml.json");
+  </script>
   <!-- <div class="header"></div> -->
 </body>
 </html>
