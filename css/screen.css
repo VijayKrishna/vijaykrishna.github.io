@@ -203,6 +203,11 @@ div.center {
   padding-left:10px; padding-right:10px; padding-bottom:1px; padding-top:1px;
 }
 
+div.fixed {
+  position: fixed;
+  top: 5px;
+}
+
 div.center:hover {
   border-left-color: #6AA67E; border-left-width: 4px;
   padding-left:7px;
@@ -311,7 +316,7 @@ hr {
 
 hr.thinblue { 
  border: 0;
- height: 1px;
+ height: 0.5px;
  background: #6AA67E;
  /*color: sliver;*/
  /*background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
