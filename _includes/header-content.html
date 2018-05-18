@@ -1,79 +1,47 @@
     {% if include.header == true %}
-      <div id="stickyheader" class="plain stretch fixed" style="display: none; padding-bottom:5px; background-color:rgba(255, 255, 255, 1)">
+      <div id="stickyheader" class="plain stretch fixed" style="display: none; padding-bottom:2px; padding-top:2px; background-color:rgba(255, 255, 255, 1.0)">
     {% else %}
-      <div class="plain stretch" style="display: block; padding-bottom:5px">
+      <div class="plain stretch" style="display: block; padding-bottom:2px; padding-top:2px">
     {% endif %}
-      <span class="regular">
-        {% if page.title == "Research - Vijay Krishna Palepu" %}
-          <b style="margin:20px;margin-left:0">Research</b>
-        {% else %}
-          <a href="{{ site.url }}/research.html" style="margin:20px;margin-left:0">Research</a>
-        {% endif %}
-
-        {% if page.title == "Projects - Vijay Krishna Palepu" %}
-          <b style="margin:20px">Projects</b>
-        {% else %}
-          <a href="{{ site.url }}/projects.html" style="margin:20px">Projects</a>
-        {% endif %}
-        
-        {% if page.title == "News - Vijay Krishna Palepu" %}
-          <b style="margin:20px">News</b>
-        {% else %}
-          <a href="{{ site.url }}/news.html" style="margin:20px">News</a>
-        {% endif %}
-
-        {% if page.title == "Notes - Vijay Krishna Palepu" %}
-          <b style="margin:20px">Notes</b>
-        {% else %}
-          <a href="{{ site.url }}/blog.html" style="margin:20px">Notes</a>
-        {% endif %}
-
-        {% if page.title == "CV - Vijay Krishna Palepu" %}
-          <b style="margin:20px">CV</b>
-        {% else %}
-          <a href="{{ site.url }}/cv.html" style="margin:20px">CV</a>
-        {% endif %}
-      </span>
-      <br/>
-      <hr class="thinblue" />
 
       {% if page.title == "Vijay Krishna Palepu" %}
         <span class="huge">Vijay Krishna <b>Palepu</b></span>
-        {% include other-links.html on_home_page=true %}
-      {% elsif page.title contains " - Vijay Krishna Palepu" %}
-        {% if page.title == "CV - Vijay Krishna Palepu" %}
-          <span class="huge">
-            <a href="{{ site.url }}/index.html" class="icon-home"></a> /
-            Vijay Krishna <b>Palepu</b> 
-          </span>
-          <!-- <span class="tiny"> -->
-            <!-- &bull; vpalepu [at] uci [dot] edu &bull; -->
-            <!-- 5243 Bren Hall, -->
-            <!-- <a href="http://www.spideruci.org" target="_blank">Spider Lab</a>, -->
-            <!-- <a href="http://www.uci.edu/" target="_blank">University of California, Irvine</a>, CA 92697-3440 -->
-          <!-- </span>  -->
-<!--           <a style="margin-left:20px" class="icon-file-pdf tiny" target="_blank" href="{{ site.url }}/vpalepu_cv.pdf"> CV</a>
-          <a style="margin-left:20px" class="icon-file-pdf tiny" target="_blank" href="{{ site.url }}/vpalepu_resume.pdf"> Resume</a> -->
-        {% else %}
-          <span class="huge">
-            <a href="{{ site.url }}/index.html" class="icon-home"></a> /
-            <b>{{ page.title | replace_first:' - Vijay Krishna Palepu', '' }}</b>
-          </span>
-        {% endif %}          
+      {% else %}
+        <span class="huge"><a href="{{ site.url }}/index.html" class="icon-home"></a></span>
+      {% endif %}
+
+      {% if page.title == "Vijay Krishna Palepu" %}
+        <span class="regular">&bull; <a href="{{ site.url }}/research.html">Research</a> &bull; <a href="{{ site.url }}/cv.html">CV</a></span>
+      {% elsif page.title contains "CV - Vijay Krishna Palepu" %}
+        <span class="huge"> / Vijay Krishna <b>Palepu</b></span>
+        <span class="regular">
+          <a style="margin-left:20px" class="icon-file-pdf tiny" target="_blank" href="{{ site.url }}/vpalepu_cv.pdf"> CV</a>
+          <a style="margin-left:20px" class="icon-file-pdf tiny" target="_blank" href="{{ site.url }}/vpalepu_resume.pdf"> Resume</a>
+        </span>
+      {% elsif page.title contains "Research - Vijay Krishna Palepu" %}
+        <span class="huge"> / <b>Research</b></span>
+      {% elsif page.title contains "Archives - Vijay Krishna Palepu" %}
+        <span class="huge"> / <b>Archives</b></span>
+        <span class="regular">&bull; <a href="{{ site.url }}/news.html">News</a> &bull; <a href="{{ site.url }}/blog.html">Notes</a></span>
+      {% elsif page.title contains "News - Vijay Krishna Palepu" %}
+        <span class="huge"> / <a href="{{ site.url }}/archives.html">Archives</a> / <b>News</b></span>
+      {% elsif page.title contains "Notes - Vijay Krishna Palepu" %}
+        <span class="huge"> / <a href="{{ site.url }}/archives.html">Archives</a> / <b>Notes</b></span>
+      {% elsif page.title contains "Projects - Vijay Krishna Palepu" %}
+        <span class="huge"> / <a href="{{ site.url }}/research.html">Research</a> / <b>Projects</b></span>         
       {% else %}
         <span class="huge">
-          <a href="{{ site.url }}/index.html" class="icon-home"></a> /
+           /
           {% if page.categories contains 'news' %}
-            <a href="{{ site.url }}/news.html">News</a> / {{ page.title }}
+            <a href="{{ site.url }}/archives.html">Archives</a> / <a href="{{ site.url }}/news.html">News</a> / 
           {% elsif page.categories contains 'blog' %}
-            <a href="{{ site.url }}/blog.html">Notes</a> / {{ page.title }}
+            <a href="{{ site.url }}/archives.html">Archives</a> / <a href="{{ site.url }}/blog.html">Notes</a> /
           {% elsif page.categories contains 'project' %}
-            <a href="{{ site.url }}/projects.html">Projects</a> / {{ page.title }}
+            <a href="{{ site.url }}/research.html">Research</a> / <a href="{{ site.url }}/projects.html">Projects</a> /
           {% elsif page.categories contains 'publication' %}
-            <a href="{{ site.url }}/research.html">Research</a> / {{ page.title }}
-          {% else %}
-            {{ page.title }}
+            <a href="{{ site.url }}/research.html">Research</a> /
           {% endif %}
+          {{ page.title }}
         </span>
       {% endif %}
     </div>

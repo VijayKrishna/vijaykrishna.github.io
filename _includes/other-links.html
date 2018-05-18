@@ -1,13 +1,15 @@
       <small>
         {% if include.on_home_page != true %}
-        <a href="{{ site.url }}/index.html">home</a> &bull;
+        <a href="{{ site.url }}/index.html" class="icon-home"></a> &bull;
         {% endif %}
+
 
         <a href="https://bitbucket.com/vpalepu"><b>bitbucket</b>.com</a> &bull;
         <a href="http://www.linkedin.com/in/palepuvijaykrishna" target="_blank">Linked<b>in</b></a> &bull;
         <a href="https://medium.com/@vkrishnapalepu" target="_blank">medium</a> &bull;
 
         <a href="https://github.com/VijayKrishna"><b>github</b>.com</a>
+
         {% if include.on_home_page != true %}
         &bull; <a href="{{ site.url }}/archives.html"><b>arch</b>ives</a>
         {% endif %}
