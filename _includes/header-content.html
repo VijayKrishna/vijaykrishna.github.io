@@ -22,22 +22,26 @@
         <span class="huge"> / <b>Research</b></span>
       {% elsif page.title contains "Archives - Vijay Krishna Palepu" %}
         <span class="huge"> / <b>Archives</b></span>
-        <span class="regular">&bull; <a href="{{ site.url }}/news.html">News</a> &bull; <a href="{{ site.url }}/blog.html">Notes</a></span>
+        <span class="regular">
+          &bull; <a href="{{ site.url }}/archives/news.html">News</a> 
+          &bull; <a href="{{ site.url }}/archives/blog.html">Notes</a>
+          &bull; <a href="{{ site.url }}/archives/projects.html">Projects</a>          
+        </span>
       {% elsif page.title contains "News - Vijay Krishna Palepu" %}
-        <span class="huge"> / <a href="{{ site.url }}/archives.html">Archives</a> / <b>News</b></span>
+        <span class="huge"> / <a href="{{ site.url }}/archives">Archives</a> / <b>News</b></span>
       {% elsif page.title contains "Notes - Vijay Krishna Palepu" %}
-        <span class="huge"> / <a href="{{ site.url }}/archives.html">Archives</a> / <b>Notes</b></span>
+        <span class="huge"> / <a href="{{ site.url }}/archives">Archives</a> / <b>Notes</b></span>
       {% elsif page.title contains "Projects - Vijay Krishna Palepu" %}
         <span class="huge"> / <a href="{{ site.url }}/research.html">Research</a> / <b>Projects</b></span>         
       {% else %}
         <span class="huge">
            /
           {% if page.categories contains 'news' %}
-            <a href="{{ site.url }}/archives.html">Archives</a> / <a href="{{ site.url }}/news.html">News</a> / 
+            <a href="{{ site.url }}/archives">Archives</a> / <a href="{{ site.url }}/archives/news.html">News</a> / 
           {% elsif page.categories contains 'blog' %}
-            <a href="{{ site.url }}/archives.html">Archives</a> / <a href="{{ site.url }}/blog.html">Notes</a> /
+            <a href="{{ site.url }}/archives">Archives</a> / <a href="{{ site.url }}/archives/blog.html">Notes</a> /
           {% elsif page.categories contains 'project' %}
-            <a href="{{ site.url }}/research.html">Research</a> / <a href="{{ site.url }}/projects.html">Projects</a> /
+            <a href="{{ site.url }}/archives">Archives</a> / <a href="{{ site.url }}/archives/projects.html">Projects</a> /
           {% elsif page.categories contains 'publication' %}
             <a href="{{ site.url }}/research.html">Research</a> /
           {% endif %}
