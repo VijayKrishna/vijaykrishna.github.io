@@ -82,9 +82,12 @@ function ForceGraph3D() {
 
 		// Setup scene
 		env.scene = new THREE.Scene();
+		// env.scene.background = new THREE.Color( 0xff0000 );
 
 		// Setup renderer
 		env.renderer = new THREE.WebGLRenderer();
+		env.renderer.setClearColor(0x000000, 1);
+		
 		env.domNode.appendChild(env.renderer.domElement);
 
 		// Add camera interaction
@@ -132,30 +135,32 @@ function ForceGraph3D() {
 
 		// Add WebGL objects
 		graph.forEachNode(node => {
-			const nodeMaterial = new THREE.MeshBasicMaterial({ color: env.colorAccessor(node.data)/* || 0xffffaa*/, transparent: true });
-			nodeMaterial.opacity = 0.75;
+			const nodeMaterial = new THREE.MeshBasicMaterial({ color: env.colorAccessor(node.data)/* || 0xffffaa*/, transparent: false });
+			nodeMaterial.opacity = 1.0;
 
 			const sphere = new THREE.Mesh(
-				new THREE.SphereGeometry(Math.cbrt(env.valAccessor(node.data) || 1) * env.nodeRelSize),
+				new THREE.SphereGeometry(2.5),
 				nodeMaterial
 			);
-			sphere.name = node.data.label; // env.nameAccessor(node.data) || '';
+
+			sphere.name = node.data.label;
 			sphere.position.x = node.data.x;
 			sphere.position.y = node.data.y;
 			sphere.position.z = node.data.z;
-			// sphere.r = 0.1
 
-			env.scene.add(node.data.sphere = sphere)
-
-
-
+			env.scene.add(node.data.sphere = sphere);
 		});
 
 		const lineMaterial = new THREE.MeshBasicMaterial({ color: 0xf0f0f0, transparent: true });
 		lineMaterial.opacity = 0.5; //env.lineOpacity;
 		graph.forEachLink(link => {
-			const line = new THREE.Line(new THREE.Geometry(), lineMaterial);
-			line.name = `${getNodeName(link.fromId)} > ${getNodeName(link.toId)}`;
+			var geom = new THREE.Geometry();
+			// geom.vertices = [
+			// 		new THREE.Vector3(link.x1, link.y1, link.z1),
+			// 		new THREE.Vector3(link.x2, link.y2, link.z2)
+			// 	];
+			const line = new THREE.Line(geom, lineMaterial);
+			// line.name = `${getNodeName(link.fromId)} > ${getNodeName(link.toId)}`;
 
 			env.scene.add(link.data.line = line)
 
@@ -167,17 +172,6 @@ function ForceGraph3D() {
 		env.camera.lookAt(env.scene.position);
 		env.camera.position.z = Math.cbrt(Object.keys(env.graphData.nodes).length) * CAMERA_DISTANCE2NODES_FACTOR;
 
-		// Add force-directed layout
-		// const layout = ngraph.forcelayout3d(graph);
-
-		// for (let i=0; i<env.initialEngineTicks; i++) { layout.step(); } // Initial ticks before starting to render
-
-		// let cntTicks = 0;
-		// const startTickTime = new Date();
-		// env.onFrame = layoutTick;
-
-		//
-
 		function resizeCanvas() {
 			if (env.width && env.height) {
 				env.renderer.setSize(env.width, env.height);
@@ -185,37 +179,6 @@ function ForceGraph3D() {
 				env.camera.updateProjectionMatrix();
 			}
 		}
-
-		// function layoutTick() {
-		// 	if (cntTicks++ > env.maxConvergeFrames || (new Date()) - startTickTime > env.maxConvergeTime) {
-		// 		env.onFrame = ()=>{}; // Stop ticking graph
-		// 	}
-
-		// 	layout.step(); // Tick it
-
-		// 	// Update nodes position
-			// graph.forEachNode(node => {
-			// 	const sphere = node.data.sphere;
-			// 		// pos = layout.getNodePosition(node.id);
-
-			// 	sphere.position.x = Math.floor(Math.random() * Math.floor(100));
-			// 	sphere.position.y = Math.floor(Math.random() * Math.floor(100));
-			// 	sphere.position.z = Math.floor(Math.random() * Math.floor(100));
-			// });
-
-		// 	// Update links position
-		// 	graph.forEachLink(link => {
-		// 		const line = link.data.line,
-		// 			pos = layout.getLinkPosition(link.id);
-
-		// 		line.geometry.vertices = [
-		// 			new THREE.Vector3(pos.from.x, pos.from.y, pos.from.z),
-		// 			new THREE.Vector3(pos.to.x, pos.to.y, pos.to.z)
-		// 		];
-
-		// 		line.geometry.verticesNeedUpdate = true;
-		// 	})
-		// }
 	}
 
 	// Component constructor
