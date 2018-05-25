@@ -152,9 +152,9 @@ function ForceGraph3D() {
 		});
 
 		var material = new THREE.LineBasicMaterial({
-			color: 0xffffff,
+			color: 0x115511,
 			transparent: true,
-			linewidth: 2,
+			linewidth: 2.5,
 			opacity: 0.1
 		});
 
