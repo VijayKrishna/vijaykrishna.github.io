@@ -151,22 +151,51 @@ function ForceGraph3D() {
 			env.scene.add(node.data.sphere = sphere);
 		});
 
-		const lineMaterial = new THREE.MeshBasicMaterial({ color: 0xf0f0f0, transparent: true });
-		lineMaterial.opacity = 0.5; //env.lineOpacity;
+		var material = new THREE.LineBasicMaterial({
+			color: 0xffffff,
+			transparent: true,
+			linewidth: 2,
+			opacity: 0.1
+		});
+
+		var redmaterial = new THREE.LineBasicMaterial({
+			color: 0xff0000,
+			transparent: true,
+			linewidth: 2,
+			opacity: 0.5
+		});
+
+		var spline = true;
+
 		graph.forEachLink(link => {
-			var geom = new THREE.Geometry();
-			// geom.vertices = [
-			// 		new THREE.Vector3(link.x1, link.y1, link.z1),
-			// 		new THREE.Vector3(link.x2, link.y2, link.z2)
-			// 	];
-			const line = new THREE.Line(geom, lineMaterial);
-			// line.name = `${getNodeName(link.fromId)} > ${getNodeName(link.toId)}`;
+			var geometry;
+			var fromNode = env.graphData.nodes[link.fromId];
+			var toNode = env.graphData.nodes[link.toId];
 
-			env.scene.add(link.data.line = line)
+			if (spline) {
+				var dx = (toNode.x - fromNode.x);
+				var dy = (toNode.y - fromNode.y);
+				var dz = (toNode.z - fromNode.z);
 
-			function getNodeName(nodeId) {
-				return env.nameAccessor(graph.getNode(nodeId).data);
+				var from = new THREE.Vector3( fromNode.x, fromNode.y, fromNode.z );
+				var contorl = new THREE.Vector3(fromNode.x + (dx * 0.25), fromNode.y + (dy * 0.9), fromNode.z + (dz * 0.5) );
+				var to = new THREE.Vector3( toNode.x, toNode.y, toNode.z );
+
+				var curve = new THREE.CatmullRomCurve3( [from, contorl, to] );
+				// curve.curveType = "chordal";
+
+				var points = curve.getPoints( 50 );
+				geometry = new THREE.BufferGeometry().setFromPoints( points );				
+			} else {
+				geometry = new THREE.Geometry();
+				geometry.vertices.push(
+					new THREE.Vector3( fromNode.x, fromNode.y, fromNode.z ),
+					new THREE.Vector3( toNode.x, toNode.y, toNode.z )
+				);				
 			}
+
+			var line = new THREE.Line( geometry, material );
+			env.scene.add( link.data.line = line );
 		});
 
 		env.camera.lookAt(env.scene.position);
