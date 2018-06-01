@@ -1,7 +1,7 @@
 # safe:        false
 # auto:        true
 # server:      true
-# server_port: 4000
+server_port: 4000
 # baseurl:    /~vpalepu
 # root: /~vpalepu/_site
 # file-system

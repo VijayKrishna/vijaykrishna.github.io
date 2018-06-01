@@ -3,20 +3,56 @@ layout: default
 title: Vijay Krishna Palepu
 ---
 
-<div class="plain stretch">
-	<p><b>NOTE: Since graduating from UCI, I have let this website go terribly out of date. I am in the process of rebuilding this website. Visit back later for updates. -- Vijay, May 17 2018</b></p>
+<div style="height: 90%"></div>
+<div style="margin-bottom:40px; background-color: rgba(255, 255, 255, 0.5); height: 3em">
+	
+
+	<span class="regular_x3_5">
+		Vijay Krishna <b>Palepu</b>
+	</span>
+	<a href="#cerebro" title="About the backdrop"><img class="icon_2x bounded" src="{{ site.url }}/images/cerebro-light.png"></a>
+	<a href="{{ site.url }}/cv.html" title="Resume and C.V."><img class="icon_2x bounded" src="{{ site.url }}/images/cv.svg"></a>
+	<a href="{{ site.url }}/research.html" title="Software Research"><img class="icon_2x bounded" src="{{ site.url }}/images/code.svg"></a>
+	<!-- <a href="{{ site.url }}/tree.html" title="Treestrokes"><img class="icon_2x bounded" src="{{ site.url }}/images/favicon.gif"></a> -->
+	<a href="{{ site.url }}/archives" title="Ph.D. Archives"><img class="icon_2x bounded" src="{{ site.url }}/images/archives.svg"></a>
+	<a href="#notice" title="Site Under Construction"><img class="icon_2x bounded" src="{{ site.url }}/images/notice.svg"></a>
+</div>
+
+	{% include notice.html %}
+
+<div id="cerebro" class="plain stretch">
+	<strong class="big">CEREBRO</strong>
+	<hr class="thinblue" />
+
+	<strong>CEREBRO hosted at:</strong> <a href="http://spideruci.github.io/cerebro">http://spideruci.github.io/cerebro</a><br>
+
+	<iframe style="float: right; margin: 10px;" src="//player.vimeo.com/video/69526834?color=c9ff23" width="500" height="472" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	Cerebro, formerly known as "The Brain", reveals clusters of source code that co-execute to produce behavioral features of the program throughout and within executions. We created a clustered visualization of source-code that is informed by dynamic control flow of multiple executions; each cluster represents commonly interacting logic that composes software features. In addition, we render individual executions atop the clustered multiple-execution visualization as user-controlled animations to reveal characteristics of specific executions—these animations may provide exemplars for the clustered features and provide chronology for those behavioral features, or they may reveal anomalous behaviors that do not fit with the overall operational profile of most executions. Both the clustered multiple-execution view and the animated individual-execution view provide insights for the constituent behaviors within executions that compose behaviors of whole executions. Inspired by neural imaging of human brains of people who were subjected to various external stimuli, we designed and implemented Cerebro to reveal program activity during execution. The result has revealed the principal behaviors of execution. Those behaviors were revealed to be (in some cases) cohesive, modular source-code structures and (in other cases) cross-cutting, emergent behaviors involving multiple modules.
 </div>
 
 <div class="plain stretch">
-	<img style="float: left; width:25%; min-width:100px; margin: 10px; -moz-border-radius: 10px; border-radius: 10px;" src="{{ site.url }}/images/vpalepu.jpg" alt="Vijay Krishna" />
+	<strong class="big">Today We Lack</strong>
+	<hr class="thinblue" />
+
+	<strong>Hosted at:</strong> <a href="http://treestrokes.github.io/today-we-lack/">http://treestrokes.github.io/today-we-lack/</a><br>
 
 
-	<p>As a software engineer, I am principally interested in improving the methods and techniques for software debugging (i.e. finding and fixing software faults). I am particularly interested in developing the facilities and theory to enable software developers better understand, locate and fix software faults. My research currently looks at building, visualizing and studying models of runtime behavior of software components in order to facilitate software debugging which is a complex and ubiquitous activity within software engineering.</p>
+	"Today We Lack" is an attempt to harness the power of the internet and the data that it has accumulated over the years to understand what we as a people in India have been lacking for many years now, as reported by our news media. The premise of this project is simple: list out all the things that we lack in the country --- today, yesterday, the day before, or at any time in the past --- and someone, somewhere might want to do something about it.<br>
 
-	<p>I graduated with a Ph.D. in Software Engineering, from the University of California, Irvine, where I was advised by <a href="http://www.ics.uci.edu/~jajones/Home.html" target="_blank">Prof. James A. Jones</a> at the <a href="http://www.spideruci.org">Spider Lab</a>. James' research is focused towards software testing, analysis (compile-time and run-time) and debugging. Before UCI, I obtained my undergrad degree in Computer Engineering, with a <i>First Class with Distinction</i> from the University of Pune, India.</p>
-<!-- 	
-	<p>My advisor is <a href="http://www.ics.uci.edu/~jajones/Home.html" target="_blank">Prof. James A. Jones</a> at the <a href="http://www.spideruci.org">Spider Lab</a>. James' research is focused towards software testing, analysis (compile-time and run-time) and debugging.</p> -->
+	We are collecting news headlines from websites such as the Times of India. From such a massive pool of headlines we are simply searching for those headlines that have the word 'lack' in it. We find that such headlines explicitly call out on things that we as a people lack, every now and then.<br>
+
+	Take a look at this list of things that India lacks.
 </div>
+
+<div class="plain stretch"></dir>
+	<strong class="regular">Credits</strong>
+	<br>
+	Programming/Code Icon (<img class="icon" src="{{ site.url }}/images/code.svg">) created by Noura Mbarki, from the thenounproject.com<br>
+	Archives Icon (<img class="icon" src="{{ site.url }}/images/archives.svg">) created by pictohaven, from the thenounproject.com<br>
+	Resume Icon (<img class="icon" src="{{ site.url }}/images/cv.svg">) created by Creative Mania, from the thenounproject.com<br>
+	Notice Icon (<img class="icon" src="{{ site.url }}/images/notice.svg">) created by Chameleon Design, from the thenounproject.com
+</div>
+
 
 <!-- {% if site.categories.highlight.size != 0 %}
 <div class="plain stretch">
@@ -39,32 +75,6 @@ title: Vijay Krishna Palepu
 </div>
 
 {% endif %} -->
-
-<div class="plain stretch">
-	<strong class="big">CEREBRO</strong>
-	<hr class="thinblue" />
-
-	<strong>Hosted at:</strong> <a href="http://spideruci.github.io/cerebro">http://spideruci.github.io/cerebro</a><br>
-
-	<iframe style="float: right; margin: 10px;" src="//player.vimeo.com/video/69526834?color=c9ff23" width="500" height="472" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-	Cerebro, formerly known as "The Brain", reveals clusters of source code that co-execute to produce behavioral features of the program throughout and within executions. We created a clustered visualization of source-code that is informed by dynamic control flow of multiple executions; each cluster represents commonly interacting logic that composes software features. In addition, we render individual executions atop the clustered multiple-execution visualization as user-controlled animations to reveal characteristics of specific executions—these animations may provide exemplars for the clustered features and provide chronology for those behavioral features, or they may reveal anomalous behaviors that do not fit with the overall operational profile of most executions. Both the clustered multiple-execution view and the animated individual-execution view provide insights for the constituent behaviors within executions that compose behaviors of whole executions. Inspired by neural imaging of human brains of people who were subjected to various external stimuli, we designed and implemented Cerebro to reveal program activity during execution. The result has revealed the principal behaviors of execution. Those behaviors were revealed to be (in some cases) cohesive, modular source-code structures and (in other cases) cross-cutting, emergent behaviors involving multiple modules.
-</div>
-
-<div class="plain stretch">
-	<strong class="big">Today We Lack</strong>
-	<hr class="thinblue" />
-
-	<strong>Hosted at:</strong> <a href="http://treestrokes.github.io/today-we-lack/">http://treestrokes.github.io/today-we-lack/</a><br>
-
-
-	"Today We Lack" is an attempt to harness the power of the internet and the data that it has accumulated over the years to understand what we as a people in India have been lacking for many years now, as reported by our news media. The premise of this project is simple: list out all the things that we lack in the country --- today, yesterday, the day before, or at any time in the past --- and someone, somewhere might want to do something about it.<br>
-
-	We are collecting news headlines from websites such as the Times of India. From such a massive pool of headlines we are simply searching for those headlines that have the word 'lack' in it. We find that such headlines explicitly call out on things that we as a people lack, every now and then.<br>
-
-	Take a look at this list of things that India lacks.
-</div>
-
-
 
 <!-- {% include publications.html large_title=true %} -->
 

@@ -77,7 +77,7 @@ function ForceGraph3D() {
 
 		// Setup camera
 		env.camera = new THREE.PerspectiveCamera();
-		env.camera.far = 20000;
+		env.camera.far = 30000;
 		env.camera.position.z = 1000;
 
 		// Setup scene
@@ -152,16 +152,17 @@ function ForceGraph3D() {
 		});
 
 		var material = new THREE.LineBasicMaterial({
-			color: 0x115511,
+			// color: 0x115511,
+			color: 0xffff00,
 			transparent: true,
-			linewidth: 2.5,
-			opacity: 0.1
+			linewidth: 1,
+			opacity: 0.2
 		});
 
 		var redmaterial = new THREE.LineBasicMaterial({
 			color: 0xff0000,
 			transparent: true,
-			linewidth: 2,
+			linewidth: 3,
 			opacity: 0.5
 		});
 

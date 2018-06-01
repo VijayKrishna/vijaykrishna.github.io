@@ -40,6 +40,7 @@ body {
   /*THIS ONE::*/
   /*font-family: 'Andada', serif;*/
   /*font-family: 'Open Sans', sans-serif;*/
+  /*font-family: 'Segoe UI', sans-serif;*/
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
   /*font-family: 'AvenirNextLTW01-Regular', Helvetica, sans-serif*/
   font-size:1em;
@@ -54,6 +55,7 @@ body {
   background-size: 100% auto;
   background-position-x: center;
   margin: 0px auto;
+  text-align: justify
   /*padding: 1em;*/
 }
 
@@ -165,7 +167,8 @@ td { vertical-align: top; }
 div.container { 
   min-width:100px; 
   max-width:850px; 
-  margin:10px auto; 
+  /*margin:10px auto; */
+  margin:10px; 
 }
 
 div.left-container {
@@ -196,7 +199,7 @@ div.center {
   width:auto; 
   margin-right:0px; margin-bottom:10px; 
   background-color:#FFF; color:#111; 
-  border:1px solid silver;
+  border:0px solid silver;
   border-radius:10px; -moz-border-radius:10px; 
   border-left-color: lightseagreen ; border-left-width: 1px;
   border-right-color: lightseagreen ; border-right-width: 1px;
@@ -208,10 +211,14 @@ div.fixed {
   top: 5px;
 }
 
+div.fixed_bottom {
+  position: fixed;
+  top: 90%;
+}
+
 div.center:hover {
-  border-left-color: #6AA67E; border-left-width: 4px;
-  padding-left:7px;
-  border-right-color: #6AA67E; border-right-width: 1px;
+  border-top: 1px solid #6AA67E;
+  border-bottom: 1px solid #6AA67E;
 }
 
 /*0066948, 005E3F, 307860, 008026, 245E35 , 00992E, 008000. 008500*/
@@ -224,21 +231,17 @@ li:hover strong {
 }
 
 div.plain {
-  /*float:right;*/
-  width:auto; 
+  float:left;
+  /*width:auto; */
   margin-right:10px; margin-bottom:10px;
   margin-left:0px;
-  /*background-color:#FFF; */
-  background-color:rgba(255, 255, 255, 0.8);
-  color:#111; 
-  border:1px solid silver;
-  border-radius:10px; -moz-border-radius:10px; 
-  /*border-left-color: silver; border-left-width: 2px;*/
-  /*border-right-color: silver; border-right-width: 2px;*/
-  /*padding-left:12.5px; padding-right:12.5px; padding-bottom:1px; padding-top:1px;*/
+  background-color:rgba(255, 255, 255, 0.95);
+  color:#111;
+  border-top:1px solid silver;
+  border-bottom:1px solid silver;
+  border-radius:4px; -moz-border-radius:4px; 
   padding-left:10px; padding-right:10px; padding-bottom:1px; padding-top:1px;
   overflow:hidden;
-  
 }
 
 div.stretch {
@@ -249,6 +252,22 @@ div.stretch {
 img.icon {
   width: 20px;
   height: 20px;
+}
+
+img.icon_1_5x {
+  width: 35px;
+  height: 35px;
+}
+
+img.icon_2x {
+  width: 50px;
+  height: 50px;
+}
+
+img.bounded {
+  border: 0.5px solid silver;
+  border-radius: 50px;
+  padding: 2px
 }
 
 .header {
@@ -306,9 +325,27 @@ img.icon {
   font-size: 1.5em;
 }
 
+.regular_x2 {
+  font-size: 2em;
+}
+
 .gynormous {
   font-size: 2.5em;
 }
+
+.regular_x3 {
+  font-size: 3em;
+}
+
+.regular_x3_5 {
+  font-size: 3.5em;
+}
+
+.gynormous2x {
+  font-size: 5em;
+}
+
+
 
 hr {
   border:1px thin sliver;

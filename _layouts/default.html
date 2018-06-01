@@ -20,13 +20,18 @@
 <body>
   <div class="container">
 
+  {% if page.title != "Vijay Krishna Palepu" %}
     {% include header-content.html post=page %}
+    {% include notice.html %}
+  {% endif %}
+
+    
     {% include header-content.html post=page header=true %}
     <script src="{{ site.url }}/css/css-support.js"></script>
 
     {{ content }}
 
-    <div class="plain stretch" style="background:rgba(255, 255, 255, 0.85)">  
+    <div class="plain stretch">  
       {% include other-links.html %}
     </div>    
   </div>
