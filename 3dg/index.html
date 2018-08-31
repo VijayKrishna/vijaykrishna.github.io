@@ -1,9 +1,9 @@
 <head>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/92/three.min.js"></script>
-    <script src="//unpkg.com/three-trackballcontrols-web@0.0.2/dist/three-trackballcontrols.min.js"></script>
-    <script src="//unpkg.com/forcelayout3d-web@0.0.1/dist/forcelayout3d.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/qwest/4.4.5/qwest.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.4/papaparse.min.js"></script>
+    <script src="js/libs/three.min.js"></script> <!-- three.js92/93 -->
+    <script src="js/libs/three-trackballcontrols.min.js"></script> <!--three-trackballcontrols-web@0.0.2-->
+    <script src="js/libs/forcelayout3d.min.js"></script> <!-- forcelayout3d-web@0.0.1 -->
+    <script src="js/libs/qwest.min.js"></script> <!-- 4.4.5 -->
+    <script src="js/libs/papaparse.min.js"></script> <!-- 4.1.4 -->
 
     <script src="data-set-loader.js"></script>
     <script src="3d-force-graph.js"></script>
@@ -16,8 +16,10 @@
     <div class="graph-data">
         <span id="graph-data-description"></span>
         <button class="toggle-data-btn" onClick="toggleData()">Show me something else</button>
+        <button class="btn paint" onClick="resetColor2()"></button>
+        <!-- &#129412; -->
     </div>
+    
     <div id="3d-graph"></div>
-
     <script src="index.js"></script>
 </body>

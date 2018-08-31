@@ -2,36 +2,15 @@ function ForceGraph3D() {
 
 	const CAMERA_DISTANCE2NODES_FACTOR = 150;
 
-	class CompProp {
-		constructor(name, initVal = null, redigest = true, onChange = newVal => {}) {
-			this.name = name;
-			this.initVal = initVal;
-			this.redigest = redigest;
-			this.onChange = onChange;
-		}
-	}
-
 	const env = { // Holds component state
 		initialised: false,
-		onFrame: () => {}
+		onFrame: () => {},
+		bkgColor: 0x111111
 	};
 
-	const exposeProps = [
-		new CompProp('width', window.innerWidth),
-		new CompProp('height', window.innerHeight),
-		new CompProp('graphData', {
-			nodes: { 1: { name: 'mock', val: 1 } },
-			links: [[1, 1]] // [from, to]
-		}),
-		new CompProp('nodeRelSize', 4), // volume per val unit
-		new CompProp('lineOpacity', 0.2),
-		new CompProp('valAccessor', node => node.val),
-		new CompProp('nameAccessor', node => node.name),
-		new CompProp('colorAccessor', node => node.color),
-		new CompProp('initialEngineTicks', 0), // how many times to tick the force engine at init before starting to render
-		new CompProp('maxConvergeTime', 15000), // ms
-		new CompProp('maxConvergeFrames', 300)
-	];
+	function updateBackgroundColor(color) {
+		env.renderer.setClearColor(color, 1);
+	}
 
 	function initStatic() {
 		// Wipe DOM
@@ -86,17 +65,13 @@ function ForceGraph3D() {
 
 		// Setup renderer
 		env.renderer = new THREE.WebGLRenderer();
-		env.renderer.setClearColor(0x000000, 1);
+		env.renderer.setClearColor(env.bkgColor, 1);
 		
 		env.domNode.appendChild(env.renderer.domElement);
 
 		// Add camera interaction
 		env.controls = new THREE.TrackballControls(env.camera, env.renderer.domElement);
-
-
 		env.initialised = true;
-
-		//
 
 		// Kick-off renderer
 		(function animate() { // IIFE
@@ -115,9 +90,11 @@ function ForceGraph3D() {
 	}
 
 	function digest() {
-		if (!env.initialised) { return }
+		if (!env.initialised) 
+			return
 
 		resizeCanvas();
+		recolorCanvas();
 
 		env.onFrame = ()=>{}; // Clear previous frame hook
 		env.scene = new THREE.Scene(); // Clear the place
@@ -202,6 +179,10 @@ function ForceGraph3D() {
 		env.camera.lookAt(env.scene.position);
 		env.camera.position.z = Math.cbrt(Object.keys(env.graphData.nodes).length) * CAMERA_DISTANCE2NODES_FACTOR;
 
+		function recolorCanvas() {
+			env.renderer.setClearColor(env.bkgColor, 1);
+		}
+
 		function resizeCanvas() {
 			if (env.width && env.height) {
 				env.renderer.setSize(env.width, env.height);
@@ -212,14 +193,37 @@ function ForceGraph3D() {
 	}
 
 	// Component constructor
-	function chart(nodeElement) {
-		env.domNode = nodeElement;
+	function chart(chartHostDivElement) {
+		env.domNode = chartHostDivElement;
 
 		initStatic();
 		digest();
 
 		return chart;
 	}
+
+	class CompProp {
+		constructor(name, initVal = null, redigest = true, onChange = newVal => {}) {
+			this.name = name;
+			this.initVal = initVal;
+			this.redigest = redigest;
+			this.onChange = onChange;
+		}
+	}
+
+	const exposeProps = [
+		new CompProp('width', window.innerWidth),
+		new CompProp('height', window.innerHeight),
+		new CompProp('graphData', {
+			nodes: { 1: { name: 'mock', val: 1 } },
+			links: [[1, 1]] // [from, to]
+		}),
+		new CompProp('nodeRelSize', 4), // volume per val unit
+		new CompProp('lineOpacity', 0.2),
+		new CompProp('nameAccessor', node => node.name),
+		new CompProp('colorAccessor', node => node.color),
+		new CompProp('bkgColor', 0x000000)
+	];
 
 	// Getter/setter methods
 	exposeProps.forEach(prop => {
@@ -229,7 +233,10 @@ function ForceGraph3D() {
 
 		function getSetEnv(prop, redigest = false,  onChange = newVal => {}) {
 			return _ => {
-				if (!arguments.length) { return env[prop] }
+				if (!arguments.length) { 
+					return env[prop] 
+				}
+
 				env[prop] = _;
 				onChange(_);
 				if (redigest) { digest() }
@@ -243,17 +250,19 @@ function ForceGraph3D() {
 		this.graphData({nodes: [], links: []})
 			.nodeRelSize(4)
 			.lineOpacity(0.2)
-			.valAccessor(node => node.val)
 			.nameAccessor(node => node.name)
 			.colorAccessor(node => node.color)
-			.initialEngineTicks(0)
-			.maxConvergeTime(15000) // ms
-			.maxConvergeFrames(300);
+			.bkgColor(0x000000);
 
 		return this;
 	};
 
 	chart.resetState(); // Set defaults at instantiation
+
+	chart.bkgColor = function(hexColor) {
+		env.bkgColor = hexColor;
+		env.renderer.setClearColor(env.bkgColor, 1);
+	}
 
 	return chart;
 }

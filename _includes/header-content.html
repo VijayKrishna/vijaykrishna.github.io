@@ -1,3 +1,8 @@
+<div style="height:40%"></div>
+
+{% include circles.html %}
+
+{% if page.title != "Vijay Krishna Palepu" %}
     {% if include.header == true %}
       <div id="stickyheader" class="plain stretch fixed" style="display: none; padding-bottom:2px; padding-top:2px; background-color:rgba(255, 255, 255, 1.0)">
     {% else %}
@@ -5,37 +10,30 @@
     {% endif %}
 
       {% if page.title == "Vijay Krishna Palepu" %}
-        <span class="huge">Vijay Krishna <b>Palepu</b></span>
-      {% else %}
-        <span class="huge"><a href="{{ site.url }}/index.html" class="icon-home"></a></span>
-      {% endif %}
-
-      {% if page.title == "Vijay Krishna Palepu" %}
         <span class="regular">&bull; <a href="{{ site.url }}/research.html">Research</a> &bull; <a href="{{ site.url }}/cv.html">CV</a></span>
       {% elsif page.title contains "CV - Vijay Krishna Palepu" %}
-        <span class="huge"> / Vijay Krishna <b>Palepu</b></span>
+        <span class="huge">Vijay Krishna <b>Palepu</b></span>
         <span class="regular">
           <a style="margin-left:20px" class="icon-file-pdf tiny" target="_blank" href="{{ site.url }}/vpalepu_cv.pdf"> CV</a>
           <a style="margin-left:20px" class="icon-file-pdf tiny" target="_blank" href="{{ site.url }}/vpalepu_resume.pdf"> Resume</a>
         </span>
       {% elsif page.title contains "Research - Vijay Krishna Palepu" %}
-        <span class="huge"> / <b>Research</b></span>
+        <span class="huge"><b>Research</b></span>
       {% elsif page.title contains "Archives - Vijay Krishna Palepu" %}
-        <span class="huge"> / <b>Archives</b></span>
+        <span class="huge"><b>Archives</b></span>
         <span class="regular">
           &bull; <a href="{{ site.url }}/archives/news.html">News</a> 
           &bull; <a href="{{ site.url }}/archives/blog.html">Notes</a>
           &bull; <a href="{{ site.url }}/archives/projects.html">Projects</a>          
         </span>
       {% elsif page.title contains "News - Vijay Krishna Palepu" %}
-        <span class="huge"> / <a href="{{ site.url }}/archives">Archives</a> / <b>News</b></span>
+        <span class="huge"><a href="{{ site.url }}/archives">Archives</a> / <b>News</b></span>
       {% elsif page.title contains "Notes - Vijay Krishna Palepu" %}
-        <span class="huge"> / <a href="{{ site.url }}/archives">Archives</a> / <b>Notes</b></span>
+        <span class="huge"><a href="{{ site.url }}/archives">Archives</a> / <b>Notes</b></span>
       {% elsif page.title contains "Projects - Vijay Krishna Palepu" %}
-        <span class="huge"> / <a href="{{ site.url }}/research.html">Research</a> / <b>Projects</b></span>         
+        <span class="huge"><a href="{{ site.url }}/research.html">Research</a> / <b>Projects</b></span>         
       {% else %}
         <span class="huge">
-           /
           {% if page.categories contains 'news' %}
             <a href="{{ site.url }}/archives">Archives</a> / <a href="{{ site.url }}/archives/news.html">News</a> / 
           {% elsif page.categories contains 'blog' %}
@@ -49,3 +47,4 @@
         </span>
       {% endif %}
     </div>
+{% endif %}

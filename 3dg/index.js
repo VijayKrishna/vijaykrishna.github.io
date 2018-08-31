@@ -1,7 +1,7 @@
 THREE.TrackballControls = TrackballControls; //Link module to Three
 
-const Graph = ForceGraph3D()
-	(document.getElementById("3d-graph"));
+const Graph3D = ForceGraph3D();
+const Graph = Graph3D(document.getElementById("3d-graph"));
 
 let curDataSetIdx;
 const dataSets = getGraphDataSets();
@@ -15,3 +15,11 @@ let toggleData;
 	dataSet(Graph); // Load data set
 	document.getElementById('graph-data-description').innerHTML = dataSet.description ? `Viewing ${dataSet.description}` : '';
 })(); // IIFE init
+
+function resetColor() {
+	Graph.bkgColor(0xDCCAF0);
+}
+
+function resetColor2() {
+	Graph.bkgColor(0xfdcfa4);
+}

@@ -20,29 +20,14 @@
 <body>
   <div class="container">
 
-  {% if page.title != "Vijay Krishna Palepu" %}
     {% include header-content.html post=page %}
-    {% include notice.html %}
-  {% endif %}
 
-    
-    {% include header-content.html post=page header=true %}
     <script src="{{ site.url }}/css/css-support.js"></script>
 
     {{ content }}
 
-    <div class="plain stretch">  
-      {% include other-links.html %}
-    </div>    
   </div>
   </div> <!-- end of main -->
-  <div id="brain" class="fixed" style="z-index: -1; top: 0px; width: 100%; height: 100%"></div>
-  <script type="text/javascript" src="{{ site.url }}/js/d3.v5.min.js"></script>
-  <script src="https://d3js.org/d3-request.v1.min.js"></script>
-  <script type="text/javascript" src="{{ site.url }}/js/d3-background.js"></script>
-  <script type="text/javascript">
-    main("{{ site.url }}/js/nanoxml.json");
-  </script>
   <!-- <div class="header"></div> -->
 </body>
 </html>

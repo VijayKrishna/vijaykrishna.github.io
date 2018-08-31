@@ -3,162 +3,54 @@ function getGraphDataSets() {
     // Color brewer paired set
     const colors = ['#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c','#fdbf6f','#ff7f00','#cab2d6','#6a3d9a','#ffff99','#b15928'];
 
-    const onek = function(Graph) {
-        qwest.get('one-k.json').then((_, data) => {
-            const nodes = {};
+    class DataParams {
+        constructor(json, desc, color) {
+          this.json = json;
+          this.desc = desc;
+          this.color = color;
+        }
+    }
 
-            // add an id property and
-            // Index by name
-            data.nodes.forEach((node, i) => { 
-                console.log(node);
-                node.id = i;//node.id;
+    const p = [
+        new DataParams("data/one-k.json", "<em>Balanced 3D Force Directed Graph</em> data", 0x000000)
+        , new DataParams("data/one-l.json", "<em>Test</em> data", 0xffffff)
+        , new DataParams("data/one-m.json", "<em>Skinny 3D Force Directed Graph</em> data", 0x009970)
+        , new DataParams("data/one-n.json", "<em>Stacked, 2D Skinny Force Directed Graphs</em> data", 0xffffff)
+        , new DataParams("data/one-o.json", "<em>Stacked, 2D Balanced Force Directed Graphs</em> data", 0x111111)
+    ];
 
-                node.groupLabel =  node.label;
-                node.group = 1; // Number(node.group.split(' ')[1]) || 0;
-                nodes[node.id] = node;
-            });
-
-            console.log('data from loadGroups', data);
-            console.log('nodes from loadGroups', nodes);
-
-            Graph
-                .resetState()
-                .nameAccessor(node => node.id)
-                .colorAccessor(node => parseInt(colors[node.colorGroup%colors.length].slice(1),16))
-                .graphData({
-                    nodes: nodes,
-                    links: data.links.map(link => [link.startId-1, link.endId-1])
+    const dataFuntion = function(params) {
+        const data = function(Graph) {
+            qwest.get(params.json).then((_, data) => {
+                const nodes = {};
+    
+                // add an id property and
+                // Index by name
+                data.nodes.forEach((node, i) => { 
+                    console.log(node);
+                    node.id = i;//node.id;
+    
+                    node.groupLabel =  node.label;
+                    node.group = 1; // Number(node.group.split(' ')[1]) || 0;
+                    nodes[node.id] = node;
                 });
-        });
-    };
-    onek.description = "<em>Balanced 3D Force Directed Graph</em> data";
-
-    const onel = function(Graph) {
-        qwest.get('one-l.json').then((_, data) => {
-            const nodes = {};
-
-            // add an id property and
-            // Index by name
-            data.nodes.forEach((node, i) => { 
-                console.log(node);
-                node.id = i;//node.id;
-
-                node.groupLabel =  node.label;
-                node.group = 1; // Number(node.group.split(' ')[1]) || 0;
-                nodes[node.id] = node;
+    
+                console.log('data from loadGroups', data);
+                console.log('nodes from loadGroups', nodes);
+    
+                Graph
+                    .resetState()
+                    .colorAccessor(node => parseInt(colors[node.colorGroup%colors.length].slice(1),16))
+                    .graphData({
+                        nodes: nodes,
+                        links: data.links.map(link => [link.startId-1, link.endId-1])
+                    })
+                    .bkgColor(params.color);
             });
+        };
+        data.description = params.desc;
+        return data;
+    }
 
-            console.log('data from loadGroups', data);
-            console.log('nodes from loadGroups', nodes);
-
-            Graph
-                .resetState()
-                .nameAccessor(node => node.id)
-                .colorAccessor(node => parseInt(colors[node.colorGroup%colors.length].slice(1),16))
-                .graphData({
-                    nodes: nodes,
-                    links: data.links.map(link => [link.startId-1, link.endId-1])
-                });
-        });
-    };
-    onel.description = "<em>Test</em> data";
-
-
-    const onem = function(Graph) {
-        qwest.get('one-m.json').then((_, data) => {
-            const nodes = {};
-
-            // add an id property and
-            // Index by name
-            data.nodes.forEach((node, i) => { 
-                console.log(node);
-                node.id = i;//node.id;
-
-                node.groupLabel =  node.label;
-                node.group = 1; // Number(node.group.split(' ')[1]) || 0;
-                nodes[node.id] = node;
-            });
-
-            console.log('data from loadGroups', data);
-            console.log('nodes from loadGroups', nodes);
-
-            Graph
-                .resetState()
-                .nameAccessor(node => node.id)
-                .colorAccessor(node => parseInt(colors[node.colorGroup%colors.length].slice(1),16))
-                .graphData({
-                    nodes: nodes,
-                    links: data.links.map(link => [link.startId-1, link.endId-1])
-                });
-        });
-    };
-    onem.description = "<em>Skinny 3D Force Directed Graph</em> data";
-
-    const onen = function(Graph) {
-        qwest.get('one-n.json').then((_, data) => {
-            const nodes = {};
-
-            // add an id property and
-            // Index by name
-            data.nodes.forEach((node, i) => { 
-                console.log(node);
-                node.id = i;//node.id;
-
-                node.groupLabel =  node.label;
-                node.group = 1; // Number(node.group.split(' ')[1]) || 0;
-                nodes[node.id] = node;
-            });
-
-            console.log('data from loadGroups', data);
-            console.log('nodes from loadGroups', nodes);
-
-            Graph
-                .resetState()
-                .nameAccessor(node => node.id)
-                .colorAccessor(node => parseInt(colors[node.colorGroup%colors.length].slice(1),16))
-                .graphData({
-                    nodes: nodes,
-                    links: data.links.map(link => [link.startId-1, link.endId-1])
-                });
-        });
-    };
-    onen.description = "<em>Stacked, 2D Skinny Force Directed Graphs</em> data";
-
-
-    const oneo = function(Graph) {
-        qwest.get('one-o.json').then((_, data) => {
-            const nodes = {};
-
-            // add an id property and
-            // Index by name
-            data.nodes.forEach((node, i) => { 
-                console.log(node);
-                node.id = i;//node.id;
-
-                node.groupLabel =  node.label;
-                node.group = 1; // Number(node.group.split(' ')[1]) || 0;
-                nodes[node.id] = node;
-            });
-
-            console.log('data from loadGroups', data);
-            console.log('nodes from loadGroups', nodes);
-
-            Graph
-                .resetState()
-                .nameAccessor(node => node.id)
-                .colorAccessor(node => parseInt(colors[node.colorGroup%colors.length].slice(1),16))
-                .graphData({
-                    nodes: nodes,
-                    links: data.links.map(link => [link.startId-1, link.endId-1])
-                });
-        });
-    };
-    oneo.description = "<em>Stacked, 2D Balanced Force Directed Graphs</em> data";
-
-    //
-
-    // return [loadGroups, loadMiserables, loadBlocks, loadD3Dependencies];
-    // return [loadGroups];
-    // return [onel, onek, onem];
-    return [onek, onem, onen, oneo];
+    return [dataFuntion(p[4]), dataFuntion(p[3]), dataFuntion(p[2])];
 }

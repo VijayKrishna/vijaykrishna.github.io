@@ -3,79 +3,43 @@ layout: default
 title: Vijay Krishna Palepu
 ---
 
-<div style="height: 88%"></div>
-<div style="margin-bottom:30px; background-color: rgba(255, 255, 255, 0.95); text-align: left;">
-	<span class="regular_x3_5">
-		Vijay Krishna <b>Palepu</b>
-	</span>
-	<a href="#cerebro" title="About the backdrop"><img class="icon_2x bounded" src="{{ site.url }}/images/cerebro-light.png"></a>
-	<a href="{{ site.url }}/cv.html" title="Resume and C.V."><img class="icon_2x bounded" src="{{ site.url }}/images/cv.svg"></a>
-	<a href="{{ site.url }}/research.html" title="Software Research"><img class="icon_2x bounded" src="{{ site.url }}/images/code.svg"></a>
-	<!-- <a href="{{ site.url }}/tree.html" title="Treestrokes"><img class="icon_2x bounded" src="{{ site.url }}/images/favicon.gif"></a> -->
-	<a href="{{ site.url }}/archives" title="Ph.D. Archives"><img class="icon_2x bounded" src="{{ site.url }}/images/archives.svg"></a>
-	<a href="#notice" title="Site Under Construction"><img class="icon_2x bounded" src="{{ site.url }}/images/notice.svg"></a>
+<div class="stretch tiny" style="margin-left:0.5em">
+	Vijay Krishna <b>Palepu</b><br>
 </div>
 
-	{% include notice.html %}
-
-<div id="cerebro" class="plain stretch">
-	<strong class="big">CEREBRO</strong>
-	<hr class="thinblue" />
-
-	<strong>CEREBRO hosted at:</strong> <a href="http://spideruci.github.io/cerebro">http://spideruci.github.io/cerebro</a><br>
-
-	<iframe style="float: right; margin: 10px;" src="//player.vimeo.com/video/69526834?color=c9ff23" width="500" height="472" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-	Cerebro, formerly known as "The Brain", reveals clusters of source code that co-execute to produce behavioral features of the program throughout and within executions. We created a clustered visualization of source-code that is informed by dynamic control flow of multiple executions; each cluster represents commonly interacting logic that composes software features. In addition, we render individual executions atop the clustered multiple-execution visualization as user-controlled animations to reveal characteristics of specific executions—these animations may provide exemplars for the clustered features and provide chronology for those behavioral features, or they may reveal anomalous behaviors that do not fit with the overall operational profile of most executions. Both the clustered multiple-execution view and the animated individual-execution view provide insights for the constituent behaviors within executions that compose behaviors of whole executions. Inspired by neural imaging of human brains of people who were subjected to various external stimuli, we designed and implemented Cerebro to reveal program activity during execution. The result has revealed the principal behaviors of execution. Those behaviors were revealed to be (in some cases) cohesive, modular source-code structures and (in other cases) cross-cutting, emergent behaviors involving multiple modules.
+<div class="stretch reallytiny" style="margin-left:0.75em; margin-top: -1.95em">
+	<p style="margin-bottom: -2.55em">Occupations:</p>
+	<p style="margin-bottom: -2.55em; margin-left: 0.45em">Software Lackey at Microsoft (All opinions are my own and not the views of my employer)</p>
+	<p style="margin-left: 0.45em">Software Wanderer in my spare time</p>
 </div>
 
-<div class="plain stretch">
-	<strong class="big">Today We Lack</strong>
-	<hr class="thinblue" />
-
-	<strong>Hosted at:</strong> <a href="http://treestrokes.github.io/today-we-lack/">http://treestrokes.github.io/today-we-lack/</a><br>
-
-
-	"Today We Lack" is an attempt to harness the power of the internet and the data that it has accumulated over the years to understand what we as a people in India have been lacking for many years now, as reported by our news media. The premise of this project is simple: list out all the things that we lack in the country --- today, yesterday, the day before, or at any time in the past --- and someone, somewhere might want to do something about it.<br>
-
-	We are collecting news headlines from websites such as the Times of India. From such a massive pool of headlines we are simply searching for those headlines that have the word 'lack' in it. We find that such headlines explicitly call out on things that we as a people lack, every now and then.<br>
-
-	Take a look at this list of things that India lacks.
+<div class="stretch reallytiny" style="margin-left:0.75em;">
+	<p style="margin-bottom: -2.55em">Studied at:</p>
+	<p style="margin-bottom: -2.55em; margin-left: 0.45em">Spider Lab</p>
+	<p style="margin-bottom: -2.55em; margin-left: 0.45em">University of California, Irvine</p>
+	<p style="margin-left: 0.45em">University of Pune</p>
 </div>
 
-<div class="plain stretch"></dir>
-	<strong class="regular">Credits</strong>
-	<br>
-	Programming/Code Icon (<img class="icon" src="{{ site.url }}/images/code.svg">) created by Noura Mbarki, from the thenounproject.com<br>
-	Archives Icon (<img class="icon" src="{{ site.url }}/images/archives.svg">) created by pictohaven, from the thenounproject.com<br>
-	Resume Icon (<img class="icon" src="{{ site.url }}/images/cv.svg">) created by Creative Mania, from the thenounproject.com<br>
-	Notice Icon (<img class="icon" src="{{ site.url }}/images/notice.svg">) created by Chameleon Design, from the thenounproject.com
+<div class="stretch reallytiny" style="margin-left:0.75em">
+	<p style="margin-bottom: -2.55em">Labors of Love:</p>
+	<p style="margin-bottom: -2.55em; margin-left: 0.45em">Software Visualizations</p>
+	<p style="margin-bottom: -2.55em; margin-left: 0.45em">Program Analysis</p>
+	<p style="margin-bottom: -2.55em; margin-left: 0.45em">Data Analysis</p>
+	<p style="margin-bottom: -2.55em; margin-left: 0.45em">Research</p>
+	<p style="margin-left: 0.45em">Writing</p>
 </div>
 
-
-<!-- {% if site.categories.highlight.size != 0 %}
-<div class="plain stretch">
-	<strong class="big">Latest</strong>
-	<hr class="thinblue" />
-	<ul>
-	{% for post in site.categories.highlight limit:3 %}
-    	<li>
-    		<span>{{ post.date | date_to_string }}</span> &raquo; 
-    		<a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
-				{% for tag in post.tags limit:3 %}
-					<span class="tags">{{ tag }}</span>
-						{% if forloop.last != true %}
-							<span> </span>
-						{% endif %}
-				{% endfor %}
-    	</li>    
-  	{% endfor %}
-  	</ul>
+<div class="stretch reallytiny" style="margin-left:0.75em">
+	<p style="margin-bottom: -2.55em">Experiments:</p>
+	<p style="margin-bottom: -2.55em; margin-left: 0.45em">Graph Scope: <a href="http://graphscope.glitch.me/">http://graphscope.glitch.me/</a></p>
+	<p style="margin-left: 0.45em">Today We Lack: <a href="http://treestrokes.github.io/today-we-lack/index.html">http://treestrokes.github.io/today-we-lack/index.html</a></p>
 </div>
 
-{% endif %} -->
+<div class="stretch reallytiny">
+	<strong>Credits:</strong>
+	The following icons are from the thenounproject.com: Programming/Code Icon (<img class="icon" src="{{ site.url }}/images/code.svg">) created by Noura Mbarki; Resume Icon (<img class="icon" src="{{ site.url }}/images/cv.svg">) created by Creative Mania.
+</div>
 
-<!-- {% include publications.html large_title=true %} -->
-
-<!-- {% include teaching.html large_title=true %} -->
-
-<!-- {% include talks.html large_title=true count = 4 %} -->
+<div class="stretch reallytiny">
+	<strong>Updated on:</strong> Aug 31 2018 (still a work in progress)
+</div>
