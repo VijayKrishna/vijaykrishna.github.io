@@ -433,6 +433,13 @@ hr.thinblue {
   content: "\e603";
 }
 
+p.caption {
+  margin-top: -5px;
+  margin-bottom: -5px;
+  text-align: center;
+  font-size: 0.9em;
+}
+
 /*iframe.twitter-tweet {
   margin: 10px auto !important;
 }*/

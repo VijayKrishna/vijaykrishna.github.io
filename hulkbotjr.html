@@ -4,31 +4,58 @@ title: HulkBot Jr.
 ---
 
 <div class="plain stretch">
-    <img style="float: inherit; margin: 10px;" src="{{ site.url }}/images/hulkbotjr.jpg" height="50%" />
+    {% capture hulkbot_jr %}
+        <img src="{{ site.url }}/images/hulkbotjr.jpg" height="45%" />
+    {% endcapture %}
+    {% include media-frame.html content=hulkbot_jr %}
 
     Weighing 495g, HulkBot Jr. is a Bluetooth controlled SumoBot that has wicked navigation controls. 
-    An Arduino powers this little robot, and its navigation is controlled with a <a href="http://johnny-five.io" target="_blank">JohnnyFive</a>-enabled Javascript code snippet that can be run via Node.JS on any computer that can run Node.JS. There are two servo motors that make the wheels go round. The bot can either turn, or go back/forward at any given time -- it cannot do both simultaneously. A 15V power-supply via bunch of AA-batteries power the Arduino, the servos and a Bluetooth HC-05 receiver.<br>
+    An Arduino powers this little robot, and its navigation is controlled with a <a href="http://johnny-five.io" target="_blank">JohnnyFive</a>-enabled Javascript code snippet that can be run via Node.JS on any computer that can run Node.JS. There are two servo motors that make the wheels go round. The bot can either turn, or go back/forward at any given time -- it cannot do both simultaneously. A 15V power-supply via bunch of AA-batteries power the Arduino, the servos and a Bluetooth HC-05 receiver.
+    By and large, the design of the chassis is based on the designs and SCAD files found in this Git repository: <a href="https://github.com/makenai/sumobot-jr">https://github.com/makenai/sumobot-jr</a><br>
+    
+
+    {% capture hulkbot_jr_early_pics %}
+        <img src="{{ site.url }}/images/hulkbot-early1.jpeg" height="30%" />
+        <img src="{{ site.url }}/images/hulkbot-early2.jpeg" height="30%" />
+        <img src="{{ site.url }}/images/hulkbot-early3.jpeg" height="30%" />
+        
+        <p class="caption">
+            <b>Early stages of development.</b><br/>
+            IIRC, these pictures were taken at the end of Day 3 of the 5-day hack.<br/>
+            It might seem nearly complete, but it went on to gain a Bluetooth receiver, a shovel that would fit<br/>
+            in the front of the bot, and an extra 9V battery to power the Arduino and the Bluetooth receiver.<br/>
+        </p>
+    {% endcapture %}
+    {% include media-frame.html content=hulkbot_jr_early_pics %}
+
+    {% capture shovel_printing %}
+        <img src="{{ site.url }}/images/hulkbotjr-shovel-orange.jpg" height="40%" />
+        <video height = "40%" controls src = "{{ site.url }}/images/hulkbotjr-shovel-green-480p.mov"></video>
+        <p class="caption">
+            <b>3D Printers in action!</b><br/>
+            I could not help but capture the 3D printers in action, as they<br/>
+            printed away different shovels for the front of the bot. It was<br/>
+            an awe-inspiring thing to see; it was also the first time I was<br/>
+            working with a 3D printer.<br/>
+            We finally settled with the Green shovel -- portrayed in the<br/>
+            video on the right, in the middle of the print. It was a taller<br/>
+            structure that provided the necessary shield to the wiring<br/>
+            coming out of the Arduino.
+        </p>
+    {% endcapture %}
+    {% include media-frame.html content=shovel_printing %}
+
+    {% capture shovel_printing2 %}
+        <video height = "70%" controls src = "{{ site.url }}/images/hulkbotjr.mov"></video>
+        <p class="caption">
+            <b>HulkBot Jr.! Ready. Set. Go!</b><br/>
+        </p>
+    {% endcapture %}
+    {% include media-frame.html content=shovel_printing2 %}
+
     I, along with two other smart software engineers at Microsoft, built this little bot as part of a week-long hackathon. This was my first time building anything using electronics -- since, I have always taken refuge in Software and left the Hardware details to more interested and capable people.<br>
     This was primarily an exercise in learning new skills -- and in that respect it was a success.
     I personally, learnt how to work with Arduinos, learnt a thing or two about WiFi and Bluetooth, worked with JohnnyFive (the JS library that interfaces with standard firmware on an Arduinos), and used a 3D printer for the first time in my life, and got to know how to use Amazon Lockers (because you cannot go to an electronic store to buy silicon chips of your choice and requirement in Silicon Valley).<br>
     In a series of future posts on this site, I will detail more about this bot ... in part the breakdown of the different parts, and details of what we plan to do in the future with this fella, and how HulkBot Jr. fared in the SumoBot Wars that we participated in.
-
-    <iframe style="float: inherit; margin-top: 10px; margin-bottom: 10px; margin-left: -75px; margin-right: -75px" src="https://player.vimeo.com/video/298865217" width="50%" height="50%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
-
-    <!-- <video style="float: inherit; margin: 10px;" controls="controls" width="400" height="600"  -->
-       <!-- name="Video Name" src="{{ site.url }}/images/hulkbotjr.MOV"></video> -->
-    
-
-
-
-    
-    
-
-        
-
-    
-        
-    
 </div>
 </script>
