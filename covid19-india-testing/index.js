@@ -8,6 +8,7 @@ class CovidTestingData {
         this.updatedon = updatedon;
         this.statename = statename;
         this.testPositivity = testPositivity;
+        this.id = 0;
 
         var date_split = updatedon.split('/')
         var date = parseInt(date_split[0])
@@ -17,6 +18,26 @@ class CovidTestingData {
     }
 }
 
+var idToPathSelectionMap = function(id) {
+    var paths = d3.select("#map").select("svg").select("g")._groups[0][0].children
+    const idStr = String(id)
+
+    for (let index = 0; index < paths.length; index++) {
+        const element = paths[index];
+
+        if (id == 0 && element.id === undefined && element.geometry != null) {
+            return d3.select(element)
+        }
+
+        if (idStr === element.id) {
+            return d3.select(element)
+        }
+    }
+
+    console.log(typeof id)
+
+    return null
+}
 
 var idxmap = function(d) {
     var index = parseInt(d.id)
@@ -26,19 +47,22 @@ var idxmap = function(d) {
     return index
 }
 
-var testdataMap = function(testingData, d) {
-    var idx = idxmap(d)
-    var statename = statenames[idx]
+var testdataMapCore = function(testingData, statename) {
     var testData = testingData[statename]
 
     if (testData === null || testData === undefined) {
-        console.log("idx:" + idx)
         console.log("statename:" + statename)
         return "Not available"
     }
 
-
     return testData
+}
+
+var testdataMap = function(testingData, d) {
+    var idx = idxmap(d)
+    var statename = statenames[idx]
+
+    return testdataMapCore(testingData, statename)
 }
 
 var testpositivityrate = function(testData) {
@@ -51,7 +75,17 @@ var testpositivityrate = function(testData) {
 
 var statecolor = function(testingData, d, colorFn) {
     var testData = testdataMap(testingData, d)
-    console.log(testData)
+    var rate = testpositivityrate(testData)
+
+    if (rate === NaN) {
+        return "grey"
+    } else {
+        return colorFn(rate)
+    }
+}
+
+var statecolorAlt = function(testingData, statename, colorFn) {
+    var testData = testdataMapCore(testingData, statename)
     var rate = testpositivityrate(testData)
 
     if (rate === NaN) {
@@ -63,14 +97,30 @@ var statecolor = function(testingData, d, colorFn) {
 
 // https://api.covid19india.org/state_test_data.json
 
-d3.json("./covid-testing-data-snapshot-5-24.json").then(function(data) {
+d3.json("./covid-testing-data-snapshot-5-25.json").then(function(data) {
     var states_tested_data = data.states_tested_data
     var testingData = fetchRecentTestingData(states_tested_data)
 
     d3.json("./india-states.json").then(function(data) {
 
-        let width = 600;
-        let height = 600;
+        var testingDataArray = []
+
+        for (const key in testingData) {
+            if (testingData.hasOwnProperty(key)) {
+                var dataElement = testingData[key]
+                dataElement.id = statenames.indexOf(dataElement.statename)
+                testingDataArray.push(dataElement)
+            }
+        }
+    
+        testingDataArray.sort((a, b) => {
+            var aTP = parseFloat(a.testPositivity.replace('%', ''))
+            var bTP = parseFloat(b.testPositivity.replace('%', ''))
+            return bTP - aTP
+        })
+
+        let width = 700;
+        let height = 700;
         var states = data;
         let features = topojson.feature(states, states.objects.Admin2);
     
@@ -80,6 +130,8 @@ d3.json("./covid-testing-data-snapshot-5-24.json").then(function(data) {
         // Create SVG
         let svg = d3.select("#map")
                     .append("svg")
+                    .attr("preserveAspectRatio", "xMinYMin meet")
+                    // .attr("viewBox", "0 0 960 500")
                     .attr("width", width)
                     .attr("height", height);
         
@@ -112,7 +164,44 @@ d3.json("./covid-testing-data-snapshot-5-24.json").then(function(data) {
         function handleMouseOut(d, i) {
             d3.select(this).style("fill", statecolor(testingData, d, color));
         }
-    });
+
+        var rows = d3.select('#statesrows')
+                        .selectAll('tr')
+                        .data(testingDataArray).enter()
+                        .append('tr')
+
+        rows.selectAll('td')
+            .data(function (d) {
+                    return [{ 'value': d.statename, 'name': 'statename', 'id': d.id },
+                            { 'value': d.testPositivity, 'name': 'testPositivity', 'id': d.id },
+                            { 'value': d.updatedon, 'name': 'updatedon', 'id': d.id }]
+                })
+            .enter()
+            .append('td')
+            .text(d => d.value)
+            .on("mouseenter", tablerowMouseOver)
+            .on("mouseout", tablerowMouseOut);
+        
+        function tablerowMouseOver(d, i) {
+            var statemapId = d.id
+            var pathSelection = idToPathSelectionMap(statemapId)
+            if (pathSelection === null) {
+                return
+            }
+
+            pathSelection.style("fill", d => statecolor(testingData, d, altcolor));
+        }
+    
+        function tablerowMouseOut(d, i) {
+            var statemapId = d.id
+            var pathSelection = idToPathSelectionMap(statemapId)
+            if (pathSelection === null) {
+                return
+            }
+
+            pathSelection.style("fill", d => statecolor(testingData, d, color));
+        }
+    })
 })
 
 function fetchRecentTestingData(states_tested_data) {

@@ -1,21 +1,74 @@
 <html>
 
 <head>
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js"></script>
     <script src="https://unpkg.com/topojson@3"></script>
 </head>
 
 <body style="background-color: black; color: azure; font-family: Verdana, Geneva, Tahoma, sans-serif;">
-    <b style="font-size: medium;">India's COVID19 Test Positivity Rates</b>
-    <p style="font-size: small;">Lower rates suggests more a widespread, random, and proactive testing approach. Higher rates suggests a more targetted, reactive testing approach.</p>
-    <p style="font-size: small;">Broader reporting about COVID19 Test Positivity:
-        <a href="https://www.indiaspend.com/covid-19-testing-higher-positivity-ratio-in-states-with-most-cases/">IndiaSpend.in</a>;
-        <a href="https://www.theatlantic.com/technology/archive/2020/04/us-coronavirus-outbreak-out-control-test-positivity-rate/610132/">The Atlantic</a>;
-        <a href="http://freerangestats.info/blog/2020/05/09/covid-population-incidence">Free Range Stats</a>
-    </p>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">COVID19 Testing in India</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active"><a class="nav-link" href="#">Positivity Rate</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Broader News Reporting
+              </a>
+              <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item text-light" target="_blank" href="https://www.indiaspend.com/covid-19-testing-higher-positivity-ratio-in-states-with-most-cases/">IndiaSpend.in</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item text-light" target="_blank" href="https://www.theatlantic.com/technology/archive/2020/04/us-coronavirus-outbreak-out-control-test-positivity-rate/610132/">The Atlantic</a>
+                <a class="dropdown-item text-light" target="_blank" href="http://freerangestats.info/blog/2020/05/09/covid-population-incidence">Free Range Stats</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Lower rates suggests more a widespread, random, and proactive testing approach. Higher rates suggests a more targetted, reactive testing approach. -->
+
+    <!-- <b style="font-size: medium;">India's COVID19 Test Positivity Rates</b> -->
+    
+    <br/>
 
 
-    <div id="map"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col col-6" id="map"></div>
+            <div class="col col-6">
+                <p class="text-light">Lower rates suggests more a widespread, random, and proactive testing approach. Higher rates suggests a more targetted, reactive testing approach.</p>
+                <table class="table text-light table-borderless table-sm table-hover table-dark">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col" style="text-align: left;">State</th>
+                            <th scope="col" style="text-align: left;">Test Positivity</th>
+                            <th scope="col" style="text-align: left;">Last Updated</th>
+                            <!-- <th scope="col">Source</th> -->
+                        </tr>
+                    </thead>
+                    <tbody id="statesrows"></tbody>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+
+    
     <script src="index.js"></script>
 </body>
 
