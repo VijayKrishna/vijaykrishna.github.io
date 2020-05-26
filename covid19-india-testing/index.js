@@ -97,7 +97,7 @@ var statecolorAlt = function(testingData, statename, colorFn) {
 
 // https://api.covid19india.org/state_test_data.json
 
-d3.json("./covid-testing-data-snapshot-5-25.json").then(function(data) {
+d3.json("./covid-testing-data-snapshot-5-26.json").then(function(data) {
     var states_tested_data = data.states_tested_data
     var testingData = fetchRecentTestingData(states_tested_data)
 

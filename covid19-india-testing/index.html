@@ -49,9 +49,42 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col col-6" id="map"></div>
-            <div class="col col-6">
-                <p class="text-light">Lower rates suggests more a widespread, random, and proactive testing approach. Higher rates suggests a more targetted, reactive testing approach.</p>
+          <div class="col text-light">
+            <h4>Test Positivity Rates across India's States and Union Territories</h4>
+
+              Test Positivity is a metric that is helpful in better estimating the true spread of an epidemic 
+              when we know that the number of reported cases for a disease is a undercount of the actual number of 
+              cases within a given population.<br/><br/>
+
+              In addition, Test Positivity is also a useful metric to assess the effectivness of the testing approach
+              deployed to measure the spread of a certain epidemic.
+
+              When viewed as a metric to assess the testing approach itself:
+              <ul>
+                <li>Lower rates suggests more a widespread, random, and proactive testing approach.</li>
+                <li>Higher rates suggests a more targetted, reactive testing approach.</li>
+              </ul>
+
+              Overall, India has managed to maintain a low test positivity rate. According to news reports on <a target="_blank" href="https://economictimes.indiatimes.com/news/politics-and-nation/as-india-hits-1m-tests-mark-positivity-rate-dips-to-3-8/articleshow/75523759.cms">May 4th, 2020, India had a test positivity rate of 3.8%.</a> However, in more recent reporting, <a target="_blank" href="https://timesofindia.indiatimes.com/india/positivity-rate-per-100-tests-rises-to-5-in-last-2-weeks/articleshow/75958512.cms">that number has risen to 5% based on the data accumulated "between May 7 and May 21".</a> The 5% figure lines up with independent data collection by the <a target="_blank" href="https://ourworldindata.org">"Our World in Data" project</a> that has <a href="https://ourworldindata.org/grapher/covid-19-positive-rate-bar?tab=chart&time=2020-03-13..&country=IND">India's test positivity rate for COVID19 at 4.6% on May 25, 2020.</a><br><br>
+
+              The WHO has recommended that governments should consider reopening their countries when they have noticed a test positivity rate of 5% or lower for at least 14 days [<a target="_blank" href="https://coronavirus.jhu.edu/testing/testing-positivity">source</a>].
+
+              Regardless, India's low test positivity rates are also in line with the test positivity rates reported in countries that have successfully managed to <a target="_blank" href="https://medium.com/@vkrishnapalepu/covid19-lockdowns-protect-medical-infrastructures-596028af97e2">"flatten the curve"</a>. For instance, <a target="_blank" href="https://ourworldindata.org/grapher/covid-19-positive-rate-bar?tab=chart&time=2020-03-13..&country=KOR">the test positivity rate for South Korea is at 1.4% as of May 25, 2020, and is on a steady decline.</a><br><br>
+
+              <b class="text-dark bg-warning"> <big>Interestingly,</big> the test positivity rate for India has been on a rise throughout the month of May 2020.</b> That number has jumped from 3.9% on May 1, to 4.6% on May 25. As such making this an important, and under-reported metric to keep an eye on, as the COVID19 pandemic continues to keep India in a state of lockdown. <br><br>
+              
+              <span class="bg-success">Below is a listing of the most recently reported Test Positivity Rates for all states and union territories in India,</span> except the Lakshwadeep Islands.
+              I am visualizing these test positivity rates for these regions by coloring them in different shades of blue. A lighter shade of blue suggests a relatively lower test positivity rate for a given region. A darker shade of blue suggests a higher test positivity rate. For instance, Maharashtra and Delhi have test positivity rates of 12.28% (updated on 21/05/2020) and 7.55% (updated on 21/05/2020), and as such are colored in the deepest shades of blue. By contrast, Andhra Pradesh and Meghalaya are reporting test positivity rates of well below 1%, i.e. less than one percent of the people tested in those states have COVID19. <br><br>
+
+              I am collecting the state-wise test positivity rate data from the <a target="_blank" href="https://api.covid19india.org">COVID19India's Data API</a>. <br><br>
+
+              Note: These are still early days for this dashboard, and I will be updating the metrics I present, on top of test positivity rates, and the questions I seek to answer about India's approach to testing for COVID19. Constructive feedback, and suggestions are welcome. - Vijay, May 26, 2020.<br><br>
+          </div>
+          
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                
                 <table class="table text-light table-borderless table-sm table-hover table-dark">
                     <thead class="thead-dark">
                         <tr>
@@ -64,6 +97,7 @@
                     <tbody id="statesrows"></tbody>
                 </table>
             </div>
+            <div class="col-sm-7" id="map"></div>
         </div>
         
     </div>
