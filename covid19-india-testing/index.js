@@ -124,16 +124,14 @@ d3.json("./covid-testing-data-snapshot-5-25.json").then(function(data) {
         var states = data;
         let features = topojson.feature(states, states.objects.Admin2);
     
-        var projection = d3.geoMercator().fitSize([width, height], features);
-        var path = d3.geoPath(projection);
+        var projection = d3.geoMercator().fitSize([width, height], features)
+        var path = d3.geoPath(projection)
     
         // Create SVG
         let svg = d3.select("#map")
                     .append("svg")
                     .attr("preserveAspectRatio", "xMinYMin meet")
-                    // .attr("viewBox", "0 0 960 500")
-                    .attr("width", width)
-                    .attr("height", height);
+                    .attr("viewBox", `0 0 ${width} ${height}`)
         
         let g = svg.append("g");
         
