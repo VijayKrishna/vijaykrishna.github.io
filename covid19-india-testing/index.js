@@ -15,6 +15,23 @@ class CovidTestingData {
         var month = parseInt(date_split[1])
         var year = parseInt(date_split[2])
         this.epoch = Date.UTC(year, month, date)
+        this.date = new Date(year, month, date)
+    }
+
+    testPositivityNum() {
+        if (this.testPositivity === "") {
+            return 0.0
+        }
+    
+        return parseFloat(this.testPositivity.replace('%', ''))
+    }
+}
+
+class StatewiseTestingData {
+    constructor(all, recent, all_flat) {
+        this.all = all
+        this.recent = recent
+        this.all_flat = all_flat
     }
 }
 
@@ -95,11 +112,10 @@ var statecolorAlt = function(testingData, statename, colorFn) {
     }
 }
 
-// https://api.covid19india.org/state_test_data.json
-
 d3.json("./data/data.json").then(function(data) {
     var states_tested_data = data.states_tested_data
-    var testingData = fetchRecentTestingData(states_tested_data)
+    var statewiseTestingData = fetchRecentTestingData(states_tested_data)
+    var testingData = statewiseTestingData.recent
 
     d3.json("./india-states.json").then(function(data) {
 
@@ -112,7 +128,7 @@ d3.json("./data/data.json").then(function(data) {
                 testingDataArray.push(dataElement)
             }
         }
-    
+
         testingDataArray.sort((a, b) => {
             var aTP = parseFloat(a.testPositivity.replace('%', ''))
             var bTP = parseFloat(b.testPositivity.replace('%', ''))
@@ -126,8 +142,37 @@ d3.json("./data/data.json").then(function(data) {
     
         var projection = d3.geoMercator().fitSize([width, height], features)
         var path = d3.geoPath(projection)
+
+        // Create Time series curves
+        var margin = {top: 1, right: 30, bottom: 30, left: 30}
+        var timeWidth = width - margin.left - margin.right
+        var timeHeight = height/4 - margin.top - margin.bottom
+        let timePlotSvg = d3.select("#timelines")
+                            .append("svg")
+                            .attr("preserveAspectRatio", "xMinYMin meet")
+                            .attr("viewBox", `0 0 ${timeWidth + margin.left + margin.right} ${timeHeight + margin.top + margin.bottom}`)
+        
+        let timeG = timePlotSvg.append("g")
+                                .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
+        // Add X axis
+        var x = d3.scaleTime()
+                    .domain(d3.extent(statewiseTestingData.all_flat, function(d) { return d.date; }))
+                    .range([ 0, timeWidth ]);
+        timeG.append("g")
+                .attr("transform", "translate(0," + (timeHeight) + ")")
+                .call(d3.axisBottom(x))
+
+        // Add Y axis
+        var y = d3.scaleLinear()
+                .domain([-0.5, d3.max(statewiseTestingData.all_flat, function(d) { 
+                    let tp = d.testPositivityNum()
+                    return (tp === NaN) ? 0 : tp
+                })])
+                .range([ timeHeight, 0 ])
+        timeG.append("g").call(d3.axisLeft(y))
     
-        // Create SVG
+        // Create Map's SVG
         let svg = d3.select("#map")
                     .append("svg")
                     .attr("preserveAspectRatio", "xMinYMin meet")
@@ -135,8 +180,6 @@ d3.json("./data/data.json").then(function(data) {
         
         let g = svg.append("g");
         
-        console.log(states.result);
-            
         // Bind TopoJSON data
         g.selectAll("path")
             .data(features.features) // Bind TopoJSON data elements
@@ -156,11 +199,11 @@ d3.json("./data/data.json").then(function(data) {
     
         // Create Event Handlers for mouse enter/out events
         function handleMouseOver(d, i) {
-            d3.select(this).style("fill", d => statecolor(testingData, d, altcolor));
+            highlight(d3.select(this), d, timeG, statewiseTestingData, x, y)
         }
     
         function handleMouseOut(d, i) {
-            d3.select(this).style("fill", statecolor(testingData, d, color));
+            deHighlight(d3.select(this), d, timeG, statewiseTestingData)
         }
 
         var rows = d3.select('#statesrows')
@@ -187,7 +230,7 @@ d3.json("./data/data.json").then(function(data) {
                 return
             }
 
-            pathSelection.style("fill", d => statecolor(testingData, d, altcolor));
+            highlight(pathSelection, d, timeG, statewiseTestingData, x, y)
         }
     
         function tablerowMouseOut(d, i) {
@@ -197,14 +240,68 @@ d3.json("./data/data.json").then(function(data) {
                 return
             }
 
-            pathSelection.style("fill", d => statecolor(testingData, d, color));
+            deHighlight(pathSelection, d, timeG, statewiseTestingData)
+        }
+
+        for (let index = 0; index < statenames.length; index++) {
+            const statename = statenames[index]
+            const stateTestPositivityData = statewiseTestingData.all[statename]
+            const latestPosData = testingData[statename]
+            const testposRate = latestPosData.testPositivityNum()
+            const col = color(testposRate)
+            plotTimeSeries(timeG, "", "#292929", stateTestPositivityData, x, y, "graytimeplot")
         }
     })
 })
 
+function highlight(statePathSelection, d, timeG, statewiseTestingData, x, y) {
+    const recentTestingData = statewiseTestingData.recent
+    statePathSelection.style("fill", d => statecolor(recentTestingData, d, altcolor))
+    var idx = idxmap(d)
+    var statename = statenames[idx]
+    const stateTestPositivityData = statewiseTestingData.all[statename]
+    const latestPosData = recentTestingData[statename]
+    const testposRate = latestPosData.testPositivityNum()
+    const col = altcolor(testposRate)
+    plotTimeSeries(timeG, statename, col, stateTestPositivityData, x, y)
+}
+
+function deHighlight(statePathSelection, d, timeG, statewiseTestingData) {
+    statePathSelection.style("fill", d => statecolor(statewiseTestingData.recent, d, color))
+    var idx = idxmap(d)
+    var statename = statenames[idx]
+    clearTimeSeries(timeG, statename)
+}
+
+function plotTimeSeries(timeG, statename, dataColor, stateTestPositivityData, x, y, pathclass = "statetimeplot") {
+    timeG.append("path")
+        .datum(stateTestPositivityData)
+        .attr("class", pathclass)
+        .attr("fill", "none")
+        .attr("stroke", dataColor)
+        .attr("stroke-width", 2)
+        .attr("d", d3.line()
+                    .x(function(d) { return x(d.date) })
+                    .y(function(d) {
+                        let tp = d.testPositivityNum()
+                        let rate = (tp === NaN) ? 0.0 : tp
+                        return y(rate) 
+                    })
+            )
+        .on("mouseenter", d => console.log(d))
+        .append("title").text(d => d.statename)
+}
+
+function clearTimeSeries(timeG, statename) {
+    timeG.selectAll(".statetimeplot").remove()
+    // d3.select("#timeplot" + statename).remove()
+}
+
 function fetchRecentTestingData(states_tested_data) {
 
-    var recentTestData = []
+    var recentStatewiseTestingData = []
+    var statewiseTestingData = []
+    var statewiseTestingDataFlat = null
 
     for (let index = 0; index < states_tested_data.length; index += 1) {
         const state_testing_data = states_tested_data[index];
@@ -212,9 +309,28 @@ function fetchRecentTestingData(states_tested_data) {
         var date = state_testing_data.updatedon
         var testPositivity = state_testing_data.testpositivityrate
 
+        if (testPositivity === "") {
+            continue
+        }
+
         var testingData = new CovidTestingData(date, statename, testPositivity)
 
-        var existingTestingData = recentTestData[statename]
+        if (statewiseTestingDataFlat === null) {
+            statewiseTestingDataFlat = [testingData]
+        } else {
+            statewiseTestingDataFlat.push(testingData)
+        }
+
+        var existingTestingData = recentStatewiseTestingData[statename]
+        var stateTestingData = statewiseTestingData[statename]
+
+        if (stateTestingData === null || stateTestingData === undefined || !Array.isArray(stateTestingData)) {
+            stateTestingData = [testingData]
+            statewiseTestingData[statename] = stateTestingData
+        } else if (Array.isArray(stateTestingData)) {
+            stateTestingData.push(testingData)
+        }
+
         var shouldReplace = false
         if (existingTestingData != null && existingTestingData != undefined  && existingTestingData instanceof CovidTestingData) {
             var existingEpoch = existingTestingData.epoch
@@ -228,9 +344,12 @@ function fetchRecentTestingData(states_tested_data) {
         }
 
         if (shouldReplace) {
-            recentTestData[statename] = testingData
+            recentStatewiseTestingData[statename] = testingData
         }
     }
 
-    return recentTestData
+    let statewiseData = new StatewiseTestingData(statewiseTestingData, recentStatewiseTestingData, statewiseTestingDataFlat)
+    return statewiseData
 }
+
+
