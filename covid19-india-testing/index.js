@@ -2,6 +2,7 @@ var statenames = ["Ladakh", "Arunachal Pradesh", "Assam", "Chandigarh", "Karnata
 
 color = d3.scaleQuantize([0, 10], d3.schemeBlues[5])
 altcolor = d3.scaleQuantize([0, 10], d3.schemeOranges[5])
+alt2color = d3.scaleQuantize([0, 10], d3.schemeReds[5])
 
 class CovidTestingData {
     constructor(updatedon, statename, testPositivity) {
@@ -144,7 +145,7 @@ d3.json("./data/data.json").then(function(data) {
         var path = d3.geoPath(projection)
 
         // Create Time series curves
-        var margin = {top: 1, right: 30, bottom: 30, left: 30}
+        var margin = {top: 1, right: 5, bottom: 30, left: 20}
         var timeWidth = width - margin.left - margin.right
         var timeHeight = height/4 - margin.top - margin.bottom
         let timePlotSvg = d3.select("#timelines")
@@ -215,13 +216,50 @@ d3.json("./data/data.json").then(function(data) {
             .data(function (d) {
                     return [{ 'value': d.statename, 'name': 'statename', 'id': d.id },
                             { 'value': d.testPositivity, 'name': 'testPositivity', 'id': d.id },
-                            { 'value': d.updatedon, 'name': 'updatedon', 'id': d.id }]
+                            { 'value': d.updatedon, 'name': 'updatedon', 'id': d.id },
+                            { 'value': "", 'name': 'trend', 'id': d.id}]
                 })
             .enter()
             .append('td')
+            .attr("id", d => d.id)
+            .attr("class", d => d.name)
             .text(d => d.value)
             .on("mouseenter", tablerowMouseOver)
-            .on("mouseout", tablerowMouseOut);
+            .on("mouseout", tablerowMouseOut)
+        
+        const inlineHt = 50
+        const inlineWd = 100
+        var inlineX = d3.scaleTime()
+                        .domain(d3.extent(statewiseTestingData.all_flat, function(d) { return d.date; }))
+                        .range([ 0, inlineWd ])
+        var inlineY = d3.scaleLinear()
+                        .domain([-0.5, d3.max(statewiseTestingData.all_flat, function(d) { 
+                            let tp = d.testPositivityNum()
+                            return (tp === NaN) ? 0 : tp
+                        })])
+                        .range([ inlineHt, 0 ])
+
+        rows.select(".trend").each(function() {
+            const thisSel = d3.select(this)
+            const idx = parseInt(thisSel.attr("id"))
+
+            
+            let inlineSVG = thisSel.append("svg")
+                            .attr("preserveAspectRatio", "xMinYMin meet")
+                            .attr("viewBox", `0 0 ${inlineWd} ${inlineHt}`)
+                            .style("background-color", "black")
+                            .on("mouseover", tablerowMouseOver)
+                            .on("mouseout", tablerowMouseOut)
+            let inlineG = inlineSVG.append("g")
+
+            const statename = statenames[idx]
+            const stateTestPositivityData = statewiseTestingData.all[statename]
+            const latestPosData = testingData[statename]
+            const testposRate = latestPosData.testPositivityNum()
+            const statecol = alt2color(testposRate)
+            plotTimeSeries(inlineG, "", statecol, stateTestPositivityData, inlineX, inlineY, "inlinetimeplot")
+        })
+        
         
         function tablerowMouseOver(d, i) {
             var statemapId = d.id
@@ -288,7 +326,6 @@ function plotTimeSeries(timeG, statename, dataColor, stateTestPositivityData, x,
                         return y(rate) 
                     })
             )
-        .on("mouseenter", d => console.log(d))
         .append("title").text(d => d.statename)
 }
 
