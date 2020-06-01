@@ -243,11 +243,9 @@ d3.json("./data/data.json").then(function(data) {
             const thisSel = d3.select(this)
             const idx = parseInt(thisSel.attr("id"))
 
-            
             let inlineSVG = thisSel.append("svg")
                             .attr("preserveAspectRatio", "xMinYMin meet")
                             .attr("viewBox", `0 0 ${inlineWd} ${inlineHt}`)
-                            .style("background-color", "black")
                             .on("mouseover", tablerowMouseOver)
                             .on("mouseout", tablerowMouseOut)
             let inlineG = inlineSVG.append("g")
