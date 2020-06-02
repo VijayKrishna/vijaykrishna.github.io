@@ -13,7 +13,7 @@ class CovidTestingData {
 
         var date_split = updatedon.split('/')
         var date = parseInt(date_split[0])
-        var month = parseInt(date_split[1])
+        var month = parseInt(date_split[1]) - 1
         var year = parseInt(date_split[2])
         this.epoch = Date.UTC(year, month, date)
         this.date = new Date(year, month, date)
@@ -53,6 +53,7 @@ var idToPathSelectionMap = function(id) {
     }
 
     console.log(typeof id)
+    console.log(id)
 
     return null
 }
@@ -179,7 +180,8 @@ d3.json("./data/data.json").then(function(data) {
                     .attr("preserveAspectRatio", "xMinYMin meet")
                     .attr("viewBox", `0 0 ${width} ${height}`)
         
-        let g = svg.append("g");
+        let g = svg.append("g") // keep this first
+        let labelG = svg.append("g")
         
         // Bind TopoJSON data
         g.selectAll("path")
@@ -200,7 +202,7 @@ d3.json("./data/data.json").then(function(data) {
     
         // Create Event Handlers for mouse enter/out events
         function handleMouseOver(d, i) {
-            highlight(d3.select(this), d, timeG, statewiseTestingData, x, y)
+            highlight(d3.select(this), d, labelG, timeG, statewiseTestingData, x, y)
         }
     
         function handleMouseOut(d, i) {
@@ -266,7 +268,7 @@ d3.json("./data/data.json").then(function(data) {
                 return
             }
 
-            highlight(pathSelection, d, timeG, statewiseTestingData, x, y)
+            highlight(pathSelection, d, labelG, timeG, statewiseTestingData, x, y)
         }
     
         function tablerowMouseOut(d, i) {
@@ -290,7 +292,9 @@ d3.json("./data/data.json").then(function(data) {
     })
 })
 
-function highlight(statePathSelection, d, timeG, statewiseTestingData, x, y) {
+function highlight(statePathSelection, d, labelG, timeG, statewiseTestingData, x, y) {
+    clearHighlight(statePathSelection, d, labelG, timeG, statewiseTestingData)
+
     const recentTestingData = statewiseTestingData.recent
     statePathSelection.style("fill", d => statecolor(recentTestingData, d, altcolor))
     var idx = idxmap(d)
@@ -300,6 +304,37 @@ function highlight(statePathSelection, d, timeG, statewiseTestingData, x, y) {
     const testposRate = latestPosData.testPositivityNum()
     const col = altcolor(testposRate)
     plotTimeSeries(timeG, statename, col, stateTestPositivityData, x, y)
+
+    const firstLabelY = 70
+    const labelDy = 25
+    labelG.append("text")
+        .attr("class", "statelabel")
+        .attr("x", 350)
+        .attr("y", firstLabelY)
+        // .attr("dy", ".5em")
+        .style("fill", "silver")
+        .style("font-size", "20px")
+        .text(statename)
+    labelG.append("text")
+        .attr("class", "statelabel")
+        .attr("x", 350)
+        .attr("y", firstLabelY + labelDy)
+        // .attr("dy", ".5em")
+        .style("font-size", "20px")
+        .style("fill", "silver")
+        .text("Test Positivity: " + latestPosData.testPositivity)
+    labelG.append("text")
+        .attr("class", "statelabel")
+        .attr("x", 350)
+        .attr("y", firstLabelY + (2 * labelDy))
+        // .attr("dy", ".5em")
+        .style("font-size", "15px")
+        .style("fill", "silver")
+        .text("Updated on: " + latestPosData.updatedon)
+}
+
+function clearHighlight(statePathSelection, d, labelG, timeG, statewiseTestingData) {
+    labelG.selectAll(".statelabel").remove()
 }
 
 function deHighlight(statePathSelection, d, timeG, statewiseTestingData) {
@@ -329,7 +364,6 @@ function plotTimeSeries(timeG, statename, dataColor, stateTestPositivityData, x,
 
 function clearTimeSeries(timeG, statename) {
     timeG.selectAll(".statetimeplot").remove()
-    // d3.select("#timeplot" + statename).remove()
 }
 
 function fetchRecentTestingData(states_tested_data) {
