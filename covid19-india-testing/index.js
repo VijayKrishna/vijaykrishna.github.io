@@ -377,9 +377,23 @@ function fetchRecentTestingData(states_tested_data) {
         var statename = state_testing_data.state
         var date = state_testing_data.updatedon
         var testPositivity = state_testing_data.testpositivityrate
+        var positive = state_testing_data.positive
+        var totalTested = state_testing_data.totaltested
 
-        if (testPositivity === "") {
+        if (testPositivity === "" && (positive === "" || totalTested === "")) {
             continue
+        }
+
+        if (testPositivity === "" && (positive != "" && totalTested != "")) {
+            const posInt = parseInt(positive)
+            const totalInt = parseInt(totalTested)
+
+            if (posInt != NaN && totalInt != NaN) {
+                const testPositivityNum = (posInt * 1.0)/(totalInt * 1.0)
+                if (testPositivityNum != NaN) {
+                    testPositivity = `${(testPositivityNum*100).toFixed(2)}%`
+                }
+            }
         }
 
         var testingData = new CovidTestingData(date, statename, testPositivity)
