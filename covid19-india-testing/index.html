@@ -13,6 +13,24 @@
     gtag('config', 'UA-167438965-1');
   </script>
 
+  <script>window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
+  
+    return t;
+  }(document, "script", "twitter-wjs"));
+  go("about");
+  </script>
   <title>COVID19 Testing in India</title>
 
 
@@ -39,6 +57,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active"><a class="nav-link" href="#writeup">Summary</a></li>
+            <li class="nav-item active"><a class="nav-link" href="#aboutthisdashboard">About this dashboard</a></li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Broader News Reporting
@@ -64,7 +83,10 @@
     <div class="container-fluid">
         <div class="row">
           <div class="col text-light">
-            <h4>Test Positivity Rates across India's States and Union Territories</h4>
+            <h4>
+              Test Positivity Rates across India's States and Union Territories 
+              <a href="https://twitter.com/intent/tweet?button_hashtag=COVID19IndiaTesting&text=Check%20out%20Test%20Positivity%20Rates%20in%20India%20today%20at%20" class="twitter-hashtag-button" data-related="treestrokes" data-url="https://vijaykrishna.github.io/covid19-india-testing/">Tweet #COVID19IndiaTesting</a>
+            </h4>
 
               Test Positivity is a metric that is helpful in better estimating the true spread of an epidemic 
               when we know that the number of reported cases for a disease is a undercount of the actual number of 
@@ -87,7 +109,7 @@
                 <table class="table text-light table-borderless table-sm table-hover table-dark bg-transparent" style="overflow-y:auto; height:100px;">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col" style="text-align: left;">State</th>
+                            <th scope="col" style="text-align: left;">Region</th>
                             <th scope="col" style="text-align: left;">Test Positivity</th>
                             <th scope="col" style="text-align: left;">Last Updated</th>
                             <th scope="col" style="text-align: left;">Trend</th>
@@ -103,6 +125,7 @@
               <div id="map"></div>
               <div id="writeup">
                 <hr style="border: 0.5px solid rgb(200,200,200);"/>
+                <h3>Summary</h3>
                 Overall, India has managed to maintain a low test positivity rate. According to news reports on <a target="_blank" href="https://economictimes.indiatimes.com/news/politics-and-nation/as-india-hits-1m-tests-mark-positivity-rate-dips-to-3-8/articleshow/75523759.cms">May 4th, 2020, India had a test positivity rate of 3.8%.</a> However, in more recent reporting, <a target="_blank" href="https://timesofindia.indiatimes.com/india/positivity-rate-per-100-tests-rises-to-5-in-last-2-weeks/articleshow/75958512.cms">that number has risen to 5% based on the data accumulated "between May 7 and May 21".</a> The 5% figure lines up with independent data collection by the <a target="_blank" href="https://ourworldindata.org">"Our World in Data" project</a> that has <a href="https://ourworldindata.org/grapher/covid-19-positive-rate-bar?tab=chart&time=2020-03-13..&country=IND">India's test positivity rate for COVID19 at 4.6% on May 25, 2020.</a><br><br>
 
                 The WHO has recommended that governments should consider reopening their countries when they have noticed a test positivity rate of 5% or lower for at least 14 days [<a target="_blank" href="https://coronavirus.jhu.edu/testing/testing-positivity">source</a>].
@@ -111,7 +134,10 @@
   
                 <b class="text-dark bg-warning"> <big>Interestingly,</big> the test positivity rate for India has been on a rise throughout the month of May 2020.</b> That number has jumped from 3.9% on May 1, to 4.6% on May 25. As such making this an important, and under-reported metric to keep an eye on, as the COVID19 pandemic continues to keep India in a state of lockdown. <br><br>
                 
-                <span class="bg-success">Below is a listing of the most recently reported Test Positivity Rates for all states and union territories in India,</span> except the Lakshwadeep Islands.
+                <hr style="border: 0.5px solid rgb(200,200,200);"/>
+                <h3 id="aboutthisdashboard">About this dashboard</h3>
+
+                This dashboard shows a listing of the most recently reported Test Positivity Rates for all states and union territories in India, except the Lakshwadeep Islands.
                 I am visualizing these test positivity rates for these regions by coloring them in different shades of blue. A lighter shade of blue suggests a relatively lower test positivity rate for a given region. A darker shade of blue suggests a higher test positivity rate. For instance, Maharashtra and Delhi have test positivity rates of 12.28% (updated on 21/05/2020) and 7.55% (updated on 21/05/2020), and as such are colored in the deepest shades of blue. By contrast, Andhra Pradesh and Meghalaya are reporting test positivity rates of well below 1%, i.e. less than one percent of the people tested in those states have COVID19. <br><br>
   
                 I am collecting the state-wise test positivity rate data from the <a target="_blank" href="https://api.covid19india.org">COVID19India's Data API</a>. <br><br>
