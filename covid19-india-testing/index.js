@@ -166,7 +166,7 @@ d3.json("./data/data.json").then(function(data) {
     console.log(d3.extent(statewiseTestingData.all_flat, function(d) { return d.date; }))
 
     d3.csv("./data/covid-19-positive-rate-india.csv").then(function(data) {
-        plotIndiaAvg(data, x, y, inlineX, inlineY)
+        plotIndiaAvg(data, x, y, inlineX, inlineY, statewiseTestingData)
     })
 
     d3.json("./india-states.json").then(function(data) {
@@ -288,19 +288,10 @@ d3.json("./data/data.json").then(function(data) {
 
             deHighlight(pathSelection, d, labelG, timeG, statewiseTestingData)
         }
-
-        // for (let index = 0; index < statenames.length; index++) {
-        //     const statename = statenames[index]
-        //     const stateTestPositivityData = statewiseTestingData.all[statename]
-        //     const latestPosData = testingData[statename]
-        //     const testposRate = latestPosData.testPositivityNum()
-        //     const col = color(testposRate)
-        //     plotTimeSeries(timeG, "", "#101010", stateTestPositivityData, x, y, "graytimeplot")
-        // }
     })
 })
 
-function plotIndiaAvg(data, x, y, inlineX, inlineY) {
+function plotIndiaAvg(data, x, y, inlineX, inlineY, statewiseTestingData) {
     var latestTPR = 0.0
     var latestUpdatedOnDate = null
     var latestUpdatedOn = ""
@@ -352,6 +343,13 @@ function plotIndiaAvg(data, x, y, inlineX, inlineY) {
     const indiacol2 = color(latestTPR)
     
     plotTimeSeries(inlineG, "", indiacol2, plotableTestingData, inlineX, inlineY, "indiainlinetimeplot")
+
+    for (let index = 0; index < statenames.length; index++) {
+        const statename = statenames[index]
+        const stateTestPositivityData = statewiseTestingData.all[statename]
+        plotTimeSeries(timeG, "", "#1F1F1F", stateTestPositivityData, x, y, "graytimeplot")
+    }
+
     plotTimeSeries(timeG, "", indiacol, plotableTestingData, x, y, "indiabluetimeplot")
 }
 
@@ -368,32 +366,43 @@ function highlight(statePathSelection, d, labelG, timeG, statewiseTestingData, x
     const col = altcolor(testposRate)
     plotTimeSeries(timeG, statename, col, stateTestPositivityData, x, y)
 
+    attachTopRightMapLabels(labelG, statename, latestPosData)
+}
+
+function attachTopRightMapLabels(labelG, statename, latestPosData) {
     const firstLabelY = 70
     const labelDy = 25
     labelG.append("text")
         .attr("class", "statelabel")
-        .attr("x", 350)
-        .attr("y", firstLabelY)
-        // .attr("dy", ".5em")
-        .style("fill", "silver")
-        .style("font-size", "20px")
-        .text(statename)
+        .attr("x", 350).attr("y", firstLabelY)
+        .style("fill", "silver").style("font-size", "18px")
+        .text("Test Positivity")
+
     labelG.append("text")
         .attr("class", "statelabel")
-        .attr("x", 350)
-        .attr("y", firstLabelY + labelDy)
-        // .attr("dy", ".5em")
-        .style("font-size", "20px")
-        .style("fill", "silver")
-        .text("Test Positivity: " + latestPosData.testPositivity)
+        .attr("x", 350).attr("y", firstLabelY + labelDy)
+        .style("font-size", "20px").style("fill", "silver")
+        .text(statename + ": " + latestPosData.testPositivity)
+
     labelG.append("text")
         .attr("class", "statelabel")
-        .attr("x", 350)
-        .attr("y", firstLabelY + (2 * labelDy))
-        // .attr("dy", ".5em")
-        .style("font-size", "15px")
-        .style("fill", "silver")
+        .attr("x", 350).attr("y", firstLabelY + (2 * labelDy))
+        .style("font-size", "15px").style("fill", "silver")
         .text("Updated on: " + latestPosData.updatedon)
+
+    if (latestIndiaTestingData != null) {
+        labelG.append("text")
+            .attr("class", "statelabel")
+            .attr("x", 350).attr("y", firstLabelY + (3.5 * labelDy))
+            .style("font-size", "20px").style("fill", "silver")
+            .text("India: " + latestIndiaTestingData.testPositivity)
+
+        labelG.append("text")
+            .attr("class", "statelabel")
+            .attr("x", 350).attr("y", firstLabelY + (4.5 * labelDy))
+            .style("font-size", "15px").style("fill", "silver")
+            .text("Updated on: " + latestIndiaTestingData.updatedon)
+    }
 }
 
 function clearHighlight(statePathSelection, d, labelG, timeG, statewiseTestingData) {
@@ -405,36 +414,6 @@ function deHighlight(statePathSelection, d, labelG, timeG, statewiseTestingData)
     var idx = idxmap(d)
     var statename = statenames[idx]
     clearTimeSeries(timeG, statename)
-
-    if (latestIndiaTestingData != null) {
-        clearHighlight(statePathSelection, d, labelG, timeG, statewiseTestingData)
-        const firstLabelY = 70
-        const labelDy = 25
-        labelG.append("text")
-            .attr("class", "statelabel")
-            .attr("x", 350)
-            .attr("y", firstLabelY)
-            // .attr("dy", ".5em")
-            .style("fill", "silver")
-            .style("font-size", "20px")
-            .text("India")
-        labelG.append("text")
-            .attr("class", "statelabel")
-            .attr("x", 350)
-            .attr("y", firstLabelY + labelDy)
-            // .attr("dy", ".5em")
-            .style("font-size", "20px")
-            .style("fill", "silver")
-            .text("Test Positivity: " + latestIndiaTestingData.testPositivity)
-        labelG.append("text")
-            .attr("class", "statelabel")
-            .attr("x", 350)
-            .attr("y", firstLabelY + (2 * labelDy))
-            // .attr("dy", ".5em")
-            .style("font-size", "15px")
-            .style("fill", "silver")
-            .text("Updated on: " + latestIndiaTestingData.updatedon)
-    }
 }
 
 function plotTimeSeries(timeG, statename, dataColor, stateTestPositivityData, x, y, pathclass = "statetimeplot") {
