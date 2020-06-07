@@ -114,13 +114,62 @@ var statecolorAlt = function(testingData, statename, colorFn) {
     }
 }
 
+// Create Time series curves
+let width = 700;
+let height = 700;
+var margin = {top: 1, right: 5, bottom: 30, left: 20}
+var timeWidth = width - margin.left - margin.right
+var timeHeight = height/4 - margin.top - margin.bottom
+let timePlotSvg = d3.select("#timelines")
+                    .append("svg")
+                    .attr("preserveAspectRatio", "xMinYMin meet")
+                    .attr("viewBox", `0 0 ${timeWidth + margin.left + margin.right} ${timeHeight + margin.top + margin.bottom}`)
+
+let timeG = timePlotSvg.append("g")
+                       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+let latestIndiaTestingData = null
+
 d3.json("./data/data.json").then(function(data) {
     var states_tested_data = data.states_tested_data
     var statewiseTestingData = fetchRecentTestingData(states_tested_data)
     var testingData = statewiseTestingData.recent
 
-    d3.json("./india-states.json").then(function(data) {
+    // Add X axis
+    var x = d3.scaleTime()
+                .domain(d3.extent(statewiseTestingData.all_flat, function(d) { return d.date; }))
+                .range([ 0, timeWidth ]);
+    timeG.append("g")
+            .attr("transform", "translate(0," + (timeHeight) + ")")
+            .call(d3.axisBottom(x))
 
+    // Add Y axis
+    var y = d3.scaleLinear()
+            .domain([-0.5, d3.max(statewiseTestingData.all_flat, function(d) { 
+                let tp = d.testPositivityNum()
+                return (tp === NaN) ? 0 : tp
+            })])
+            .range([ timeHeight, 0 ])
+    timeG.append("g").call(d3.axisLeft(y))
+
+    const inlineHt = 50
+    const inlineWd = 100
+    var inlineX = d3.scaleTime()
+                    .domain(d3.extent(statewiseTestingData.all_flat, function(d) { return d.date; }))
+                    .range([ 0, inlineWd ])
+    var inlineY = d3.scaleLinear()
+                    .domain([-0.5, d3.max(statewiseTestingData.all_flat, function(d) { 
+                        let tp = d.testPositivityNum()
+                        return (tp === NaN) ? 0 : tp
+                    })])
+                    .range([ inlineHt, 0 ])
+
+    console.log(d3.extent(statewiseTestingData.all_flat, function(d) { return d.date; }))
+
+    d3.csv("./data/covid-19-positive-rate-india.csv").then(function(data) {
+        plotIndiaAvg(data, x, y, inlineX, inlineY)
+    })
+
+    d3.json("./india-states.json").then(function(data) {
         var testingDataArray = []
 
         for (const key in testingData) {
@@ -145,35 +194,6 @@ d3.json("./data/data.json").then(function(data) {
         var projection = d3.geoMercator().fitSize([width, height], features)
         var path = d3.geoPath(projection)
 
-        // Create Time series curves
-        var margin = {top: 1, right: 5, bottom: 30, left: 20}
-        var timeWidth = width - margin.left - margin.right
-        var timeHeight = height/4 - margin.top - margin.bottom
-        let timePlotSvg = d3.select("#timelines")
-                            .append("svg")
-                            .attr("preserveAspectRatio", "xMinYMin meet")
-                            .attr("viewBox", `0 0 ${timeWidth + margin.left + margin.right} ${timeHeight + margin.top + margin.bottom}`)
-        
-        let timeG = timePlotSvg.append("g")
-                                .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-
-        // Add X axis
-        var x = d3.scaleTime()
-                    .domain(d3.extent(statewiseTestingData.all_flat, function(d) { return d.date; }))
-                    .range([ 0, timeWidth ]);
-        timeG.append("g")
-                .attr("transform", "translate(0," + (timeHeight) + ")")
-                .call(d3.axisBottom(x))
-
-        // Add Y axis
-        var y = d3.scaleLinear()
-                .domain([-0.5, d3.max(statewiseTestingData.all_flat, function(d) { 
-                    let tp = d.testPositivityNum()
-                    return (tp === NaN) ? 0 : tp
-                })])
-                .range([ timeHeight, 0 ])
-        timeG.append("g").call(d3.axisLeft(y))
-    
         // Create Map's SVG
         let svg = d3.select("#map")
                     .append("svg")
@@ -206,7 +226,7 @@ d3.json("./data/data.json").then(function(data) {
         }
     
         function handleMouseOut(d, i) {
-            deHighlight(d3.select(this), d, timeG, statewiseTestingData)
+            deHighlight(d3.select(this), d, labelG, timeG, statewiseTestingData)
         }
 
         var rows = d3.select('#statesrows')
@@ -228,18 +248,6 @@ d3.json("./data/data.json").then(function(data) {
             .text(d => d.value)
             .on("mouseenter", tablerowMouseOver)
             .on("mouseout", tablerowMouseOut)
-        
-        const inlineHt = 50
-        const inlineWd = 100
-        var inlineX = d3.scaleTime()
-                        .domain(d3.extent(statewiseTestingData.all_flat, function(d) { return d.date; }))
-                        .range([ 0, inlineWd ])
-        var inlineY = d3.scaleLinear()
-                        .domain([-0.5, d3.max(statewiseTestingData.all_flat, function(d) { 
-                            let tp = d.testPositivityNum()
-                            return (tp === NaN) ? 0 : tp
-                        })])
-                        .range([ inlineHt, 0 ])
 
         rows.select(".trend").each(function() {
             const thisSel = d3.select(this)
@@ -278,19 +286,74 @@ d3.json("./data/data.json").then(function(data) {
                 return
             }
 
-            deHighlight(pathSelection, d, timeG, statewiseTestingData)
+            deHighlight(pathSelection, d, labelG, timeG, statewiseTestingData)
         }
 
-        for (let index = 0; index < statenames.length; index++) {
-            const statename = statenames[index]
-            const stateTestPositivityData = statewiseTestingData.all[statename]
-            const latestPosData = testingData[statename]
-            const testposRate = latestPosData.testPositivityNum()
-            const col = color(testposRate)
-            plotTimeSeries(timeG, "", "#292929", stateTestPositivityData, x, y, "graytimeplot")
-        }
+        // for (let index = 0; index < statenames.length; index++) {
+        //     const statename = statenames[index]
+        //     const stateTestPositivityData = statewiseTestingData.all[statename]
+        //     const latestPosData = testingData[statename]
+        //     const testposRate = latestPosData.testPositivityNum()
+        //     const col = color(testposRate)
+        //     plotTimeSeries(timeG, "", "#101010", stateTestPositivityData, x, y, "graytimeplot")
+        // }
     })
 })
+
+function plotIndiaAvg(data, x, y, inlineX, inlineY) {
+    var latestTPR = 0.0
+    var latestUpdatedOnDate = null
+    var latestUpdatedOn = ""
+    var latestTestingData = null
+    var dailyTestData = []
+
+    const oldestPlottedDate = new Date("Apr 01 2020")
+    var plotableTestingData = []
+
+    function padDate(num) {
+        return ("000" + num).slice(-2)
+    }
+
+    for (let index = 0; index < data.length; index++) {
+        const element = data[index];
+        const testpositivityrate = parseFloat(element.TPR).toFixed(2)
+        const updatedonDate = new Date(element.Date)
+        const updatedon = `${padDate(updatedonDate.getDate())}/${padDate(updatedonDate.getMonth() + 1)}/${updatedonDate.getFullYear()}`
+        var testingData = new CovidTestingData(updatedon, "India", testpositivityrate + "%")
+
+        dailyTestData.push(testingData)
+        
+        if (latestUpdatedOnDate === null || (latestUpdatedOnDate.getTime() < updatedonDate.getTime())) {
+            latestUpdatedOnDate = updatedonDate
+            latestUpdatedOn = updatedon
+            latestTPR = testpositivityrate
+            latestTestingData = testingData
+        }
+
+        if (updatedonDate.getTime() >= oldestPlottedDate.getTime()) {
+            plotableTestingData.push(testingData)
+        }
+    }
+
+    latestIndiaTestingData = latestTestingData
+
+    d3.select("#ind-tpr").text(latestTPR + "%")
+    d3.select("#ind-updatedon").text(latestUpdatedOn)
+
+    const inlineHt = 50
+    const inlineWd = 100
+
+    let inlineSVG = d3.select("#ind-trend").append("svg")
+    inlineSVG.attr("preserveAspectRatio", "xMinYMin meet")
+             .attr("viewBox", `0 0 ${inlineWd} ${inlineHt}`)
+    let inlineG = inlineSVG.append("g")
+
+    const indiacol = color(latestTPR)
+    const indiacol2 = color(latestTPR)
+    
+    plotTimeSeries(inlineG, "", indiacol2, plotableTestingData, inlineX, inlineY, "indiainlinetimeplot")
+    plotTimeSeries(timeG, "", indiacol, plotableTestingData, x, y, "indiabluetimeplot")
+}
 
 function highlight(statePathSelection, d, labelG, timeG, statewiseTestingData, x, y) {
     clearHighlight(statePathSelection, d, labelG, timeG, statewiseTestingData)
@@ -337,11 +400,41 @@ function clearHighlight(statePathSelection, d, labelG, timeG, statewiseTestingDa
     labelG.selectAll(".statelabel").remove()
 }
 
-function deHighlight(statePathSelection, d, timeG, statewiseTestingData) {
+function deHighlight(statePathSelection, d, labelG, timeG, statewiseTestingData) {
     statePathSelection.style("fill", d => statecolor(statewiseTestingData.recent, d, color))
     var idx = idxmap(d)
     var statename = statenames[idx]
     clearTimeSeries(timeG, statename)
+
+    if (latestIndiaTestingData != null) {
+        clearHighlight(statePathSelection, d, labelG, timeG, statewiseTestingData)
+        const firstLabelY = 70
+        const labelDy = 25
+        labelG.append("text")
+            .attr("class", "statelabel")
+            .attr("x", 350)
+            .attr("y", firstLabelY)
+            // .attr("dy", ".5em")
+            .style("fill", "silver")
+            .style("font-size", "20px")
+            .text("India")
+        labelG.append("text")
+            .attr("class", "statelabel")
+            .attr("x", 350)
+            .attr("y", firstLabelY + labelDy)
+            // .attr("dy", ".5em")
+            .style("font-size", "20px")
+            .style("fill", "silver")
+            .text("Test Positivity: " + latestIndiaTestingData.testPositivity)
+        labelG.append("text")
+            .attr("class", "statelabel")
+            .attr("x", 350)
+            .attr("y", firstLabelY + (2 * labelDy))
+            // .attr("dy", ".5em")
+            .style("font-size", "15px")
+            .style("fill", "silver")
+            .text("Updated on: " + latestIndiaTestingData.updatedon)
+    }
 }
 
 function plotTimeSeries(timeG, statename, dataColor, stateTestPositivityData, x, y, pathclass = "statetimeplot") {
@@ -434,5 +527,3 @@ function fetchRecentTestingData(states_tested_data) {
     let statewiseData = new StatewiseTestingData(statewiseTestingData, recentStatewiseTestingData, statewiseTestingDataFlat)
     return statewiseData
 }
-
-
