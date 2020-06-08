@@ -5,11 +5,12 @@ altcolor = d3.scaleQuantize([0, 10], d3.schemeOranges[5])
 alt2color = d3.scaleQuantize([0, 10], d3.schemeReds[5])
 
 class CovidTestingData {
-    constructor(updatedon, statename, testPositivity) {
+    constructor(updatedon, statename, testPositivity, sources = []) {
         this.updatedon = updatedon;
         this.statename = statename;
         this.testPositivity = testPositivity;
         this.id = 0;
+        this.sources = sources
 
         var date_split = updatedon.split('/')
         var date = parseInt(date_split[0])
@@ -283,6 +284,23 @@ d3.json("./data/data.json").then(function(data) {
             .text(d => d.value)
             .on("mouseenter", tablerowMouseOver)
             .on("mouseout", tablerowMouseOut)
+        
+        rows.select(".statename").each(function() {
+            const thisSel = d3.select(this)
+            const idx = parseInt(thisSel.attr("id"))
+            const statename = statenames[idx]
+            const latestPosData = testingData[statename]
+
+            for (let index = 0; index < latestPosData.sources.length; index++) {
+                const srcUrl = latestPosData.sources[index];
+                thisSel.append("a")
+                        .attr("href", srcUrl)
+                        .attr("target", "_blank")
+                        .style("font-size", "small")
+                        .style("margin-left", "2px")
+                        .text("[" + (index + 1) + "]")
+            }
+        })
 
         rows.select(".trend").each(function() {
             const thisSel = d3.select(this)
@@ -345,7 +363,7 @@ function plotIndiaAvg(data, x, y, inlineX, inlineY, statewiseTestingData) {
         const testpositivityrate = parseFloat(element.TPR).toFixed(2)
         const updatedonDate = new Date(element.Date)
         const updatedon = `${padDate(updatedonDate.getDate())}/${padDate(updatedonDate.getMonth() + 1)}/${updatedonDate.getFullYear()}`
-        var testingData = new CovidTestingData(updatedon, "India", testpositivityrate + "%")
+        var testingData = new CovidTestingData(updatedon, "India", testpositivityrate + "%", ["https://ourworldindata.org/grapher/covid-19-positive-rate-bar?tab=chart&time=2020-03-13..&country=~IND"])
 
         dailyTestData.push(testingData)
         
@@ -363,8 +381,21 @@ function plotIndiaAvg(data, x, y, inlineX, inlineY, statewiseTestingData) {
 
     latestIndiaTestingData = latestTestingData
 
+
     d3.select("#ind-tpr").text(latestTPR + "%")
     d3.select("#ind-updatedon").text(latestUpdatedOn)
+
+    for (let index = 0; index < latestTestingData.sources.length; index++) {
+        const srcUrl = latestTestingData.sources[index];
+        d3.select("#india")
+            .append("a")
+            .attr("href", srcUrl)
+            .attr("target", "_blank")
+            .style("font-size", "small")
+            .style("margin-left", "2px")
+            .style("font-weight", "normal")
+            .text("[" + (index + 1) + "]")
+    }
 
     const inlineHt = 50
     const inlineWd = 100
@@ -503,7 +534,16 @@ function fetchRecentTestingData(states_tested_data) {
             }
         }
 
-        var testingData = new CovidTestingData(date, statename, testPositivity)
+        let sources = []
+        if (state_testing_data.source1 != "" && state_testing_data.source1 != null && state_testing_data.source1 != undefined) {
+            sources.push(state_testing_data.source1)
+        }
+
+        if (state_testing_data.source2 != "" && state_testing_data.source2 != null && state_testing_data.source2 != undefined) {
+            sources.push(state_testing_data.source2)
+        }
+
+        var testingData = new CovidTestingData(date, statename, testPositivity, sources)
 
         if (statewiseTestingDataFlat === null) {
             statewiseTestingDataFlat = [testingData]
