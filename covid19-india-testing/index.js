@@ -92,6 +92,26 @@ var testpositivityrate = function(testData) {
     return parseFloat(testData.testPositivity.replace('%', ''))
 }
 
+var colorToTexture = {}
+
+var stateFill = function(svg, testingData, d, colorFn, texturize = true) {
+    var color = statecolor(testingData, d, colorFn)
+
+    if (!texturize) {
+        return color
+    }
+
+    var texture = colorToTexture[color]
+
+    if (texture === null || texture == undefined) {
+        texture = textures.circles().radius(0.5).size(2).background(color)
+        svg.call(texture)
+        colorToTexture[color] = texture
+    }
+
+    return texture.url()
+}
+
 var statecolor = function(testingData, d, colorFn) {
     var testData = testdataMap(testingData, d)
     var rate = testpositivityrate(testData)
@@ -200,6 +220,21 @@ d3.json("./data/data.json").then(function(data) {
                     .attr("preserveAspectRatio", "xMinYMin meet")
                     .attr("viewBox", `0 0 ${width} ${height}`)
         
+        // let filter = svg.append("filter")
+        //                 .attr("id", "noise")
+        //                 .attr("x", "0%").attr("y", "0%")
+        //                 .attr("width", "100%").attr("height", "100%")
+        // filter.append("feTurbulence")
+        //         .attr("baseFrequency", "0.6")
+        
+        // filter.append("feDisplacementMap")
+        //         .attr("in2", "turbulence")
+        //         .attr("in", "SourceGraphic")
+        //         .attr("scale", "50")
+        //         .attr("xChannelSelector", "R")
+        //         .attr("yChannelSelector", "G")
+
+        
         let g = svg.append("g") // keep this first
         let labelG = svg.append("g")
         
@@ -209,8 +244,8 @@ d3.json("./data/data.json").then(function(data) {
             .enter().append("path")
             .attr("d", path)
             .attr("id", d => { return d.id; })
-            .style("fill", d => statecolor(testingData, d, color))
-            .style("stroke", "skyblue")
+            .style("fill", d => stateFill(svg, testingData, d, color))
+            .style("stroke", "steelblue")
             .on("mouseenter", handleMouseOver)
             .on("mouseout", handleMouseOut)
             .append("title").text(d => {
@@ -222,11 +257,11 @@ d3.json("./data/data.json").then(function(data) {
     
         // Create Event Handlers for mouse enter/out events
         function handleMouseOver(d, i) {
-            highlight(d3.select(this), d, labelG, timeG, statewiseTestingData, x, y)
+            highlight(svg, d3.select(this), d, labelG, timeG, statewiseTestingData, x, y)
         }
     
         function handleMouseOut(d, i) {
-            deHighlight(d3.select(this), d, labelG, timeG, statewiseTestingData)
+            deHighlight(svg, d3.select(this), d, labelG, timeG, statewiseTestingData)
         }
 
         var rows = d3.select('#statesrows')
@@ -276,7 +311,7 @@ d3.json("./data/data.json").then(function(data) {
                 return
             }
 
-            highlight(pathSelection, d, labelG, timeG, statewiseTestingData, x, y)
+            highlight(svg, pathSelection, d, labelG, timeG, statewiseTestingData, x, y)
         }
     
         function tablerowMouseOut(d, i) {
@@ -286,7 +321,7 @@ d3.json("./data/data.json").then(function(data) {
                 return
             }
 
-            deHighlight(pathSelection, d, labelG, timeG, statewiseTestingData)
+            deHighlight(svg, pathSelection, d, labelG, timeG, statewiseTestingData)
         }
     })
 })
@@ -353,11 +388,11 @@ function plotIndiaAvg(data, x, y, inlineX, inlineY, statewiseTestingData) {
     plotTimeSeries(timeG, "", indiacol, plotableTestingData, x, y, "indiabluetimeplot")
 }
 
-function highlight(statePathSelection, d, labelG, timeG, statewiseTestingData, x, y) {
+function highlight(svg, statePathSelection, d, labelG, timeG, statewiseTestingData, x, y) {
     clearHighlight(statePathSelection, d, labelG, timeG, statewiseTestingData)
 
     const recentTestingData = statewiseTestingData.recent
-    statePathSelection.style("fill", d => statecolor(recentTestingData, d, altcolor))
+    statePathSelection.style("fill", d => stateFill(svg, recentTestingData, d, altcolor))
     var idx = idxmap(d)
     var statename = statenames[idx]
     const stateTestPositivityData = statewiseTestingData.all[statename]
@@ -409,8 +444,8 @@ function clearHighlight(statePathSelection, d, labelG, timeG, statewiseTestingDa
     labelG.selectAll(".statelabel").remove()
 }
 
-function deHighlight(statePathSelection, d, labelG, timeG, statewiseTestingData) {
-    statePathSelection.style("fill", d => statecolor(statewiseTestingData.recent, d, color))
+function deHighlight(svg, statePathSelection, d, labelG, timeG, statewiseTestingData) {
+    statePathSelection.style("fill", d => stateFill(svg, statewiseTestingData.recent, d, color))
     var idx = idxmap(d)
     var statename = statenames[idx]
     clearTimeSeries(timeG, statename)
