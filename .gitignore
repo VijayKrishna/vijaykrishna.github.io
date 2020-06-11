@@ -2,3 +2,4 @@ _site/
 
 *.zip
 *.tar.gz
+.jekyll-cache
