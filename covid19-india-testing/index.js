@@ -108,7 +108,7 @@ let timePlotSvg = d3.select("#timelines")
                     .attr("viewBox", `0 0 ${timeWidth + margin.left + margin.right} ${timeHeight + margin.top + margin.bottom}`)
 
 let timeG = timePlotSvg.append("g")
-                       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+                        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 let latestIndiaTestingData = null
 
 d3.json("./data/data.json").then(function(data) {
@@ -182,21 +182,6 @@ d3.json("./data/data.json").then(function(data) {
                     .attr("preserveAspectRatio", "xMinYMin meet")
                     .attr("viewBox", `0 0 ${width} ${height}`)
         
-        // let filter = svg.append("filter")
-        //                 .attr("id", "noise")
-        //                 .attr("x", "0%").attr("y", "0%")
-        //                 .attr("width", "100%").attr("height", "100%")
-        // filter.append("feTurbulence")
-        //         .attr("baseFrequency", "0.6")
-        
-        // filter.append("feDisplacementMap")
-        //         .attr("in2", "turbulence")
-        //         .attr("in", "SourceGraphic")
-        //         .attr("scale", "50")
-        //         .attr("xChannelSelector", "R")
-        //         .attr("yChannelSelector", "G")
-
-        
         let g = svg.append("g") // keep this first
         let labelG = svg.append("g")
         
@@ -233,15 +218,18 @@ d3.json("./data/data.json").then(function(data) {
 
         rows.selectAll('td')
             .data(function (d) {
-                    return [{ 'value': d.statename, 'name': 'statename', 'id': d.id },
-                            { 'value': d.testPositivity, 'name': 'testPositivity', 'id': d.id },
-                            { 'value': d.updatedon, 'name': 'updatedon', 'id': d.id },
-                            { 'value': "", 'name': 'trend', 'id': d.id}]
+                    return [{ 'value': d.statename, 'name': 'statename', 'align': 'left', 'id': d.id },
+                            { 'value': d.testPositivity, 'name': 'testPositivity', 'align': 'right', 'id': d.id },
+                            { 'value': abbreviatedNumber(d.totalTests), 'name': 'totalTests', 'align': 'right', 'id': d.id },
+                            { 'value': abbreviatedNumber(d.positiveTests), 'name': 'positiveTests', 'align': 'right', 'id': d.id },
+                            { 'value': d.updatedon.replace("/2020", ""), 'name': 'updatedon', 'align': 'right', 'id': d.id },
+                            { 'value': "", 'name': 'trend', 'align': 'left','id': d.id}]
                 })
             .enter()
             .append('td')
             .attr("id", d => d.id)
             .attr("class", d => d.name)
+            .style("text-align", d => d.align)
             .text(d => d.value)
             .on("mouseenter", tablerowMouseOver)
             .on("mouseout", tablerowMouseOut)
@@ -324,7 +312,7 @@ function plotIndiaAvg(data, x, y, inlineX, inlineY, statewiseTestingData) {
         const testpositivityrate = parseFloat(element.TPR).toFixed(2)
         const updatedonDate = new Date(element.Date)
         const updatedon = `${padDate(updatedonDate.getDate())}/${padDate(updatedonDate.getMonth() + 1)}/${updatedonDate.getFullYear()}`
-        var testingData = new CovidTestingData(updatedon, "India", testpositivityrate + "%", ["https://ourworldindata.org/grapher/covid-19-positive-rate-bar?tab=chart&time=2020-03-13..&country=~IND"])
+        var testingData = new CovidTestingData(updatedon, "India", 0, 0, testpositivityrate + "%", ["https://ourworldindata.org/grapher/covid-19-positive-rate-bar?tab=chart&time=2020-03-13..&country=~IND"])
 
         dailyTestData.push(testingData)
         
@@ -342,9 +330,8 @@ function plotIndiaAvg(data, x, y, inlineX, inlineY, statewiseTestingData) {
 
     latestIndiaTestingData = latestTestingData
 
-
     d3.select("#ind-tpr").text(latestTPR + "%")
-    d3.select("#ind-updatedon").text(latestUpdatedOn)
+    d3.select("#ind-updatedon").text(latestUpdatedOn.replace("/2020", ""))
 
     for (let index = 0; index < latestTestingData.sources.length; index++) {
         const srcUrl = latestTestingData.sources[index];
@@ -363,7 +350,7 @@ function plotIndiaAvg(data, x, y, inlineX, inlineY, statewiseTestingData) {
 
     let inlineSVG = d3.select("#ind-trend").append("svg")
     inlineSVG.attr("preserveAspectRatio", "xMinYMin meet")
-             .attr("viewBox", `0 0 ${inlineWd} ${inlineHt}`)
+                .attr("viewBox", `0 0 ${inlineWd} ${inlineHt}`)
     let inlineG = inlineSVG.append("g")
 
     const indiacol = color(latestTPR)
@@ -504,7 +491,7 @@ function fetchRecentTestingData(states_tested_data) {
             sources.push(state_testing_data.source2)
         }
 
-        var testingData = new CovidTestingData(date, statename, testPositivity, sources)
+        var testingData = new CovidTestingData(date, statename, totalTested, positive, testPositivity, sources)
 
         if (statewiseTestingDataFlat === null) {
             statewiseTestingDataFlat = [testingData]
