@@ -102,13 +102,10 @@ let height = 700;
 var margin = {top: 1, right: 5, bottom: 30, left: 20}
 var timeWidth = width - margin.left - margin.right
 var timeHeight = height/4 - margin.top - margin.bottom
-let timePlotSvg = d3.select("#timelines")
-                    .append("svg")
-                    .attr("preserveAspectRatio", "xMinYMin meet")
-                    .attr("viewBox", `0 0 ${timeWidth + margin.left + margin.right} ${timeHeight + margin.top + margin.bottom}`)
 
-let timeG = timePlotSvg.append("g")
-                        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+// let tpTimeSeriesCanvas = new Time
+
+
 let latestIndiaTestingData = null
 
 d3.json("./data/data.json").then(function(data) {
@@ -116,39 +113,22 @@ d3.json("./data/data.json").then(function(data) {
     var statewiseTestingData = fetchRecentTestingData(states_tested_data)
     var testingData = statewiseTestingData.recent
 
-    // Add X axis
-    var x = d3.scaleTime()
-                .domain(d3.extent(statewiseTestingData.all_flat, function(d) { return d.date; }))
-                .range([ 0, timeWidth ]);
-    timeG.append("g")
-            .attr("transform", "translate(0," + (timeHeight) + ")")
-            .call(d3.axisBottom(x))
+    const timeSeriesCanvasModel = new TimeSeriesCanvasModel(statewiseTestingData, width, height/4, yValueTPRfn)
+    const totalTestsTimeSeriesCanvasModel = new TimeSeriesCanvasModel(statewiseTestingData, width, height/4, yValueTotalTestsfn)
+    const totalPosTestsTimeSeriesCanvasModel = new TimeSeriesCanvasModel(statewiseTestingData, width, height/4, yValuePosTestsfn)
 
-    // Add Y axis
-    var y = d3.scaleLinear()
-            .domain([-0.5, d3.max(statewiseTestingData.all_flat, function(d) { 
-                let tp = d.testPositivityNum()
-                return (tp === NaN) ? 0 : tp
-            })])
-            .range([ timeHeight, 0 ])
-    timeG.append("g").call(d3.axisLeft(y))
+    const tpTimeSeriesCanvas = new TimeSeriesCanvas(timeSeriesCanvasModel, d3.select("#timelines"), false, "Test Positivity Rates, over time")
+    tpTimeSeriesCanvas.appendG()
 
-    const inlineHt = 50
-    const inlineWd = 100
-    var inlineX = d3.scaleTime()
-                    .domain(d3.extent(statewiseTestingData.all_flat, function(d) { return d.date; }))
-                    .range([ 0, inlineWd ])
-    var inlineY = d3.scaleLinear()
-                    .domain([-0.5, d3.max(statewiseTestingData.all_flat, function(d) { 
-                        let tp = d.testPositivityNum()
-                        return (tp === NaN) ? 0 : tp
-                    })])
-                    .range([ inlineHt, 0 ])
+    const ttTimeSeriesCanvas = new TimeSeriesCanvas(totalTestsTimeSeriesCanvasModel, d3.select("#total-tests-timelines"), false, "Total Tests, over time")
+    ttTimeSeriesCanvas.appendG()
 
-    console.log(d3.extent(statewiseTestingData.all_flat, function(d) { return d.date; }))
+    const tptTimeSeriesCanvas = new TimeSeriesCanvas(totalPosTestsTimeSeriesCanvasModel, d3.select("#total-pos-tests-timelines"), false, "Total Positive Tests, over time")
+    tptTimeSeriesCanvas.appendG()
+    
 
     d3.csv("./data/covid-19-positive-rate-india.csv").then(function(data) {
-        plotIndiaAvg(data, x, y, inlineX, inlineY, statewiseTestingData)
+        plotIndiaAvg(data, tpTimeSeriesCanvas, ttTimeSeriesCanvas, tptTimeSeriesCanvas, timeSeriesCanvasModel, statewiseTestingData)
     })
 
     d3.json("./india-states.json").then(function(data) {
@@ -204,11 +184,11 @@ d3.json("./data/data.json").then(function(data) {
     
         // Create Event Handlers for mouse enter/out events
         function handleMouseOver(d, i) {
-            highlight(svg, d3.select(this), d, labelG, timeG, statewiseTestingData, x, y)
+            highlight(svg, d3.select(this), d, labelG, tpTimeSeriesCanvas, ttTimeSeriesCanvas, tptTimeSeriesCanvas, statewiseTestingData)
         }
     
         function handleMouseOut(d, i) {
-            deHighlight(svg, d3.select(this), d, labelG, timeG, statewiseTestingData)
+            deHighlight(svg, d3.select(this), d, tpTimeSeriesCanvas, ttTimeSeriesCanvas, tptTimeSeriesCanvas, statewiseTestingData)
         }
 
         var rows = d3.select('#statesrows')
@@ -255,19 +235,15 @@ d3.json("./data/data.json").then(function(data) {
             const thisSel = d3.select(this)
             const idx = parseInt(thisSel.attr("id"))
 
-            let inlineSVG = thisSel.append("svg")
-                            .attr("preserveAspectRatio", "xMinYMin meet")
-                            .attr("viewBox", `0 0 ${inlineWd} ${inlineHt}`)
-                            .on("mouseover", tablerowMouseOver)
-                            .on("mouseout", tablerowMouseOut)
-            let inlineG = inlineSVG.append("g")
+            let timeSeriesCanvas = new TimeSeriesCanvas(timeSeriesCanvasModel, thisSel, true)
+            timeSeriesCanvas.onMouseOut(tablerowMouseOut)
+                            .onMouseOver(tablerowMouseOver)
+                            .appendG()
 
             const statename = statenames[idx]
             const stateTestPositivityData = statewiseTestingData.all[statename]
-            const latestPosData = testingData[statename]
-            const testposRate = latestPosData.testPositivityNum()
-            const statecol = alt2color(testposRate)
-            plotTimeSeries(inlineG, "", statecol, stateTestPositivityData, inlineX, inlineY, "inlinetimeplot")
+            
+            plotTimeSeries(timeSeriesCanvas, alt2color, stateTestPositivityData, "inlinetimeplot")
         })
         
         
@@ -278,7 +254,7 @@ d3.json("./data/data.json").then(function(data) {
                 return
             }
 
-            highlight(svg, pathSelection, d, labelG, timeG, statewiseTestingData, x, y)
+            highlight(svg, pathSelection, d, labelG, tpTimeSeriesCanvas, ttTimeSeriesCanvas, tptTimeSeriesCanvas, statewiseTestingData)
         }
     
         function tablerowMouseOut(d, i) {
@@ -288,12 +264,12 @@ d3.json("./data/data.json").then(function(data) {
                 return
             }
 
-            deHighlight(svg, pathSelection, d, labelG, timeG, statewiseTestingData)
+            deHighlight(svg, pathSelection, d, tpTimeSeriesCanvas, ttTimeSeriesCanvas, tptTimeSeriesCanvas, statewiseTestingData)
         }
     })
 })
 
-function plotIndiaAvg(data, x, y, inlineX, inlineY, statewiseTestingData) {
+function plotIndiaAvg(data, tpTimeSeriesCanvas, ttTimeSeriesCanvas, tptTimeSeriesCanvas, timeSeriesCanvasModel, statewiseTestingData) {
     var latestTPR = 0.0
     var latestUpdatedOnDate = null
     var latestUpdatedOn = ""
@@ -345,40 +321,38 @@ function plotIndiaAvg(data, x, y, inlineX, inlineY, statewiseTestingData) {
             .text("[" + (index + 1) + "]")
     }
 
-    const inlineHt = 50
-    const inlineWd = 100
-
-    let inlineSVG = d3.select("#ind-trend").append("svg")
-    inlineSVG.attr("preserveAspectRatio", "xMinYMin meet")
-                .attr("viewBox", `0 0 ${inlineWd} ${inlineHt}`)
-    let inlineG = inlineSVG.append("g")
+    const timeseriesCanvas = new TimeSeriesCanvas(timeSeriesCanvasModel, d3.select("#ind-trend"), true)
+    timeseriesCanvas.appendG()
 
     const indiacol = color(latestTPR)
-    const indiacol2 = color(latestTPR)
-    
-    plotTimeSeries(inlineG, "", indiacol2, plotableTestingData, inlineX, inlineY, "indiainlinetimeplot")
+
+    plotTimeSeries(timeseriesCanvas, indiacol, plotableTestingData, "indiainlinetimeplot")
 
     for (let index = 0; index < statenames.length; index++) {
         const statename = statenames[index]
         const stateTestPositivityData = statewiseTestingData.all[statename]
-        plotTimeSeries(timeG, "", "#1F1F1F", stateTestPositivityData, x, y, "graytimeplot")
+        plotTimeSeries(tpTimeSeriesCanvas, "#1F1F1F", stateTestPositivityData, "graytimeplot")
+        plotTimeSeries(ttTimeSeriesCanvas, "#1F1F1F", stateTestPositivityData, "tt-graytimeplot")
+        plotTimeSeries(tptTimeSeriesCanvas, "#1F1F1F", stateTestPositivityData, "tpt-graytimeplot")
     }
 
-    plotTimeSeries(timeG, "", indiacol, plotableTestingData, x, y, "indiabluetimeplot")
+    plotTimeSeries(tpTimeSeriesCanvas, indiacol, plotableTestingData, "indiabluetimeplot")
 }
 
-function highlight(svg, statePathSelection, d, labelG, timeG, statewiseTestingData, x, y) {
-    clearHighlight(statePathSelection, d, labelG, timeG, statewiseTestingData)
+function highlight(svg, statePathSelection, d, labelG, timeSeriesCanvas, ttTimeSeriesCanvas, tptTimeSeriesCanvas, statewiseTestingData) {
+    labelG.selectAll(".statelabel").remove()
 
     const recentTestingData = statewiseTestingData.recent
     statePathSelection.style("fill", d => stateFill(svg, recentTestingData, d, altcolor))
+
     var idx = idxmap(d)
     var statename = statenames[idx]
     const stateTestPositivityData = statewiseTestingData.all[statename]
     const latestPosData = recentTestingData[statename]
-    const testposRate = latestPosData.testPositivityNum()
-    const col = altcolor(testposRate)
-    plotTimeSeries(timeG, statename, col, stateTestPositivityData, x, y)
+
+    plotTimeSeries(timeSeriesCanvas, altcolor, stateTestPositivityData, "statetimeplot")
+    plotTimeSeries(ttTimeSeriesCanvas, altcolor, stateTestPositivityData, "statetimeplot")
+    plotTimeSeries(tptTimeSeriesCanvas, altcolor, stateTestPositivityData, "statetimeplot")
 
     attachTopRightMapLabels(labelG, statename, latestPosData)
 }
@@ -419,37 +393,11 @@ function attachTopRightMapLabels(labelG, statename, latestPosData) {
     }
 }
 
-function clearHighlight(statePathSelection, d, labelG, timeG, statewiseTestingData) {
-    labelG.selectAll(".statelabel").remove()
-}
-
-function deHighlight(svg, statePathSelection, d, labelG, timeG, statewiseTestingData) {
+function deHighlight(svg, statePathSelection, d, tpTimeSeriesCanvas, ttTimeSeriesCanvas, tptTimeSeriesCanvas, statewiseTestingData) {
     statePathSelection.style("fill", d => stateFill(svg, statewiseTestingData.recent, d, color))
-    var idx = idxmap(d)
-    var statename = statenames[idx]
-    clearTimeSeries(timeG, statename)
-}
-
-function plotTimeSeries(timeG, statename, dataColor, stateTestPositivityData, x, y, pathclass = "statetimeplot") {
-    timeG.append("path")
-        .datum(stateTestPositivityData)
-        .attr("class", pathclass)
-        .attr("fill", "none")
-        .attr("stroke", dataColor)
-        .attr("stroke-width", 2)
-        .attr("d", d3.line()
-                    .x(function(d) { return x(d.date) })
-                    .y(function(d) {
-                        let tp = d.testPositivityNum()
-                        let rate = (tp === NaN) ? 0.0 : tp
-                        return y(rate) 
-                    })
-            )
-        .append("title").text(d => d.statename)
-}
-
-function clearTimeSeries(timeG, statename) {
-    timeG.selectAll(".statetimeplot").remove()
+    tpTimeSeriesCanvas.clearHighlightedTimeSeries()
+    ttTimeSeriesCanvas.clearHighlightedTimeSeries()
+    tptTimeSeriesCanvas.clearHighlightedTimeSeries()
 }
 
 function fetchRecentTestingData(states_tested_data) {
