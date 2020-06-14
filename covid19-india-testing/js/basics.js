@@ -127,7 +127,7 @@ class TimeSeriesCanvas {
 
             g.append("text")
             .attr("x", 20).attr("y", 15)
-            .style("fill", "silver").style("font-size", "12px")
+            .style("fill", "silver").style("font-size", "18px")
             .text(this.yLabel)
         }
 
