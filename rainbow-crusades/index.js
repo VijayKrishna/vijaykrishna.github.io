@@ -31,7 +31,9 @@ let contentDivs = mainContainer.selectAll("div")
                             .append("div")
                             .attr("class", "w-auto p-2 mx-auto my-5 shadow rounded-lg")
                             .attr("id", (d, i) => "rbc-spy" + i)
-                            .attr("data-spy", "scroll")
+                            .on("click", function() {
+                                focusIntoView(this, true)
+                            })
 
 contentDivs.append("img")
         .attr("class", "w-50 d-flex mx-auto rounded-lg")
@@ -47,6 +49,26 @@ contentDivs.append("p")
             .style("color", d => d.fgCol)
             .html((d, i) => "Caption: " + d.caption)
 
+function focusIntoView(target, placeInCenter = false) {
+        //ref: https://hiddedevries.nl/en/blog/2018-12-10-scroll-an-element-into-the-center-of-the-viewport
+        // {
+        //     behavior: "smooth" | "auto";
+        //     block: "start" | "center" | "end" | "nearest";
+        //     inline: "start" | "center" | "end" | "nearest";
+        // }
+        
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: placeInCenter ? "center" : "nearest"
+        })
+        let targetSel = d3.select(target)
+        let bgCol = targetSel.style("background-color")
+        const col = d3.color(bgCol)
+        d3.select("body")
+            .transition()
+            .style("background-color", col.brighter(0.5))
+}
+
 var observer = new IntersectionObserver(function(entries) {
     // isIntersecting is true when element and viewport are overlapping
     // isIntersecting is false when element and viewport don't overlap
@@ -54,14 +76,11 @@ var observer = new IntersectionObserver(function(entries) {
     let firstEntry = entries[0]
 
     if(firstEntry.isIntersecting === true) {
-        let targetSel = d3.select(firstEntry.target)
-        let bgCol = targetSel.style("background-color")
-        const col = d3.color(bgCol)
-        d3.select("body")
-            .style("background-color", col.brighter(0.5))
+        let target = firstEntry.target
+        focusIntoView(target)
     }
 
-}, { threshold: [0.50] });
+}, { threshold: [0.75] });
 
 for (let index = 0; index < instaData.length; index++) {
     observer.observe(document.querySelector("#rbc-spy" + index));
