@@ -116,7 +116,7 @@ var observer = new IntersectionObserver(function(entries) {
         focusIntoView(target, false)
     }
 
-}, { threshold: [0.75] });
+}, { threshold: [0.99] });
 
 for (let index = 0; index < instaData.length; index++) {
     observer.observe(document.querySelector("#rbc-spy" + index));
