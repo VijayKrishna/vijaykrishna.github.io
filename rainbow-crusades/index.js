@@ -77,7 +77,7 @@ var observer = new IntersectionObserver(function(entries) {
 
     if(firstEntry.isIntersecting === true) {
         let target = firstEntry.target
-        focusIntoView(target)
+        focusIntoView(target, true)
     }
 
 }, { threshold: [0.75] });
