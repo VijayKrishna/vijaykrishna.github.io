@@ -96,6 +96,64 @@ var statecolorAlt = function(testingData, statename, colorFn) {
     }
 }
 
+// Zoom the map
+let centered = null
+let indiaMapPath = null
+let mapG = null
+
+function clicked(d) {
+    var x, y, k;
+
+    console.log(d)
+    
+    if (d && centered !== d) {
+        var centroid = indiaMapPath.centroid(d)
+        x = centroid[0]
+        y = centroid[1]
+        k = 3
+        centered = d
+    } else {
+        x = width / 2
+        y = height / 2
+        k = 1
+        centered = null
+    }
+
+    // let stateMapPath = d3.select(this)
+
+    mapG.transition()
+        .duration(750)
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+        .style("stroke-width", 1.5 / k + "px")
+}
+
+function zoomMap(d) {
+    if (d && centered !== d) {
+        var x, y, k
+        var centroid = indiaMapPath.centroid(d)
+        x = centroid[0]
+        y = centroid[1]
+        k = 3
+        centered = d
+        mapG.transition()
+            .duration(750)
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+            .style("stroke-width", 1.5 / k + "px")
+    }
+}
+
+function reCenter() {
+    var x = width / 2
+    var y = height / 2
+    var k = 1
+    var centered = null
+
+    mapG.transition()
+    .duration(750)
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+    .style("stroke-width", 1.5 / k + "px");
+}
+
 // Create Time series curves
 let width = 700;
 let height = 700;
@@ -155,6 +213,7 @@ d3.json("./data/data.json").then(function(data) {
     
         var projection = d3.geoMercator().fitSize([width, height], features)
         var path = d3.geoPath(projection)
+        indiaMapPath = path
 
         // Create Map's SVG
         let svg = d3.select("#map")
@@ -163,6 +222,7 @@ d3.json("./data/data.json").then(function(data) {
                     .attr("viewBox", `0 0 ${width} ${height}`)
         
         let g = svg.append("g") // keep this first
+        mapG = g
         let labelG = svg.append("g")
         
         // Bind TopoJSON data
@@ -175,6 +235,7 @@ d3.json("./data/data.json").then(function(data) {
             .style("stroke", "steelblue")
             .on("mouseenter", handleMouseOver)
             .on("mouseout", handleMouseOut)
+            .on("click", clicked)
             .append("title").text(d => {
                 var testData = testdataMap(testingData, d)
                 return statenames[idxmap(d)] + 
@@ -254,6 +315,7 @@ d3.json("./data/data.json").then(function(data) {
                 return
             }
 
+            zoomMap(pathSelection.datum())
             highlight(svg, pathSelection, d, labelG, tpTimeSeriesCanvas, ttTimeSeriesCanvas, tptTimeSeriesCanvas, statewiseTestingData)
         }
     
@@ -358,38 +420,67 @@ function highlight(svg, statePathSelection, d, labelG, timeSeriesCanvas, ttTimeS
 }
 
 function attachTopRightMapLabels(labelG, statename, latestPosData) {
+
+    function setupTextBg(text, host) {
+        var bbox = text.node().getBBox();
+        var padding = 4;
+        host.append("rect")
+            .attr("x", bbox.x - padding)
+            .attr("y", bbox.y - padding)
+            .attr("width", bbox.width + (padding*2))
+            .attr("height", bbox.height + (padding*2))
+            .style("fill", "black");
+        text.raise()
+    }
+
+    labelG.selectAll("rect").remove()
+
     const firstLabelY = 70
     const labelDy = 25
-    labelG.append("text")
+
+    labelG.append("rect")
+            .attr("x", 350)
+            .attr("y", 25)
+            .attr("width", )
+
+    const t1 = labelG.append("text")
         .attr("class", "statelabel")
         .attr("x", 350).attr("y", firstLabelY)
-        .style("fill", "silver").style("font-size", "18px")
+        .style("fill", "silver")
+        .style("font-size", "18px")
+        .style("background-color", "black")
         .text("Test Positivity")
+    setupTextBg(t1, labelG)
 
-    labelG.append("text")
+
+    const t2 = labelG.append("text")
         .attr("class", "statelabel")
         .attr("x", 350).attr("y", firstLabelY + labelDy)
         .style("font-size", "20px").style("fill", "silver")
         .text(statename + ": " + latestPosData.testPositivity)
+    setupTextBg(t2, labelG)
 
-    labelG.append("text")
+    const t3 = labelG.append("text")
         .attr("class", "statelabel")
         .attr("x", 350).attr("y", firstLabelY + (2 * labelDy))
         .style("font-size", "15px").style("fill", "silver")
         .text("Updated on: " + latestPosData.updatedon)
+    setupTextBg(t3, labelG)
 
     if (latestIndiaTestingData != null) {
-        labelG.append("text")
+        const t4 = labelG.append("text")
             .attr("class", "statelabel")
             .attr("x", 350).attr("y", firstLabelY + (3.5 * labelDy))
             .style("font-size", "20px").style("fill", "silver")
             .text("India: " + latestIndiaTestingData.testPositivity)
+        setupTextBg(t4, labelG)
 
-        labelG.append("text")
+        const t5 = labelG.append("text")
             .attr("class", "statelabel")
             .attr("x", 350).attr("y", firstLabelY + (4.5 * labelDy))
             .style("font-size", "15px").style("fill", "silver")
             .text("Updated on: " + latestIndiaTestingData.updatedon)
+        setupTextBg(t5, labelG)
     }
 }
 
