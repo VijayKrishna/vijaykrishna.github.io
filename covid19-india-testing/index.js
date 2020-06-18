@@ -274,6 +274,7 @@ d3.json("./data/data.json").then(function(data) {
             .text(d => d.value)
             .on("mouseenter", tablerowMouseOver)
             .on("mouseout", tablerowMouseOut)
+            .on("click", tablerowMouseClicked)
         
         rows.select(".statename").each(function() {
             const thisSel = d3.select(this)
@@ -307,15 +308,25 @@ d3.json("./data/data.json").then(function(data) {
             plotTimeSeries(timeSeriesCanvas, alt2color, stateTestPositivityData, "inlinetimeplot")
         })
         
-        
+        function tablerowMouseClicked(d, i) {
+            selectStateMap(d, i, true)
+        }
+
         function tablerowMouseOver(d, i) {
+            selectStateMap(d, i, false)
+        }
+        
+        function selectStateMap(d, i, shouldZoom) {
             var statemapId = d.id
             var pathSelection = idToPathSelectionMap(statemapId)
             if (pathSelection === null) {
                 return
             }
 
-            zoomMap(pathSelection.datum())
+            if (shouldZoom) {
+                zoomMap(pathSelection.datum())
+            }
+            
             highlight(svg, pathSelection, d, labelG, tpTimeSeriesCanvas, ttTimeSeriesCanvas, tptTimeSeriesCanvas, statewiseTestingData)
         }
     
