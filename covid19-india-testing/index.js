@@ -260,10 +260,11 @@ d3.json("./data/data.json").then(function(data) {
         rows.selectAll('td')
             .data(function (d) {
                     return [{ 'value': d.statename, 'name': 'statename', 'align': 'left', 'id': d.id },
+                            { 'value': "", 'name': 'trend', 'align': 'left','id': d.id},
                             { 'value': d.testPositivity, 'name': 'testPositivity', 'align': 'right', 'id': d.id },
                             { 'value': abbreviatedNumber(d.totalTests), 'name': 'totalTests', 'align': 'right', 'id': d.id },
-                            { 'value': abbreviatedNumber(d.positiveTests), 'name': 'positiveTests', 'align': 'right', 'id': d.id },
-                            { 'value': "", 'name': 'trend', 'align': 'left','id': d.id}]
+                            { 'value': abbreviatedNumber(d.positiveTests), 'name': 'positiveTests', 'align': 'right', 'id': d.id }
+                        ]
                 })
             .enter()
             .append('td')

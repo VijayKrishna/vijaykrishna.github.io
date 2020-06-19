@@ -122,9 +122,6 @@ class TimeSeriesCanvas {
             g.append("g").call(axis)
 
             // Label
-
-            console.log(this.yLabel)
-
             g.append("text")
             .attr("x", 20).attr("y", 15)
             .style("fill", "silver").style("font-size", "18px")
