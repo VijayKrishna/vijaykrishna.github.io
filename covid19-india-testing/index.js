@@ -263,7 +263,6 @@ d3.json("./data/data.json").then(function(data) {
                             { 'value': d.testPositivity, 'name': 'testPositivity', 'align': 'right', 'id': d.id },
                             { 'value': abbreviatedNumber(d.totalTests), 'name': 'totalTests', 'align': 'right', 'id': d.id },
                             { 'value': abbreviatedNumber(d.positiveTests), 'name': 'positiveTests', 'align': 'right', 'id': d.id },
-                            { 'value': d.updatedon.replace("/2020", ""), 'name': 'updatedon', 'align': 'right', 'id': d.id },
                             { 'value': "", 'name': 'trend', 'align': 'left','id': d.id}]
                 })
             .enter()
@@ -291,6 +290,11 @@ d3.json("./data/data.json").then(function(data) {
                         .style("margin-left", "2px")
                         .text("[" + (index + 1) + "]")
             }
+
+            thisSel.append("br")
+            thisSel.append("small")
+                .attr("class", "text-dark")
+                .text("Updated on: " + latestPosData.updatedon.replace("/2020", ""))
         })
 
         rows.select(".trend").each(function() {
@@ -382,17 +386,23 @@ function plotIndiaAvg(data, tpTimeSeriesCanvas, ttTimeSeriesCanvas, tptTimeSerie
     d3.select("#ind-tpr").text(latestTPR + "%")
     d3.select("#ind-updatedon").text(latestUpdatedOn.replace("/2020", ""))
 
+    let indiaCell = d3.select("#india")
+
     for (let index = 0; index < latestTestingData.sources.length; index++) {
         const srcUrl = latestTestingData.sources[index];
-        d3.select("#india")
-            .append("a")
-            .attr("href", srcUrl)
-            .attr("target", "_blank")
-            .style("font-size", "small")
-            .style("margin-left", "2px")
-            .style("font-weight", "normal")
-            .text("[" + (index + 1) + "]")
+        indiaCell.append("a")
+                .attr("href", srcUrl)
+                .attr("target", "_blank")
+                .style("font-size", "small")
+                .style("margin-left", "2px")
+                .style("font-weight", "normal")
+                .text("[" + (index + 1) + "]")
     }
+
+    indiaCell.append("br")
+    indiaCell.append("small")
+        .attr("class", "text-dark")
+        .text("Updated on: " + latestTestingData.updatedon.replace("/2020", ""))
 
     const timeseriesCanvas = new TimeSeriesCanvas(timeSeriesCanvasModel, d3.select("#ind-trend"), true)
     timeseriesCanvas.appendG()
