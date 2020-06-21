@@ -187,6 +187,8 @@ function plotTimeSeries(timeSeriesCanvas, dataColor, stateTestPositivityData, pa
 
     const yValyeFn = timeSeriesCanvas.model.yValyeFn
 
+    const shouldFill = (pathclass === "inlinetimeplot" || pathclass === "indiainlinetimeplot")
+
     const timeG = timeSeriesCanvas.g()
     const x = timeSeriesCanvas.xFn()
     const y = timeSeriesCanvas.yFn()
@@ -204,6 +206,24 @@ function plotTimeSeries(timeSeriesCanvas, dataColor, stateTestPositivityData, pa
                     })
             )
         .append("title").text(d => d.statename)
+
+
+    if (shouldFill) {
+        var area = d3.area()
+                    .x(function(d) { return x(d.date) })
+                    .y1(function(d) { 
+                        let rate = yValyeFn(d)
+                        return y(rate)
+                    })
+                    .y0(y(0))
+        
+        let lightCol = d3.color(col).darker(4)
+
+        timeG.append("path")
+            .datum(stateTestPositivityData)
+            .attr("fill", lightCol)
+            .attr("d", area)
+    }
 }
 
 //#region UTILS
