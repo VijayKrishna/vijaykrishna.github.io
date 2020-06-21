@@ -227,6 +227,9 @@ function abbreviatedNumber(value) {
     newValue = newValue.toPrecision(3)
 
     abbreviateNumberRep = newValue + suffixes[suffixNum]
+
+    console.log(abbreviateNumberRep)
+
     return abbreviateNumberRep
 }
 
