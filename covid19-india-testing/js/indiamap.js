@@ -61,6 +61,12 @@ class IndiaMap {
         const thisIndiaMap = this;
 
         return function(d) {
+
+            for (let index = 0; index < timeSeriesCanvases.length; index++) {
+                var tsCanvas = timeSeriesCanvases[index]
+                tsCanvas.g().selectAll(".statetimeplotcentered").remove()
+            }
+
             var x, y, k
         
             if (d && thisIndiaMap.centered !== d) {
@@ -69,13 +75,20 @@ class IndiaMap {
                 y = centroid[1]
                 k = 3
                 thisIndiaMap.centered = d
+
+                for (let index = 0; index < timeSeriesCanvases.length; index++) {
+                    var tsCanvas = timeSeriesCanvases[index]
+                    tsCanvas.g().selectAll(".statetimeplot")
+                            .attr("class", "statetimeplotcentered")
+                }
+
             } else {
                 x = width / 2
                 y = height / 2
                 k = 1
                 thisIndiaMap.centered = null
             }
-    
+
             thisIndiaMap.g.transition()
                 .duration(750)
                 .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")

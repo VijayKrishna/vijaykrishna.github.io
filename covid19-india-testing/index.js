@@ -102,8 +102,10 @@ let height = 700;
 var margin = {top: 1, right: 5, bottom: 30, left: 20}
 var timeWidth = width - margin.left - margin.right
 var timeHeight = height/4 - margin.top - margin.bottom
+var indiaMap = null
 
 let latestIndiaTestingData = null
+let timeSeriesCanvases = null
 
 d3.json("./data/data.json").then(function(data) {
     var states_tested_data = data.states_tested_data
@@ -138,6 +140,8 @@ d3.json("./data/data.json").then(function(data) {
 
     const tptTimeSeriesCanvas = new TimeSeriesCanvas(totalPosTestsTimeSeriesCanvasModel, d3.select("#total-pos-tests-timelines"), false, "Total Positive Tests, over time")
     tptTimeSeriesCanvas.appendG()
+
+    timeSeriesCanvases = [ tpTimeSeriesCanvas, ttTimeSeriesCanvas, tptTimeSeriesCanvas ]
     
 
     d3.csv("./data/covid-19-positive-rate-india.csv").then(function(data) {
@@ -145,8 +149,7 @@ d3.json("./data/data.json").then(function(data) {
     })
 
     d3.json("./india-states.json").then(function(data) {
-
-        var indiaMap = new IndiaMap("#map", 700, 700, data)
+        indiaMap = new IndiaMap("#map", 700, 700, data)
 
         let svg = indiaMap.svg
         let labelG = indiaMap.labelG
