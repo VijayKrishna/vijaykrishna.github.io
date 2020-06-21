@@ -15,9 +15,10 @@ class IndiaMap {
         this.g = this.svg.append("g") // keep this first
         // mapG = g
         this.labelG = this.svg.append("g")
+        this.centered = null
     }
 
-    drawMap(handleMouseOver, handleMouseOut, clicked) {
+    drawMap(handleMouseOver, handleMouseOut) {
         // Bind TopoJSON data
         const statePaths = this.g.selectAll("path")
                                 .data(this.features.features) // Bind TopoJSON data elements
@@ -27,27 +28,51 @@ class IndiaMap {
                                 .style("stroke", "steelblue")
                                 .on("mouseenter", handleMouseOver)
                                 .on("mouseout", handleMouseOut)
-                                .on("click", clicked)
+                                .on("click", this.clickedFn())
         return statePaths
     }
 
     zoomMap(d) {
-        if (d && centered !== d) {
+        if (d && this.centered !== d) {
             var x, y, k
             var centroid = this.path.centroid(d)
             x = centroid[0]
             y = centroid[1]
             k = 3
-            centered = d
+            this.centered = d
             mapG.transition()
                 .duration(750)
                 .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
                 .style("stroke-width", 1.5 / k + "px")
         }
     }
+
+    clickedFn() {
+        const thisIndiaMap = this;
+
+        return function(d) {
+            var x, y, k
+        
+            if (d && thisIndiaMap.centered !== d) {
+                var centroid = thisIndiaMap.path.centroid(d)
+                x = centroid[0]
+                y = centroid[1]
+                k = 3
+                thisIndiaMap.centered = d
+            } else {
+                x = width / 2
+                y = height / 2
+                k = 1
+                thisIndiaMap.centered = null
+            }
+    
+            thisIndiaMap.g.transition()
+                .duration(750)
+                .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+                .style("stroke-width", 1.5 / k + "px")
+        }
+    }
 }
-
-
 
 function attachTopRightMapLabels(labelG, statename, latestPosData) {
 

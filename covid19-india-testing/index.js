@@ -96,46 +96,12 @@ var statecolorAlt = function(testingData, statename, colorFn) {
     }
 }
 
-// Zoom the map
-let centered = null
-let indiaMapPath = null
-let mapG = null
-
-function clicked(d) {
-    var x, y, k;
-
-    console.log(d)
-    
-    if (d && centered !== d) {
-        var centroid = indiaMapPath.centroid(d)
-        x = centroid[0]
-        y = centroid[1]
-        k = 3
-        centered = d
-    } else {
-        x = width / 2
-        y = height / 2
-        k = 1
-        centered = null
-    }
-
-    // let stateMapPath = d3.select(this)
-
-    mapG.transition()
-        .duration(750)
-        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
-        .style("stroke-width", 1.5 / k + "px")
-}
-
 // Create Time series curves
 let width = 700;
 let height = 700;
 var margin = {top: 1, right: 5, bottom: 30, left: 20}
 var timeWidth = width - margin.left - margin.right
 var timeHeight = height/4 - margin.top - margin.bottom
-
-// let tpTimeSeriesCanvas = new Time
-
 
 let latestIndiaTestingData = null
 
@@ -181,13 +147,11 @@ d3.json("./data/data.json").then(function(data) {
     d3.json("./india-states.json").then(function(data) {
 
         var indiaMap = new IndiaMap("#map", 700, 700, data)
-        indiaMapPath = indiaMap.path
 
         let svg = indiaMap.svg
-        mapG = indiaMap.g
         let labelG = indiaMap.labelG
 
-        indiaMap.drawMap(handleMouseOver, handleMouseOut, clicked)
+        indiaMap.drawMap(handleMouseOver, handleMouseOut)
                 .style("fill", d => stateFill(svg, testingData, d, color))
     
         // Create Event Handlers for mouse enter/out events
