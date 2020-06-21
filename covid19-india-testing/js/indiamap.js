@@ -43,6 +43,12 @@ class IndiaMap {
     }
 
     zoomMap(d) {
+
+        for (let index = 0; index < timeSeriesCanvases.length; index++) {
+            var tsCanvas = timeSeriesCanvases[index]
+            tsCanvas.g().selectAll(".statetimeplotcentered").remove()
+        }
+
         if (d && this.centered !== d) {
             var x, y, k
             var centroid = this.path.centroid(d)
@@ -50,7 +56,14 @@ class IndiaMap {
             y = centroid[1]
             k = 3
             this.centered = d
-            mapG.transition()
+
+            for (let index = 0; index < timeSeriesCanvases.length; index++) {
+                var tsCanvas = timeSeriesCanvases[index]
+                tsCanvas.g().selectAll(".statetimeplot")
+                        .attr("class", "statetimeplotcentered")
+            }
+
+            this.g.transition()
                 .duration(750)
                 .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
                 .style("stroke-width", 1.5 / k + "px")
