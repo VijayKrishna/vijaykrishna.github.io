@@ -29,6 +29,16 @@ class IndiaMap {
                                 .on("mouseenter", handleMouseOver)
                                 .on("mouseout", handleMouseOut)
                                 .on("click", this.clickedFn())
+
+        for (let index = 0; index < statePaths._groups[0].length; index++) {
+            const element = statePaths._groups[0][index]
+            var eSel = d3.select(element)
+            if (eSel.datum().geometry != null && eSel.attr("id") == undefined) {
+                eSel.attr("id", "0")
+                break
+            }
+        }
+
         return statePaths
     }
 
