@@ -128,8 +128,6 @@ d3.json("./data/data.json").then(function(data) {
         return bTP - aTP
     })
 
-    console.log(statewiseTestingData.recent)
-
     const bubbleplotModel = new BubblePlotCanvasModel(testingDataArray, width, 0.75*height, yValueTotalTestsfn, yValuePosTestsfn, yValueTPRfn)
     const bubbleplotCanvas = new BubblePlotCanvas(bubbleplotModel, 
                                                     d3.select("#bubbleplot"), 
