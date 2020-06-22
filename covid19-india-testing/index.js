@@ -128,6 +128,16 @@ d3.json("./data/data.json").then(function(data) {
         return bTP - aTP
     })
 
+    console.log(statewiseTestingData.recent)
+
+    const bubbleplotModel = new BubblePlotCanvasModel(testingDataArray, width, 0.75*height, yValueTotalTestsfn, yValuePosTestsfn, yValueTPRfn)
+    const bubbleplotCanvas = new BubblePlotCanvas(bubbleplotModel, 
+                                                    d3.select("#bubbleplot"), 
+                                                    "COVID19 Testing: Positive vs. Total Tests",
+                                                    "Total Test#", "Positive Test#")
+    bubbleplotCanvas.appendG()
+    bubbleplotCanvas.plot(alt2color)
+
     const timeSeriesCanvasModel = new TimeSeriesCanvasModel(statewiseTestingData, width, height/4, yValueTPRfn)
     const totalTestsTimeSeriesCanvasModel = new TimeSeriesCanvasModel(statewiseTestingData, width, height/4, yValueTotalTestsfn)
     const totalPosTestsTimeSeriesCanvasModel = new TimeSeriesCanvasModel(statewiseTestingData, width, height/4, yValuePosTestsfn)

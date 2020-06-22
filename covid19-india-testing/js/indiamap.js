@@ -89,7 +89,7 @@ class IndiaMap {
 function attachTopRightMapLabels(labelG, statename, latestPosData) {
 
     function setupTextBg(text, host) {
-        var bbox = text.node().getBBox();
+        var bbox = text.node().getBBox()
         var padding = 4;
         host.append("rect")
             .attr("x", bbox.x - padding)
