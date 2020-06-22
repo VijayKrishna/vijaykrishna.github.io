@@ -189,15 +189,12 @@ d3.json("./data/data.json").then(function(data) {
             .on("mouseenter", tablerowMouseOver)
             .on("mouseout", tablerowMouseOut)
             .on("click", tablerowMouseClicked)
-        
-        const paddedFormatter = d3.format(",")
-
         rows.select(".testPositivity").each(function() {
             const thisSel = d3.select(this)
             const thisDatum = thisSel.datum()
 
-            const totalTests = paddedFormatter(thisDatum.totalTests)
-            const positiveTests = paddedFormatter(thisDatum.positiveTests)
+            const totalTests = numberFormatter(thisDatum.totalTests)
+            const positiveTests = numberFormatter(thisDatum.positiveTests)
 
             thisSel.append("br")
             thisSel.append("small")

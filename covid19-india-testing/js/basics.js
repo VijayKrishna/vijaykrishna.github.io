@@ -42,7 +42,7 @@ class StatewiseTestingData {
 class TimeSeriesCanvasModel {
     constructor(statewiseTestingData, width, height, yValyeFn) {
         this.statewiseTestingData = statewiseTestingData
-        this.inlineHt = 50
+        this.inlineHt = 60
         this.inlineWd = 100
 
         this.yValyeFn = yValyeFn
@@ -232,6 +232,8 @@ function plotTimeSeries(timeSeriesCanvas, dataColor, stateTestPositivityData, pa
 var isFunction = function(obj) {
     return !!(obj && obj.constructor && obj.call && obj.apply);
 }
+
+const numberFormatter = d3.format(",")
 
 // Borrowed from: https://gist.github.com/tobyjsullivan/96d37ca0216adee20fa95fe1c3eb56ac
 // Original code: https://stackoverflow.com/questions/10599933/convert-long-number-into-abbreviated-string-in-javascript-with-a-special-shortn
