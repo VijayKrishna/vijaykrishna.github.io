@@ -42,7 +42,7 @@ class StatewiseTestingData {
 class TimeSeriesCanvasModel {
     constructor(statewiseTestingData, width, height, yValyeFn) {
         this.statewiseTestingData = statewiseTestingData
-        this.inlineHt = 60
+        this.inlineHt = 50
         this.inlineWd = 100
 
         this.yValyeFn = yValyeFn
