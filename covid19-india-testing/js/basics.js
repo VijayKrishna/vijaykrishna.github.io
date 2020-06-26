@@ -47,7 +47,7 @@ class TimeSeriesCanvasModel {
 
         this.yValyeFn = yValyeFn
 
-        this.margin = {top: 1, right: 10, bottom: 30, left: 30}
+        this.margin = {top: 1, right: 10, bottom: 30, left: 40}
         this.width = width
         this.height = height
         this.timeWidth = width - this.margin.left - this.margin.right
