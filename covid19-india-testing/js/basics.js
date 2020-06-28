@@ -1,5 +1,7 @@
 var statenames = ["Ladakh", "Arunachal Pradesh", "Assam", "Chandigarh", "Karnataka", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Punjab", "Rajasthan", "Sikkim", "Tripura", "Uttarakhand", "Telangana", "Bihar", "Kerala", "Madhya Pradesh", "Andaman and Nicobar Islands", "Gujarat", "Odisha", "Dadra and Nagar Haveli and Daman and Diu", "Jammu and Kashmir", "Chhattisgarh", "Goa", "Haryana", "Himachal Pradesh", "Jharkhand", "Tamil Nadu", "Uttar Pradesh", "West Bengal", "Andhra Pradesh", "Puducherry", "Maharashtra", "Delhi"]
 
+var populations = { "Delhi": 18710922, "Haryana": 28204692, "Kerala": 35699443, "Himachal Pradesh": 7451955, "Punjab": 30141373, "Telangana": 39362732, "Goa": 1586250, "Uttarakhand": 11250858, "Chandigarh": 1158473, "Gujarat": 63872399, "Lakshadweep": 73183, "Dadra and Nagar Haveli and Daman and Diu": 615724, "Tamil Nadu": 77841267, "Chhattisgarh": 29436231, "Andaman and Nicobar Islands": 417036, "Maharashtra": 123144223, "Karnataka": 67562686, "West Bengal": 99609303, "Odisha": 46356334, "Puducherry": 1413542, "Andhra Pradesh": 53903393, "Jharkhand": 38593948, "Mizoram": 1239244, "Tripura": 4169794, "Madhya Pradesh": 85358965, "Uttar Pradesh": 237882725, "Rajasthan": 81032689, "Sikkim": 690251, "Bihar": 124799926, "Manipur": 3091545, "Arunachal Pradesh": 1570458, "Jammu and Kashmir": 13606320, "Ladakh": 289023, "Nagaland": 2249695, "Meghalaya": 3366710, "Assam": 35607039, "India": 1371360350 }
+
 var color = d3.scaleQuantize([0, 10], d3.schemeBlues[5])
 var altcolor = d3.scaleQuantize([0, 10], d3.schemeOranges[5])
 var alt2color = d3.scaleQuantize([0, 10], d3.schemeOranges[5])
@@ -13,6 +15,7 @@ class CovidTestingData {
         this.positiveTests = positiveTests
         this.id = 0
         this.sources = sources
+        this.population = populations[this.statename]
 
         var date_split = updatedon.split('/')
         var date = parseInt(date_split[0])

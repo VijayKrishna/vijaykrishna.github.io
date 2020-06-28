@@ -203,6 +203,7 @@ d3.json("./data/data.json").then(function(data) {
 
             const totalTests = numberFormatter(thisDatum.totalTests)
             const positiveTests = numberFormatter(thisDatum.positiveTests)
+            const population = numberFormatter(thisDatum.population)
 
             thisSel.append("br")
             thisSel.append("small")
@@ -213,6 +214,11 @@ d3.json("./data/data.json").then(function(data) {
             thisSel.append("small")
                 .attr("class", "text-muted")
                 .text("Total Tests: " + totalTests)
+
+            thisSel.append("br")
+            thisSel.append("small")
+                .attr("class", "text-muted")
+                .text("Population: " + population)
         })
         
         rows.select(".statename").each(function() {
