@@ -6,7 +6,7 @@ class BubblePlotCanvasModel {
         this.yValyeFn = yValyeFn
         this.rValueFn = rValueFn
 
-        this.margin = {top: 45, right: 30, bottom: 30, left: 30}
+        this.margin = {top: 60, right: 30, bottom: 30, left: 30}
         this.width = width
         this.height = height
         this.bubbleplotWidth = width - this.margin.left - this.margin.right
@@ -33,6 +33,8 @@ class BubblePlotCanvasModel {
         this.yFn = d3.scaleLinear()
                     .domain([minY, maxY])
                     .range([ this.bubbleplotHeight, 0 ])
+        
+        this.bubbles = null
     }
 }
 
@@ -115,7 +117,7 @@ class BubblePlotCanvas {
 
         const self = this
 
-        var bubbles = g.selectAll("circle")
+        this.bubbles = g.selectAll("circle")
                         .data(this.model.statewiseTestingData)
                         .enter()
                         .append("circle")
@@ -135,49 +137,19 @@ class BubblePlotCanvas {
                             let val = self.model.rValueFn(d)
                             return val*2
                         })
-                        .append("title").text(d => {
-                            return `${d.statename} // Pos Rate: ${d.testPositivityNum()}%`
-                        })
         
-        bubbles.each((d, i) => {
-            if (i > 5 || d.statename == "Ladakh") {
-                return
-            }
+        this.bubbles.on("click", d => {
+                    console.log(d)
+                })
 
-            let val = self.model.xValyeFn(d)
-            let oX = x(val) 
-
-            let valY = self.model.yValyeFn(d)
-            let oY = y(valY)
-
-            let t = g.append("text")
-            .attr("fill", "white")
-            .style("font-size", "10px")
-            .attr("x", oX)
-            .attr("y", oY)
-            .text(d.statename)
-
-            var bbox = t.node().getBBox()
-            t.attr("x", oX - bbox.width)
-
-            let t2 = g.append("text")
-            .attr("fill", "silver")
-            .style("font-size", "10px")
-            .attr("x", oX)
-            .attr("y", oY)
-            .text(`Positivity: ${d.testPositivityNum()}%`)
-
-            var bbox2 = t2.node().getBBox()
-            t2.attr("x", oX - bbox.width)
-                .attr("y", oY - bbox2.height)
-        })
+        this.bubbles.append("title")
+                .text(d => {
+                        return `${d.statename} // Pos Rate: ${d.testPositivityNum()}%`
+                    })
+        
+        this.showBubbleLabels()
 
         var array = this.model.statewiseTestingData
-        
-
-        console.log(array)
-
-
 
         g.selectAll("text")
         .data(array.slice(0, 4))
@@ -199,4 +171,87 @@ class BubblePlotCanvas {
         })
         .text(d => d.statename)
     }
+
+    showBubbleLabels() {
+        const self = this
+        const g = this.g()
+        const x = this.xFn()
+        const y = this.yFn()
+
+        var p = d3.precisionRound(0.1, 1.1)
+        const shortNumFormatter = d3.format(".2~s")
+
+        this.bubbles.each(d => {
+            if (d.positiveTests < 20000 && d.testPositivityNum() <= 10.0) {
+                return
+            }
+
+            let val = self.model.xValyeFn(d)
+            let oX = x(val) 
+
+            let valY = self.model.yValyeFn(d)
+            let oY = y(valY)
+
+            let t = g.append("text")
+            .attr("fill", "white")
+            .attr("class", "bubbleLabel")
+            .style("font-size", "10px")
+            .attr("x", oX)
+            .attr("y", oY)
+            .text(d.statename)
+
+            var bbox = t.node().getBBox()
+            t.attr("x", oX - bbox.width)
+
+            let t2 = g.append("text")
+            .attr("fill", "silver")
+            .attr("class", "bubbleLabel")
+            .style("font-size", "10px")
+            .attr("x", oX)
+            .attr("y", oY)
+            .text(`Positivity: ${d.testPositivityNum()}%`)
+
+            var bbox2 = t2.node().getBBox()
+            t2.attr("x", oX - bbox.width)
+                .attr("y", oY - bbox2.height)
+
+            let t3 = g.append("text")
+            .attr("fill", "silver")
+            .attr("class", "bubbleLabel")
+            .style("font-size", "10px")
+            .attr("x", oX)
+            .attr("y", oY)
+            .text(`Test #: ${shortNumFormatter(d.totalTests)}`)
+    
+            var bbox3 = t3.node().getBBox()
+            t3.attr("x", oX - bbox.width)
+            .attr("y", oY - bbox2.height - bbox3.height)
+
+            let t4 = g.append("text")
+            .attr("fill", "silver")
+            .attr("class", "bubbleLabel")
+            .style("font-size", "10px")
+            .attr("x", oX)
+            .attr("y", oY)
+            .text(`Pos. #: ${shortNumFormatter(d.positiveTests)}`)
+    
+            var bbox4 = t4.node().getBBox()
+            t4.attr("x", oX - bbox.width)
+            .attr("y", oY - bbox2.height - bbox3.height - bbox4.height)
+
+            let t5 = g.append("text")
+            .attr("fill", "silver")
+            .attr("class", "bubbleLabel")
+            .style("font-size", "10px")
+            .attr("x", oX)
+            .attr("y", oY)
+            .text(`Population: ${shortNumFormatter(d.population)}`)
+    
+            var bbox5 = t5.node().getBBox()
+            t5.attr("x", oX - bbox.width)
+            .attr("y", oY - bbox2.height - bbox3.height - bbox4.height - bbox5.height)
+        })
+    }
 }
+
+// const numberFormatter = d3.format(",")
