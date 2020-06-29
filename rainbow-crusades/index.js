@@ -28,15 +28,16 @@ let contentDivs = mainContainer.selectAll("div")
                             .data(instaData)
                             .enter()
                             .append("div")
-                            .attr("class", "w-auto p-2 mx-auto my-5 shadow rounded-lg")
+                            .attr("class", "w-100 vh-100 p-0 mx-auto my-5 shadow rounded-lg")
                             .style("background-color", "white")
+                            .style("height", "80vh")
                             .attr("id", (d, i) => "rbc-spy" + i)
                             .on("click", function() {
                                 focusIntoView(this, true)
                             })
 
 contentDivs.append("img")
-        .attr("class", "w-50 d-inline-block rounded-lg")
+        .attr("class", "mh-100 mw-100 d-inline-block rounded-lg")
         .attr("src", d => `https://www.instagram.com/p/${d.ref}/media/?size=l`)
         .attr("crossorigin", "anonymous")
         .on("load", function(d) {
@@ -45,7 +46,7 @@ contentDivs.append("img")
         })
 
 contentDivs.append("p")
-            .attr("class", "w-50 d-inline-block rounded-lg px-2")
+            .attr("class", "mw-100 d-inline-block rounded-lg px-2")
             .style("color", d => d.fgCol)
             .html((d, i) => "Caption: " + d.caption)
 
