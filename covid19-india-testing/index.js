@@ -369,6 +369,8 @@ function plotIndiaAvg(data, tpTimeSeriesCanvas, ttTimeSeriesCanvas, tptTimeSerie
 }
 
 function highlight(svg, statePathSelection, d, labelG, timeSeriesCanvases, statewiseTestingData) {
+    // deHighlight(svg, statePathSelection, d, timeSeriesCanvases, statewiseTEstingData)
+
     labelG.selectAll(".statelabel").remove()
 
     const recentTestingData = statewiseTestingData.recent
