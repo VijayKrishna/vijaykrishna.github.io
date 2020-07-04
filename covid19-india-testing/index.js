@@ -162,16 +162,12 @@ d3.json("./data/data.json").then(function(data) {
         let svg = indiaMap.svg
         let labelG = indiaMap.labelG
 
-        indiaMap.drawMap(handleMouseOver, handleMouseOut)
+        indiaMap.drawMap(handleMouseOver)
                 .style("fill", d => stateFill(svg, testingData, d, color))
     
         // Create Event Handlers for mouse enter/out events
         function handleMouseOver(d, i) {
             highlight(svg, d3.select(this), d, labelG, [tpTimeSeriesCanvas, ttTimeSeriesCanvas, tptTimeSeriesCanvas], statewiseTestingData)
-        }
-    
-        function handleMouseOut(d, i) {
-            deHighlight(svg, d3.select(this), d, [tpTimeSeriesCanvas, ttTimeSeriesCanvas, tptTimeSeriesCanvas], statewiseTestingData)
         }
 
         var rows = d3.select('#statesrows')
@@ -194,9 +190,8 @@ d3.json("./data/data.json").then(function(data) {
             .attr("class", d => d.name)
             .style("text-align", d => d.align)
             .text(d => d.value)
-            .on("mouseenter", tablerowMouseOver)
-            .on("mouseout", tablerowMouseOut)
             .on("click", tablerowMouseClicked)
+
         rows.select(".testPositivity").each(function() {
             const thisSel = d3.select(this)
             const thisDatum = thisSel.datum()
@@ -248,9 +243,7 @@ d3.json("./data/data.json").then(function(data) {
             const idx = parseInt(thisSel.attr("id"))
 
             let timeSeriesCanvas = new TimeSeriesCanvas(timeSeriesCanvasModel, thisSel, true)
-            timeSeriesCanvas.onMouseOut(tablerowMouseOut)
-                            .onMouseOver(tablerowMouseOver)
-                            .appendG()
+            timeSeriesCanvas.appendG()
 
             const statename = statenames[idx]
             const stateTestPositivityData = statewiseTestingData.all[statename]
@@ -260,10 +253,6 @@ d3.json("./data/data.json").then(function(data) {
         
         function tablerowMouseClicked(d, i) {
             selectStateMap(d, i, true)
-        }
-
-        function tablerowMouseOver(d, i) {
-            selectStateMap(d, i, false)
         }
         
         function selectStateMap(d, i, shouldZoom) {
@@ -278,16 +267,6 @@ d3.json("./data/data.json").then(function(data) {
             }
             
             highlight(svg, pathSelection, d, labelG, [tpTimeSeriesCanvas, ttTimeSeriesCanvas, tptTimeSeriesCanvas], statewiseTestingData)
-        }
-    
-        function tablerowMouseOut(d, i) {
-            var statemapId = d.id
-            var pathSelection = idToPathSelectionMap(statemapId)
-            if (pathSelection === null) {
-                return
-            }
-
-            deHighlight(svg, pathSelection, d, [tpTimeSeriesCanvas, ttTimeSeriesCanvas, tptTimeSeriesCanvas], statewiseTestingData)
         }
     })
 })
@@ -369,12 +348,12 @@ function plotIndiaAvg(data, tpTimeSeriesCanvas, ttTimeSeriesCanvas, tptTimeSerie
 }
 
 function highlight(svg, statePathSelection, d, labelG, timeSeriesCanvases, statewiseTestingData) {
-    // deHighlight(svg, statePathSelection, d, timeSeriesCanvases, statewiseTEstingData)
-
     labelG.selectAll(".statelabel").remove()
+    deHighlight(svg, statePathSelection, d, timeSeriesCanvases, statewiseTestingData)
 
     const recentTestingData = statewiseTestingData.recent
     statePathSelection.style("fill", d => stateFill(svg, recentTestingData, d, altcolor))
+    statePathSelection.classed("highlightedStatePath", true)
 
     var idx = idxmap(d)
     var statename = statenames[idx]
@@ -390,7 +369,15 @@ function highlight(svg, statePathSelection, d, labelG, timeSeriesCanvases, state
 }
 
 function deHighlight(svg, statePathSelection, d, timeSeriesCanvases, statewiseTestingData) {
-    statePathSelection.style("fill", d => stateFill(svg, statewiseTestingData.recent, d, color))
+    hightedStatePaths = d3.selectAll(".highlightedStatePath")
+    hightedStatePaths.style("fill", d => stateFill(svg, statewiseTestingData.recent, d, color))
+    hightedStatePaths.classed("highlightedStatePath", false)
+
+    // statePathSelection.style("fill", d => stateFill(svg, statewiseTestingData.recent, d, color))
+    dehighlightTimeSeries(timeSeriesCanvases)
+}
+
+function dehighlightTimeSeries(timeSeriesCanvases) {
     for (let index = 0; index < timeSeriesCanvases.length; index++) {
         const canvas = timeSeriesCanvases[index]
         canvas.clearHighlightedTimeSeries()

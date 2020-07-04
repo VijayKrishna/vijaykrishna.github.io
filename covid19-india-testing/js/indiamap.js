@@ -18,7 +18,7 @@ class IndiaMap {
         this.centered = null
     }
 
-    drawMap(handleMouseOver, handleMouseOut) {
+    drawMap(handleMouseOver) {
         // Bind TopoJSON data
         const statePaths = this.g.selectAll("path")
                                 .data(this.features.features) // Bind TopoJSON data elements
@@ -27,7 +27,6 @@ class IndiaMap {
                                 .attr("id", d => { return d.id; })
                                 .style("stroke", "steelblue")
                                 .on("mouseenter", handleMouseOver)
-                                .on("mouseout", handleMouseOut)
                                 .on("click", this.clickedFn())
 
         for (let index = 0; index < statePaths._groups[0].length; index++) {
