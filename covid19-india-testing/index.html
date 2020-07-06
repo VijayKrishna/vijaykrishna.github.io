@@ -108,52 +108,47 @@
           </div>
           
         </div>
+    </div>
+
+    <div class="container-fluid justify-content-center">
+      
+      <span style="font-size: x-small;">Data Sources</span><br/>
+      <ul style="font-size: x-small;">
+        <li><a target="_blank" href="https://ourworldindata.org/grapher/covid-19-positive-rate-bar?tab=chart&time=2020-03-13..&country=~IND">"Our World in Data" project ... for India's Daily Test Positivity Rates</a></li>
+        <li> <a target="_blank" href="https://api.covid19india.org">COVID19India's Data API ... for state-wise testing data</a></li>
+        <li><a href="https://uidai.gov.in/images/state-wise-aadhaar-saturation.pdf">India's 2020 Population projections -- UDAI</a></li>
+      </ul>
+      <div id="india-miniplot"></div>
+
+      <div id="miniplots"></div>
+
+      <hr style="border: 0.5px solid dimgray;"/>
+    </div>
+
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6 table-responsive">
-                <span style="font-size: xx-small">Data Sources</span><br/>
-
-                <ul style="font-size: xx-small">
-                  <li><a target="_blank" href="https://ourworldindata.org/grapher/covid-19-positive-rate-bar?tab=chart&time=2020-03-13..&country=~IND">"Our World in Data" project ... for India's Daily Test Positivity Rates</a></li>
-                  <li> <a target="_blank" href="https://api.covid19india.org">COVID19India's Data API ... for state-wise testing data</a></li>
-                  <li><a href="https://uidai.gov.in/images/state-wise-aadhaar-saturation.pdf">India's 2020 Population projections -- UDAI</a></li>
-                </ul>
-
-                <table class="table text-light table-borderless table-sm table-hover table-dark bg-transparent" style="overflow-y:auto; height:100px;">
-                    <colgroup>
-                      <col span="1">
-                      <col span="1" style="width: 40%;">
-                      <col span="1" style="width: 20%;">
-                      <!-- <col span="1" style="width: 10%;"> -->
-                      <!-- <col span="1" style="width: 10%;"> -->
-                  </colgroup>
-
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col" style="text-align: left; font-size: small;">Region</th>
-                            <th scope="col" style="text-align: right; font-size: small;">Test Positivity</th>
-                            <th scope="col" style="text-align: left; font-size: small;">Trend</th>
-                            <!-- <th scope="col" style="text-align: right; font-size: small;">Total Tests</th> -->
-                            <!-- <th scope="col" style="text-align: right; font-size: small;">Positive Tests</th> -->
-                        </tr>
-                        <tr>
-                          <th style="vertical-align: text-top; background-color: black; text-align: left;" id="india">India</th>
-                          <th style="vertical-align: text-top; background-color: black; text-align: right;" id="ind-tpr"></th>
-                          <th style="vertical-align: text-top; background-color: black; text-align: left;" id="ind-trend"></th>
-                          <!-- <th style="vertical-align: text-top; background-color: black; text-align: right;" id="ind-tests">n/a</th> -->
-                          <!-- <th style="vertical-align: text-top; background-color: black; text-align: right;" id="ind-postests">n/a</th> -->
-                        </tr>
-                    </thead>
-                    <tbody id="statesrows"></tbody>
-                </table>
-            </div>
-            <div class="col-md-6" >
+            <div class="col-md-6">
               <div id="total-pos-tests-timelines"></div><br/>
               <div id="total-tests-timelines"></div><br/>
               <div id="timelines"></div><br/>
-              <div id="map"></div><br/><hr style="border: 0.5px solid dimgray;"/>
-              <div id="bubbleplot"></div><br/>
+            </div>
+            <div class="col-md-6" >
+              <div id="map"></div><br/>
             </div>
         </div>
+    </div>
+
+
+    <div class="container">
+      <hr style="border: 0.5px solid dimgray;"/>
+      <div class="row justify-content-center">
+        <div class="col-md-9">
+          <div id="bubbleplot"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
         <div class="row">
           <div class="col-md-6">
             <hr style="border: 0.5px solid dimgray;"/>

@@ -170,103 +170,16 @@ d3.json("./data/data.json").then(function(data) {
             highlight(svg, d3.select(this), d, labelG, [tpTimeSeriesCanvas, ttTimeSeriesCanvas, tptTimeSeriesCanvas], statewiseTestingData)
         }
 
-        var rows = d3.select('#statesrows')
-                        .selectAll('tr')
-                        .data(testingDataArray).enter()
-                        .append('tr')
-
-        rows.selectAll('td')
-            .data(function (d) {
-                    return [{ 'value': d.statename, 'name': 'statename', 'align': 'left', 'id': d.id },
-                            { 'value': d.testPositivity,'name': 'testPositivity', 'align': 'right', 'id': d.id },
-                            { 'value': "", 'name': 'trend', 'align': 'left','id': d.id},
-                            // { 'value': abbreviatedNumber(d.totalTests), 'name': 'totalTests', 'align': 'right', 'id': d.id },
-                            // { 'value': abbreviatedNumber(d.positiveTests), 'name': 'positiveTests', 'align': 'right', 'id': d.id }
-                        ]
-                })
-            .enter()
-            .append('td')
-            .attr("id", d => d.id)
-            .attr("class", d => d.name)
-            .style("text-align", d => d.align)
-            .text(d => d.value)
-            .on("click", tablerowMouseClicked)
-
-        rows.select(".testPositivity").each(function() {
-            const thisSel = d3.select(this)
-            const thisDatum = thisSel.datum()
-
-            const totalTests = numberFormatter(thisDatum.totalTests)
-            const positiveTests = numberFormatter(thisDatum.positiveTests)
-            const population = numberFormatter(thisDatum.population)
-
-            thisSel.append("br")
-            thisSel.append("small")
-                .attr("class", "text-muted")
-                .text("Positive Tests: " + positiveTests)
-
-            thisSel.append("br")
-            thisSel.append("small")
-                .attr("class", "text-muted")
-                .text("Total Tests: " + totalTests)
-
-            thisSel.append("br")
-            thisSel.append("small")
-                .attr("class", "text-muted")
-                .text("Population: " + population)
-        })
+        d3.select("#miniplots")
+            .selectAll("div")
         
-        rows.select(".statename").each(function() {
-            const thisSel = d3.select(this)
-            const idx = parseInt(thisSel.attr("id"))
-            const statename = statenames[idx]
+        for (let index = 0; index < testingDataArray.length; index++) {
+            const element = testingDataArray[index];
+            const statename = element.statename
+            const stateTestPositivityData = statewiseTestingData.all[statename]
             const latestPosData = testingData[statename]
 
-            for (let index = 0; index < latestPosData.sources.length; index++) {
-                const srcUrl = latestPosData.sources[index];
-                thisSel.append("a")
-                        .attr("href", srcUrl)
-                        .attr("target", "_blank")
-                        .style("font-size", "small")
-                        .style("margin-left", "2px")
-                        .text("[" + (index + 1) + "]")
-            }
-
-            thisSel.append("br")
-            thisSel.append("small")
-                .attr("class", "text-dark")
-                .text("Updated on: " + latestPosData.updatedon.replace("/2020", ""))
-        })
-
-        rows.select(".trend").each(function() {
-            const thisSel = d3.select(this)
-            const idx = parseInt(thisSel.attr("id"))
-
-            let timeSeriesCanvas = new TimeSeriesCanvas(timeSeriesCanvasModel, thisSel, true)
-            timeSeriesCanvas.appendG()
-
-            const statename = statenames[idx]
-            const stateTestPositivityData = statewiseTestingData.all[statename]
-            
-            plotTimeSeries(timeSeriesCanvas, alt2color, stateTestPositivityData, "inlinetimeplot")
-        })
-        
-        function tablerowMouseClicked(d, i) {
-            selectStateMap(d, i, true)
-        }
-        
-        function selectStateMap(d, i, shouldZoom) {
-            var statemapId = d.id
-            var pathSelection = idToPathSelectionMap(statemapId)
-            if (pathSelection === null) {
-                return
-            }
-
-            if (shouldZoom) {
-                indiaMap.zoomMap(pathSelection.datum())
-            }
-            
-            highlight(svg, pathSelection, d, labelG, [tpTimeSeriesCanvas, ttTimeSeriesCanvas, tptTimeSeriesCanvas], statewiseTestingData)
+            appendMiniPlotContainer("miniplot" + index, timeSeriesCanvasModel, stateTestPositivityData, latestPosData, alt2color)
         }
     })
 })
@@ -308,33 +221,11 @@ function plotIndiaAvg(data, tpTimeSeriesCanvas, ttTimeSeriesCanvas, tptTimeSerie
 
     latestIndiaTestingData = latestTestingData
 
-    d3.select("#ind-tpr").text(latestTPR + "%")
-    d3.select("#ind-updatedon").text(latestUpdatedOn.replace("/2020", ""))
-
-    let indiaCell = d3.select("#india")
-
-    for (let index = 0; index < latestTestingData.sources.length; index++) {
-        const srcUrl = latestTestingData.sources[index];
-        indiaCell.append("a")
-                .attr("href", srcUrl)
-                .attr("target", "_blank")
-                .style("font-size", "small")
-                .style("margin-left", "2px")
-                .style("font-weight", "normal")
-                .text("[" + (index + 1) + "]")
-    }
-
-    indiaCell.append("br")
-    indiaCell.append("small")
-        .attr("class", "text-dark")
-        .text("Updated on: " + latestTestingData.updatedon.replace("/2020", ""))
-
     const timeseriesCanvas = new TimeSeriesCanvas(timeSeriesCanvasModel, d3.select("#ind-trend"), true)
     timeseriesCanvas.appendG()
-
     const indiacol = color(latestTPR)
 
-    plotTimeSeries(timeseriesCanvas, indiacol, plotableTestingData, "indiainlinetimeplot")
+    appendMiniPlotContainer("indiaMiniPlot", timeSeriesCanvasModel, plotableTestingData, latestTestingData, color, true, "#india-miniplot")
 
     for (let index = 0; index < statenames.length; index++) {
         const statename = statenames[index]
@@ -465,3 +356,117 @@ function fetchRecentTestingData(states_tested_data) {
 }
 
 //#endregion DATA
+
+function appendMiniPlotContainer(containerId, timeSeriesCanvasModel, plotableTestingData, latestTestingData, plotColFn, showLabels = false, miniplotsContainerId = "#miniplots") {
+    const latestTPRNum = latestTestingData.testPositivityNum()
+    const latestTPRStr = latestTestingData.testPositivity
+    const latestUpdatedOn = latestTestingData.updatedon.replace("/2020", "")
+    const title = latestTestingData.statename
+    const sources = latestTestingData.sources
+    const latestPositiveTests = latestTestingData.positiveTests
+    const latestTotalTests = latestTestingData.totalTests
+    const population = populations[title]
+
+    const plotCol = plotColFn(latestTPRNum)
+    let miniplotsContainer = d3.selectAll(miniplotsContainerId)
+
+    let container = miniplotsContainer.append("div")
+                        .attr("id", containerId)
+                        .style("width", "145px")
+                        .style("padding", "2px")
+                        .style("border", "0.5px solid #333")
+                        .style("border-radius", "5px")
+                        .style("display", "inline-block")
+                        .style("margin", "5px 5px")
+
+
+    const titleDiv = container.append("div")
+
+    titleDiv.append("span")
+        .text(title)
+        .style("font-weight", "bold")
+        .style("margin-right", "2px")
+    
+    const srcsDiv = container.append("div")
+    srcsDiv.append("span")
+            .text("Source(s): ")
+            .style("font-size", "x-small")
+            .style("margin-right", "2px")
+
+    for (let index = 0; index < sources.length; index++) {
+        const srcUrl = sources[index]
+        srcsDiv.append("a")
+                .attr("href", srcUrl)
+                .attr("target", "_blank")
+                .style("font-size", "x-small")
+                .style("margin-right", "2px")
+                .style("font-weight", "normal")
+                .text("[" + (index + 1) + "]")
+    }
+
+    const updatedOnDiv = container.append("div")
+                                .style("color", "dimgrey")
+                                .style("font-size", "xx-small")
+                                .style("text-align", "right")
+
+    updatedOnDiv.append("span")
+        .text("Updated on:")
+        .style("margin-right", "2px")
+
+    updatedOnDiv.append("span")
+        .text(latestUpdatedOn)
+
+    const tprDiv = container.append("div")
+                    .style("text-align", "right")
+
+    tprDiv.append("span")
+        .text(showLabels ? "Test Positivity:" : "Test Pos.:")
+        .style("font-weight", "bold")
+        .style("font-size", "xx-small")
+        .style("margin-right", "2px")
+
+    tprDiv.append("span")
+            .text(latestTPRStr)
+            .style("font-weight", "bold")
+            .style("font-size", "small")
+
+    const timeseriesCanvas = new TimeSeriesCanvas(timeSeriesCanvasModel, container, true)
+    timeseriesCanvas.appendG()
+    plotTimeSeries(timeseriesCanvas, plotCol, plotableTestingData, "indiainlinetimeplot")
+
+    const posCountDiv = container.append("div")
+        .style("color", "dimgrey")
+        .style("font-size", "x-small")
+        .style("text-align", "right")
+
+    posCountDiv.append("span")
+        .text("Positive Tests:")
+        .style("margin-right", "2px")
+
+    posCountDiv.append("span")
+        .text(latestPositiveTests == 0 ? "n/a" : numberFormatter(latestPositiveTests))
+
+    const testedCountDiv = container.append("div")
+                            .style("color", "dimgrey")
+                            .style("font-size", "x-small")
+                            .style("text-align", "right")
+
+    testedCountDiv.append("span")
+        .text("Total Tests:")
+        .style("margin-right", "2px")
+
+    testedCountDiv.append("span")
+        .text(latestTotalTests === 0 ? "n/a" : numberFormatter(latestTotalTests))
+
+    const populationDiv = container.append("div")
+                            .style("color", "dimgrey")
+                            .style("font-size", "x-small")
+                            .style("text-align", "right")
+
+    populationDiv.append("span")
+        .text("Population:")
+        .style("margin-right", "2px")
+
+    populationDiv.append("span")
+        .text(numberFormatter(population))
+}
