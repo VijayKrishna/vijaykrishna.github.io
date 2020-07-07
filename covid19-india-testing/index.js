@@ -128,7 +128,7 @@ d3.json("./data/data.json").then(function(data) {
         return bTP - aTP
     })
 
-    const bubbleplotModel = new BubblePlotCanvasModel(testingDataArray, width, 0.75*height, yValueTotalTestsfn, yValuePosTestsfn, yValueTPRfn)
+    const bubbleplotModel = new BubblePlotCanvasModel(testingDataArray, statewiseTestingData, width, 0.75*height, yValueTotalTestsfn, yValuePosTestsfn, yValueTPRfn)
     const bubbleplotCanvas = new BubblePlotCanvas(bubbleplotModel, 
                                                     d3.select("#bubbleplot"), 
                                                     "COVID19 Testing: Positive vs. Total Tests",
@@ -170,9 +170,6 @@ d3.json("./data/data.json").then(function(data) {
             highlight(svg, d3.select(this), d, labelG, [tpTimeSeriesCanvas, ttTimeSeriesCanvas, tptTimeSeriesCanvas], statewiseTestingData)
         }
 
-        d3.select("#miniplots")
-            .selectAll("div")
-        
         for (let index = 0; index < testingDataArray.length; index++) {
             const element = testingDataArray[index];
             const statename = element.statename

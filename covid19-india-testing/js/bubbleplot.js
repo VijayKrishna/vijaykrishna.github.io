@@ -1,6 +1,7 @@
 class BubblePlotCanvasModel {
-    constructor(testingDataArray, width, height, xValyeFn, yValyeFn, rValueFn) {
-        this.statewiseTestingData = testingDataArray
+    constructor(testingDataArray, statewiseTestingData, width, height, xValyeFn, yValyeFn, rValueFn) {
+        this.latestStatewiseTestingData = testingDataArray
+        this.statewiseTestingData = statewiseTestingData
 
         this.xValyeFn = xValyeFn
         this.yValyeFn = yValyeFn
@@ -67,23 +68,28 @@ class BubblePlotCanvas {
         let g = this.svg.append("g").attr("id", "main")
 
         g.attr("transform", "translate(" + this.model.margin.left + "," + this.model.margin.top + ")")
+
+
+        let axesG = this.svg.append("g").attr("id", "axes")
+        axesG.attr("transform", "translate(" + this.model.margin.left + "," + this.model.margin.top + ")")
+
         // Add X axis
-        g.append("g")
+        axesG.append("g")
             .attr("transform", "translate(0," + (this.model.bubbleplotHeight) + ")")
             .call(d3.axisBottom(this.model.xFn))
         
         // Add Y axis
         let axis = d3.axisLeft(this.model.yFn)
                     .ticks(8, d3.format("~s"))
-        g.append("g").call(axis)
+        axesG.append("g").call(axis)
 
         // Label
-        g.append("text")
+        axesG.append("text")
         .attr("x", 20).attr("y", 45)
         .style("fill", "silver").style("font-size", "18px")
         .text(this.plotLabel)
 
-        const t1 = g.append("text")
+        const t1 = axesG.append("text")
                     .attr("x", 0).attr("y", 0)
                     .style("fill", "white")
                     .style("font-size", "10px")
@@ -93,7 +99,7 @@ class BubblePlotCanvas {
         t1.attr("x", this.wd - (bbox.width * 2))
             .attr("y", this.model.bubbleplotHeight - (bbox.height - 5))
 
-        const t2 = g.append("text")
+        const t2 = axesG.append("text")
                     .attr("x", 0).attr("y", 0)
                     .style("fill", "white")
                     .style("font-size", "10px")
@@ -118,7 +124,7 @@ class BubblePlotCanvas {
         const self = this
 
         this.bubbles = g.selectAll("circle")
-                        .data(this.model.statewiseTestingData)
+                        .data(this.model.latestStatewiseTestingData)
                         .enter()
                         .append("circle")
                         .attr("stroke", function(d) {
@@ -139,8 +145,50 @@ class BubblePlotCanvas {
                         })
         
         this.bubbles.on("click", d => {
-                    console.log(d)
+            const statename = d.statename
+            const stateTestPosData = self.model.statewiseTestingData.all[statename]
+
+            g.attr("opacity", 0.1)
+
+            const newG = self.svg.append("g").attr("id", "state-history")
+            newG.attr("transform", "translate(" + self.model.margin.left + "," + self.model.margin.top + ")")
+            
+            let bubbleTrace = newG.selectAll("circle")
+            .data(stateTestPosData)
+            .enter()
+            .append("circle")
+            .attr("fill-opacity", 0.65)
+            .attr("fill", d => {
+                return colorFn(d.testPositivityNum())
+            })
+            .attr("stroke", d => {
+                const color = colorFn(d.testPositivityNum())
+                return d3.color(color).brighter(0.5)
+            })
+            .attr("stroke-width", 0.5)
+            .attr("cx", d => {
+                let val = self.model.xValyeFn(d)
+                return x(val) 
+            })
+            .attr("cy", d => {
+                let val = self.model.yValyeFn(d)
+                return y(val) 
+            })
+            .attr("r", d => {
+                let val = self.model.rValueFn(d)
+                return val*2
+            })
+            .on("click", d => {
+                self.svg.selectAll("#state-history").remove()
+                g.attr("opacity", 1.0)
+            })
+
+            bubbleTrace.append("title")
+                .text(d => {
+                    return `${d.statename} // Pos Rate: ${d.testPositivityNum()}%`
                 })
+            
+        })
 
         this.bubbles.append("title")
                 .text(d => {
@@ -149,7 +197,7 @@ class BubblePlotCanvas {
         
         this.showBubbleLabels()
 
-        var array = this.model.statewiseTestingData
+        var array = this.model.latestStatewiseTestingData
 
         g.selectAll("text")
         .data(array.slice(0, 4))
