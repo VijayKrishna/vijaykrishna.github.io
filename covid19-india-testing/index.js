@@ -176,7 +176,17 @@ d3.json("./data/data.json").then(function(data) {
             const stateTestPositivityData = statewiseTestingData.all[statename]
             const latestPosData = testingData[statename]
 
-            appendMiniPlotContainer("miniplot" + index, timeSeriesCanvasModel, stateTestPositivityData, latestPosData, alt2color)
+            const testPos = latestPosData.testPositivityNum()
+
+            let container = "#miniplots"
+            
+            if (testPos <= 5.0 && testPos >= 2.0) {
+                container = "#miniplots2"
+            } else if (testPos < 2.0) {
+                container = "#miniplots3"
+            }
+
+            appendMiniPlotContainer("miniplot" + index, timeSeriesCanvasModel, stateTestPositivityData, latestPosData, alt2color, false, container)
         }
     })
 })
@@ -378,12 +388,13 @@ function appendMiniPlotContainer(containerId, timeSeriesCanvasModel, plotableTes
 
 
     const titleDiv = container.append("div")
+                            .style("overflow-x", "scroll")
 
     titleDiv.append("span")
         .text(title)
         .style("font-weight", "bold")
         .style("margin-right", "2px")
-    
+
     const srcsDiv = container.append("div")
     srcsDiv.append("span")
             .text("Source(s): ")
