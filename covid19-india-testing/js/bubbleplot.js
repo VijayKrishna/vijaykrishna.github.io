@@ -257,7 +257,7 @@ class BubblePlotCanvas {
             .style("font-size", "10px")
             .attr("x", oX)
             .attr("y", oY)
-            .text(`Positivity: ${d.testPositivityNum()}%`)
+            .text(`Pos.%: ${d.testPositivityNum()}%`)
 
             var bbox2 = t2.node().getBBox()
             t2.attr("x", oX - bbox.width)
@@ -269,7 +269,7 @@ class BubblePlotCanvas {
             .style("font-size", "10px")
             .attr("x", oX)
             .attr("y", oY)
-            .text(`Test #: ${shortNumFormatter(d.totalTests)}`)
+            .text(`Test#: ${shortNumFormatter(d.totalTests)}`)
     
             var bbox3 = t3.node().getBBox()
             t3.attr("x", oX - bbox.width)
@@ -281,7 +281,7 @@ class BubblePlotCanvas {
             .style("font-size", "10px")
             .attr("x", oX)
             .attr("y", oY)
-            .text(`Pos. #: ${shortNumFormatter(d.positiveTests)}`)
+            .text(`Pos.#: ${shortNumFormatter(d.positiveTests)}`)
     
             var bbox4 = t4.node().getBBox()
             t4.attr("x", oX - bbox.width)
@@ -293,7 +293,7 @@ class BubblePlotCanvas {
             .style("font-size", "10px")
             .attr("x", oX)
             .attr("y", oY)
-            .text(`Population: ${shortNumFormatter(d.population)}`)
+            .text(`Pop.: ${shortNumFormatter(d.population)}`)
     
             var bbox5 = t5.node().getBBox()
             t5.attr("x", oX - bbox.width)
