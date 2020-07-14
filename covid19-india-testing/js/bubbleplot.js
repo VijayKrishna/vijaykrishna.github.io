@@ -85,7 +85,7 @@ class BubblePlotCanvas {
 
         // Label
         axesG.append("text")
-        .attr("x", 20).attr("y", 45)
+        .attr("x", -30).attr("y", -30)
         .style("fill", "silver").style("font-size", "18px")
         .text(this.plotLabel)
 
@@ -238,7 +238,7 @@ class BubblePlotCanvas {
             let oX = x(val) 
 
             let valY = self.model.yValyeFn(d)
-            let oY = y(valY)
+            let oY = y(valY)// - self.model.rValueFn(d)
 
             let t = g.append("text")
             .attr("fill", "white")
