@@ -1,0 +1,1325 @@
+Passengers,Source,Destination,Airliner,Date,TotalIndiansReturnedToday
+179,Sharjah,Kozikhode,AirIndia,2020-07-19,5076
+169,Dubai,Delhi,AirIndia,2020-07-19,5076
+173,Sharjah,Mumbai,AirIndia,2020-07-19,5076
+171,Abu Dhabi,Lucknow,AirIndia,2020-07-19,5076
+162,Sharjah,Bengaluru,AirIndia,2020-07-19,5076
+170,Dubai,Kochi,AirIndia,2020-07-19,5076
+159,Abu Dhabi,Kochi,AirIndia,2020-07-19,5076
+176,Sharjah,Delhi,AirIndia,2020-07-19,5076
+177,Dubai,Thiruvananthapuram,AirIndia,2020-07-19,5076
+148,Jeddah,Mumbai,AirIndia,2020-07-19,5076
+241,London,Mumbai-Chennai,AirIndia,2020-07-19,5076
+208,Washington,Delhi- Chennai- Hyderabad - Bengaluru,AirIndia,2020-07-19,5076
+325,Chicago,Delhi- Hyderabad - Chennai - Benga/uru,AirIndia,2020-07-19,5076
+324,New York,Delhi- Chennai-Hyderabad-Bengaluru,AirIndia,2020-07-19,5076
+224,San Francisco,Delhi- Bengaluru - Hyderabad- Chennai,AirIndia,2020-07-19,5076
+237,Melbourne,Delhi - Chennai,AirIndia,2020-07-19,5076
+145,Dammam,Kannur,AirIndia,2020-07-19,5076
+150,Abu Dhabi,Jaipur,AirIndia,2020-07-19,5076
+165,Bishkek,Mumbai- Chennai,AirIndia,2020-07-19,5076
+141,Singapore,Bengaluru,AirIndia,2020-07-19,5076
+250,London,Delhi-Hyderabad,AirIndia,2020-07-19,5076
+210,Doha,Mumbai,Indigo,2020-07-19,5076
+208,Doha,Kochi,Indigo,2020-07-19,5076
+200,Doha,Chennai,Indigo,2020-07-19,5076
+171,Doha,Kozikhode,Indigo,2020-07-19,5076
+193,Doha,Hyderabad,Indigo,2020-07-19,5076
+172,Abu Dhabi,Kozhikode,AirIndia,2020-07-18,4691
+172,Dubai,Kochi,AirIndia,2020-07-18,4691
+177,Sharjah,Hyderabad,AirIndia,2020-07-18,4691
+177,Muscat,Delhi,AirIndia,2020-07-18,4691
+159,Abu Dhabi,Thiruvananthapuram,AirIndia,2020-07-18,4691
+181,Muscat,Chennai,AirIndia,2020-07-18,4691
+178,Sharjah,Mangaluru,AirIndia,2020-07-18,4691
+168,Dubai,Kochi,AirIndia,2020-07-18,4691
+168,Abu Dhabi,Kochi,AirIndia,2020-07-18,4691
+163,Dubai,Delhi,AirIndia,2020-07-18,4691
+236,London,Mumbai,AirIndia,2020-07-18,4691
+145,Doha,Delhi-Gaya,AirIndia,2020-07-18,4691
+323,Newark,Mumbai,AirIndia,2020-07-18,4691
+309,New York,Delhi-Kochi-Hyderabad-Bengaluru,AirIndia,2020-07-18,4691
+321,Chicago,Delhi-Hyderabad-Bengaluru,AirIndia,2020-07-18,4691
+223,San Francisco,Delhi-Bengaluru-Kochi-Hyderabad,AirIndia,2020-07-18,4691
+228,Sydney,Delhi-Hyderabad,AirIndia,2020-07-18,4691
+244,Melbourne,Delhi,AirIndia,2020-07-18,4691
+174,Colombo,Delhi,AirIndia,2020-07-18,4691
+148,Dammam,Thiruvahanthapuram,AirIndia,2020-07-18,4691
+165,Bishkek,Ahmedabad,AirIndia,2020-07-18,4691
+146,Doha,Jaipur,AirIndia,2020-07-18,4691
+139,Abu Dhabi,Amritsar,AirIndia,2020-07-18,4691
+175,Kuwait,Mumbai,GoAir,2020-07-18,4691
+175,Sharjah,Kozikhode,AirIndia,2020-07-17,4189 
+175,Sharjah,Delhi,AirIndia,2020-07-17,4189 
+176,Sharjah,Lucknow,AirIndia,2020-07-17,4189 
+177,Muscat,Vijayawada,AirIndia,2020-07-17,4189 
+182,Dubai,Chennai,AirIndia,2020-07-17,4189 
+173,Dubai,Kozhikode,AirIndia,2020-07-17,4189 
+177,Sharjah,Varanasi,AirIndia,2020-07-17,4189 
+166,Singapore,Vijayawada- Trichy,AirIndia,2020-07-17,4189 
+211,London,Mumbai- Ahmedabad,AirIndia,2020-07-17,4189 
+190,Washington,Delhi-Mumbai-Bengaluru-Hyderabad,AirIndia,2020-07-17,4189 
+163,Newark,Mumbai,AirIndia,2020-07-17,4189 
+324,Chicago,Delhi- Hyderabad - Bangaluru - Chennai - Mumbai - Vijayawada,AirIndia,2020-07-17,4189 
+229,San Francisco,Delhi- Bengaluru,AirIndia,2020-07-17,4189 
+240,Melbourne,Delhi - Mumbai,AirIndia,2020-07-17,4189 
+214,Sydney,Delhi- Chennai,AirIndia,2020-07-17,4189 
+142,Dammam,Kozhikode,AirIndia,2020-07-17,4189 
+168,Bishkek,Hyderabad- Vijayawada,AirIndia,2020-07-17,4189 
+145,Abu Dhabi,Lucknow- Delhi,AirIndia,2020-07-17,4189 
+203,Doha,Kochi,Indigo,2020-07-17,4189 
+179,Doha,Mumbai,Indigo,2020-07-17,4189 
+173,Doha,Kozikhode,Indigo,2020-07-17,4189 
+207,Doha,Hyderabad,Indigo,2020-07-17,4189 
+160,Abu Dhabi,Delhi,AirIndia,2020-07-16,4755
+166,Dubai,Kozhikode,AirIndia,2020-07-16,4755
+179,Singapore,Trichy,AirIndia,2020-07-16,4755
+182,Sharjah,Kannur,AirIndia,2020-07-16,4755
+172,Sharjah,Jaipur,AirIndia,2020-07-16,4755
+170,Abu Dhabi,Chennai,AirIndia,2020-07-16,4755
+177,Dubai,Bengaluru,AirIndia,2020-07-16,4755
+177,Sharjah,Kochi,AirIndia,2020-07-16,4755
+183,Dubai,Kannur,AirIndia,2020-07-16,4755
+179,Dubai,Amritsar,AirIndia,2020-07-16,4755
+244,.London,Mumbai-Bengaluru,AirIndia,2020-07-16,4755
+250,Stockholm,Mumbai-Hyderabad,AirIndia,2020-07-16,4755
+125,New York,Delhi-Chennai-Bengaluru,AirIndia,2020-07-16,4755
+77,Newark,Mumbai,AirIndia,2020-07-16,4755
+310,Chicago,Delhi-Hyderabad-Chennai-Bengaluru,AirIndia,2020-07-16,4755
+221,San Francisco,Delhi-Bengaluru-Hyderabad-Chennai,AirIndia,2020-07-16,4755
+136,Dammam,Kochi,AirIndia,2020-07-16,4755
+149,Muscat,Lucknow-Delhi,AirIndia,2020-07-16,4755
+165,Bishkek,Hyderabad,AirIndia,2020-07-16,4755
+169,Doha,Kannur,Indigo,2020-07-16,4755
+171,Kuwait,Hyderabad,Indigo,2020-07-16,4755
+208,Doha,Bengaluru,Indigo,2020-07-16,4755
+167,Kuwait,Bengaluru,Indigo,2020-07-16,4755
+199,Doha,Thiruvananthapuram,Indigo,2020-07-16,4755
+206,Doha,Chennai,Indigo,2020-07-16,4755
+213,Doha,Lucknow,Indigo,2020-07-16,4755
+177,Abu Dhabi,Kochi,AirIndia,2020-07-15,3895 
+178,Sharjah,Mumbai,AirIndia,2020-07-15,3895 
+172,Singapore,Coimbatore,AirIndia,2020-07-15,3895 
+170,Abu Dhabi,Hyderabad,AirIndia,2020-07-15,3895 
+173,Sharjah,Coimbatore,AirIndia,2020-07-15,3895 
+178,Dubai,Lucknow,AirIndia,2020-07-15,3895 
+170,Dubai,Kochi,AirIndia,2020-07-15,3895 
+177,Sharjah,Madurai,AirIndia,2020-07-15,3895 
+138,Kiev,Delhi,AirIndia,2020-07-15,3895 
+38,Washington,Delhi,AirIndia,2020-07-15,3895 
+44,New York,Delhi-Kochi,AirIndia,2020-07-15,3895 
+155,Chicago,Delhi-Hyderabad-Mumbai,AirIndia,2020-07-15,3895 
+63,Newark,Mumbai,AirIndia,2020-07-15,3895 
+231,London,Mumbai-Goa,AirIndia,2020-07-15,3895 
+226,Narita,Delhi,AirIndia,2020-07-15,3895 
+154,Muscat,Srinagar- Delhi,AirIndia,2020-07-15,3895 
+167,Bishkek,Delhi-Kochi,AirIndia,2020-07-15,3895 
+144,Dammam,Delhi,AirIndia,2020-07-15,3895 
+210,Doha,Kochi,Indigo,2020-07-15,3895 
+167,Doha,Kozikhode,Indigo,2020-07-15,3895 
+212,Doha,Chennai,Indigo,2020-07-15,3895 
+163,Kuwait,Jaipur,Indigo,2020-07-15,3895 
+216,Doha,Hyderabad,Indigo,2020-07-15,3895 
+172,Kuwait,Kochi,Indigo,2020-07-15,3895 
+174,Sharjah,Delhi,AirIndia,2020-07-14,3846 
+183,Bahrain,Kochi,AirIndia,2020-07-14,3846 
+171,Abu Dhabi,Lucknow,AirIndia,2020-07-14,3846 
+177,Dubai,Hyderabad,AirIndia,2020-07-14,3846 
+180,Muscat,Bengaluru- Mangaluru,AirIndia,2020-07-14,3846 
+174,Sharjah,Thiruvananthapuram,AirIndia,2020-07-14,3846 
+167,Dubai,Kochi,AirIndia,2020-07-14,3846 
+177,Kuala Lumpur,Delhi,AirIndia,2020-07-14,3846 
+175,Sharjah,Kozhikode,AirIndia,2020-07-14,3846 
+274,Vancouver,Delhi-Bengaluru,AirIndia,2020-07-14,3846 
+140,Kiev,Delhi-Indore,AirIndia,2020-07-14,3846 
+58,Newark,Mumbai,AirIndia,2020-07-14,3846 
+184,Vancouver,Delhi-Kochi,AirIndia,2020-07-14,3846 
+41,New York,Delhi-Chennai-Hyderabad,AirIndia,2020-07-14,3846 
+87,Chicago,Delhi-Hyderabad-Bengaluru-Chennaif,AirIndia,2020-07-14,3846
+65,san Francisco,Delhi-Bengaluru-Hyderabad-Chénnai,AirIndia,2020-07-14,3846
+89,Rome,Delhi,AirIndia,2020-07-14,3846
+247,Stockholm,Delhi-Bengaluru,AirIndia,2020-07-14,3846 
+244,London,Mumbai-Bengaluru,AirIndia,2020-07-14,3846 
+149,Riyadh,Delhi-Lucknow,AirIndia,2020-07-14,3846 
+162,Bishkek,Mumbai,AirIndia,2020-07-14,3846 
+148,Sharjah,Ahmedabad,AirIndia,2020-07-14,3846 
+175,Doha,Kannur,Indigo,2020-07-14,3846 
+205,Doha,Thiruvananthapuram,Indigo,2020-07-14,3846 
+175,Sharjah,Mumbai,AirIndia,2020-07-13,4718 
+179,Sharjah,Hyderabad,AirIndia,2020-07-13,4718 
+171,Dubai,Thiruvananthapuram,AirIndia,2020-07-13,4718 
+171,Dubai,Kochi,AirIndia,2020-07-13,4718 
+175,Muscat,Hyderabad,AirIndia,2020-07-13,4718 
+178,Kuala Lumpur,Trichy,AirIndia,2020-07-13,4718 
+177,Muscat,Thiruvananthapuram,AirIndia,2020-07-13,4718 
+179,Bahrain,Chennai,AirIndia,2020-07-13,4718 
+174,Dubai,Kannur,AirIndia,2020-07-13,4718 
+163,Abu Dhabi,Delhi,AirIndia,2020-07-13,4718 
+181,Muscat,Mumbai,AirIndia,2020-07-13,4718 
+170,Riyadh,Mumbai-Trichy,AirIndia,2020-07-13,4718 
+138,Kiev,Delhi-Kochi,AirIndia,2020-07-13,4718 
+86,Washington,Delhi-Mumbai,AirIndia,2020-07-13,4718 
+49,New York,Delhi-Kochi,AirIndia,2020-07-13,4718 
+92,Chicago,Delhi-Hyderabad,AirIndia,2020-07-13,4718 
+105,San Francisco,AirIndia,2020-07-13,4718 
+260,Frankfurt,Delhi-Bengaluru,AirIndia,2020-07-13,4718 
+251,London,Mumbai-Chennai-Kochi,AirIndia,2020-07-13,4718 
+231,Singapore,Delhi,AirIndia,2020-07-13,4718 
+170,Jeddah,Mumbai-Trichy,AirIndia,2020-07-13,4718 
+154,Muscat,Bengaluru,AirIndia,2020-07-13,4718 
+141,Sharjah,Chandigarh,AirIndia,2020-07-13,4718 
+153,Bahrain,Delhi,AirIndia,2020-07-13,4718 
+215,Doha,Kochi,Indigo,2020-07-13,4718 
+206,Doha,Mumbai,Indigo,2020-07-13,4718 
+170,Doha,Kozikhode,Indigo,2020-07-13,4718 
+204,Doha,Chennei,Indigo,2020-07-13,4718 
+170,Sharjah,Kochi,AirIndia,2020-07-12,4297 
+156,Bahrain,Mangaluru,AirIndia,2020-07-12,4297 
+178,Muscat,Mangaluru,AirIndia,2020-07-12,4297 
+186,Muscat,Kochi,AirIndia,2020-07-12,4297 
+178,Muscat,Thiruvananthapuram,AirIndia,2020-07-12,4297 
+173,Dubai,Thiruvananthapuram,AirIndia,2020-07-12,4297 
+171,Sharjah,Coimbatore,AirIndia,2020-07-12,4297 
+169,Abu Dhabi,Delhi,AirIndia,2020-07-12,4297 
+180,Dubai,Kannur,AirIndia,2020-07-12,4297 
+179,Kuala Lumpur,Hyderabad- Chennai,AirIndia,2020-07-12,4297 
+180,Singapore,Trichy,AirIndia,2020-07-12,4297 
+150,Kiev,Delhi- Bhubaneswar,AirIndia,2020-07-12,4297 
+83,Newark,Mumbai,AirIndia,2020-07-12,4297 
+100,Chicago,Delhi- Hyderabad,AirIndia,2020-07-12,4297 
+110,San Francisco,Delhi- Bangaluru,AirIndia,2020-07-12,4297 
+67,New York,Delhi- Chennai,AirIndia,2020-07-12,4297 
+253,London,Delhi- Bangaluru,AirIndia,2020-07-12,4297 
+239,London,Delhi,AirIndia,2020-07-12,4297 
+129,Muscat,Ahmedabad- Mumbai,AirIndia,2020-07-12,4297 
+152,Sharjah,Indore,AirIndia,2020-07-12,4297 
+147,Sharjah,Srinagar- Delhi,AirIndia,2020-07-12,4297 
+161,Doha,Kannur,AirIndia,2020-07-12,4297 
+210,Doha,Bangaluru,AirIndia,2020-07-12,4297 
+205,Doha,Thiruvananthapuram,AirIndia,2020-07-12,4297 
+212,Doha,Lucknow,AirIndia,2020-07-12,4297 
+159,Doha,Kochi,AirIndia,2020-07-12,4297 
+177,Sharjah,Thiruvananthapuram,AirIndia,2020-07-11,5746 
+178,Bahrain,Kozhikode,AirIndia,2020-07-11,5746 
+175,Muscat,Mumbai,AirIndia,2020-07-11,5746 
+173,Dubai,Kannur,AirIndia,2020-07-11,5746 
+181,Muscat,Lucknow,AirIndia,2020-07-11,5746 
+182,Dubai,Chennai,AirIndia,2020-07-11,5746 
+177,Sharjah,Hyderabad,AirIndia,2020-07-11,5746 
+177,Bahrain,Delhi,AirIndia,2020-07-11,5746 
+176,Dubai,Kochi,AirIndia,2020-07-11,5746 
+177,Kuala Lumpur,Kochi,AirIndia,2020-07-11,5746 
+230,Cebu,Mumbai-Ahmedabad,AirIndia,2020-07-11,5746 
+150,Kiev,Delhi-Visakhapatnam,AirIndia,2020-07-11,5746 
+274,Newark,Mumbai,AirIndia,2020-07-11,5746 
+288,Toronto,Delhi-Chennai,AirIndia,2020-07-11,5746 
+270,Chicago,Delhi,AirIndia,2020-07-11,5746 
+198,San Francisco,Delhi,AirIndia,2020-07-11,5746 
+291,New York,Delhi,AirIndia,2020-07-11,5746 
+249,London,Mumbai-Kochi,AirIndia,2020-07-11,5746 
+246,London,Delhi-Bengaluru,AirIndia,2020-07-11,5746 
+151,Bahrain,Delhi- Bhubaneswar,AirIndia,2020-07-11,5746 
+168,Bishkek,Mumbai,AirIndia,2020-07-11,5746 
+139,Singapore,Chennai,AirIndia,2020-07-11,5746 
+142,Manila,Hyderabad,AirIndia,2020-07-11,5746 
+144,Ho Chi Minh,Delhi,AirIndia,2020-07-11,5746 
+236,Dubai,Delhi,AirIndia,2020-07-11,5746 
+207,Doha,Kochi,Indigo,2020-07-11,5746 
+164,Doha,Kozikhode,Indigo,2020-07-11,5746 
+212,Doha,Hyderabad,Indigo,2020-07-11,5746 
+214,Doha,Kochi,Indigo,2020-07-11,5746 
+166,Kuala Lumpur,Delhi,AirIndia,2020-07-10,5903
+165,Muscat,Hyderabad,AirIndia,2020-07-10,5903
+176,Dubai,Kozhikode,AirIndia,2020-07-10,5903
+179,Abu Dhabi,Kannur,AirIndia,2020-07-10,5903
+174,Sharjah,Trichy,AirIndia,2020-07-10,5903
+190,Muscat,Kannur,AirIndia,2020-07-10,5903
+156,Kuala Lumpur,Kochi,AirIndia,2020-07-10,5903
+171,Dubai,Thiruvananthapuram,AirIndia,2020-07-10,5903
+174,Dubai,Amritsar,AirIndia,2020-07-10,5903
+182,Abu Dhabi,Kochi,AirIndia,2020-07-10,5903
+150,Kiev,Delhi-Chennai,AirIndia,2020-07-10,5903
+270,Toronto,Delhi,AirIndia,2020-07-10,5903
+196,Washington,Delhi,AirIndia,2020-07-10,5903
+319,Chicago,Delhi,AirIndia,2020-07-10,5903
+283,New York,Delhi,AirIndia,2020-07-10,5903
+222,San Francisco,Delhi-Kochi,AirIndia,2020-07-10,5903
+251,London,Mumbai-Chennai,AirIndia,2020-07-10,5903
+246,London,Delhi- Bangaluru,AirIndia,2020-07-10,5903
+168,Bishkek,Delhi,AirIndia,2020-07-10,5903
+433,Riyadh,Kochi,AirIndia,2020-07-10,5903
+246,Bangkok,Delhi,AirIndia,2020-07-10,5903
+151,Sharjah,Bhubaneswar,AirIndia,2020-07-10,5903
+156,Muscat,Hyderabad,AirIndia,2020-07-10,5903
+144,Manila,Chennai,AirIndia,2020-07-10,5903
+173,Doha,Kannur,Indigo,2020-07-10,5903
+207,Doha,Thiruvananthapuram,Indigo,2020-07-10,5903
+210,Kuwait,Chennai,Indigo,2020-07-10,5903
+175,Kuwait,Hyderabad,Indigo,2020-07-10,5903
+170,Kuwait,Kochi,Indigo,2020-07-10,5903
+332,Jeddah,Mumbai - Thiruvananthapuram,AirIndia,2020-07-09,5069
+150,Kiev,Delhi - Chandigarh,AirIndia,2020-07-09,5069
+172,Toronto,Delhi - Bengaluru,AirIndia,2020-07-09,5069
+307,Newark,Mumbai - Chennai,AirIndia,2020-07-09,5069
+274,New York,Delhi - Kochi,AirIndia,2020-07-09,5069
+312,Chicago,Delhi - Chennai,AirIndia,2020-07-09,5069
+201,San Francisco,Delhi,AirIndia,2020-07-09,5069
+247,London,Mumbai,AirIndia,2020-07-09,5069
+245,London,Delhi - Bangaluru,AirIndia,2020-07-09,5069
+181,Abu Dhabi,Kannur,AirIndia,2020-07-09,5069
+174,Sharjah,Coimbatore,AirIndia,2020-07-09,5069
+182,Muscat,Delhi,AirIndia,2020-07-09,5069
+181,Abu Dhabi,Kozikhode,AirIndia,2020-07-09,5069
+178,Dubai,Chennai,AirIndia,2020-07-09,5069
+176,Sharjah,Madurai,AirIndia,2020-07-09,5069
+167,Dubai,Kochi,AirIndia,2020-07-09,5069
+150,Bahrain,Mumbai,AirIndia,2020-07-09,5069
+173,Dubai,Kannur,AirIndia,2020-07-09,5069
+180,Singapore,Trichy,AirIndia,2020-07-09,5069
+168,Bishkek,Delhi-Kochi,AirIndia,2020-07-09,5069
+333,Dammam,Thiruvananthapuram,AirIndia,2020-07-09,5069
+209,Doha,Kochi,Indigo,2020-07-09,5069
+174,Doha,Kozikhode,Indigo,2020-07-09,5069
+203,Doha,Mumbai,Indigo,2020-07-09,5069
+167,Abu Dhabi,Chennai,AirIndia,2020-07-08,4567
+179,Sharjah,Mumbai,AirIndia,2020-07-08,4567
+172,Abu Dhabi,Thiruvananthapuram,AirIndia,2020-07-08,4567
+170,Abu Dhabi,Lucknow,AirIndia,2020-07-08,4567
+180,Dubai,Kozhikode,AirIndia,2020-07-08,4567
+178,Muscat,Kochi,AirIndia,2020-07-08,4567
+180,Muscat,Delhi,AirIndia,2020-07-08,4567
+179,Dubai,Thiruvananthapuram,AirIndia,2020-07-08,4567
+179,Sharjah,Mangaluru,AirIndia,2020-07-08,4567
+179,Muscat,Chennai,AirIndia,2020-07-08,4567
+176,Dubai,Kochi,AirIndia,2020-07-08,4567
+177,Bahrain,Hyderabad,AirIndia,2020-07-08,4567
+167,Nairobi,Mumbai-Hyderabad-Chennai-Kochi,AirIndia,2020-07-08,4567
+148,Kiev,Delhi-Jaipur,AirIndia,2020-07-08,4567
+38,Toronto,Delhi,AirIndia,2020-07-08,4567
+127,Washington,Delhi,AirIndia,2020-07-08,4567
+293,Newark,Mumbai,AirIndia,2020-07-08,4567 
+49,New York,Delhi,AirIndia,2020-07-08,4567 
+228,San Francisco,Delhi-Chennai,AirIndia,2020-07-08,4567 
+243,London,Mumbai-Ahmedabad,AirIndia,2020-07-08,4567 
+250,London,Delhi-Bhubaneswar,AirIndia,2020-07-08,4567 
+153,Colombo,Delhi,AirIndia,2020-07-08,4567 
+167,Sharjah,Tiruchirapalli,AirIndia,2020-07-08,4567 
+168,Bishkek,Delhi-Srinagar,AirIndia,2020-07-08,4567 
+214,Doha,Mumbai,Indigo,2020-07-08,4567 
+206,Doha,Thiruvananthapuram,Indigo,2020-07-08,4567
+179,Abu Dhabi,Kochi,AirIndia,2020-07-07,4347
+17B,Sharjah,Thiruvananthapuram,AirIndia,2020-07-07,4347
+174,Dubai,Thiruvananthapuram,AirIndia,2020-07-07,4347
+176,Sharjah,Delhi,AirIndia,2020-07-07,4347
+17B,Bahrain,Delhi,AirIndia,2020-07-07,4347
+173,Dubai,Kochi,AirIndia,2020-07-07,4347
+178,Dubai,Delhi,AirIndia,2020-07-07,4347
+176,Sharjah,Kochi,AirIndia,2020-07-07,4347
+154,Singapore,Kochi,AirIndia,2020-07-07,4347
+178,Dubai,Hyderabad,AirIndia,2020-07-07,4347
+145,Jeddah,Mumbai-Kozhikode,AirIndia,2020-07-07,4347
+199,Moscow,Delhi-Amritsar,AirIndia,2020-07-07,4347
+136,Chicago,Delhi,AirIndia,2020-07-07,4347
+301,Newark,Mumbai-Hyderabad,AirIndia,2020-07-07,4347
+226,New York,Delhi-Bengaluru,AirIndia,2020-07-07,4347
+163,San Francisco,Delhi,AirIndia,2020-07-07,4347
+248,London,Delhi-Bengaluru,AirIndia,2020-07-07,4347
+238,London,Delhi-Amritsar,AirIndia,2020-07-07,4347
+167,Bishkek,Delhi-Lucknow,AirIndia,2020-07-07,4347
+62,Nairobi,Delhi,AirIndia,2020-07-07,4347
+332,Riyadh,Kannur,AirIndia,2020-07-07,4347
+173,Dammam,Jaipur,Spicejet,2020-07-07,4347
+213,Doha,Lucknow,Indigo,2020-07-07,4347
+178,Dubai,Amritsar,AirIndia,2020-07-06,3937
+177,Abu Dhabi,Hyderabad,AirIndia,2020-07-06,3937
+179,Abu Dhabi,Chennai,AirIndia,2020-07-06,3937
+178,Dubai,Lucknow,AirIndia,2020-07-06,3937
+177,Muscat,Kochi,AirIndia,2020-07-06,3937
+183,Sharjah,Coimbatore,AirIndia,2020-07-06,3937
+179,Dubai,Kozhikode,AirIndia,2020-07-06,3937
+169,Abu Dhabi,Madurai,AirIndia,2020-07-06,3937
+181,Singapore,Chennai,AirIndia,2020-07-06,3937
+179,Kuala Lumpur,Trichy,AirIndia,2020-07-06,3937
+145,Moscow,Delhi-Nagpur,AirIndia,2020-07-06,3937
+69,Toronto,Delhi,AirIndia,2020-07-06,3937
+197,Washington,Delhi-Mumbai,AirIndia,2020-07-06,3937
+141,Newark,Mumbai,AirIndia,2020-07-06,3937
+281,Chicago,Delhi-Kochi,AirIndia,2020-07-06,3937
+214,San Francisco,Delhi-Bengaluru,AirIndia,2020-07-06,3937
+242,London,Mumbai-Chennai,AirIndia,2020-07-06,3937
+212,London,Delhi-Hyderabad,AirIndia,2020-07-06,3937
+168,Bishkek,Delhi-Jaipur,AirIndia,2020-07-06,3937
+338,Dammam,Kochi,AirIndia,2020-07-06,3937
+150,Jeddah,Delhi,AirIndia,2020-07-06,3937
+244,Johannesburg,Mumbai-Hyderabad-Bengaluru,AirIndia,2020-07-05,3621 
+145,Moscow,Delhi-Kochi,AirIndia,2020-07-05,3621 
+244,Jeddah,Delhi-Srinagar,AirIndia,2020-07-05,3621
+58,New York,Delhi,AirIndia,2020-07-05,3621
+68,Chicago,Delhi,AirIndia,2020-07-05,3621 
+243,London,Delhi-Hyderabad,AirIndia,2020-07-05,3621 
+229,San Francisco,Delhi-Hyderabad,AirIndia,2020-07-05,3621 
+181,Dubai,Chennai,AirIndia,2020-07-05,3621 
+181,Dubai,Kannur,AirIndia,2020-07-05,3621 
+171,Sharjah,Kochi,AirIndia,2020-07-05,3621 
+178,Abu Dhabi,Kochi,AirIndia,2020-07-05,3621 
+181,Muscat,Thiruvananthapuram,AirIndia,2020-07-05,3621 
+164,Bahrain,Kannur,AirIndia,2020-07-05,3621 
+180,Sharjah,Mangaluru,AirIndia,2020-07-05,3621 
+172,Dubai,Kochi,AirIndia,2020-07-05,3621 
+175,Dubai,Kozhikode,AirIndia,2020-07-05,3621 
+150,Kuala Lumpur,Delhi,AirIndia,2020-07-05,3621 
+185,Muscat,Kozikhode,AirIndia,2020-07-05,3621 
+304,Jeddah,Mumbai-Kannur,AirIndia,2020-07-05,3621 
+168,Bishkek,Delhi- Guwahati,AirIndia,2020-07-05,3621 
+179,Abu Dhabi,Thiruvananthapuram,AirIndia,2020-07-04,3463 
+176,Sharjah,Kannur,AirIndia,2020-07-04,3463 
+175,Sharjah,Thiruvananthapuram,AirIndia,2020-07-04,3463 
+176,Bahrain,Lucknow,AirIndia,2020-07-04,3463 
+176,Sharjah,Coimbatore,AirIndia,2020-07-04,3463 
+176,Dubai,Kochi,AirIndia,2020-07-04,3463 
+177,Dubai,Hyderabad,AirIndia,2020-07-04,3463 
+56,Auckland,Delhi,AirIndia,2020-07-04,3463 
+144,Moscow,Delhi-Chennai,AirIndia,2020-07-04,3463 
+12,Washington,Delhi,AirIndia,2020-07-04,3463 
+123,Newark,Mumbai,AirIndia,2020-07-04,3463 
+138,Toronto,Delhi-Hyderabad,AirIndia,2020-07-04,3463 
+130,Chicago,Delhi,AirIndia,2020-07-04,3463 
+178,Newark,Delhi-Chennai,AirIndia,2020-07-04,3463 
+248,London,Mumbai-Bangaluru,AirIndia,2020-07-04,3463 
+227,Sydney,Delhi-Vishakhapatnam,AirIndia,2020-07-04,3463 
+168,Bishkek,Delhi-Chennai,AirIndia,2020-07-04,3463 
+150,Dammam,Kozhikode,AirIndia,2020-07-04,3463 
+142,Yangon,Lucknow-Delhi,AirIndia,2020-07-04,3463 
+332,Riyadh,Thiruvananthapuram,AirIndia,2020-07-04,3463 
+180,Ras Al Khaimah,Goa-Mangaluru,Spicejet,2020-07-04,3463 
+177,Dubai,Kochi,AirIndia,2020-07-03,4205 
+180,Dubai,Kannur,AirIndia,2020-07-03,4205 
+179,Dubai,Bengaluru,AirIndia,2020-07-03,4205 
+187,Sharjah,Trivandrum,AirIndia,2020-07-03,4205 
+182,Abu Dhabi,Kannur,AirIndia,2020-07-03,4205 
+143,Moscow,Delhi,AirIndia,2020-07-03,4205 
+238,Sydney,Delhi-Mumbai,AirIndia,2020-07-03,4205 
+179,Dubai,Lucknow,AirIndia,2020-07-03,4205 
+179,Dubai,Kozhikode,AirIndia,2020-07-03,4205 
+180,Bahrain,Kozikhode,AirIndia,2020-07-03,4205 
+177,Sharjah,Kochi,AirIndia,2020-07-03,4205 
+175,Dubai,Kochi,AirIndia,2020-07-03,4205 
+179,Bahrain,Delhi,AirIndia,2020-07-03,4205 
+180,Singapore,Trichy,AirIndia,2020-07-03,4205 
+182,Muscat,Kochi,AirIndia,2020-07-03,4205 
+117,Colombo,Chennai,AirIndia,2020-07-03,4205 
+170,Dhaka,Delhi,AirIndia,2020-07-03,4205 
+168,Bishkek,Delhi-Kochi,AirIndia,2020-07-03,4205 
+323,Dammam,Kannur,AirIndia,2020-07-03,4205 
+153,Riyadh,Kozikhode,AirIndia,2020-07-03,4205 
+219,Manila,Delhi,AirIndia,2020-07-03,4205 
+158,Jeddah,Ahmedabad,Spicejet,2020-07-03,4205 
+180,Riyadh,Jaipur,Spicejet,2020-07-03,4205 
+181,Abu Dhabi,Kozhikode,AirIndia,2020-07-02,2134
+173,Sharjah,Kochi,AirIndia,2020-07-02,2134
+164,Sharjah,Kozhikode,AirIndia,2020-07-02,2134
+167,Abu Dhabi,Kochi,AirIndia,2020-07-02,2134
+180,Muscat,Chennai,AirIndia,2020-07-02,2134
+165,Abu Dhabi,Amritsar,AirIndia,2020-07-02,2134
+143,Moscow,Delhi-Indore,AirIndia,2020-07-02,2134
+127,Auckland,Delhi-Chandigarh,AirIndia,2020-07-02,2134
+270,Chicago,Delhi-Kochi,AirIndia,2020-07-02,2134
+288,San Francisco,Delhi-Kochi,AirIndia,2020-07-02,2134
+168,Bishkek,Delhi-Chennai,AirIndia,2020-07-02,2134
+108,Yerevan,Delhi,AirIndia,2020-07-02,2134
+174,Dubai,Delhi,AirIndia,2020-07-01,4303
+158,Abu Dhabi,Kochi,AirIndia,2020-07-01,4303
+177,Kuala Lumpur,Mumbai,AirIndia,2020-07-01,4303
+175,Sharjah,Delhi,AirIndia,2020-07-01,4303
+183,Dubai,Chennai,AirIndia,2020-07-01,4303
+125,Muscat,Kannur,AirIndia,2020-07-01,4303
+164,Dubai,Kochi,AirIndia,2020-07-01,4303
+178,Sharjah,Mumbai,AirIndia,2020-07-01,4303
+182,Dubai,Jaipur,AirIndia,2020-07-01,4303
+181,Muscat,Trivandrum,AirIndia,2020-07-01,4303
+145,Moscow,Delhi - Bengaluru,AirIndia,2020-07-01,4303
+176,Cairo,Delhi - Bhubaneswar,AirIndia,2020-07-01,4303
+252,Amsterdam,Mumbai - Chennai - Hyderabad,AirIndia,2020-07-01,4303
+249,London,Delhi - Mumbai,AirIndia,2020-07-01,4303
+287,New York,Delhi,AirIndia,2020-07-01,4303
+208,Toronto,Delhi,AirIndia,2020-07-01,4303
+326,Chicago,Delhi - Hyderabad,AirIndia,2020-07-01,4303
+248,London,Delhi - Kochi,AirIndia,2020-07-01,4303
+217,San Francisco,Delhi - Bengaluru,AirIndia,2020-07-01,4303
+166,Washington,Delhi,AirIndia,2020-07-01,4303
+168,Bishkek,Delhi - Vishakhapatnam,AirIndia,2020-07-01,4303
+164,Yerevan,Delhi - Chennai,AirIndia,2020-07-01,4303
+190,Abu Dhabi,Kozikhode,AirIndia,2020-06-30,4875
+180,Abu Dhabi,Kochi,AirIndia,2020-06-30,4875
+167,Abu Dhabi,Delhi,AirIndia,2020-06-30,4875
+183,Muscat,Mangalore,AirIndia,2020-06-30,4875
+187,Doha,Kozikhode,AirIndia,2020-06-30,4875
+180,Dubai,Trivandrum,AirIndia,2020-06-30,4875
+176,Bahrain,Mumbai,AirIndia,2020-06-30,4875
+183,Dubai,Kochi,AirIndia,2020-06-30,4875
+180,Muscat,Kannur,AirIndia,2020-06-30,4875
+173,Abu Dhabi,Trichy,AirIndia,2020-06-30,4875
+211,Amman,Delhi - Lucknow,AirIndia,2020-06-30,4875
+144,Kiev,Delhi - Indore,AirIndia,2020-06-30,4875
+250,London,Delhi - Mumbai,AirIndia,2020-06-30,4875
+309,Newark,Mumbai-Ahmedabad,AirIndia,2020-06-30,4875
+105,Toronto,Delhi,AirIndia,2020-06-30,4875
+249,London,Delhi - Kolkata,AirIndia,2020-06-30,4875
+237,Paris,Delhi - Chennai,AirIndia,2020-06-30,4875
+328,Chicago,Delhi - Hyderabad,AirIndia,2020-06-30,4875
+306,San Francisco,Delhi - Bengaluru,AirIndia,2020-06-30,4875
+250,New York,Delhi,AirIndia,2020-06-30,4875
+191,Washington,Delhi,AirIndia,2020-06-30,4875
+148,Tbilisi,Delhi,AirIndia,2020-06-30,4875
+180,Ras Al Khaimah,Ahmedabad,Spicejet,2020-06-30,4875
+168,Dubai,Gaya,Indigo,2020-06-30,4875
+180,Abu Dhabi,Kochi,AirIndia,2020-06-29,4780
+177,Dubai,Thiruvananthapuram,AirIndia,2020-06-29,4780
+182,Dubai,Kozhikode,AirIndia,2020-06-29,4780
+173,Abu Dhabi,Mangaluru,AirIndia,2020-06-29,4780
+180,Muscat,Chennai,AirIndia,2020-06-29,4780
+179,Bahrain,Delhi,AirIndia,2020-06-29,4780
+182,Doha,Kannur,AirIndia,2020-06-29,4780
+175,Dubai,Thiruvananthapuram,AirIndia,2020-06-29,4780
+179,Muscat,Kochi,AirIndia,2020-06-29,4780
+182,Dubai,Kozhikode,AirIndia,2020-06-29,4780
+215,Auckland,Delhi-Chandigarh,AirIndia,2020-06-29,4780
+252,London,Delhi-Mumbai,AirIndia,2020-06-29,4780
+85,Toronto,Delhi,AirIndia,2020-06-29,4780
+143,Moscow,Ahmedabad (via Delhi),AirIndia,2020-06-29,4780
+222,San Francisc,Delhi-Bengaluru,AirIndia,2020-06-29,4780
+267,New York,Delhi,AirIndia,2020-06-29,4780
+248,London,Delhi-Hydgrabad,AirIndia,2020-06-29,4780
+195,Washington,Delhi,AirIndia,2020-06-29,4780
+199,Rome,Mumbai-Hyderabag,AirIndia,2020-06-29,4780
+117,Kiev,Bhubaneswar (via Delhi),AirIndia,2020-06-29,4780
+144,Moscow,Delhi-Jaipur,AirIndia,2020-06-29,4780
+86,Guangzhou,Delhi,AirIndia,2020-06-29,4780
+168,Bishkek,Mumbai,AirIndia,2020-06-29,4780
+143,Ho Chi Minh,Chennai-Kochi,AirIndia,2020-06-29,4780
+178,Ras Al Khaimah,Jaipur,Spicejet,2020-06-29,4780
+154,Dubai,Delhi,Vistara,2020-06-29,4780
+175,Dammam,Gaya,Indigo,2020-06-29,4780
+178,Abu Dhabi,Kozhikode,AirIndia,2020-06-28,4784
+180,Dubai,Kochi,AirIndia,2020-06-28,4784
+184,Dubai,Thiruvananthapuram,AirIndia,2020-06-28,4784
+182,Dubai,Kozhikode,AirIndia,2020-06-28,4784
+181,Muscat,Thiruvananthapuram,AirIndia,2020-06-28,4784
+179,Muscat,Mumbai,AirIndia,2020-06-28,4784
+176,Bahrain,Kochi,AirIndia,2020-06-28,4784
+181,Dubai,Chennai,AirIndia,2020-06-28,4784
+176,Abu Dhabi,Kannur,AirIndia,2020-06-28,4784
+326,Chicago,Delhi-Hyderabad,AirIndia,2020-06-28,4784
+108,Moscow,Kolkata (via Delhi),AirIndia,2020-06-28,4784
+145,Kiev,Delhi-Visakhapatnam,AirIndia,2020-06-28,4784
+146,Seychelles,Chennai (via Mumbai),AirIndia,2020-06-28,4784
+169,Sharjah,Tiruchirapalli-Chennai,AirIndia,2020-06-28,4784
+250,London,Delhi-Mumbai-Kochi,AirIndia,2020-06-28,4784
+243,New York,Delhi,AirIndia,2020-06-28,4784
+206,Washington,Delhi,AirIndia,2020-06-28,4784
+248,London,Delhi-Chenna,AirIndia,2020-06-28,4784
+200,Toronto,Delhi-Hyderabad,AirIndia,2020-06-28,4784
+295,San Francisco,Delhi-Bengaluru,AirIndia,2020-06-28,4784
+168,Almaty,Delhi-Bengaluru,AirIndia,2020-06-28,4784
+168,Bishkek,Mumbai-Hyderabad,AirIndia,2020-06-28,4784
+2,Moscow,Delhi,AirIndia,2020-06-28,4784
+27,Kiev,Delhi,AirIndia,2020-06-28,4784
+141,Abu Dhabi,Bhubaneswar,Indigo,2020-06-28,4784
+173,Jeddah,Coimbatore,Indigo,2020-06-28,4784
+152,Dubai,Delhi,Vistara,2020-06-28,4784
+130,Kiev,Chandigarh (via Delhi),AirIndia,2020-06-27,4504
+261,New York,Delhi,AirIndia,2020-06-27,4504
+249,London,Delhi-Mumbai-Bengaluru,AirIndia,2020-06-27,4504
+215,Washington,Delhi-Kolkata,AirIndia,2020-06-27,4504
+173,Toronto,Delhi-Bengaluru,AirIndia,2020-06-27,4504
+306,Newark,Mumbai-Ahmedabad,AirIndia,2020-06-27,4504
+320,Chicago,Delhi-Hyderabad,AirIndia,2020-06-27,4504
+239,London,Delhi-Visakhapatnam,AirIndia,2020-06-27,4504
+248,Paris,Delhi-Kochi,AirIndia,2020-06-27,4504
+216,San Francisco,Delhi-Bengaluru,AirIndia,2020-06-27,4504
+181,Abu Dhabi,Kozhikode,AirIndia,2020-06-27,4504
+184,Muscat,Delhi,AirIndia,2020-06-27,4504
+177,Bahrain,Chennai,AirIndia,2020-06-27,4504
+183,Muscat,Kochi,AirIndia,2020-06-27,4504
+177,Doha,Thiruvananthapuram,AirIndia,2020-06-27,4504
+167,Abu Dhabi,Mumbai,AirIndia,2020-06-27,4504
+148,Almaty,Delhi-Jaipur,AirIndia,2020-06-27,4504
+169,Dhaka,Delhi,AirIndia,2020-06-27,4504
+168,Bishkek,Mumbai,AirIndia,2020-06-27,4504
+88,Seychelles,Mumbai,AirIndia,2020-06-27,4504
+36,Moscow,Delhi,AirIndia,2020-06-27,4504
+153,Sharjah,Goa-Mumbai,AirIndia,2020-06-27,4504
+163,Riyadh,Gaya,Indigo,2020-06-27,4504
+153,Abu Dhabi,Gaya,Indigo,2020-06-27,4504
+181,Dubai,Kozhikode,AirIndia,2020-6-26,3816
+179,Doha,Thiruvananthapuram,AirIndia,2020-6-26,3816
+181,Muscat,Kochi,AirIndia,2020-6-26,3816
+180,Dubai,Thiruvananthapuram,AirIndia,2020-6-26,3816
+178,Abu Dhabi,Kochi,AirIndia,2020-6-26,3816
+145,Kiev,Delhi-Hyderabad,AirIndia,2020-6-26,3816
+145,Kiev,Delhi-Jaipur,AirIndia,2020-6-26,3816
+252,Stockholm,Delhi-Chennai-Bengaluru,AirIndia,2020-6-26,3816
+247,London,Delhi-Mumbai,AirIndia,2020-6-26,3816
+156,Toronto,Delhi-Ahmedabad,AirIndia,2020-6-26,3816
+241,Frankfurt,Delhi-Ahmedabad,AirIndia,2020-6-26,3816
+316,Chicago,Delhi-Hyderabad,AirIndia,2020-6-26,3816
+263,New York,Delhi,AirIndia,2020-6-26,3816
+285,San Francisco,Delhi-Bengaluru,AirIndia,2020-6-26,3816
+242,London,Delhi-Bengaluru,AirIndia,2020-6-26,3816
+167,Bishkek,Delhi-Srinagar,AirIndia,2020-6-26,3816
+147,Singapore,Delhi-Chennai,AirIndia,2020-6-26,3816
+148,Tbilisi,Mumbai-Kochi,AirIndia,2020-6-26,3816
+14,Kiev,Delhi,AirIndia,2020-6-26,3816
+149,Abu Dhabi,Visakhapatnam,Indigo,2020-6-26,3816
+165,Abu Dhabi,Kochi,AirIndia,2020-06-25,3866
+174,Bahrain,Kochi,AirIndia,2020-06-25,3866
+180,Muscat,Thiruvananthapuram,AirIndia,2020-06-25,3866
+182,Dubai,Kochi,AirIndia,2020-06-25,3866
+191,Abu Dhabi,Kannur,AirIndia,2020-06-25,3866
+177,Dubai,Kozhikode,AirIndia,2020-06-25,3866
+159,Auckland,Thiruvananthapuram-Chennai (via Delhi),AirIndia,2020-06-25,3866
+61,Bangkok,Mumbai (via Delhi),AirIndia,2020-06-25,3866
+233,Nairobi,Mumbai,Delhi,AirIndia,2020-06-25,3866
+145,Moscow,Delhi-Lucknow,AirIndia,2020-06-25,3866
+84,Manila,Kolkata-Guwahati (via Delhi),AirIndia,2020-06-25,3866
+98,Toronto,Delhi-Hyderabad,AirIndia,2020-06-25,3866
+224,Washington,Delhi,AirIndia,2020-06-25,3866
+317,Newark,Mumbai-Ahmedabad,AirIndia,2020-06-25,3866
+238,London,Delhi-Mumbai,AirIndia,2020-06-25,3866
+266,Chicago,Delhi-Hyderabad,AirIndia,2020-06-25,3866
+215,San Francisco,Delhi-Bengaluru,AirIndia,2020-06-25,3866
+246,London,Delhi-Kochi,AirIndia,2020-06-25,3866
+168,Bishkek,Delhi-Kolkata,AirIndia,2020-06-25,3866
+175,Kuwait,Gaya,Indigo,2020-06-25,3866
+168,Abu Dhabi,Kolkata,Indigo,2020-06-25,3866
+175,Abu Dhabi,Kozhikode,AirIndia,2020-06-24,4694
+166,Abu Dhabi,Kochi,AirIndia,2020-06-24,4694
+179,Dubai,Kannur,AirIndia,2020-06-24,4694
+179,Bahrain,Delhi,AirIndia,2020-06-24,4694
+183,Muscat,Kozhikode,AirIndia,2020-06-24,4694
+181,Dubai,Thiruvananthapuram,AirIndia,2020-06-24,4694
+183,Doha,Kochi,AirIndia,2020-06-24,4694
+162,Abu Dhabi,Kozhikode,AirIndia,2020-06-24,4694
+70,Seychelles,Delhi (via Mumbai),AirIndia,2020-06-24,4694
+145,Moscow,Delhi-Nagpur,AirIndia,2020-06-24,4694
+46,Manila,Amritsar (via Delhi),AirIndia,2020-06-24,4694
+145,Kiev,Delhi-Gaya,AirIndia,2020-06-24,4694
+234,London,Delhi-Mumbai,AirIndia,2020-06-24,4694
+145,Toronto,Delhi-Thiruvananthapuram,AirIndia,2020-06-24,4694
+311,Chicago,Delhi-Hyderabad,AirIndia,2020-06-24,4694
+232,London,Delhi-Kolkata,AirIndia,2020-06-24,4694
+245,Paris,Mumbai-Hyderabad-Vijayawada,AirIndia,2020-06-24,4694
+233,San Francisco,Delhi-Bengaluru,AirIndia,2020-06-24,4694
+224,Sydney,Delhi-Kochi,AirIndia,2020-06-24,4694
+46,Auckland,Delhi,AirIndia,2020-06-24,4694
+229,Melbourne,Delhi-Hyderabad,AirIndia,2020-06-24,4694
+149,Singapore,Mumbai-Hyderabad,AirIndia,2020-06-24,4694
+181,Bangkok,Delhi,AirIndia,2020-06-24,4694
+154,Sharjah,Goa,AirIndia,2020-06-24,4694
+153,Manila,Delhi,AirIndia,2020-06-24,4694
+171,Dubai,Kolkata-Bhubaneswar,Indigo,2020-06-24,4694
+173,Kuwait,Kolkata,Indigo,2020-06-24,4694
+183,Doha,Coimbatore,AirIndia,2020-06-23,6037
+177,Bahrain,Chennai,AirIndia,2020-06-23,6037
+184,Dubai,Kochi,AirIndia,2020-06-23,6037
+186,Muscat,Kozhikode,AirIndia,2020-06-23,6037
+181,Dubai,Thiruvananthapuram,AirIndia,2020-06-23,6037
+171,Abu Dhabi,Lucknow,AirIndia,2020-06-23,6037
+169,Kuala Lumpur,Chennai,AirIndia,2020-06-23,6037
+180,Singapore,Chennai,AirIndia,2020-06-23,6037
+148,Bishkek,Delhi-Ahmedabad,AirIndia,2020-06-23,6037
+148,Narita,Chennai (via Delhi),AirIndia,2020-06-23,6037
+145,Kiev,Delhi,AirIndia,2020-06-23,6037
+229,Cebu,Mumbai-Chennai-Kochi,AirIndia,2020-06-23,6037
+190,Mauritius,Delhi,AirIndia,2020-06-23,6037
+197,Auckland,Mumbai,AirIndia,2020-06-23,6037
+169,Toronto,Delhi-Mumbai,AirIndia,2020-06-23,6037
+200,London,Delhi-Mumbai,AirIndia,2020-06-23,6037
+263,New York,Delhi,AirIndia,2020-06-23,6037
+220,Washington,Delhi,AirIndia,2020-06-23,6037
+315,Chicago,Delhi-Hyderabad,AirIndia,2020-06-23,6037
+321,Newark,Mumbai-Ahmedabad,AirIndia,2020-06-23,6037
+212,San Francisco,Delhi-Bengaluru,AirIndia,2020-06-23,6037
+225,Vancouver,Mumbai-Ahmedabad,AirIndia,2020-06-23,6037
+250,Frankfurt,Delhi-Bengaluru,AirIndia,2020-06-23,6037
+232,London,Delhi-Hyderabad,AirIndia,2020-06-23,6037
+164,Bishkek,Delhi-Jaipur,AirIndia,2020-06-23,6037
+169,Yerevan,Delhi-Chennai,AirIndia,2020-06-23,6037
+108,Seychelles,Mumbai,AirIndia,2020-06-23,6037
+184,Manila,Delhi,AirIndia,2020-06-23,6037
+178,Jeddah,Lucknow,Indigo,2020-06-23,6037
+171,Dubai,Mumbai-Nagpur,Indigo,2020-06-23,6037
+168,Kuala Lumpur,Kolkata,Indigo,2020-06-23,6037
+177,Kuwait,Chennai,AirIndia,2020-06-22,4411
+179,Bahrain,Chennai,AirIndia,2020-06-22,4411
+173,Abu Dhabi,Jaipur,AirIndia,2020-06-22,4411
+184,Dubai,Kochi,AirIndia,2020-06-22,4411
+181,Dubai,Delhi,AirIndia,2020-06-22,4411
+181,Dubai,Kochi,AirIndia,2020-06-22,4411
+178,Kuala Lumpur,Bengaluru-Trichy,AirIndia,2020-06-22,4411
+181,Dubai,Thiruvananthapuram,AirIndia,2020-06-22,4411
+170,Sydney,Ahmedabad (via Delhi),AirIndia,2020-06-22,4411
+145,Moscow,Delhi-Gaya,AirIndia,2020-06-22,4411
+328,Newark,Mumbai-Ahmedabad,AirIndia,2020-06-22,4411
+248,Frankfurt,Mumbai-Chennai,AirIndia,2020-06-22,4411
+223,London,Mumbai-Chennai,AirIndia,2020-06-22,4411
+237,London,Delhi-Chennai,AirIndia,2020-06-22,4411
+115,Toronto,Delhi-Ahmedabad,AirIndia,2020-06-22,4411
+310,Chicago,Delhi-Hyderabad,AirIndia,2020-06-22,4411
+298,San Francisco,Delhi-Bengaluru,AirIndia,2020-06-22,4411
+244,Melbourne,Delhi-Bengaluru,AirIndia,2020-06-22,4411
+243,Colombo,Delhi-Lucknow-Gaya,AirIndia,2020-06-22,4411
+75,Narita,Delhi,AirIndia,2020-06-22,4411
+167,Riyadh,Bengaluru,Indigo,2020-06-22,4411
+174,Riyadh,Bhubaneswar-KoIkata,Indigo,2020-06-22,4411
+304,Vancouver,Delhi-Thiruvananthapuram,AirIndia,2020-06-21,6084
+145,Moscow,Delhi-Chennai,AirIndia,2020-06-21,6084
+141,Kiev,Delhi-Bengaluru,AirIndia,2020-06-21,6084
+214,Stockholm,Mumbai-Hyderabad,AirIndia,2020-06-21,6084
+186,Shanghai,Delhi,AirIndia,2020-06-21,6084
+215,Auckland,Delhi-Hyderabad-Bengaluru,AirIndia,2020-06-21,6084
+236,Lagos,Delhi-Hyderabad,AirIndia,2020-06-21,6084
+189,Toronto,Delhi-Amritsar,AirIndia,2020-06-21,6084
+229,London,Delhi-Mumbai,AirIndia,2020-06-21,6084
+315,Chicago,Delhi-Hyderabad,AirIndia,2020-06-21,6084
+229,San Francisco,Delhi-Bengaluru,AirIndia,2020-06-21,6084
+250,Frankfurt,Delhi-Hyderabad,AirIndia,2020-06-21,6084
+239,London,Delhi-Visakhapatnam,AirIndia,2020-06-21,6084
+215,Washington,Delhi,AirIndia,2020-06-21,6084
+181,Bahrain,Kozhikode-Thiruvananthapuram,AirIndia,2020-06-21,6084
+181,Doha,Madurai,AirIndia,2020-06-21,6084
+181,Bahrain,Kozhikode-Thiruvananthapuram,AirIndia,2020-06-21,6084
+181,Doha,Madurai,AirIndia,2020-06-21,6084
+182,Dubai,Chandigarh,AirIndia,2020-06-21,6084
+178,Muscat,Kochi,AirIndia,2020-06-21,6084
+179,Abu Dhabi,Thiruvananthapuram,AirIndia,2020-06-21,6084
+177,Dubai,Kochi,AirIndia,2020-06-21,6084
+181,Singapore,Trichy,AirIndia,2020-06-21,6084
+186,Dubai,Kozhikode,AirIndia,2020-06-21,6084
+181,Kuala Lumpur,Hyderabad,AirIndia,2020-06-21,6084
+181,Dubai,Kannur,AirIndia,2020-06-21,6084
+219,Narita,Mumbai-Bengaluru-Thiruvananthapuram,AirIndia,2020-06-21,6084
+148,Bishkek,Delhi-Indore,AirIndia,2020-06-21,6084
+44,Sydney,Delhi,AirIndia,2020-06-21,6084
+174,Dammam,Ahmedabad,Indigo,2020-06-21,6084
+180,Dammam,Mangaluru,Indigo,2020-06-21,6084
+170,Dammam,Tiruchirappalli,Indigo,2020-06-21,6084
+146,Moscow,Delhi-Mumbai,AirIndia,2020-06-20,5178
+143,Kiev,Delhi-Chennai,AirIndia,2020-06-20,5178
+250,Frankfurt,Mumbai-Thiruvananthapuram-Vijayawada,AirIndia,2020-06-20,5178
+43,Toronto,Delhi,AirIndia,2020-06-20,5178
+220,London,Delhi-Mumbai,AirIndia,2020-06-20,5178
+239,London,Delhi-Bengaluru,AirIndia,2020-06-20,5178
+319,Chicago,Delhi-Hyderabad,AirIndia,2020-06-20,5178
+301,San Francisco,Delhi-Bengaluru,AirIndia,2020-06-20,5178
+246,Melbourne,Delhi-Mumbai,AirIndia,2020-06-20,5178
+148,Bishkek,Delhi-Nagpur,AirIndia,2020-06-20,5178
+406,Dammam,Thiruvananthapuram,AirIndia,2020-06-20,5178
+168,Nur Sultan,Delhi,AirIndia,2020-06-20,5178
+145,Bahrain,Delhi-Bhubaneswar,AirIndia,2020-06-20,5178
+175,Singapore,Bengaluru-Kochi,AirIndia,2020-06-20,5178
+179,Bahrain,Delhi,AirIndia,2020-06-20,5178
+178,Singapore,Chennai,AirIndia,2020-06-20,5178
+180,Kuala Lumpur,Trichy,AirIndia,2020-06-20,5178
+186,Doha,Kochi,AirIndia,2020-06-20,5178
+179,Abu Dhabi,Kozhikode,AirIndia,2020-06-20,5178
+184,Abu Dhabi,Kannur,AirIndia,2020-06-20,5178
+187,Dubai,Kozhikode,AirIndia,2020-06-20,5178
+178,Abu Dhabi,Ahmedabad,GoAir,2020-06-20,5178
+180,Kuwait,Ahmedabad-Jaipur,GoAir,2020-06-20,5178
+175,Dammam,Lucknow,GoAir,2020-06-20,5178
+215,Doha,Kolkata-Bhubaneswar,Indigo,2020-06-20,5178
+208,Doha,Ahmedabad,Indigo,2020-06-20,5178
+235,Paris,Delhi-Chennai,AirIndia,2020-06-19,5078
+145,Moscow,Delhi-Hyderabad,AirIndia,2020-06-19,5078
+151,Doha,Delhi-Bhubaneswar,AirIndia,2020-06-19,5078
+144,Kiev,Delhi-Kochi,AirIndia,2020-06-19,5078
+183,Auckland,Delhi-Ahmedabad,AirIndia,2020-06-19,5078
+226,London,Delhi-Mumbai,AirIndia,2020-06-19,5078
+248,Amsterdam,Delhi,AirIndia,2020-06-19,5078
+247,Johannesburg,Delhi-Mumbai,AirIndia,2020-06-19,5078
+202,London,Delhi-Kochi,AirIndia,2020-06-19,5078
+77,Toronto,Delhi,AirIndia,2020-06-19,5078
+148,Bishkek,Delhi-Kolkata,AirIndia,2020-06-19,5078
+168,Almaty,Delhi,AirIndia,2020-06-19,5078
+232,Lagos,Delhi-Chennai-Bengaluru,AirIndia,2020-06-19,5078
+218,San Francisco,Delhi-Jaipur-Bengaluru,AirIndia,2020-06-19,5078
+326,Chicago,Delhi-Hyderabad,AirIndia,2020-06-19,5078
+238,Sydney,Delhi-Mimbai,AirIndia,2020-06-19,5078
+185,Doha,Mangaluru,AirIndia,2020-06-19,5078
+180,Dubai,Kannur,AirIndia,2020-06-19,5078
+182,Muscat,Kochi,AirIndia,2020-06-19,5078
+181,Doha,Thiruvananthapuram,AirIndia,2020-06-19,5078
+41,Doha,Kochi,AirIndia,2020-06-19,5078
+160,Phnom Penh,Delhi,AirIndia,2020-06-19,5078
+152,Dubai,Bhubaneswar,AirIndia,2020-06-19,5078
+424,Riyadh,Kochi,AirIndia,2020-06-19,5078
+178,Muscat,Goa,Indigo,2020-06-19,5078
+207,Doha,Amritsar-Srinagar,Indigo,2020-06-19,5078
+145,Moscow,Delhi-Nagpur,AirIndia,2020-06-18,2952
+143,Kiev,Delhi-Lucknow,AirIndia,2020-06-18,2952
+45,Toronto,Delhi,AirIndia,2020-06-18,2952
+204,London,Delhi-Mumbai,AirIndia,2020-06-18,2952
+195,London,Delhi-Kolkata,AirIndia,2020-06-18,2952
+312,Chicago,Delhi-Hyderabad,AirIndia,2020-06-18,2952
+301,San Francisco,Delhi-Bengaluru,AirIndia,2020-06-18,2952
+148,Bishkek,Delhi-Visakhapatnam,AirIndia,2020-06-18,2952
+136,Male,Delhi-Bhubaneswar-Kolkata,AirIndia,2020-06-18,2952
+238,Lagos,Mumbai-Ahmedabad-Thiruvananthapuram,AirIndia,2020-06-18,2952
+183,Doha,Kochi,AirIndia,2020-06-18,2952
+150,Doha,Chennai,AirIndia,2020-06-18,2952
+184,Doha,Kozhikode,AirIndia,2020-06-18,2952
+150,Doha,Kochi,AirIndia,2020-06-18,2952
+235,Melbourne,Delhi,AirIndia,2020-06-18,2952
+183,Muscat,Thiruvananthapuram,AirIndia,2020-06-18,2952
+148,Dammam,Delhi-Hyderabad,AirIndia,2020-06-17,3565
+144,Moscow,Delhi-Chennai,AirIndia,2020-06-17,3565
+143,Kiev,Delhi-Mumbai,AirIndia,2020-06-17,3565
+70,Brussels,Delhi,AirIndia,2020-06-17,3565
+198,London,Delhi-Mumbai,AirIndia,2020-06-17,3565
+63,Toronto,Delhi,AirIndia,2020-06-17,3565
+227,London,Delhi-Hyderabad,AirIndia,2020-06-17,3565
+238,Frankfurt,Delhi-Kochi,AirIndia,2020-06-17,3565
+150,Dhaka,Visakhapatnam-Hyderabad,AirIndia,2020-06-17,3565
+170,Dhaka,Gaya-Kolkata,AirIndia,2020-06-17,3565
+152,Bangkok,Kolkata-Bengaluru,AirIndia,2020-06-17,3565
+217,Auckland,Delhi-Chandigarh,AirIndia,2020-06-17,3565
+165,Male,Delhi,AirIndia,2020-06-17,3565
+242,Sydney,Delhi-Chennai,AirIndia,2020-06-17,3565
+152,Muscat,Bhubaneswar,AirIndia,2020-06-17,3565
+180,Dubai,Kochi,AirIndia,2020-06-17,3565
+219,San Francisco,Delhi-Bengaluru,AirIndia,2020-06-17,3565
+178,Muscat,Bengaluru-Mangaluru,AirIndia,2020-06-17,3565
+178,Abu Dhabi,Thiruvananthapuram,AirIndia,2020-06-17,3565
+331,Chicago,Delhi-Hyderabad,AirIndia,2020-06-17,3565
+145,Moscow,Delhi-Kochi,AirIndia,2020-06-16,3897
+143,Kiev,Delhi-Ahmedabad,AirIndia,2020-06-16,3897
+235,Cairo,Mumbai-Kochi,AirIndia,2020-06-16,3897
+204,Lagos,Delhi-Kolkata,AirIndia,2020-06-16,3897
+54,Toronto,Delhi,AirIndia,2020-06-16,3897
+209,Frankfurt,Delhi-Kolkata,AirIndia,2020-06-16,3897
+226,London,Delhi-Chennai,AirIndia,2020-06-16,3897
+232,Paris,Delhi-Bengaluru,AirIndia,2020-06-16,3897
+195,London,Delhi-Mumbai,AirIndia,2020-06-16,3897
+302,San Francisco,Delhi-Bengaluru,AirIndia,2020-06-16,3897
+325,Chicago,Delhi-Hyderabad,AirIndia,2020-06-16,3897
+148,Singapore,Delhi-Amritsar,AirIndia,2020-06-16,3897
+166,Dhaka,Delhi-Ahmedabad,AirIndia,2020-06-16,3897
+148,Bishkek,Delhi-Lucknow,AirIndia,2020-06-16,3897
+155,Male,Thiruvananthapuram-Bengaluru,AirIndia,2020-06-16,3897
+141,Manila,Chennai-Visakhapatnam,AirIndia,2020-06-16,3897
+148,Dammam,Hyderabad,AirIndia,2020-06-16,3897
+179,Singapore,Trichy,AirIndia,2020-06-16,3897
+182,Muscat,Mumbai,AirIndia,2020-06-16,3897
+183,Doha,Thiruvananthapuram,AirIndia,2020-06-16,3897
+177,Abu Dhabi,Kochi,AirIndia,2020-06-16,3897
+137,Toronto,Delhi,AirIndia,2020-06-15,3224
+226,San Francisco,Delhi-Hyderabad,AirIndia,2020-06-15,3224
+323,Chicago,Delhi-Hyderabad,AirIndia,2020-06-15,3224
+153,Colombo,Kochi-Bengaluru,AirIndia,2020-06-15,3224
+164,Dhaka,Delhi,AirIndia,2020-06-15,3224
+149,Riyadh,Bengaluru,AirIndia,2020-06-15,3224
+146,Singapore,Mumbai,AirIndia,2020-06-15,3224
+148,Jeddah,Delhi,AirIndia,2020-06-15,3224
+184,Doha,Kannur,AirIndia,2020-06-15,3224
+181,Doha,Mumbai,AirIndia,2020-06-15,3224
+182,Abu Dhabi,Kozhikode,AirIndia,2020-06-15,3224
+181,Muscat,Lucknow,AirIndia,2020-06-15,3224
+185,Doha,Kozhikode,AirIndia,2020-06-15,3224
+178,Bahrain,Kozhikode-Thiruvananthapuram,AirIndia,2020-06-15,3224
+177,Singapore,Madurai,AirIndia,2020-06-15,3224
+189,Dubai,Madurai,AirIndia,2020-06-15,3224
+176,Kuala Lumpur,Kochi,AirIndia,2020-06-15,3224
+145,Singapore,Delhi-Amritsar,Vistara,2020-06-15,3224
+232,Lagos,Mumbai,AirIndia,2020-06-14,3069
+243,Toronto,Delhi,AirIndia,2020-06-14,3069
+327,Chicago,Delhi-Hyderabad,AirIndia,2020-06-14,3069
+144,Dammam,Delhi,AirIndia,2020-06-14,3069
+153,Jeddah,Hyderabad,AirIndia,2020-06-14,3069
+175,Singapore,Chennai,AirIndia,2020-06-14,3069
+183,Doha,Kochi,AirIndia,2020-06-14,3069
+171,Bahrain,Vijayawada,AirIndia,2020-06-14,3069
+181,Kuwait,Kochi,AirIndia,2020-06-14,3069
+183,Dubai,Thiruvananthapuram,AirIndia,2020-06-14,3069
+176,Bahrain,Delhi,AirIndia,2020-06-14,3069
+179,Singapore,Coimbatore,AirIndia,2020-06-14,3069
+183,Doha,Lucknow,AirIndia,2020-06-14,3069
+184,Muscat,Kannur,AirIndia,2020-06-14,3069
+175,Singapore,Chennai,AirIndia,2020-06-14,3069
+180,Singapore,Delhi-Amritsar,Vistara,2020-06-14,3069
+223,San Francisco,Delhi-Bengaluru,AirIndia,2020-06-13,4443
+227,Helsinki,Delhi,AirIndia,2020-06-13,4443
+232,Lagos,Delhi,AirIndia,2020-06-13,4443
+328,New York,Delhi-Chennai,AirIndia,2020-06-13,4443
+289,Toronto,Delhi,AirIndia,2020-06-13,4443
+273,Chicago,Delhi-Hyderabad,AirIndia,2020-06-13,4443
+221,San Francisco,Delhi-Bengaluru,AirIndia,2020-06-13,4443
+148,Dammam,Kozhikode,AirIndia,2020-06-13,4443
+153,Jeddah,Bengaluru,AirIndia,2020-06-13,4443
+417,Riyadh,Thiruvananthapuram,AirIndia,2020-06-13,4443
+169,Bahrain,Bengaluru,AirIndia,2020-06-13,4443
+173,Kuwait,Mumbai,AirIndia,2020-06-13,4443
+176,Abu Dhabi,Delhi,AirIndia,2020-06-13,4443
+178,Muscat,Coimbatore,AirIndia,2020-06-13,4443
+176,Kuwait,Delhi,AirIndia,2020-06-13,4443
+177,Bahrain,Thiruvananthapuram,AirIndia,2020-06-13,4443
+178,Doha,Thiruvananthapuram,AirIndia,2020-06-13,4443
+175,Singapore,Trichy,AirIndia,2020-06-13,4443
+177,Kuala Lumpur,Madurai,AirIndia,2020-06-13,4443
+177,Doha,Kannur,AirIndia,2020-06-13,4443
+176,Singapore,Madurai-Kochi,AirIndia,2020-06-13,4443
+288,Chicago,Hyderabad (via Delhi),AirIndia,2020-06-12,3908
+264,Chicago,Delhi,AirIndia,2020-06-12,3908
+235,Amsterdam,Mumbai-Bengaluru,AirIndia,2020-06-12,3908
+247,London,Delhi-Kolkata,AirIndia,2020-06-12,3908
+158,Riyadh,Hyderabad,AirIndia,2020-06-12,3908
+145,Damman,Bengaluru,AirIndia,2020-06-12,3908
+414,Jeddah,Thiruvananthapuram,AirIndia,2020-06-12,3908
+179,Doha,Trichy,AirIndia,2020-06-12,3908
+179,Abu Dhabi,Mumbai,AirIndia,2020-06-12,3908
+183,Dubai,Hyderabad,AirIndia,2020-06-12,3908
+180,Doha,Delhi,AirIndia,2020-06-12,3908
+181,Abu Dhabi,Kozhikode,AirIndia,2020-06-12,3908
+179,Muscat,Thiruvananthapuram,AirIndia,2020-06-12,3908
+180,Bahrain,Delhi,AirIndia,2020-06-12,3908
+183,Dubai,Bengaluru,AirIndia,2020-06-12,3908
+172,Doha,Kochi,AirIndia,2020-06-12,3908
+179,Kuwait,Thiruvananthapuram,AirIndia,2020-06-12,3908
+181,Kuala Lumpur,Chennai,AirIndia,2020-06-12,3908
+181,Singapore,Coimbatore,AirIndia,2020-06-12,3908
+227,Amsterdam,Delhi,AirIndia,2020-06-11,3474
+234,Brussels,Delhi,AirIndia,2020-06-11,3474
+300,Toronto,Delhi,AirIndia,2020-06-11,3474
+184,Washington,Delhi,AirIndia,2020-06-11,3474
+30,Chicago,Delhi,AirIndia,2020-06-11,3474
+216,Frankfurt,Mumbai,AirIndia,2020-06-11,3474
+151,Doha,Delhi,AirIndia,2020-06-11,3474
+153,Dubai,Srinagar,AirIndia,2020-06-11,3474
+407,Dammam,Kochi,AirIndia,2020-06-11,3474
+157,Jeddah,Kozhikode,AirIndia,2020-06-11,3474
+336,Riyadh,Kannur,AirIndia,2020-06-11,3474
+177,Singapore,Hyderabad,AirIndia,2020-06-11,3474
+181,Bahrain,Chennai,AirIndia,2020-06-11,3474
+177,Kuala Lumpur,Trichy,AirIndia,2020-06-11,3474
+184,Doha,Kozhikode,AirIndia,2020-06-11,3474
+181,Muscat,Delhi,AirIndia,2020-06-11,3474
+177,Singapore,Madurai,AirIndia,2020-06-11,3474
+177,Bahrain,Thiruvananthapuram,AirIndia,2020-06-11,3474
+183,Abu Dhabi,Thiruvananthapuram,AirIndia,2020-06-11,3474
+149,Doha,Mumbai,AirIndia,2020-06-10,3526
+235,Frankfurt,Delhi-Bengaluru,AirIndia,2020-06-10,3526
+150,Doha,Hyderabad,AirIndia,2020-06-10,3526
+332,Dammam,Kannur,AirIndia,2020-06-10,3526
+160,Riyadh,Kozhikode,AirIndia,2020-06-10,3526
+415,Jeddah,Kochi,AirIndia,2020-06-10,3526
+147,Riyadh,Delhi,AirIndia,2020-06-10,3526
+146,Doha,Chennal,AirIndia,2020-06-10,3526
+177,Abu Dhabi,Amritsar,AirIndia,2020-06-10,3526
+179,Abu Dhabi,Bengaluru,AirIndia,2020-06-10,3526
+180,Bahrain,Thiruvananthapuram,AirIndia,2020-06-10,3526
+181,Salalah,Kochi,AirIndia,2020-06-10,3526
+178,Singapore,Trichy,AirIndia,2020-06-10,3526
+183,Muscat,Kozhikode,AirIndia,2020-06-10,3526
+177,Bahrain,Delhi,AirIndia,2020-06-10,3526
+189,Doha,Kozhikode,AirIndia,2020-06-10,3526
+176,Singapore,Coimbatore,AirIndia,2020-06-10,3526
+172,Kuala Lumpur,Mumbai,AirIndia,2020-06-10,3526
+106,Newark,Ahmedabad (via Mumbai),AirIndia,2020-06-09,2441
+176,Istanbul,Delhi,AirIndia,2020-06-09,2441
+334,New York,Delhi-Kolkata,AirIndia,2020-06-09,2441
+196,Stockholm,Delhi,AirIndia,2020-06-09,2441
+183,Abu Dhabi,Kochi,AirIndia,2020-06-09,2441
+176,Singapore,Madurai,AirIndia,2020-06-09,2441
+178,Doha,Thiruvananthapuram,AirIndia,2020-06-09,2441
+185,Muscat,Vijayawada,AirIndia,2020-06-09,2441
+177,Dubai,LucknOw,AirIndia,2020-06-09,2441
+183,Kuala Lumpur,De!hi,AirIndia,2020-06-09,2441
+184,Doha,Kannur,AirIndia,2020-06-09,2441
+180,Dubai,Kozhikode,AirIndia,2020-06-09,2441
+183,Abu Dhabi,Chennai,AirIndia,2020-06-09,2441
+226,Frankfurt,Delhi,AirIndia,2020-06-08,1301
+249,London,Mumbai-Ahmedabad,AirIndia,2020-06-08,1301
+225,Newark,Mumbai,AirIndia,2020-06-08,1301
+215,Stockholm,Delhi-Mumbai,AirIndia,2020-06-08,1301
+154,Dubai,Chennai,AirIndia,2020-06-08,1301
+232,Chicago,Bengaluru (via Delhi),AirIndia,2020-06-08,1301
+76,Ho Chi Minh City,Kochi (Via Mumbai),AirIndia,2020-06-07,801
+154,Auckland,Delhi,AirIndia,2020-06-07,801
+193,Seoul,Delhi,AirIndia,2020-06-07,801
+101,Chicago,Delhi,AirIndia,2020-06-07,801
+131,Kuwait,Delhi-Lucknow,AirIndia,2020-06-07,801
+146,Muscat,Chennai,AirIndia,2020-06-07,801
+104,Nairobi,Delhi (via Mumbai),AirIndia,2020-06-06,910
+90,Kuwait,Gaya (via Delhi),AirIndia,2020-06-06,910
+94,Djibouti,Kochi-Mumbai,AirIndia,2020-06-06,910
+251,Frankfurt,Delhi,AirIndia,2020-06-06,910
+151,Kuwait,Delhi -Bhubaneswar,AirIndia,2020-06-06,910
+69,Ho Chi Minh City,Mumbai,AirIndia,2020-06-06,910
+151,Jeddah,Chennai,AirIndia,2020-06-06,910
+105,Dammam,Kolkata (via Delhi),AirIndia,2020-06-05,844
+245,Rome,Delhi,AirIndia,2020-06-05,844
+152,Bangkok,Mumbai-Bengaluru,AirIndia,2020-06-05,844
+130,Nairobi,Mumbai,AirIndia,2020-06-05,844
+148,Dammam,Chennai,AirIndia,2020-06-05,844
+64,Kuwait,Delhi,AirIndia,2020-06-05,844
+182,Abu Dhabi,Thiruvananthapuram,AirIndia,2020-06-04,3534
+183,Dubai,Kozhikode,AirIndia,2020-06-04,3534
+182,Dubai,Hyderabad,AirIndia,2020-06-04,3534
+186,Abu Dhabi,Kozhikode,AirIndia,2020-06-04,3534
+186,Doha,Kannur,AirIndia,2020-06-04,3534
+189,Dubai,Kochi,AirIndia,2020-06-04,3534
+179,Dubai,Madurai,AirIndia,2020-06-04,3534
+179,Kuwait,Kozhikode,AirIndia,2020-06-04,3534
+185,Muscat,Thiruvananthapuram,AirIndia,2020-06-04,3534
+182,Muscat,Kochi,AirIndia,2020-06-04,3534
+177,Dubai,Jaipur,AirIndia,2020-06-04,3534
+69,Kiev,Guwahati (via Delhi),AirIndia,2020-06-04,3534
+153,Dubai,Delhi-Kolkata,AirIndia,2020-06-04,3534
+221,Mauritius,Delhi,AirIndia,2020-06-04,3534
+247,Dublin,Delhi-Mumbai,AirIndia,2020-06-04,3534
+152,Doha,Lucknow,AirIndia,2020-06-04,3534
+154,Kuwait,Delhi,AirIndia,2020-06-04,3534
+149,Jeddah,Srinagar,AirIndia,2020-06-04,3534
+150,Riyadh,Chennai,AirIndia,2020-06-04,3534
+42,Dammam,Delhi,AirIndia,2020-06-04,3534
+187,Mauritius,Mumbai,AirIndia,2020-06-04,3534
+180,Dubai,Coimbatore,AirIndia,2020-06-03,2716
+178,Dubai,Thiruvananthapuram,AirIndia,2020-06-03,2716
+181,Dubai,Kochi,AirIndia,2020-06-03,2716
+181,Abu Dhabi,Kozhikode,AirIndia,2020-06-03,2716
+186,Dubai,Kannur,AirIndia,2020-06-03,2716
+182,Abu Dhabi,Kochi,AirIndia,2020-06-03,2716
+184,Doha,Thiruvananthapuram,AirIndia,2020-06-03,2716
+185,Muscat,Kannur,AirIndia,2020-06-03,2716
+178,Dubai,Trichy,AirIndia,2020-06-03,2716
+180,Abu Dhabi,Amritsar,AirIndia,2020-06-03,2716
+97,Moscow,Guwahati-Bhubaneswar (via Delhi),AirIndia,2020-06-03,2716
+127,Jeddah,Gaya (via Delhi),AirIndia,2020-06-03,2716
+143,Moscow,Delhi-Gaya,AirIndia,2020-06-03,2716
+152,Muscat,Bhubaneswar,AirIndia,2020-06-03,2716
+155,Dubai,Bengaluru,AirIndia,2020-06-03,2716
+153,Doha,Chennai,AirIndia,2020-06-03,2716
+74,Kiev,Delhi,AirIndia,2020-06-03,2716
+177,Abu Dhabi,Delhi,AirIndia,2020-06-02,4865
+184,Dubai,Kochi,AirIndia,2020-06-02,4865
+185,Kuwait,Kochi,AirIndia,2020-06-02,4865
+184,Abu Dhabi,Kozhikode,AirIndia,2020-06-02,4865
+183,Dubai,Kannur,AirIndia,2020-06-02,4865
+181,Doha,Kochi,AirIndia,2020-06-02,4865
+185,Abu Dhabi,Thiruvananthapuram,AirIndia,2020-06-02,4865
+183,Bahrain,Kozhikode,AirIndia,2020-06-02,4865
+182,Abu Dhabi,Kannur,AirIndia,2020-06-02,4865
+98,Dammam,Gaya (via Delhi),AirIndia,2020-06-02,4865
+155,Dubai,Goa,AirIndia,2020-06-02,4865
+233,Lagos,Delhi,AirIndia,2020-06-02,4865
+135,Bishkek,Delhi-Hyderabad,AirIndia,2020-06-02,4865
+143,Bishkek,Delhi,AirIndia,2020-06-02,4865
+157,Muscat,Srinagar,AirIndia,2020-06-02,4865
+153,Dubai,Chandigarh,AirIndia,2020-06-02,4865
+46,Moscow,Delhi,AirIndia,2020-06-02,4865
+101,Jeddah,Delhi,AirIndia,2020-06-02,4865
+181,Dubai,Thiruvananthapuram,AirIndia,2020-06-01,3892
+179,Dubai,Hyderabad,AirIndia,2020-06-01,3892
+170,Kuwait,Thiruvananthapuram,AirIndia,2020-06-01,3892
+185,Abu Dhabi,Kochi,AirIndia,2020-06-01,3892
+188,Dubai,Kannur,AirIndia,2020-06-01,3892
+182,Dubai,Kochi,AirIndia,2020-06-01,3892
+186,Muscat,Kozhikode,AirIndia,2020-06-01,3892
+178,Bahrain,Kochi,AirIndia,2020-06-01,3892
+182,Salalah,Kannur,AirIndia,2020-06-01,3892
+180,Dubai,Kozhikode,AirIndia,2020-06-01,3892
+189,Abu Dhabi,Kannur,AirIndia,2020-06-01,3892
+187,Dubai,Thiruvananthapuram,AirIndia,2020-06-01,3892
+143,Moscow,Delhi-Kannur,AirIndia,2020-06-01,3892
+143,Kiev,Delhi,AirIndia,2020-06-01,3892
+247,Madrid,Delhi-Mumbai,AirIndia,2020-06-01,3892
+238,Tokyo,Delhi,AirIndia,2020-06-01,3892
+166,Dhaka,Kolkata,AirIndia,2020-06-01,3892
+151,Dubai,Gaya,AirIndia,2020-06-01,3892
+143,Bishkek,Delhi-Jaipur,AirIndia,2020-06-01,3892
+143,Almaty,Delhi-Vijayawada-Hyderabad,AirIndia,2020-06-01,3892
+152,Kuwait,Ahmedabad,AirIndia,2020-06-01,3892
+136,Riyadh,Delhi-Lucknow,AirIndia,2020-06-01,3892
+43,Dammam,Delhi,AirIndia,2020-06-01,3892
+180,Bahrain,Kozhikode,AirIndia,2020-05-31,3564 
+184,Dubai,Kochi,AirIndia,2020-05-31,3564 
+188,Abu Dhabi,Kozhikode,AirIndia,2020-05-31,3564 
+186,Dubai,Kannur,AirIndia,2020-05-31,3564 
+180,Salalah,Kannur,AirIndia,2020-05-31,3564 
+181,Abu Dhabi,Thiruvananthapuram,AirIndia,2020-05-31,3564 
+184,Dubai,Kozhikode,AirIndia,2020-05-31,3564 
+152,Dubai,Ahmedabad,AirIndia,2020-05-31,3564 
+320,Chicago,Ahmedabad-Hyderabad (via Delhi),AirIndia,2020-05-31,3564 
+143,Moscow,Delhi-Jaipur,AirIndia,2020-05-31,3564 
+168,Manila,Jaipur (via Delhi),AirIndia,2020-05-31,3564 
+144,Kiev,Delhi-Chandigarh,AirIndia,2020-05-31,3564 
+153,Dubai,Hyderabad,AirIndia,2020-05-31,3564 
+155,Dubai,Delhi,AirIndia,2020-05-31,3564 
+132,Nur Sultan,Delhi-Jaipur,AirIndia,2020-05-31,3564 
+154,Doha,Delhi-Srinagar-Amritsar,AirIndia,2020-05-31,3564 
+129,Dammam,Srinagar,AirIndia,2020-05-31,3564 
+151,Kuwait,Jaipur,AirIndia,2020-05-31,3564 
+148,Riyadh,Hyderabad,AirIndia,2020-05-31,3564 
+332,Riyadh,Thiruvananthapuram,AirIndia,2020-05-31,3564 
+177,Dubai,Lucknow,AirIndia,2020-05-30,4273
+181,Dubai,Kochi,AirIndia,2020-05-30,4273
+187,Dubai,Kannur,AirIndia,2020-05-30,4273
+186,Kuwait,Kannur,AirIndia,2020-05-30,4273
+181,Abu Dhabi,Kochi,AirIndia,2020-05-30,4273
+186,Doha,Kochi,AirIndia,2020-05-30,4273
+181,Dubai,Kozhikode,AirIndia,2020-05-30,4273
+180,Muscat,Thiruvananthapuram,AirIndia,2020-05-30,4273
+182,Dubai,Thiruvananthapuram,AirIndia,2020-05-30,4273
+154,Jeddah,Kozhikode,AirIndia,2020-05-30,4273
+337,Chicago,Delhi,AirIndia,2020-05-30,4273
+154,Dubai,Hyderabad,AirIndia,2020-05-30,4273
+217,Washington,Delhi-Bengaluru-Ahmedabad,AirIndia,2020-05-30,4273
+153,Abu Dhabi,Ahmedaba,AirIndia,2020-05-30,4273
+160,Jeddah,Koihikode-Mumbai,AirIndia,2020-05-30,4273
+98,Cairo,Lucknow (via Delhi),AirIndia,2020-05-30,4273
+144,Kiev,Delhi-Ahmedaba,AirIndia,2020-05-30,4273
+154,Dubai,Delhi,AirIndia,2020-05-30,4273
+254,Frankfurt,Delhi,AirIndia,2020-05-30,4273
+7,Chicago,Delhi,AirIndia,2020-05-30,4273
+132,Nur Sultan,Delhi-Jaipur,AirIndia,2020-05-30,4273
+153,Muscat,Jaipur-Delhi,AirIndia,2020-05-30,4273
+154,Muscat,Ahmedabad,AirIndia,2020-05-30,4273
+152,Doha,Delhi,AirIndia,2020-05-30,4273
+65,Manila,Delhi,AirIndia,2020-05-30,4273
+144,Doha,Ahmedabad,AirIndia,2020-05-30,4273
+183,Dubai,Jaipur,AirIndia,2020-05-29,3339
+181,Dubai,Kochi,AirIndia,2020-05-29,3339
+186,Abu Dhani,Kozhikode,AirIndia,2020-05-29,3339
+188,Dubai,Kannur,AirIndia,2020-05-29,3339
+185,Doha,Kannur,AirIndia,2020-05-29,3339
+143,Kiev,Delh1*Jaipur,AirIndia,2020-05-29,3339
+250,Frankfurt,Delhi,AirIndia,2020-05-29,3339
+179,Abu Dhabi,Thiruvananthapuram,AirIndia,2020-05-29,3339
+181,Muscat,Kochi,AirIndia,2020-05-29,3339
+187,Dubai,Kozhikode,AirIndia,2020-05-29,3339
+183,Kuwait,Kozhikode,AirIndia,2020-05-29,3339
+181,Dubai,Thiruvananthapuram,AirIndia,2020-05-29,3339
+143,Dushanbe,Delhi-Jaipur,AirIndia,2020-05-29,3339
+132,Almaty,Delhi-Jaipur,AirIndia,2020-05-29,3339
+122,Cairo,Delhi,AirIndia,2020-05-29,3339
+28,Washington,Delhi,AirIndia,2020-05-29,3339
+82,Yangon,Kolkata-Mumbai,AirIndia,2020-05-29,3339
+129,Yerevan,Delhi-Kochi,AirIndia,2020-05-29,3339
+148,Riyadh,Srinagar,AirIndia,2020-05-29,3339
+152,Kuwait,Ahmedabad-Mumbai,AirIndia,2020-05-29,3339
+176,Colombo,Mumbai-,AirIndia,2020-05-29,3339
+178,Kuwait,Thiruvananthapuram,AirIndia,2020-05-28,3148
+184,Dubai,Kochi,AirIndia,2020-05-28,3148
+188,Dubai,Kannur,AirIndia,2020-05-28,3148
+185,Abu Dhabi,Kochi,AirIndia,2020-05-28,3148
+187,Bahrain,Kochi,AirIndia,2020-05-28,3148
+181,Muscat,Kozhikode,AirIndia,2020-05-28,3148
+191,Salalah,Kannur,AirIndia,2020-05-28,3148
+179,Dubai,Hyderabad,AirIndia,2020-05-28,3148
+182,Dubai,Kozhikode,AirIndia,2020-05-28,3148
+179,Dubai,Thiruvananthapuram,AirIndia,2020-05-28,3148
+38,Tbilisi,Jaipur (via Delhi-Ahmedabad),AirIndia,2020-05-28,3148
+143,Dushanbe,Delhi-Kannur,AirIndia,2020-05-28,3148
+238,Paris,Delhi-Bengaluru- Kochi,AirIndia,2020-05-28,3148
+144,Karaganda,Delhi-Jaipur,AirIndia,2020-05-28,3148
+223,Narita,Mumbai,AirIndia,2020-05-28,3148
+215,Melbourne,Delhi-Hyderabad,AirIndia,2020-05-28,3148
+170,Dhaka,Gaya,AirIndia,2020-05-28,3148
+143,Moscow,Delhi-Lucknow,AirIndia,2020-05-28,3148
+183,Abu Dhabi,Kanpur,AirIndia,2020-05-27,3319
+158,Abu Dhabi,Amritsar,AirIndia,2020-05-27,3319
+185,Dubai,Kochi,AirIndia,2020-05-27,3319
+189,Abu Dhabi,Kozhikode,AirIndia,2020-05-27,3319
+182,Dubai,Kannur,AirIndia,2020-05-27,3319
+183,Abu Dhabi,Kochi,AirIndia,2020-05-27,3319
+184,Dubai,Kozhikode,AirIndia,2020-05-27,3319
+177,Abu Dhabi,Thiruvananthapuram,AirIndia,2020-05-27,3319
+97,Minsk,Ahmedabad (via Delhi),AirIndia,2020-05-27,3319
+139,Kiev,Delhi-Lucknow,AirIndia,2020-05-27,3319
+142,Kiev,Delhi-Kochi,AirIndia,2020-05-27,3319
+248,Paris,Delhi-Ahmedabad,AirIndia,2020-05-27,3319
+319,Toronto,Delhi-Ahmedabad-Jaipur,AirIndia,2020-05-27,3319
+149,Singapore,Delhi-Amritsar,AirIndia,2020-05-27,3319
+248,Dublin,Delhi-Bengaluru-Kochi,AirIndia,2020-05-27,3319
+143,Karaganda,Delhi-Jaipur,AirIndia,2020-05-27,3319
+169,Dhaka,Kolkata,AirIndia,2020-05-27,3319
+85,Tbilisi,Delhi-Ahmedabad-Jaipur,AirIndia,2020-05-27,3319
+139,Moscow,Delhi-Ahmedabad,AirIndia,2020-05-27,3319
+173,Abu Dhabi,Delhi,AirIndia,2020-05-26,3393
+185,Dubai,Kochi,AirIndia,2020-05-26,3393
+190,Dubai,Kannur,AirIndia,2020-05-26,3393
+184,Abu Dhabi,Kozhikode,AirIndia,2020-05-26,3393
+181,Abu Dhabi,Thiruvananthapuram,AirIndia,2020-05-26,3393
+187,Dubai,Kozhikode,AirIndia,2020-05-26,3393
+179,Bahrain,Kozhikode,AirIndia,2020-05-26,3393
+179,Dubai,Thiruvananthapuram,AirIndia,2020-05-26,3393
+176,Manila,Mumbai-Bengaluru,AirIndia,2020-05-26,3393
+212,Cebu,Mumbai-Ahmedabad,AirIndia,2020-05-26,3393
+190,Vancouver,Delhi-Bengaluru-Hyderabad,AirIndia,2020-05-26,3393
+121,Tel Aviv,Delhi-Kochi,AirIndia,2020-05-26,3393
+147,Singapore,Delhi-Ahmedabad-Lucknow,AirIndia,2020-05-26,3393
+331,Birmingham,Delhi-Amritsar,AirIndia,2020-05-26,3393
+329,New York,Delhi-Bengaluru,AirIndia,2020-05-26,3393
+136,Moscow,Delhi,AirIndia,2020-05-26,3393
+143,Karaganda,Delhi-Jaipur,AirIndia,2020-05-26,3393
+133,Bishkek,Delhi-Gaya,AirIndia,2020-05-26,3393
+17,Minsk,Delhi-Ahmedabad,AirIndia,2020-05-26,3393
+146,Doha,Delhi-Gaya ,AirIndia,2020-05-25,833
+229,San Francisco,Delhi-Kochi-Ahmedabad,AirIndia,2020-05-25,833
+231,Melbourne,Delhi-Kochi,AirIndia,2020-05-25,833
+227,Sydney,Delhi-Ahmedabad,AirIndia,2020-05-25,833
+217,Toronto,Delhi-Bengaluru-Hyderabad,AirIndia,2020-05-24,680
+146,Singapore,Delhi,AirIndia,2020-05-24,680
+317,London,Mumbai-Ahmedabad-Indore,AirIndia,2020-05-24,680
+214,Jakarta,Mumbai-Bengaluru,AirIndia,2020-05-23,2441
+167,Toronto,Delhi-Amritsar,AirIndia,2020-05-23,2441
+181,Dubai,Thiruvananthapuram,AirIndia,2020-05-23,2441
+182,Muscat,Kochi,AirIndia,2020-05-23,2441
+179,Abu Dhabi,Kannur,AirIndia,2020-05-23,2441
+182,Dubai,Kozhikode,AirIndia,2020-05-23,2441
+181,Muscat,Thiruvananthapuram,AirIndia,2020-05-23,2441
+180,Singapore,Kochi,AirIndia,2020-05-23,2441
+180,Dubai,Bengaluru,AirIndia,2020-05-23,2441
+219,Melbourne,Delhi-Bengaluru,AirIndia,2020-05-23,2441
+216,Sydney,Amritsar,AirIndia,2020-05-23,2441
+153,Male,Delhi,AirIndia,2020-05-23,2441
+148,Singapore,Bengaluru,AirIndia,2020-05-23,2441
+19,Muscat,Delhi,AirIndia,2020-05-23,2441
+40,Toronto,Delhi,AirIndia,2020-05-23,2441
+89,Kuala Lumpur,Amritsar (via Lucknow),AirIndia,2020-05-22,3540
+148,Kuwait,Tirupati (via Hyderabad),AirIndia,2020-05-22,3540
+187,Amman,Delhi-Kochi,AirIndia,2020-05-22,3540
+201,Vancouver,Delhi-Amritsar,AirIndia,2020-05-22,3540
+239,Rome,Delhi-Kochi,AirIndia,2020-05-22,3540
+322,London,Delhi-Jaipur,AirIndia,2020-05-22,3540
+328,New York,Delhi-Chandigarh,AirIndia,2020-05-22,3540
+139,Kuala Lumpur,Delhi-Visakhapatnam,AirIndia,2020-05-22,3540
+150,Riyadh,Vijayawada - Hyderabad,AirIndia,2020-05-22,3540
+234,Melbourne,Delhi-Amritsar,AirIndia,2020-05-22,3540
+155,Dubai,Srinagar,AirIndia,2020-05-22,3540
+139,Kuala Lumpur,Bhubaneswar-Bengaluru,AirIndia,2020-05-22,3540
+152,Male,Benguru,AirIndia,2020-05-22,3540
+149,Toronto,Delhi,AirIndia,2020-05-22,3540
+179,Dubai,Hyderabad,AirIndia,2020-05-22,3540
+182,Doha,Bengaluru,AirIndia,2020-05-22,3540
+182,Bahrain,Thiruvananthapuram,AirIndia,2020-05-22,3540
+179,Muscat,Kannur,AirIndia,2020-05-22,3540
+186,Dubai,Kochi,AirIndia,2020-05-22,3540
+227,San Francisco,Delhi-Bengaluru-Hyderabad,AirIndia,2020-05-21,1674
+186,Muscat,Kozhikode,AirIndia,2020-05-21,1674
+181,Muscat,Delhi,AirIndia,2020-05-21,1674
+185,Doha,Kochi,AirIndia,2020-05-21,1674
+180,Dubai,Thiruvananthapuram,AirIndia,2020-05-21,1674
+223,Sydney,Delhi,AirIndia,2020-05-21,1674
+49,Kuala Lumpur,Delhi-Lucknow,AirIndia,2020-05-21,1674
+223,Jakarta,Mumbai-Ahmedabad,AirIndia,2020-05-21,1674
+3,Kuwait,Hyderabad,AirIndia,2020-05-21,1674
+149,Singapore,Hyderabad,AirIndia,2020-05-21,1674
+68,Jeddah,Hyderabad (via Vijayawada),AirIndia,2020-05-21,1674
+183,Dubai,Kochi,AirIndia,2020-05-20,3090
+178,Kuwait,Trivandrum,AirIndia,2020-05-20,3090
+179,Muscat,Bengaluru-MangaIore,AirIndia,2020-05-20,3090
+184,Doha,Hyderabad,AirIndia,2020-05-20,3090
+180,Salalah,Kozhikode,AirIndia,2020-05-20,3090
+182,Muscat,Kannur,AirIndia,2020-05-20,3090
+150,Dubai,Bhubaneswar,AirIndia,2020-05-20,3090
+165,Kathmandu,Delhi,AirIndia,2020-05-20,3090
+232,Jakarta,Delhi,AirIndia,2020-05-20,3090
+161,Manila,Mumbai-Kochi,AirIndia,2020-05-20,3090
+161,Dammam,Bengaluru-Hyderabad,AirIndia,2020-05-20,3090
+236,Bangkok,Delhi,AirIndia,2020-05-20,3090
+78,Jeddah,Vijayawada,AirIndia,2020-05-20,3090
+152,Riyadh,Kannur,AirIndia,2020-05-20,3090
+150,Doha,Visakhapatnam,AirIndia,2020-05-20,3090
+186,Doha,Kannur,AirIndia,2020-05-20,3090
+333,London,Mumbai-Kochi-Vijayawada,AirIndia,2020-05-20,3090
+179,Dubai,Delhi,AirIndia,2020-05-19,1912
+175,Bahrain,Hyderabad,AirIndia,2020-05-19,1912
+188,Kuwait,Kannur,AirIndia,2020-05-19,1912
+178,Kuala Lumpur,Kochi,AirIndia,2020-05-19,1912
+169,Dhaka,Srinagar,AirIndia,2020-05-19,1912
+207,Manila,Mumbai-Visakhapatnam,AirIndia,2020-05-19,1912
+143,Dammam,Kochi,AirIndia,2020-05-19,1912
+152,Riyadh,Kozhikode,AirIndia,2020-05-19,1912
+148,Abu Dhabi,Visakhapatnam,AirIndia,2020-05-19,1912
+231,Jakarta,Delhi,AirIndia,2020-05-19,1912
+142,Kuala Lumpur,Bengaluru-Ahmedabad,AirIndia,2020-05-19,1912
+178,Dubai,Mangalore,AirIndia,2020-05-18,1205
+182,Muscat,Hyderabad-Mumbai,AirIndia,2020-05-18,1205
+175,Abu Dhabi,Kochi,AirIndia,2020-05-18,1205
+183,Doha,Kozhikode,AirIndia,2020-05-18,1205
+169,Dhaka,Kolkata,AirIndia,2020-05-18,1205
+318,London,Delhi-Varanasi-Gaya,AirIndia,2020-05-18,1205
+318,Chicago,Delhi-Hyderabad,AirIndia,2020-05-17,1222
+180,Abu Dhabi,Kozhikode,AirIndia,2020-05-17,1222
+179,Dubai,Kochi,AirIndia,2020-05-17,1222
+183,Muscat,Thiruvananthapuram,AirIndia,2020-05-17,1222
+181,Abu Dhabi,Kochi,AirIndia,2020-05-17,1222
+181,Dubai,Kannur,AirIndia,2020-05-17,1222
+121,Newark,Hyderabad,AirIndia,2020-05-16,812
+328,London,Delhi,AirIndia,2020-05-16,812
+181,Dubai,Kochi,AirIndia,2020-05-16,812
+182,Abu Dhabi,Thiruvananthapuram,AirIndia,2020-05-16,812
+106,Kuala Lumpur,Delhi (via Hyderabad),AirIndia,2020-05-15,864
+333,London,Mumbai-Chennai,AirIndia,2020-05-15,864
+226,San Francisco,Delhi-Bengaluru,AirIndia,2020-05-15,864
+199,Newark,Delhi,AirIndia,2020-05-15,864
+244,Washington,Delhi-Hyderabad,AirIndia,2020-05-14,1390
+155,Jeddah,Calicut,AirIndia,2020-05-14,1390
+157,Dhaka,Chennai,AirIndia,2020-05-14,1390
+167,Manila,Chennai,AirIndia,2020-05-14,1390
+117,Kuala Lumpur,Hyderabad,AirIndia,2020-05-14,1390
+152,Jeddah,Kochi,AirIndia,2020-05-14,1390
+247,Dubai,Delhi,AirIndia,2020-05-14,1390
+151,Dubai,Bhubaneswar,AirIndia,2020-05-14,1390
+336,Chicago,Mumbai-Chennai,AirIndia,2020-05-13,2574
+181,Doha,Thiruvananthapuram,AirIndia,2020-05-13,2574
+328,London,Mumbai,AirIndia,2020-05-13,2574
+174,Manila,Delhi,AirIndia,2020-05-13,2574
+192,Kuwait,Kozhikode,AirIndia,2020-05-13,2574
+178,Dubai,Amritsar,AirIndia,2020-05-13,2574
+166,Dhaka,Srinagar,AirIndia,2020-05-13,2574
+152,Singapore,Bengaluru,AirIndia,2020-05-13,2574
+146,Kuwait,Mumbai-Ahmedabad,AirIndia,2020-05-13,2574
+245,Dubai,Delhi,AirIndia,2020-05-13,2574
+327,London,Delhi-Ahmedabad,AirIndia,2020-05-13,2574
+149,Manila,Delhi-Hyderabad,AirIndia,2020-05-13,2574
+184,Bahrain,Kozhikode,AirIndia,2020-05-12,2171
+311,Newark,Mumbai- Ahmedabad,AirIndia,2020-05-12,2171
+165,Manila,Delhi-Ahmedabad,AirIndia,2020-05-12,2171
+182,Dubai,Kannur,AirIndia,2020-05-12,2171
+183,Muscat,Chennai,AirIndia,2020-05-12,2171
+179,Dubai,Mangalore,AirIndia,2020-05-12,2171
+180,Singapore,Bengaluru-Kochi,AirIndia,2020-05-12,2171
+243,Singapore,Delhi,AirIndia,2020-05-12,2171
+169,Dhaka,Srinagar,AirIndia,2020-05-12,2171
+174,Dammam,Kochi,AirIndia,2020-05-12,2171
+201,Kuala Lumpur,Mumbai,AirIndia,2020-05-12,2171
+225,San Francisco,Mumbai,AirIndia,2020-05-11,1667
+326,London,Delhi,AirIndia,2020-05-11,1667
+150,Manila,Mumbai,AirIndia,2020-05-11,1667
+178,Dubai,Kochi,AirIndia,2020-05-11,1667
+180,Kuala Lumpur,Chennai,AirIndia,2020-05-11,1667
+331,London,Delhi,AirIndia,2020-05-11,1667
+170,Abu Dhabi,Hyderabad,AirIndia,2020-05-11,1667
+107,Dhaka,Mumbai,AirIndia,2020-05-11,1667
+178,Doha,Kochi,AirIndia,2020-05-10,1239
+329,London,Mumbai,AirIndia,2020-05-10,1239
+243,Singapore,Mumbai,AirIndia,2020-05-10,1239
+139,Riyadh,New Delhi,AirIndia,2020-05-10,1239
+171,Kuwait,Chennai,AirIndia,2020-05-10,1239
+179,Kuala Lumpur,Kochi,AirIndia,2020-05-10,1239
+182,Dubai,Chennai,AirIndia,2020-05-09,1373
+177,Dubai,Chennai,AirIndia,2020-05-09,1373
+181,Kuwait,Kochi,AirIndia,2020-05-09,1373
+181,Muscat,Kochi,AirIndia,2020-05-09,1373
+182,Sharjah,Lucknow,AirIndia,2020-05-09,1373
+178,Kuala Lumpur,Trichy,AirIndia,2020-05-09,1373
+129,Dhaka,Delhi,AirIndia,2020-05-09,1373
+163,Kuwait,Hyderabad,AirIndia,2020-05-09,1373
+182,Bahrain,India,AirIndia,2020-05-08,736
+234,Singapore,India,AirIndia,2020-05-08,736
+168,Dhaka,India,AirIndia,2020-05-08,736
+152,Riyadh,India,AirIndia,2020-05-08,736
+181,Abu Dhabi,Kochi,AirIndia,2020-05-07,363
+182,Dubai,Kozhikode,AirIndia,2020-05-07,363
