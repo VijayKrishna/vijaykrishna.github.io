@@ -1,4 +1,30 @@
 Passengers,Source,Destination,Airliner,Date,TotalIndiansReturnedToday
+172,Dubai,Chennai,AirIndia,2020-07-20,5203
+183,Sharjah,Kannur,AirIndia,2020-07-20,5203
+172,Sharjah,Coimbatore,AirIndia,2020-07-20,5203
+172,Abu Dhabi,Madurai-Kochi,AirIndia,2020-07-20,5203
+173,Muscat,Hyderabad,AirIndia,2020-07-20,5203
+181,Dubai,Kozhikode,AirIndia,2020-07-20,5203
+176,Abu Dhabi,Kannur,AirIndia,2020-07-20,5203
+164,Abu Dhabi,Trichy,AirIndia,2020-07-20,5203
+175,Dubai,Amritsar,AirIndia,2020-07-20,5203
+157,Singapore,Bengalurw,AirIndia,2020-07-20,5203
+240,London,Mumbai-Kochi,AirIndia,2020-07-20,5203
+293,Newark,Mumbai,AirIndia,2020-07-20,5203
+318,Chicago,Delhi-Hyderabad-Bengaluru,AirIndia,2020-07-20,5203
+306,New York,Delhi-Kochi-Bengaluru-Hyderabad,AirIndia,2020-07-20,5203
+192,San Francisco,Delhi-Bengaluru-Hyderabad-Kochi-Mumbai,AirIndia,2020-07-20,5203
+237,Melbourne,Delhi-Hyderabad,AirIndia,2020-07-20,5203
+155,Jeddah,Mumbai-Kochi,AirIndia,2020-07-20,5203
+147,Jeddah,Mumbai-Kannur,AirIndia,2020-07-20,5203
+321,Toronto,Delhi-Ahmedabad-Mumbai,AirIndia,2020-07-20,5203
+144,Dammam,Kochi,AirIndia,2020-07-20,5203
+166,Bishkek,Delhi-Gaya,AirIndia,2020-07-20,5203
+144,Singapore,Mumbai,AirIndia,2020-07-20,5203
+152,Bahrain,Delhi,AirIndia,2020-07-20,5203
+241,Sharjah,Delhi,AirIndia,2020-07-20,5203
+247,London,Delhi-Goa,AirIndia,2020-07-20,5203
+175,Kuwait,Lucknow,GoAir,2020-07-20,5203
 179,Sharjah,Kozikhode,AirIndia,2020-07-19,5076
 169,Dubai,Delhi,AirIndia,2020-07-19,5076
 173,Sharjah,Mumbai,AirIndia,2020-07-19,5076
@@ -222,7 +248,7 @@ Passengers,Source,Destination,Airliner,Date,TotalIndiansReturnedToday
 168,Bishkek,Mumbai,AirIndia,2020-07-11,5746 
 139,Singapore,Chennai,AirIndia,2020-07-11,5746 
 142,Manila,Hyderabad,AirIndia,2020-07-11,5746 
-144,Ho Chi Minh,Delhi,AirIndia,2020-07-11,5746 
+144,Ho Chi Minh City,Delhi,AirIndia,2020-07-11,5746 
 236,Dubai,Delhi,AirIndia,2020-07-11,5746 
 207,Doha,Kochi,Indigo,2020-07-11,5746 
 164,Doha,Kozikhode,Indigo,2020-07-11,5746 
@@ -496,7 +522,7 @@ Passengers,Source,Destination,Airliner,Date,TotalIndiansReturnedToday
 144,Moscow,Delhi-Jaipur,AirIndia,2020-06-29,4780
 86,Guangzhou,Delhi,AirIndia,2020-06-29,4780
 168,Bishkek,Mumbai,AirIndia,2020-06-29,4780
-143,Ho Chi Minh,Chennai-Kochi,AirIndia,2020-06-29,4780
+143,Ho Chi Minh City,Chennai-Kochi,AirIndia,2020-06-29,4780
 178,Ras Al Khaimah,Jaipur,Spicejet,2020-06-29,4780
 154,Dubai,Delhi,Vistara,2020-06-29,4780
 175,Dammam,Gaya,Indigo,2020-06-29,4780
