@@ -111,14 +111,18 @@
     </div>
 
     <div class="container-fluid justify-content-center">
-      
-      <span style="font-size: x-small;">Data Sources</span><br/>
-      <ul style="font-size: x-small;">
-        <li><a target="_blank" href="https://ourworldindata.org/grapher/covid-19-positive-rate-bar?tab=chart&time=2020-03-13..&country=~IND">"Our World in Data" project ... for India's Daily Test Positivity Rates</a></li>
-        <li> <a target="_blank" href="https://api.covid19india.org">COVID19India's Data API ... for state-wise testing data</a></li>
-        <li><a href="https://uidai.gov.in/images/state-wise-aadhaar-saturation.pdf">India's 2020 Population projections -- UDAI</a></li>
-      </ul>
-      <div id="india-miniplot"></div>
+      <div class="row m-1">
+        <div id="india-miniplot"></div>
+
+        <div class="mt-2 ml-1">
+          <span style="font-size: x-small;">Data Sources</span><br/>
+          <ul style="font-size: x-small;">
+            <li><a target="_blank" href="https://ourworldindata.org/grapher/covid-19-positive-rate-bar?tab=chart&time=2020-03-13..&country=~IND">"Our World in Data" project ... for India's Daily Test Positivity Rates</a></li>
+            <li> <a target="_blank" href="https://api.covid19india.org">COVID19India's Data API ... for state-wise testing data</a></li>
+            <li><a href="https://uidai.gov.in/images/state-wise-aadhaar-saturation.pdf">India's 2020 Population projections -- UDAI</a></li>
+          </ul>
+        </div>
+      </div>
 
       <div class="text-white bg-danger pl-2 font-weight-bold" style="font-size: smaller;">Test Positivity: Greater than 5.0% ...</div>
       <div id="miniplots" style="overflow-x: scroll; white-space: nowrap;"></div>
