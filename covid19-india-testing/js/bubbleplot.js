@@ -69,14 +69,13 @@ class BubblePlotCanvas {
 
         g.attr("transform", "translate(" + this.model.margin.left + "," + this.model.margin.top + ")")
 
-
         let axesG = this.svg.append("g").attr("id", "axes")
         axesG.attr("transform", "translate(" + this.model.margin.left + "," + this.model.margin.top + ")")
 
         // Add X axis
         axesG.append("g")
             .attr("transform", "translate(0," + (this.model.bubbleplotHeight) + ")")
-            .call(d3.axisBottom(this.model.xFn))
+            .call(d3.axisBottom(this.model.xFn).ticks(15, d3.format("~s")))
         
         // Add Y axis
         let axis = d3.axisLeft(this.model.yFn)
