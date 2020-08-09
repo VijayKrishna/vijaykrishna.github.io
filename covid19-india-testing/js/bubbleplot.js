@@ -229,7 +229,7 @@ class BubblePlotCanvas {
         const shortNumFormatter = d3.format(".2~s")
 
         this.bubbles.each(d => {
-            if (d.positiveTests < 130000 && d.testPositivityNum() <= 9.3) {
+            if (d.positiveTests < 130000 && d.testPositivityNum() <= 11.0) {
                 return
             }
 
