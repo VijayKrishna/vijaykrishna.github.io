@@ -42,14 +42,20 @@ title: Vijay Krishna Palepu
 <br/>
 
 <div class="stretch tiny" style="margin-left:0.75em">
-	<p style="margin-bottom: -1.75em">Writing (again):</p>
-	<p style="margin-bottom: -1.75em; margin-left: 0.45em">Blog 🪵: <a href="https://vkrishnapalepu.medium.com">vkrishnapalepu@medium</a></p>
-	<p style="margin-bottom: -1.75em; margin-left: 0.45em">Cooking from Home, During Working From Home: 🍳<a href="https://medium.com/cfh-during-wfh">CFH During WFH</a></p>
-	<p style="margin-bottom: -1.75em; margin-left: 0.45em">Newsletter 🗞: <a href="https://www.getrevue.co/profile/vkrishnapalepu">Midnight Letters 🌖</a></p>
-	<p style="margin-bottom: -1.75em; margin-left: 0.45em">Notes: <a href="https://softwarenotes.substack.com">Software Notes 📚</a></p>
+	<p style="margin-bottom: -1.75em">Writing:</p>
+	<p style="margin-bottom: -1.75em; margin-left: 0.45em">🗞: <a href="https://www.getrevue.co/profile/vkrishnapalepu">Midnight Letters 🌖</a></p>
+	<p style="margin-bottom: -1.75em; margin-left: 0.45em">📚: <a href="https://softwarenotes.substack.com">Software Notes</a></p>
+	<p style="margin-bottom: -1.75em; margin-left: 0.45em">🍳 <a href="https://medium.com/cfh-during-wfh">Cooking from Home, During Working From Home:</a></p>
+	<p style="margin-bottom: -1.75em; margin-left: 0.45em">🪵: <a href="https://vkrishnapalepu.medium.com">vkrishnapalepu@medium</a></p>
+	<ul style="margin-left: 0.90em">
+		{% for post in site.data.medium %}
+		  <li style="margin-bottom: -0.75em; margin-left: 0.45em; list-style-type: none;">
+			<span>{{ post.date | date_to_string }}</span> &raquo; 
+			<a href="{{ post.link }}" target=_blank>{{ post.title }}</a>
+		  </li>
+		{% endfor %}
+	</ul>
 </div>
-
-<br/>
 
 <div class="stretch tiny" style="margin-left:0.75em">
 	<p style="margin-bottom: -1.75em">Experiments:</p>
